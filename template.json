@@ -7,14 +7,14 @@
       "templates": [
         "base"
       ],
-      "failedCareer": "",
+      "background": "",
       "biography": "",
       "hp": {
         "value": 10,
         "max": 10
       },
       "deprived": false,
-      "pounds": 0,
+      "gold": 0,
       "abilities": {
         "STR": {
           "value": 10,
@@ -24,7 +24,7 @@
           "value": 10,
           "max": 10
         },
-        "CHA": {
+        "WIL": {
           "value": 10,
           "max": 10
         }
