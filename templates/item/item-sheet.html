@@ -1,0 +1,101 @@
+<form
+    class="{{cssClass}}"
+    autocomplete="off">
+    <header class="sheet-header">
+        <img
+            class="profile-img"
+            src="{{item.img}}"
+            data-edit="img"
+            title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input
+                name="name"
+                type="text"
+                value="{{item.name}}"
+                placeholder="Name"/></h1>
+            <div class="grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label class="resource-label">Bulky</label>
+                    <input
+                        class="checkbox-block"
+                        type="checkbox"
+                        {{checked
+                        data.bulky}}
+                        name="data.bulky"
+                        value="{{data.bulky}}"
+                        data-dtype="Boolean"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">Equipped</label>
+                    <input
+                        class="checkbox-block"
+                        type="checkbox"
+                        {{checked
+                        data.equipped}}
+                        name="data.equipped"
+                        value="{{data.equipped}}"
+                        data-dtype="Boolean"/>
+                </div>
+            </div>
+            <div class="grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label class="resource-label">Blast</label>
+                    <input
+                        class="checkbox-block"
+                        type="checkbox"
+                        {{checked
+                        data.blast}}
+                        name="data.blast"
+                        value="{{data.blast}}"
+                        data-dtype="Boolean"/>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="grid grid-4col">
+        <div class="resource flex-group-center">
+            <label class="resource-label">Quantity</label>
+            <input
+                type="text"
+                name="data.quantity"
+                value="{{data.quantity}}"
+                data-dtype="Number"/>
+        </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label"># of Uses</label>
+            <input
+                type="text"
+                name="data.numberOfUses"
+                value="{{data.numberOfUses}}"
+                data-dtype="Number"/>
+        </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label">Armour</label>
+            <input
+                type="text"
+                name="data.armour"
+                value="{{data.armour}}"
+                data-dtype="Number"/>
+        </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label">Damage</label>
+            <input
+                type="text"
+                name="data.damageFormula"
+                value="{{data.damageFormula}}"/>
+        </div>
+    </div>
+    <div class="sheet-tabs-container">
+        <nav
+            class="sheet-tabs tabs"
+            data-group="primary">
+            <span
+                class="item"
+                data-tab="description">Description</span>
+        </nav>
+    </div>
+
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+</form>

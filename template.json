@@ -1,0 +1,49 @@
+{
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "failedCareer": "",
+      "biography": "",
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "deprived": false,
+      "pounds": 0,
+      "abilities": {
+        "STR": {
+          "value": 10,
+          "max": 10
+        },
+        "DEX": {
+          "value": 10,
+          "max": 10
+        },
+        "CHA": {
+          "value": 10,
+          "max": 10
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "item"
+    ],
+    "item": {
+      "description": "",
+      "quantity": 1,
+      "armour": 0,
+      "damageFormula": "",
+      "equipped": false,
+      "bulky": false,
+      "blast": false,
+      "numberOfUses": 0
+    }
+  }
+}

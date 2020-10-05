@@ -1,0 +1,14 @@
+{
+  "name": "electricbastionland",
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "mvdleden",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+  }
+}
