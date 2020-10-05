@@ -43,6 +43,7 @@
       "equipped": false,
       "bulky": false,
       "blast": false,
+      "slots": 0,
       "numberOfUses": 0
     }
   }

@@ -173,7 +173,7 @@
                 data-tab="description">Description</a>
             <a
                 class="item"
-                data-tab="items">Items</a>
+                data-tab="items">Items {{data.slotsUsed}} / 10</a>
         </nav>
     </div>
 
@@ -224,6 +224,7 @@
 							{{item.name}}
 							{{/boldIf}}
 						</span>
+                                                <span class="item-info">{{item.data.slots}} Slots </span>
 						{{#if item.data.bulky}}
 						<span class="item-info">BULKY</span>
 						{{/if}}

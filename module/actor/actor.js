@@ -29,6 +29,11 @@ export class CairnActor extends Actor {
             .map(item => item.data.armour * item.data.equipped)
             .reduce((a, b) => a + b, 0)
 
+        data.slotsUsed = actorData
+            .items
+            .map(item => item.data.slots * 1)
+            .reduce((memo, slots) => memo + slots)
+
         data.tooBulky = actorData
             .items
             .filter((obj) => obj.data.bulky === true).length > 2;
