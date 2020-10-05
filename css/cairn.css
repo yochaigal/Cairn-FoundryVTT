@@ -117,13 +117,13 @@
     justify-content: space-between;
 }
 
-/* Styles limited to electricbastionland sheets */
-.electricbastionland .item-form {
+/* Styles limited to cairn sheets */
+.cairn .item-form {
     font-family: 'Krona One', sans-serif;
     font-size: 8pt;
 }
 
-.electricbastionland .sheet-header {
+.cairn .sheet-header {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 165px;
     flex: 0 0 165px;
@@ -142,7 +142,7 @@
     margin-bottom: 10px;
 }
 
-.electricbastionland .sheet-header .profile-img {
+.cairn .sheet-header .profile-img {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 165px;
     flex: 0 0 165px;
@@ -150,13 +150,13 @@
     margin-right: 10px;
 }
 
-.electricbastionland .sheet-header .header-fields {
+.cairn .sheet-header .header-fields {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
 }
 
-.electricbastionland .sheet-header h1.charname {
+.cairn .sheet-header h1.charname {
     height: 50px;
     padding: 0px;
     margin: 5px 0;
@@ -182,25 +182,25 @@ h2.failed-career input {
     font-variant: small-caps;
 }
 
-.electricbastionland .sheet-header h1.charname input {
+.cairn .sheet-header h1.charname input {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-.electricbastionland .sheet-tabs {
+.cairn .sheet-tabs {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
 }
 
-.electricbastionland .sheet-tabs-container {
+.cairn .sheet-tabs-container {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
 }
 
-.electricbastionland .window-content {
+.cairn .window-content {
     border-radius: 25px;
     border: 10px solid black;
     border-bottom: 0px;
@@ -209,33 +209,33 @@ h2.failed-career input {
     background-image: none;
 }
 
-.electricbastionland .sheet-body,
-.electricbastionland .sheet-body .tab,
-.electricbastionland .sheet-body .tab .editor {
+.cairn .sheet-body,
+.cairn .sheet-body .tab,
+.cairn .sheet-body .tab .editor {
     height: 100%;
 }
 
-.electricbastionland .sheet-body {
+.cairn .sheet-body {
     flex-grow: 3;
 }
 
-.electricbastionland .tox .tox-editor-container {
+.cairn .tox .tox-editor-container {
     background: #fff;
 }
 
-.electricbastionland .tox .tox-edit-area {
+.cairn .tox .tox-edit-area {
     padding: 0 8px;
 }
 
-.electricbastionland .checkbox-block {
+.cairn .checkbox-block {
     display: block;
 }
 
-.electricbastionland .editor {
+.cairn .editor {
     height: 100%;
 }
 
-.electricbastionland .resource-label {
+.cairn .resource-label {
     font-weight: bold;
     text-transform: uppercase;
     display: block;
@@ -244,68 +244,68 @@ h2.failed-career input {
     margin-bottom: 4px;
 }
 
-.electricbastionland .tabs {
+.cairn .tabs {
     height: 40px;
     border-top: 1px solid #AAA;
     border-bottom: 1px solid #AAA;
 }
 
-.electricbastionland .tabs .item {
+.cairn .tabs .item {
     line-height: 40px;
     font-weight: bold;
 }
 
-.electricbastionland .tabs .item.active {
+.cairn .tabs .item.active {
     text-decoration: underline;
     text-shadow: none;
 }
 
-.electricbastionland .items-list {
+.cairn .items-list {
     list-style: none;
     margin: 7px 0;
     padding: 0;
     overflow-y: auto;
 }
 
-.electricbastionland .items-list .item-header {
+.cairn .items-list .item-header {
     font-weight: bold;
 }
 
-.electricbastionland .items-list .item {
+.cairn .items-list .item {
     height: 30px;
     line-height: 24px;
     padding: 3px 0;
     border-bottom: 1px solid #BBB;
 }
 
-.electricbastionland .items-list .item .item-image {
+.cairn .items-list .item .item-image {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px;
     margin-right: 5px;
 }
 
-.electricbastionland .items-list .item img {
+.cairn .items-list .item img {
     display: block;
 }
 
-.electricbastionland .items-list .item-name {
+.cairn .items-list .item-name {
     margin: 0;
 }
 
-.electricbastionland .items-list .item-controls {
+.cairn .items-list .item-controls {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 86px;
     flex: 0 0 86px;
     text-align: right;
 }
 
-.electricbastionland .too-bulky {
+.cairn .too-bulky {
     font-weight: bold;
     color: red;
 }
 
-.electricbastionland .items-list .item-info {
+.cairn .items-list .item-info {
     margin-left: 4px;
     border-style: solid;
     border-width: thin;
@@ -316,7 +316,7 @@ h2.failed-career input {
     padding-bottom: 2px;
 }
 
-.electricbastionland .items-list .clickable {
+.cairn .items-list .clickable {
     background-color: #669;
     color: white;
 }

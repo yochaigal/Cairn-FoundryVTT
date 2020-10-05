@@ -1,12 +1,12 @@
 {
-  "name": "electricbastionland",
+  "name": "cairn",
   "version": "1.0.0",
   "scripts": {
   },
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "mvdleden",
+  "author": "smcabrera",
   "license": "MIT",
   "private": true,
   "dependencies": {

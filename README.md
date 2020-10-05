@@ -1,19 +1,16 @@
-# The Electric Bastionland system for FoundryVTT!
+# Cairn for FoundryVTT!
 
-Implements basic character and item sheets for playing the excellent Chris McDowall's [Electric Bastionland](https://bastionlandpress.com/products/electric-bastionland-hardback-book) in Foundry VTT.
+Implements basic character and item sheets for playing [Cairn](https://yochaigal.itch.io/cairn) in Foundry VTT. [Cairn](https://yochaigal.itch.io/cairn), by [yochaigal](https://yochaigal.itch.io/), is a mashup of Knave and Into The Odd, meant for Wood Fantasy settings such as Necrotic Gnome's [Dolmenwood](https://necroticgnome.com/collections/dolmenwood).
 
-![](https://raw.githubusercontent.com/mvdleden/electric-bastionland-FoundryVTT/master/electric%20bastionland%20sheets.png)
-Character creation, spark tables and such are *not* implemented. You still need the book / pdf.
-
-The code is based on the [Into The Odd system](https://github.com/voidcase/IntoTheOdd-FoundryVTT/blob/master/README.md) for FoundryVTT
+The code is based on the [Electric Bastionland system](https://github.com/mvdleden/electric-bastionland-FoundryVTT/) for FoundryVTT (which in turn is based on the Into the Odd System).
 
 ## Installation - Auto Installer (Recommended)
 
 1. In the FVTT Game Systems Menu, click `Install System`
-2. Enter into Manifest URL: `https://raw.githubusercontent.com/mvdleden/electric-bastionland-FoundryVTT/master/system.json`
+2. Enter the Manifest URL: `https://raw.githubusercontent.com/smcabrera/Cairn-FoundryVTT/master/system.json`
 
 ## Installation - Manual
 
 1. Place the unzipped folder in your `Data/systems` folder
-2. Make sure the folder is named `electricbastionland`
-3. Launch FoundryVTT and create your new world, selecting the Electric Bastionland system.
+2. Make sure the folder is named `cairn`
+3. Launch FoundryVTT and create your new world, selecting the Cairn system.

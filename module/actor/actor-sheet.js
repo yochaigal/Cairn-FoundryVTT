@@ -2,14 +2,14 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class ElectricBastionlandActorSheet extends ActorSheet {
+export class CairnActorSheet extends ActorSheet {
     /** @override */
     static get defaultOptions () {
         return mergeObject(super.defaultOptions, {
-            classes: ["electricbastionland",
+            classes: ["cairn",
                 "sheet",
                 "actor"],
-            template: "systems/electricbastionland/templates/actor/actor-sheet.html",
+            template: "systems/cairn/templates/actor/actor-sheet.html",
             width: 500,
             height: 600,
             tabs: [

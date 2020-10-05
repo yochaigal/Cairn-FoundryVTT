@@ -2,12 +2,12 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class ElectricBastionlandItemSheet extends ItemSheet {
+export class CairnItemSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions () {
         return mergeObject(super.defaultOptions, {
-            classes: ["electricbastionland", "sheet", "item"],
+            classes: ["cairn", "sheet", "item"],
             width: 420,
             height: 440
         });
@@ -15,7 +15,7 @@ export class ElectricBastionlandItemSheet extends ItemSheet {
 
     /** @override */
     get template () {
-        const path = "systems/electricbastionland/templates/item";
+        const path = "systems/cairn/templates/item";
         return `${path}/item-sheet.html`;
     }
 

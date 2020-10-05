@@ -1,25 +1,25 @@
 {
-  "name": "electricbastionland",
-  "title": "Electric Bastionland",
-  "description": "The Electric Bastionland system for FoundryVTT!",
-  "version": "1.0.3",
+  "name": "cairn",
+  "title": "Cairn",
+  "description": "Cairn for FoundryVTT!",
+  "version": "1.0.0",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.6.3",
   "templateVersion": 2,
-  "author": "mvdleden",
+  "author": "smcabrera",
   "esmodules": [
-    "module/electricbastionland.js"
+    "module/cairn.js"
   ],
   "styles": [
-    "css/electricbastionland.css"
+    "css/cairn.css"
   ],
   "scripts": [],
   "languages": [],
-  "gridDistance": 1,
-  "gridUnits": "m",
+  "gridDistance": 5,
+  "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
-  "manifest": "https://raw.githubusercontent.com/mvdleden/electric-bastionland-FoundryVTT/master/system.json",
-  "download": "https://github.com/mvdleden/electric-bastionland-FoundryVTT/archive/1.0.2.zip",
-  "url": "https://github.com/mvdleden/electric-bastionland-FoundryVTT/"
+  "manifest": "https://raw.githubusercontent.com/smcabrera/cairn-FoundryVTT/master/system.json",
+  "download": "https://github.com/smcabrera/cairn-FoundryVTT/archive/1.0.0.zip",
+  "url": "https://github.com/smcabrera/cairn-FoundryVTT/"
 }

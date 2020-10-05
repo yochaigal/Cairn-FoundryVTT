@@ -1,25 +1,25 @@
 // Import Modules
-import { ElectricBastionlandActor } from "./actor/actor.js";
-import { ElectricBastionlandActorSheet } from "./actor/actor-sheet.js";
-import { ElectricBastionlandItem } from "./item/item.js";
-import { ElectricBastionlandItemSheet } from "./item/item-sheet.js";
+import { CairnActor } from "./actor/actor.js";
+import { CairnActorSheet } from "./actor/actor-sheet.js";
+import { CairnItem } from "./item/item.js";
+import { CairnItemSheet } from "./item/item-sheet.js";
 
 Hooks.once('init', async function () {
 
-    game.electricbastionland = {
-        ElectricBastionlandActor,
-        ElectricBastionlandItem,
+    game.cairn = {
+        CairnActor,
+        CairnItem,
     };
 
     // Define custom Entity classes
-    CONFIG.Actor.entityClass = ElectricBastionlandActor;
-    CONFIG.Item.entityClass = ElectricBastionlandItem;
+    CONFIG.Actor.entityClass = CairnActor;
+    CONFIG.Item.entityClass = CairnItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("electricbastionland", ElectricBastionlandActorSheet, {makeDefault: true});
+    Actors.registerSheet("cairn", CairnActorSheet, {makeDefault: true});
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("electricbastionland", ElectricBastionlandItemSheet, {makeDefault: true});
+    Items.registerSheet("cairn", CairnItemSheet, {makeDefault: true});
 
     // If you need to add Handlebars helpers, here are a few useful examples:
     Handlebars.registerHelper('concat', function () {
@@ -30,7 +30,7 @@ Hooks.once('init', async function () {
                 outStr += arguments[arg];
             }
         }
-        
+
         return outStr;
     });
 
