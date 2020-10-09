@@ -34,6 +34,8 @@ export class CairnActor extends Actor {
             .map(item => item.data.slots * 1)
             .reduce((memo, slots) => memo + slots)
 
+        data.encumbered = data.slotsUsed >= 10
+
         data.tooBulky = actorData
             .items
             .filter((obj) => obj.data.bulky === true).length > 2;
@@ -42,6 +44,9 @@ export class CairnActor extends Actor {
             data.hp.value = 0;
         }
 
+        if (data.encumbered) {
+            data.hp.value = 0;
+        }
     }
 
 

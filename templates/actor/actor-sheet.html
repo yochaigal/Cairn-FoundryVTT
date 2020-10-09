@@ -172,8 +172,11 @@
                 class="item"
                 data-tab="description">Description</a>
             <a
-                class="item"
-                data-tab="items">Items {{data.slotsUsed}} / 10</a>
+              class="item"
+              {{#if data.encumbered}}
+                style="color: red"
+              {{/if}}
+              data-tab="items">Items {{data.slotsUsed}} / 10</a>
         </nav>
     </div>
 
