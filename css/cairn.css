@@ -201,10 +201,7 @@ h2.background input {
 }
 
 .cairn .window-content {
-    border-radius: 25px;
     border: 10px solid black;
-    border-bottom: 0px;
-    border-right: 0px;
     background-color: #F5F5F5;
     background-image: none;
 }
@@ -236,6 +233,7 @@ h2.background input {
 }
 
 .cairn .resource-label {
+    font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     display: block;
@@ -322,10 +320,17 @@ h2.background input {
 }
 
 .app {
-    background: rgb(64, 125, 160);
+    background-color: #9fc164;
     border-radius: 0px;
 }
 
-body, .window-app {
+@font-face {
+  font-family: 'im_fell_english_proregular';
+  src: url("../fonts/feenrm28c.woff2") format("woff2"), url("../fonts/feenrm28c.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
+body, .window-app {
+  font-family: "im_fell_english_proregular", "Times new roman", "Times", "Serif";
 }
