@@ -38,7 +38,7 @@
     "item": {
       "description": "",
       "quantity": 1,
-      "armour": 0,
+      "armor": 0,
       "damageFormula": "",
       "equipped": false,
       "bulky": false,
