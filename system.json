@@ -13,6 +13,22 @@
   "styles": [
     "css/cairn.css"
   ],
+  "packs": [
+    {
+    "name": "armor",
+    "label": "Armor",
+    "path": "packs/armor.db",
+    "entity": "Item",
+    "system": "cairn"
+    },
+    {
+    "name": "spellbooks",
+    "label": "Spellbooks",
+    "path": "packs/spellbooks.db",
+    "entity": "Item",
+    "system": "cairn"
+    }
+  ],
   "scripts": [],
   "languages": [],
   "gridDistance": 5,
