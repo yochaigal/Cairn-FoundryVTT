@@ -24,10 +24,17 @@ export class CairnActor extends Actor {
     _prepareCharacterData (actorData) {
         const data = actorData.data;
 
-        data.armour = actorData
+        data.armor = actorData
             .items
-            .map(item => item.data.armour * item.data.equipped)
+            .map(item => item.data.armor * item.data.equipped)
             .reduce((a, b) => a + b, 0)
+
+        data.slotsUsed = actorData
+            .items
+            .map(item => item.data.slots * 1)
+            .reduce((memo, slots) => memo + slots)
+
+        data.encumbered = data.slotsUsed >= 10
 
         data.tooBulky = actorData
             .items
@@ -37,6 +44,9 @@ export class CairnActor extends Actor {
             data.hp.value = 0;
         }
 
+        if (data.encumbered) {
+            data.hp.value = 0;
+        }
     }
 
 

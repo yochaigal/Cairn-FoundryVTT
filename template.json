@@ -7,14 +7,14 @@
       "templates": [
         "base"
       ],
-      "failedCareer": "",
+      "background": "",
       "biography": "",
       "hp": {
         "value": 10,
         "max": 10
       },
       "deprived": false,
-      "pounds": 0,
+      "gold": 0,
       "abilities": {
         "STR": {
           "value": 10,
@@ -24,7 +24,7 @@
           "value": 10,
           "max": 10
         },
-        "CHA": {
+        "WIL": {
           "value": 10,
           "max": 10
         }
@@ -38,11 +38,12 @@
     "item": {
       "description": "",
       "quantity": 1,
-      "armour": 0,
+      "armor": 0,
       "damageFormula": "",
       "equipped": false,
       "bulky": false,
       "blast": false,
+      "slots": 1,
       "numberOfUses": 0
     }
   }
