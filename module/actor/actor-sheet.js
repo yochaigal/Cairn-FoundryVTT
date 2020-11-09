@@ -79,12 +79,6 @@ export class CairnActorSheet extends ActorSheet {
                 await this.actor.update({'data.abilities.DEX.value': this.actor.data.data.abilities.DEX.max});
                 await this.actor.update({'data.abilities.WIL.value': this.actor.data.data.abilities.WIL.max});
             });
-
-        html.find('.luck')
-            .click(ev => {
-                let roll = new Roll("1d6");
-                roll.roll();
-            });
     }
 
     /* -------------------------------------------- */
