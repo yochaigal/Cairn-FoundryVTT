@@ -21,10 +21,24 @@
     "system": "cairn"
     },
     {
+    "name": "character-traits",
+    "label": "Character Traits",
+    "path": "packs/character-traits.db",
+    "entity": "RollTable",
+    "system": "cairn"
+    },
+    {
     "name": "expeditionary-gear",
     "label": "Expeditionary Gear",
     "path": "packs/expeditionary-gear.db",
     "entity": "Item",
+    "system": "cairn"
+    },
+    {
+    "name": "gear-tables",
+    "label": "Gear Tables",
+    "path": "packs/gear-tables.db",
+    "entity": "RollTable",
     "system": "cairn"
     },
     {
