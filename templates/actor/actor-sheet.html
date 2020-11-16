@@ -136,31 +136,22 @@
         </div>
     </div>
     <div class="grid grid-3col">
-        {{#unless data.deprived}}
+      {{#unless data.deprived}}
         <span>
-			<button
-                type="button"
-                title="Rest"
-                class="rest">Rest
-			</button>
-		</span>
-        {{/unless}}
-        <span>
-			<button
-                type="button"
-                title="Rest"
-                class="restore">Restore Abilities
-			</button>
-		</span>
-        <span>
-			<button
-                type="button"
-                title="Luck"
-                class="luck rollable"
-                data-roll="d6"
-                data-label="Luck">Luck
-			</button>
-		</span>
+          <button
+            type="button"
+            title="Rest"
+            class="rest">Rest
+          </button>
+         </span>
+       {{/unless}}
+     <span>
+       <button
+         type="button"
+         title="Rest"
+         class="restore">Restore Abilities
+       </button>
+     </span>
     </div>
 
     {{!-- Sheet Tab Navigation --}}
