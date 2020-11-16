@@ -42,6 +42,13 @@
     "system": "cairn"
     },
     {
+    "name": "macros",
+    "label": "Macros",
+    "path": "packs/macros.db",
+    "entity": "Macro",
+    "system": "cairn"
+    }
+    {
     "name": "spellbooks",
     "label": "Spellbooks",
     "path": "packs/spellbooks.db",
