@@ -1,7 +1,7 @@
 {
   "name": "cairn",
   "title": "Cairn",
-  "description": "Cairn for FoundryVTT!", "version": "0.9.2",
+  "description": "Cairn for FoundryVTT!", "version": "0.9.3",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.5",
   "templateVersion": 2,
@@ -83,7 +83,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
-  "manifest": "https://raw.githubusercontent.com/smcabrera/cairn-FoundryVTT/master/system.json",
-  "download": "https://github.com/smcabrera/cairn-FoundryVTT/archive/0.9.2.zip",
-  "url": "https://github.com/smcabrera/cairn-FoundryVTT/"
+  "manifest": "https://raw.githubusercontent.com/smcabrera/Cairn-FoundryVTT/master/system.json",
+  "download": "https://github.com/smcabrera/Cairn-FoundryVTT/archive/0.9.3.zip",
+  "url": "https://github.com/smcabrera/Cairn-FoundryVTT/"
 }
