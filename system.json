@@ -5,7 +5,7 @@
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.5",
   "templateVersion": 2,
-  "author": "smcabrera",
+  "author": "yochaigal",
   "esmodules": [
     "module/cairn.js"
   ],
@@ -83,7 +83,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
-  "manifest": "https://raw.githubusercontent.com/smcabrera/Cairn-FoundryVTT/master/system.json",
-  "download": "https://github.com/smcabrera/Cairn-FoundryVTT/archive/0.9.3.zip",
-  "url": "https://github.com/smcabrera/Cairn-FoundryVTT/"
+  "manifest": "https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json",
+  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/archive/0.9.3.zip",
+  "url": "https://github.com/yochaigal/Cairn-FoundryVTT/"
 }
