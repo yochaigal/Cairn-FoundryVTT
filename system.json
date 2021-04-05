@@ -35,6 +35,13 @@
     "system": "cairn"
     },
     {
+    "name": "extra",
+    "label": "Extra",
+    "path": "packs/extra.db",
+    "entity": "Item",
+    "system": "cairn"
+    },
+    {
     "name": "gear-tables",
     "label": "Gear Tables",
     "path": "packs/gear-tables.db",

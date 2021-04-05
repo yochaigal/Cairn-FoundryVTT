@@ -1,0 +1,4 @@
+20.07.2019:		Added 18 new items: honey, beehive, bee, fairy, crystal, heart piece, heart, tent, jar, doll, cheese, bust, diamond, beer, ice cube, potato, saddle, ghost
+				Added new tags: cloth, strange, smoke, abstract
+01.04.2019:		Added Photoshop file Showcase.psd and updated README.txt accordingly
+22.03.2019: 	Release

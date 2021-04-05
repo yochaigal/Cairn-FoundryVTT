@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ItemIndex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Items>
+	<Item>
+	  <Identifier>bone</Identifier>
+	  <Name>Bone</Name>
+	  <Description>A pale bone.</Description>
+      <Category>Loot</Category>
+	  <Tags>bone,body_part</Tags>
+	  <Comment>Single bone.</Comment>
+	  <ShowcaseIndex>0;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>0;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>skull</Identifier>
+	  <Name>Skull</Name>
+	  <Description>A pale skull.</Description>
+      <Category>Loot</Category>
+	  <Tags>bone,body_part</Tags>
+	  <Comment>Single skull with dead eyes and three teeth sticking out.</Comment>
+	  <ShowcaseIndex>1;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>1;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>carcass</Identifier>
+	  <Name>Carcass</Name>
+	  <Description>Some decayed remains.</Description>
+      <Category>Loot</Category>
+	  <Tags>bone,body_part</Tags>
+	  <Comment>Part of a ribcage lying on the ground.</Comment>
+	  <ShowcaseIndex>2;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>2;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>meat</Identifier>
+	  <Name>Meat</Name>
+	  <Description>A club of hearty meat.</Description>
+      <Category>Food</Category>
+	  <Tags>meat,food,body_part</Tags>
+	  <Comment>Club of meat with a bite mark and part of the bone sticking out.</Comment>
+	  <ShowcaseIndex>3;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>3;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>coins</Identifier>
+	  <Name>Coins</Name>
+	  <Description>A bunch of glimmering coins.</Description>
+      <Category>Treasure</Category>
+	  <Tags>treasure,coin,metal</Tags>
+	  <Comment>Five stacks of coins and a single coin.</Comment>
+	  <ShowcaseIndex>4;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>4;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>purse</Identifier>
+	  <Name>Purse</Name>
+	  <Description>A little leather purse.</Description>
+      <Category>Treasure</Category>
+	  <Tags>treasure,inventory,leather</Tags>
+	  <Comment>Leather purse with a string at the top to keep it closed.</Comment>
+	  <ShowcaseIndex>5;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>5;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>treasure</Identifier>
+	  <Name>Treasure</Name>
+	  <Description>A closed treasure chest.</Description>
+      <Category>Treasure</Category>
+	  <Tags>wooden,inventory,treasure,chest</Tags>
+	  <Comment>Wooden treasure chest, reinforced with iron and a big lock.</Comment>
+	  <ShowcaseIndex>6;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>6;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>wood</Identifier>
+	  <Name>Wood</Name>
+	  <Description>A wooden log.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden,plant,fuel</Tags>
+	  <Comment>Wooden log with a single leaf.</Comment>
+	  <ShowcaseIndex>7;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>7;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>sawdust</Identifier>
+	  <Name>Sawdust</Name>
+	  <Description>A pile of sawdust.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden,pile,fuel</Tags>
+	  <Comment>Pile of pulverized sawdust and two bigger chunks in front of it.</Comment>
+	  <ShowcaseIndex>8;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>8;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ore</Identifier>
+	  <Name>Ore</Name>
+	  <Description>A piece of ore.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,metal</Tags>
+	  <Comment>Piece of ore with a rock-like body and a bunch of smaller chunks sticking out.</Comment>
+	  <ShowcaseIndex>9;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>9;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ingots</Identifier>
+	  <Name>Ingots</Name>
+	  <Description>A stack of ingots.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,metal</Tags>
+	  <Comment>Three stacked metal ingots.</Comment>
+	  <ShowcaseIndex>10;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>10;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>backpack</Identifier>
+	  <Name>Backpack</Name>
+	  <Description>A leather backpack.</Description>
+      <Category>Inventory</Category>
+	  <Tags>inventory,leather</Tags>
+	  <Comment>Leather backpack with three belt-buckles and two straps.</Comment>
+	  <ShowcaseIndex>11;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>11;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bomb</Identifier>
+	  <Name>Bomb</Name>
+	  <Description>A deadly bomb.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,explosive,ammunition</Tags>
+	  <Comment>Bomb with skull face and a fuse.</Comment>
+	  <ShowcaseIndex>12;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>12;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>arrow</Identifier>
+	  <Name>Arrow</Name>
+	  <Description>A single arrow.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,ammunition,wooden</Tags>
+	  <Comment>Arrow with fletchings and a non-wooden tip.</Comment>
+	  <ShowcaseIndex>13;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>13;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>quiver</Identifier>
+	  <Name>Quiver</Name>
+	  <Description>A bunch of arrows.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,inventory,leather</Tags>
+	  <Comment>Leather quiver with three arrows inside.</Comment>
+	  <ShowcaseIndex>14;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>14;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>stone</Identifier>
+	  <Name>Stone</Name>
+	  <Description>A chunk of stone</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,stone</Tags>
+	  <Comment>Stone block with cracks and a little part broken out.</Comment>
+	  <ShowcaseIndex>15;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;0</SpriteSheetIndex64>
+      <SpriteSheetIndex32>15;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bark</Identifier>
+	  <Name>Bark</Name>
+	  <Description>A piece of bark.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden,plant</Tags>
+	  <Comment>Wooden bark with a leaf.</Comment>
+	  <ShowcaseIndex>16;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>16;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>turf</Identifier>
+	  <Name>Turf</Name>
+	  <Description>A block of turf.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,fuel</Tags>
+	  <Comment>Turf block with two grass patches on it.</Comment>
+	  <ShowcaseIndex>17;0</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>17;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>fishbone</Identifier>
+	  <Name>Fishbone</Name>
+	  <Description>A single fishbone.</Description>
+      <Category>Loot</Category>
+	  <Tags>bone,body_part</Tags>
+	  <Comment>Fishbone with head and fins.</Comment>
+	  <ShowcaseIndex>0;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>18;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>fish</Identifier>
+	  <Name>Fish</Name>
+	  <Description>A single fish.</Description>
+      <Category>Food</Category>
+	  <Tags>food,animal</Tags>
+	  <Comment>Generic fish.</Comment>
+	  <ShowcaseIndex>1;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>19;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>sword</Identifier>
+	  <Name>Sword</Name>
+	  <Description>A metal sword.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,metal</Tags>
+	  <Comment>Metal sword with separate hilt and additional hilt wrapping.</Comment>
+	  <ShowcaseIndex>2;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>20;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>axe</Identifier>
+	  <Name>Axe</Name>
+	  <Description>A metal axe.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal axe with worn out blade and a wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>3;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>21;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>pickaxe</Identifier>
+	  <Name>Pickaxe</Name>
+	  <Description>A metal pickaxe.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal pickaxe with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>4;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>22;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>hammer</Identifier>
+	  <Name>Hammer</Name>
+	  <Description>A big hammer.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal or wooden hammer with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>5;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>23;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>shovel</Identifier>
+	  <Name>Shovel</Name>
+	  <Description>A metal shovel.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal shovel with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>6;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>24;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>mace</Identifier>
+	  <Name>Mace</Name>
+	  <Description>A metal mace with spikes.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,metal</Tags>
+	  <Comment>Spiked metal mace with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>7;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>25;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>fishing_rod</Identifier>
+	  <Name>Fishing Rod</Name>
+	  <Description>A fishing rod.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,wooden</Tags>
+	  <Comment>Wooden fishing rod with wrapping, fishing line, floater and fishhook.</Comment>
+	  <ShowcaseIndex>8;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>26;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>pitchfork</Identifier>
+	  <Name>Pitchfork</Name>
+	  <Description>A metal pitchfork.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal pitchfork or trident with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>9;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>27;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>lance</Identifier>
+	  <Name>Lance</Name>
+	  <Description>A metal lance.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,metal</Tags>
+	  <Comment>Metal lance with wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>10;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>28;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>staff</Identifier>
+	  <Name>Staff</Name>
+	  <Description>A wooden staff.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,wooden</Tags>
+	  <Comment>Wooden staff with wrapping.</Comment>
+	  <ShowcaseIndex>11;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>29;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>dagger</Identifier>
+	  <Name>Dagger</Name>
+	  <Description>A metal dagger.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,metal</Tags>
+	  <Comment>Metal dagger with separate hilt and wrapping.</Comment>
+	  <ShowcaseIndex>12;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>30;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>rapier</Identifier>
+	  <Name>Rapier</Name>
+	  <Description>A metal rapier.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,metal</Tags>
+	  <Comment>Metal rapier with separate hilt and wrapping.</Comment>
+	  <ShowcaseIndex>13;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;1</SpriteSheetIndex64>
+      <SpriteSheetIndex32>31;0</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>worm</Identifier>
+	  <Name>Worm</Name>
+	  <Description>A tiny worm.</Description>
+      <Category>Loot</Category>
+	  <Tags>animal</Tags>
+	  <Comment>It's a worm, not a snake!</Comment>
+	  <ShowcaseIndex>14;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>0;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>candle</Identifier>
+	  <Name>Candle</Name>
+	  <Description>A burning candle.</Description>
+      <Category>Equipment</Category>
+	  <Tags>wax,light_source</Tags>
+	  <Comment>Burning candle with running wax.</Comment>
+	  <ShowcaseIndex>15;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>1;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>sponge</Identifier>
+	  <Name>Sponge</Name>
+	  <Description>A sponge.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool</Tags>
+	  <Comment>Sponge in block shape.</Comment>
+	  <ShowcaseIndex>16;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>2;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ring</Identifier>
+	  <Name>Ring</Name>
+	  <Description>A shiny ring.</Description>
+      <Category>Treasure</Category>
+	  <Tags>accessory,metal,treasure</Tags>
+	  <Comment>Metal ring, corrugated on the inside.</Comment>
+	  <ShowcaseIndex>17;1</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>3;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>stick</Identifier>
+	  <Name>Stick</Name>
+	  <Description>A wooden stick.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden</Tags>
+	  <Comment>Wooden stick meant as a resource, not as something to fight with (use the staff for that purpose).</Comment>
+	  <ShowcaseIndex>0;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>4;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>branch</Identifier>
+	  <Name>Branch</Name>
+	  <Description>A branch.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden,plant</Tags>
+	  <Comment>Wooden branch.</Comment>
+	  <ShowcaseIndex>1;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>5;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>leaf</Identifier>
+	  <Name>Leaf</Name>
+	  <Description>A single leaf.</Description>
+      <Category>Resource</Category>
+	  <Tags>plant</Tags>
+	  <Comment>Generic leaf.</Comment>
+	  <ShowcaseIndex>2;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>6;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>wooden_shield</Identifier>
+	  <Name>Wooden Shield</Name>
+	  <Description>A wooden shield.</Description>
+      <Category>Weapon</Category>
+	  <Tags>armor,wooden</Tags>
+	  <Comment>Wooden, round shield with hardened planks in the center and a wooden or metal ring around it.</Comment>
+	  <ShowcaseIndex>3;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>7;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>iron_shield</Identifier>
+	  <Name>Iron Shield</Name>
+	  <Description>A metal shield.</Description>
+      <Category>Weapon</Category>
+	  <Tags>armor,metal</Tags>
+	  <Comment>Metal, pointed shield with a lion head embossed.</Comment>
+	  <ShowcaseIndex>4;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>8;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>dynamite</Identifier>
+	  <Name>Dynamite</Name>
+	  <Description>A stack of dynamite.</Description>
+      <Category>Weapon</Category>
+	  <Tags>ammunition,explosive</Tags>
+	  <Comment>Three dynamite parts tied together and with a fuse attached.</Comment>
+	  <ShowcaseIndex>5;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>9;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>map</Identifier>
+	  <Name>Map</Name>
+	  <Description>A map.</Description>
+      <Category>Equipment</Category>
+	  <Tags>paper,navigation,message</Tags>
+	  <Comment>Partitioned map showing an island with a smaller island next to it.</Comment>
+	  <ShowcaseIndex>6;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>10;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>treasure_map</Identifier>
+	  <Name>Treasure Map</Name>
+	  <Description>A treasure map.</Description>
+      <Category>Equipment</Category>
+	  <Tags>paper,navigation,message</Tags>
+	  <Comment>Treasure map with a dotted line guiding the reader to a big X.</Comment>
+	  <ShowcaseIndex>7;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>11;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>letter</Identifier>
+	  <Name>Letter</Name>
+	  <Description>A written letter.</Description>
+      <Category>Equipment</Category>
+	  <Tags>paper,message</Tags>
+	  <Comment>Letter with text and a signature.</Comment>
+	  <ShowcaseIndex>8;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>12;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>envelope</Identifier>
+	  <Name>Envelope</Name>
+	  <Description>An envelope.</Description>
+      <Category>Equipment</Category>
+	  <Tags>paper,message</Tags>
+	  <Comment>Envelope with a wax seal.</Comment>
+	  <ShowcaseIndex>9;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>13;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>mirror</Identifier>
+	  <Name>Mirror</Name>
+	  <Description>A hand mirror.</Description>
+      <Category>Equipment</Category>
+	  <Tags>accessory,metal</Tags>
+	  <Comment>Metal hand mirror.</Comment>
+	  <ShowcaseIndex>10;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>14;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>comb</Identifier>
+	  <Name>Comb</Name>
+	  <Description>A comb.</Description>
+      <Category>Equipment</Category>
+	  <Tags>accessory</Tags>
+	  <Comment>Comb, could be made out of metal or bone.</Comment>
+	  <ShowcaseIndex>11;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;2</SpriteSheetIndex64>
+      <SpriteSheetIndex32>15;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>crate</Identifier>
+	  <Name>Crate</Name>
+	  <Description>A wooden crate.</Description>
+      <Category>Inventory</Category>
+	  <Tags>inventory,wooden</Tags>
+	  <Comment>Wooden crate with nails holding the planks in place.</Comment>
+	  <ShowcaseIndex>12;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>16;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>barrel</Identifier>
+	  <Name>Barrel</Name>
+	  <Description>A wooden barrel.</Description>
+      <Category>Inventory</Category>
+	  <Tags>inventory,wooden</Tags>
+	  <Comment>Wooden barrel with nails holding the planks in place.</Comment>
+	  <ShowcaseIndex>13;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>17;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>nail</Identifier>
+	  <Name>Nail</Name>
+	  <Description>A single nail.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,metal</Tags>
+	  <Comment>Metal nail.</Comment>
+	  <ShowcaseIndex>14;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>18;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>plank</Identifier>
+	  <Name>Plank</Name>
+	  <Description>A wooden plank.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wooden,fuel</Tags>
+	  <Comment>Wooden plank or board.</Comment>
+	  <ShowcaseIndex>15;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>19;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>grass</Identifier>
+	  <Name>Grass</Name>
+	  <Description>A bundle of dried grass.</Description>
+      <Category>Resource</Category>
+	  <Tags>plant,fuel</Tags>
+	  <Comment>Bundle of grass, tied together in the middle.</Comment>
+	  <ShowcaseIndex>16;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>20;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>herbs</Identifier>
+	  <Name>Herbs</Name>
+	  <Description>A bundle of herbs.</Description>
+      <Category>Resource</Category>
+	  <Tags>plant</Tags>
+	  <Comment>Bundle of herbs, tied together in the middle, consisting of a flower, grass, leaves and berries.</Comment>
+	  <ShowcaseIndex>17;2</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>21;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>flute</Identifier>
+	  <Name>Flute</Name>
+	  <Description>A flute.</Description>
+      <Category>Treasure</Category>
+	  <Tags>music,accessory</Tags>
+	  <Comment>Little flute, could be made out of wood, metal or bone.</Comment>
+	  <ShowcaseIndex>0;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>22;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>key</Identifier>
+	  <Name>Key</Name>
+	  <Description>A small key.</Description>
+      <Category>Treasure</Category>
+	  <Tags>navigation,key,treasure</Tags>
+	  <Comment>Small key for simple doors or treasure chests.</Comment>
+	  <ShowcaseIndex>1;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>23;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>boss_key</Identifier>
+	  <Name>Boss Key</Name>
+	  <Description>A big key.</Description>
+      <Category>Treasure</Category>
+	  <Tags>navigation,key,treasure</Tags>
+	  <Comment>Big key with the top formed like a crown. Could be used as a boss key.</Comment>
+	  <ShowcaseIndex>2;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>24;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>coin</Identifier>
+	  <Name>Coin</Name>
+	  <Description>A single coin.</Description>
+      <Category>Treasure</Category>
+	  <Tags>treasure,coin,metal</Tags>
+	  <Comment>A metal coin with the letter C embossed. The C has an appendage at the top and bottom to make it similar to the dollar currency sign.</Comment>
+	  <ShowcaseIndex>3;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>25;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>eyeball</Identifier>
+	  <Name>Eyeball</Name>
+	  <Description>A fleshy eyeball.</Description>
+      <Category>Loot</Category>
+	  <Tags>body_part,meat</Tags>
+	  <Comment>Eyeball with part of the nerve attached.</Comment>
+	  <ShowcaseIndex>4;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>26;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>sleeping_bag</Identifier>
+	  <Name>Sleeping Bag</Name>
+	  <Description>A comfy sleeping roll.</Description>
+      <Category>Inventory</Category>
+	  <Tags>inventory</Tags>
+	  <Comment>Sleeping bag or roll made out of wool or grass.</Comment>
+	  <ShowcaseIndex>5;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>27;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>amulet</Identifier>
+	  <Name>Amulet</Name>
+	  <Description>A shiny amulet.</Description>
+      <Category>Treasure</Category>
+	  <Tags>accessory,metal,treasure</Tags>
+	  <Comment>Metal amulet with a triangle embossed and attached to a leather strap.</Comment>
+	  <ShowcaseIndex>6;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>28;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bow</Identifier>
+	  <Name>Bow</Name>
+	  <Description>A bow.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,wooden</Tags>
+	  <Comment>Wooden bow with wrapping.</Comment>
+	  <ShowcaseIndex>7;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>29;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>torch</Identifier>
+	  <Name>Torch</Name>
+	  <Description>An unburned torch.</Description>
+      <Category>Torch</Category>
+	  <Tags>resource,wooden,light_source</Tags>
+	  <Comment>Wooden torch with wrapping at the top and at the bottom.</Comment>
+	  <ShowcaseIndex>8;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>30;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>mop</Identifier>
+	  <Name>Mop</Name>
+	  <Description>A mop.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,wooden</Tags>
+	  <Comment>Wooden mop to wish the floor, with wrapping.</Comment>
+	  <ShowcaseIndex>9;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;3</SpriteSheetIndex64>
+      <SpriteSheetIndex32>31;1</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>apple</Identifier>
+	  <Name>Apple</Name>
+	  <Description>A nice and shiny apple.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>Big apple with leaf.</Comment>
+	  <ShowcaseIndex>10;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>0;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bread</Identifier>
+	  <Name>Bread</Name>
+	  <Description>A loaf of bread.</Description>
+      <Category>Food</Category>
+	  <Tags>food</Tags>
+	  <Comment>Load of bread shaped like toast.</Comment>
+	  <ShowcaseIndex>11;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>1;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>carrot</Identifier>
+	  <Name>Carrot</Name>
+	  <Description>A carrot.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>Carrot with greens.</Comment>
+	  <ShowcaseIndex>12;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>2;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>beet</Identifier>
+	  <Name>Beet</Name>
+	  <Description>A beet.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>Voluminous beet with greens.</Comment>
+	  <ShowcaseIndex>13;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>3;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>walnut</Identifier>
+	  <Name>Walnut</Name>
+	  <Description>A walnut.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>Closed walnut.</Comment>
+	  <ShowcaseIndex>14;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>4;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>seeds</Identifier>
+	  <Name>Seeds</Name>
+	  <Description>A pile of seeds.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food,pile</Tags>
+	  <Comment>Pile of seeds.</Comment>
+	  <ShowcaseIndex>15;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>5;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>flower</Identifier>
+	  <Name>Flower</Name>
+	  <Description>A single flower.</Description>
+      <Category>Resource</Category>
+	  <Tags>plant</Tags>
+	  <Comment>Generic flower.</Comment>
+	  <ShowcaseIndex>16;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>6;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ball_of_wool</Identifier>
+	  <Name>Ball of Wool</Name>
+	  <Description>A ball of wool.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wool</Tags>
+	  <Comment>Ball of wool with a loose thread.</Comment>
+	  <ShowcaseIndex>17;3</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>7;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>thread</Identifier>
+	  <Name>Thread</Name>
+	  <Description>Thread and needle.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,wool</Tags>
+	  <Comment>Roll of thread and needle.</Comment>
+	  <ShowcaseIndex>0;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>8;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>rope</Identifier>
+	  <Name>Rope</Name>
+	  <Description>A rope.</Description>
+      <Category>Equipment</Category>
+	  <Tags>resource,tool</Tags>
+	  <Comment>Long rope piled up.</Comment>
+	  <ShowcaseIndex>1;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>9;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>campfire</Identifier>
+	  <Name>Campfire</Name>
+	  <Description>Materials for a campfire.</Description>
+      <Category>Equipment</Category>
+	  <Tags>wooden,light_source,fuel,resource</Tags>
+	  <Comment>Burning campfire consisting of three logs of wood and a big flame.</Comment>
+	  <ShowcaseIndex>2;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>10;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ladder</Identifier>
+	  <Name>Ladder</Name>
+	  <Description>A wooden ladder.</Description>
+      <Category>Equipment</Category>
+	  <Tags>tool,wooden</Tags>
+	  <Comment>Wooden ladder with four steps.</Comment>
+	  <ShowcaseIndex>3;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>11;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>empty_potion</Identifier>
+	  <Name>Empty Potion</Name>
+	  <Description>An empty potion.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass</Tags>
+	  <Comment>Rounded, medium-sized and empty potion bottle with cork.</Comment>
+	  <ShowcaseIndex>4;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>12;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>potion</Identifier>
+	  <Name>Potion</Name>
+	  <Description>A potion.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass,liquid</Tags>
+	  <Comment>Rounded, medium-sized and half-filled potion bottle with cork.</Comment>
+	  <ShowcaseIndex>5;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>13;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>small_empty_potion</Identifier>
+	  <Name>Small Empty Potion</Name>
+	  <Description>A small empty potion.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass</Tags>
+	  <Comment>Longish, small-sized and empty potion bottle with cork.</Comment>
+	  <ShowcaseIndex>6;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>14;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>small_potion</Identifier>
+	  <Name>Small Potion</Name>
+	  <Description>A small potion.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass,liquid</Tags>
+	  <Comment>Longish, small-sized and half-filled potion bottle with cork.</Comment>
+	  <ShowcaseIndex>7;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;4</SpriteSheetIndex64>
+      <SpriteSheetIndex32>15;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>feather</Identifier>
+	  <Name>Feather</Name>
+	  <Description>A single bird feather.</Description>
+      <Category>Resource</Category>
+	  <Tags>body_part,resource</Tags>
+	  <Comment>Bird feather.</Comment>
+	  <ShowcaseIndex>8;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>16;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>coal</Identifier>
+	  <Name>Coal</Name>
+	  <Description>A piece of coal.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,fuel</Tags>
+	  <Comment>Piece of coal or charcoal.</Comment>
+	  <ShowcaseIndex>9;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>17;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>egg</Identifier>
+	  <Name>Egg</Name>
+	  <Description>An egg.</Description>
+      <Category>Food</Category>
+	  <Tags>food</Tags>
+	  <Comment>Egg.</Comment>
+	  <ShowcaseIndex>10;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>18;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>broken_egg</Identifier>
+	  <Name>Broken Egg</Name>
+	  <Description>A fried egg.</Description>
+      <Category>Food</Category>
+	  <Tags>food</Tags>
+	  <Comment>Broken, fried or raw egg with yolk.</Comment>
+	  <ShowcaseIndex>11;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>19;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>mushroom</Identifier>
+	  <Name>Mushroom</Name>
+	  <Description>A mushroom.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>Mushroom with big cap and stipe.</Comment>
+	  <ShowcaseIndex>12;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>20;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bandage</Identifier>
+	  <Name>Bandage</Name>
+	  <Description>A roll of bandages.</Description>
+      <Category>Equipment</Category>
+	  <Tags>resource,wool</Tags>
+	  <Comment>Roll of bandages, curled up.</Comment>
+	  <ShowcaseIndex>13;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>21;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>leather</Identifier>
+	  <Name>Leather</Name>
+	  <Description>A piece of leather.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,leather,body_part</Tags>
+	  <Comment>Animal-shaped leather.</Comment>
+	  <ShowcaseIndex>14;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>22;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>fur</Identifier>
+	  <Name>Fur</Name>
+	  <Description>A piece of fur.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,leather,body_part</Tags>
+	  <Comment>Animal-shaped fur.</Comment>
+	  <ShowcaseIndex>15;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>23;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>compass</Identifier>
+	  <Name>Compass</Name>
+	  <Description>A compass.</Description>
+      <Category>Equipment</Category>
+	  <Tags>tool,navigation,metal</Tags>
+	  <Comment>Compass with corrugated border.</Comment>
+	  <ShowcaseIndex>16;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>24;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>liquid</Identifier>
+	  <Name>Liquid</Name>
+	  <Description>A drop of a liquid.</Description>
+      <Category>Resource</Category>
+	  <Tags>liquid,resource</Tags>
+	  <Comment>Liquid drop.</Comment>
+	  <ShowcaseIndex>17;4</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>25;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>flint</Identifier>
+	  <Name>Flint</Name>
+	  <Description>A piece of flint.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource,stone</Tags>
+	  <Comment>Flint fragment.</Comment>
+	  <ShowcaseIndex>0;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>26;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>die</Identifier>
+	  <Name>Die</Name>
+	  <Description>A die.</Description>
+      <Category>Treasure</Category>
+	  <Tags>accessory</Tags>
+	  <Comment>Six-sided die.</Comment>
+	  <ShowcaseIndex>1;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>27;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>playing_card</Identifier>
+	  <Name>Playing Card</Name>
+	  <Description>A playing card.</Description>
+      <Category>Treasure</Category>
+	  <Tags>accessory</Tags>
+	  <Comment>Ace of spades.</Comment>
+	  <ShowcaseIndex>2;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>28;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>helmet</Identifier>
+	  <Name>Helmet</Name>
+	  <Description>A leather helmet.</Description>
+      <Category>Inventory</Category>
+	  <Tags>armor,leather</Tags>
+	  <Comment>Leather helmet with protection at the sides and at the back.</Comment>
+	  <ShowcaseIndex>3;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>29;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>glove</Identifier>
+	  <Name>Glove</Name>
+	  <Description>A leather glove.</Description>
+      <Category>Inventory</Category>
+	  <Tags>armor,leather</Tags>
+	  <Comment>Leather glove with wrist protection.</Comment>
+	  <ShowcaseIndex>4;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>30;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>armor</Identifier>
+	  <Name>Armor</Name>
+	  <Description>A leather armor.</Description>
+      <Category>Inventory</Category>
+	  <Tags>armor,leather</Tags>
+	  <Comment>Full-body leather armor with multiple layers.</Comment>
+	  <ShowcaseIndex>5;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;5</SpriteSheetIndex64>
+      <SpriteSheetIndex32>31;2</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>boot</Identifier>
+	  <Name>Boot</Name>
+	  <Description>A leather boot.</Description>
+      <Category>Inventory</Category>
+	  <Tags>armor,leather</Tags>
+	  <Comment>Single leather boot with heel.</Comment>
+	  <ShowcaseIndex>6;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>0;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>empty_bottle</Identifier>
+	  <Name>Empty Bottle</Name>
+	  <Description>An empty bottle.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass</Tags>
+	  <Comment>Empty glass bottle with cork.</Comment>
+	  <ShowcaseIndex>7;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>1;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bottle_with_message</Identifier>
+	  <Name>Bottle with Message</Name>
+	  <Description>An empty bottle with a letter.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass,message,paper</Tags>
+	  <Comment>Empty glass bottle with cork and a rolled up piece of paper with a string.</Comment>
+	  <ShowcaseIndex>8;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>2;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>saw</Identifier>
+	  <Name>Saw</Name>
+	  <Description>A metal saw.</Description>
+      <Category>Tool</Category>
+	  <Tags>tool,metal</Tags>
+	  <Comment>Metal saw with small wooden handle and wrapping.</Comment>
+	  <ShowcaseIndex>9;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>3;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>club</Identifier>
+	  <Name>Club</Name>
+	  <Description>A wooden club.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,wooden</Tags>
+	  <Comment>Wooden club with wrapping.</Comment>
+	  <ShowcaseIndex>10;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>4;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>root</Identifier>
+	  <Name>Root</Name>
+	  <Description>Some plant roots.</Description>
+      <Category>Resource</Category>
+	  <Tags>plant</Tags>
+	  <Comment>Three-parted plant roots.</Comment>
+	  <ShowcaseIndex>11;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>5;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>tooth</Identifier>
+	  <Name>Tooth</Name>
+	  <Description>A tooth of a beast.</Description>
+      <Category>Loot</Category>
+	  <Tags>body_part,bone</Tags>
+	  <Comment>Single tooth of a beast.</Comment>
+	  <ShowcaseIndex>12;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>6;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>book</Identifier>
+	  <Name>Book</Name>
+	  <Description>A book.</Description>
+      <Category>Equipment</Category>
+	  <Tags>message,paper</Tags>
+	  <Comment>Book with leather casing and buckle.</Comment>
+	  <ShowcaseIndex>13;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>7;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>rock</Identifier>
+	  <Name>Rock</Name>
+	  <Description>A small rock.</Description>
+      <Category>Resource</Category>
+	  <Tags>stone,resource,weapon,ammunition</Tags>
+	  <Comment>Small rock and an even smaller rock behind it.</Comment>
+	  <ShowcaseIndex>14;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>8;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>boomerang</Identifier>
+	  <Name>Boomerang</Name>
+	  <Description>A wooden boomerang.</Description>
+      <Category>Weapon</Category>
+	  <Tags>weapon,wooden</Tags>
+	  <Comment>Wooden boomerang with two wrappings.</Comment>
+	  <ShowcaseIndex>15;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>9;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>manure</Identifier>
+	  <Name>Manure</Name>
+	  <Description>A pile of... manure.</Description>
+      <Category>Resource</Category>
+	  <Tags>pile,fuel,resource</Tags>
+	  <Comment>Pile of manure and a fly.</Comment>
+	  <ShowcaseIndex>16;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>10;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>lantern</Identifier>
+	  <Name>Lantern</Name>
+	  <Description>A lantern.</Description>
+      <Category>Equipment</Category>
+	  <Tags>light_source,tool,glass</Tags>
+	  <Comment>Burning lantern in glass case with metal bottom and top as well as a metal hook to carry it around.</Comment>
+	  <ShowcaseIndex>17;5</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>11;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>honey</Identifier>
+	  <Name>Honey</Name>
+	  <Description>Sticky honey.</Description>
+      <Category>Food</Category>
+	  <Tags>wax,food</Tags>
+	  <Comment>A pile of honey with a honey comb sticking out of it and a (probably) dead bee in the front.</Comment>
+	  <ShowcaseIndex>0;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>12;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>beehive</Identifier>
+	  <Name>Beehive</Name>
+	  <Description>A beehive full of life.</Description>
+      <Category>Resource</Category>
+	  <Tags>animal,wax</Tags>
+	  <Comment>A beehive with two bees flying around.</Comment>
+	  <ShowcaseIndex>1;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>13;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bee</Identifier>
+	  <Name>Bee</Name>
+	  <Description>A humming bee.</Description>
+      <Category>Loot</Category>
+	  <Tags>animal</Tags>
+	  <Comment>A fat bee.</Comment>
+	  <ShowcaseIndex>2;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>14;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>14;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>fairy</Identifier>
+	  <Name>Fairy</Name>
+	  <Description>A little fairy, fluttering in circles.</Description>
+      <Category>Resource</Category>
+	  <Tags>strange</Tags>
+	  <Comment>A fairy creature with wings and two arms, one of them holding a staff. Three sparkles to the right.</Comment>
+	  <ShowcaseIndex>3;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>15;6</SpriteSheetIndex64>
+      <SpriteSheetIndex32>15;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>crystal</Identifier>
+	  <Name>Crystal</Name>
+	  <Description>A shiny and valuable crystal shard.</Description>
+      <Category>Treasure</Category>
+	  <Tags>gem,treasure</Tags>
+	  <Comment>A crystal shard or rupee.</Comment>
+	  <ShowcaseIndex>4;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>0;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>16;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>heart_piece</Identifier>
+	  <Name>Heart Piece</Name>
+	  <Description>A piece of a full heart.</Description>
+      <Category>Resource</Category>
+	  <Tags>abstract</Tags>
+	  <Comment>A heart piece like in your favorite action adventure game series.</Comment>
+	  <ShowcaseIndex>5;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>1;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>17;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>heart</Identifier>
+	  <Name>Heart</Name>
+	  <Description>A full heart.</Description>
+      <Category>Resource</Category>
+	  <Tags>abstract</Tags>
+	  <Comment>A full heart like in your favorite action adventure game series.</Comment>
+	  <ShowcaseIndex>6;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>2;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>18;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>tent</Identifier>
+	  <Name>Tent</Name>
+	  <Description>A comfy tent.</Description>
+      <Category>Equipment</Category>
+	  <Tags>inventory,cloth</Tags>
+	  <Comment>A tent with sticks sticking out at the top and wooden plugs on the ground.</Comment>
+	  <ShowcaseIndex>7;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>3;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>19;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>jar</Identifier>
+	  <Name>Jar</Name>
+	  <Description>An empty jar.</Description>
+      <Category>Equipment</Category>
+	  <Tags>bottle,inventory,glass</Tags>
+	  <Comment>An empty glass jar with a cap.</Comment>
+	  <ShowcaseIndex>8;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>4;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>20;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>doll</Identifier>
+	  <Name>Doll</Name>
+	  <Description>A little doll made out of cloth.</Description>
+      <Category>Treasure</Category>
+	  <Tags>accessory,cloth</Tags>
+	  <Comment>A doll or voodoo puppet with cloth wrappings.</Comment>
+	  <ShowcaseIndex>9;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>5;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>21;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>cheese</Identifier>
+	  <Name>Cheese</Name>
+	  <Description>A big chunk of cheese.</Description>
+      <Category>Food</Category>
+	  <Tags>food</Tags>
+	  <Comment>A piece of cheese with holes in it.</Comment>
+	  <ShowcaseIndex>10;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>6;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>22;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>bust</Identifier>
+	  <Name>Bust</Name>
+	  <Description>A bust, showing the head of an unknown person.</Description>
+      <Category>Treasure</Category>
+	  <Tags>stone,treasure</Tags>
+	  <Comment>A stone bust showing a male head with curly hair.</Comment>
+	  <ShowcaseIndex>11;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>7;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>23;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>diamond</Identifier>
+	  <Name>Diamond</Name>
+	  <Description>A shiny diamond.</Description>
+      <Category>Treasure</Category>
+	  <Tags>gem,treasure</Tags>
+	  <Comment>A diamond.</Comment>
+	  <ShowcaseIndex>12;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>8;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>24;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>beer</Identifier>
+	  <Name>Beer</Name>
+	  <Description>A mug of fresh beer.</Description>
+      <Category>Food</Category>
+	  <Tags>glass,liquid,food</Tags>
+	  <Comment>A mug of foamy beer.</Comment>
+	  <ShowcaseIndex>13;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>9;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>25;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ice_cube</Identifier>
+	  <Name>Ice Cube</Name>
+	  <Description>A melting ice cube.</Description>
+      <Category>Resource</Category>
+	  <Tags>resource</Tags>
+	  <Comment>A melting ice cube on a pool of water.</Comment>
+	  <ShowcaseIndex>14;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>10;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>26;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>potato</Identifier>
+	  <Name>Potato</Name>
+	  <Description>A hearty potato.</Description>
+      <Category>Food</Category>
+	  <Tags>plant,food</Tags>
+	  <Comment>A potato with spots on it.</Comment>
+	  <ShowcaseIndex>15;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>11;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>27;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>saddle</Identifier>
+	  <Name>Saddle</Name>
+	  <Description>A leather horse saddle.</Description>
+      <Category>Inventory</Category>
+	  <Tags>leather,inventory</Tags>
+	  <Comment>A leather saddle with a piece of clothing on top.</Comment>
+	  <ShowcaseIndex>16;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>12;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>28;3</SpriteSheetIndex32>
+	</Item>
+	<Item>
+	  <Identifier>ghost</Identifier>
+	  <Name>Ghost</Name>
+	  <Description>A ghost! You caught a ghost!</Description>
+      <Category>Resource</Category>
+	  <Tags>strange,smoke</Tags>
+	  <Comment>A screaming ghost.</Comment>
+	  <ShowcaseIndex>17;6</ShowcaseIndex>
+	  <SpriteSheetIndex64>13;7</SpriteSheetIndex64>
+      <SpriteSheetIndex32>29;3</SpriteSheetIndex32>
+	</Item>
+  </Items>
+</ItemIndex>
