@@ -36,14 +36,6 @@ export class CairnActor extends Actor {
 
         data.encumbered = data.slotsUsed >= 10
 
-        data.tooBulky = actorData
-            .items
-            .filter((obj) => obj.data.bulky === true).length > 2;
-
-        if (data.tooBulky) {
-            data.hp.value = 0;
-        }
-
         if (data.encumbered) {
             data.hp.value = 0;
         }
