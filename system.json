@@ -1,7 +1,7 @@
 {
   "name": "cairn",
   "title": "Cairn",
-  "description": "Cairn for FoundryVTT", "version": "0.9.4",
+  "description": "Cairn for FoundryVTT", "version": "0.9.5",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -91,6 +91,6 @@
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
   "manifest": "https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json",
-  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/archive/0.9.4.zip",
+  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/archive/0.9.5.zip",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/"
 }
