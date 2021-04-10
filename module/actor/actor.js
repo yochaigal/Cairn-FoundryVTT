@@ -32,7 +32,7 @@ export class CairnActor extends Actor {
         data.slotsUsed = actorData
             .items
             .map(item => item.data.slots * 1)
-            .reduce((memo, slots) => memo + slots)
+            .reduce((memo, slots) => memo + slots, 0)
 
         data.encumbered = data.slotsUsed >= 10
 

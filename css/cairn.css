@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
-
 /* Global styles */
 .window-app {
+    font-size: 1rem;
 }
-
-.rollable:hover, .rollable:focus {
+.rollable:hover, .rollable:focus, .rollable-ability:hover, .rollable-ability:focus {
     color: #000;
     text-shadow: 0 0 10px red;
     cursor: pointer;
@@ -19,57 +18,46 @@
     margin: 10px 0;
     padding: 0;
 }
-
 .grid-3col {
     grid-column: span 3 / span 3;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
 .grid-4col {
     grid-column: span 4 / span 4;
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-
 .grid-5col {
     grid-column: span 5 / span 5;
     grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-
 .grid-6col {
     grid-column: span 5 / span 5;
     grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-
 .grid-7col {
     grid-column: span 7 / span 7;
     grid-template-columns: repeat(7, minmax(0, 1fr));
 }
-
 .grid-8col {
     grid-column: span 8 / span 8;
     grid-template-columns: repeat(8, minmax(0, 1fr));
 }
-
 .grid-9col {
     grid-column: span 9 / span 9;
     grid-template-columns: repeat(9, minmax(0, 1fr));
 }
-
 .grid-10col {
     grid-column: span 10 / span 10;
     grid-template-columns: repeat(10, minmax(0, 1fr));
 }
-
 .grid-11col {
     grid-column: span 11 / span 11;
     grid-template-columns: repeat(11, minmax(0, 1fr));
 }
-
 .grid-12col {
     grid-column: span 12 / span 12;
     grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -78,29 +66,26 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
     padding: 5px;
+    padding-top: 3px;
 }
-
 .flex-group-center {
-    background-color: white;
+    margin-bottom: 0;
 }
-
 .flex-group-left {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
     text-align: left;
 }
-
 .flex-group-right {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
     text-align: right;
 }
-
 .flex-center {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -110,20 +95,21 @@
     justify-content: center;
     text-align: center;
 }
-
 .flex-between {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
-
 /* Styles limited to cairn sheets */
 .cairn .item-form {
     font-family: 'Krona One', sans-serif;
     font-size: 8pt;
 }
-
+.cairn .sheet-header .portrait {
+    flex: 0.8;
+}
 .cairn .sheet-header {
+    background: none;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 165px;
     flex: 0 0 165px;
@@ -138,199 +124,263 @@
     flex-wrap: wrap;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
+    align-items: flex-start !important;
     justify-content: flex-start;
     margin-bottom: 10px;
 }
-
 .cairn .sheet-header .profile-img {
+    width: 150px;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 165px;
-    flex: 0 0 165px;
-    height: 165px;
+    -ms-flex: 0 0 150px;
+    flex: 0 0 150px;
+    height: auto;
     margin-right: 10px;
+    border-radius: 5px 5px 0 0;
+    border: 2px solid #000;
+    /* border-bottom: 0; */
 }
-
 .cairn .sheet-header .header-fields {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    -webkit-box-flex: 2.2;
+    -ms-flex: 2.2;
+    flex: 2.2;
 }
-
 .cairn .sheet-header h1.charname {
-    height: 50px;
-    padding: 0px;
-    margin: 5px 0;
+    /*height: 40px;*/
+    padding: 8px;
+    margin: 0 0 5px 0;
     border-bottom: 0;
     background-color: black;
     color: white;
-
+    border-radius: 5px;
 }
-
 h1.charname input {
     border: 0px;
     background-color: black;
     color: white;
     font-variant: small-caps;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
-
 h2.background input {
     border: 0px;
-    background-color: white;
+    background: inherit;
+    /* background-color: white; */
     color: black;
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid black;*/
     padding: 2px;
     font-variant: small-caps;
 }
-
 .cairn .sheet-header h1.charname input {
     width: 100%;
     height: 100%;
     margin: 0;
 }
-
 .cairn .sheet-tabs {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
-
 .cairn .sheet-tabs-container {
     -webkit-box-flex: 0;
     -ms-flex: 0;
+    border: none;
     flex: 0;
 }
-
 .cairn .window-content {
     border: 10px solid black;
     background-color: #F5F5F5;
     background-image: none;
 }
-
 .cairn .sheet-body,
 .cairn .sheet-body .tab,
 .cairn .sheet-body .tab .editor {
     height: 100%;
+    background: white;
+    padding: 3px 5px;
 }
-
 .cairn .sheet-body {
     flex-grow: 3;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    /* border-top: 2px solid black; */
 }
-
 .cairn .tox .tox-editor-container {
     background: #fff;
 }
-
 .cairn .tox .tox-edit-area {
     padding: 0 8px;
 }
-
 .cairn .checkbox-block {
     display: block;
 }
-
-.cairn .editor {
+/*.cairn .editor {
     height: 100%;
-}
-
+}*/
 .cairn .resource-label {
-    font-size: 12px;
+    text-align: left;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     display: block;
+    /* height: 100%; */
+    padding: 5px;
+    /* width: 90px; */
     color: white;
     background-color: black;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
 }
-
 .cairn .tabs {
     height: 40px;
     border-top: 1px solid #AAA;
     border-bottom: 1px solid #AAA;
 }
-
 .cairn .tabs .item {
     line-height: 40px;
     font-weight: bold;
+    background: lightgray;
+    border-bottom: 2px solid black;
+    border-left: 2px solid whitesmoke;
+    border-right: 2px solid whitesmoke;
+    border-top: 2px solid whitesmoke;
 }
-
 .cairn .tabs .item.active {
     text-decoration: underline;
     text-shadow: none;
+    background: white;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    /* border-bottom-color: white; */
+    /* border-bottom: 2px solid white; */
 }
-
 .cairn .items-list {
     list-style: none;
     margin: 7px 0;
     padding: 0;
     overflow-y: auto;
 }
-
 .cairn .items-list .item-header {
     font-weight: bold;
 }
-
 .cairn .items-list .item {
     height: 30px;
     line-height: 24px;
-    padding: 3px 0;
+    padding: 3px 5px 3px 5px;
+    background: white;
     border-bottom: 1px solid #BBB;
 }
-
 .cairn .items-list .item .item-image {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px;
     margin-right: 5px;
 }
-
 .cairn .items-list .item img {
     display: block;
 }
-
 .cairn .items-list .item-name {
     margin: 0;
+    padding.left: 5;
 }
-
 .cairn .items-list .item-controls {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 86px;
     flex: 0 0 86px;
     text-align: right;
 }
-
 .cairn .too-bulky {
     font-weight: bold;
     color: red;
 }
-
 .cairn .items-list .item-info {
     margin-left: 4px;
     border-style: solid;
     border-width: thin;
     border-radius: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 0 4px;
+    font-size: .75rem;
 }
-
 .cairn .items-list .clickable {
     background-color: #669;
     color: white;
 }
-
 .app {
     background-color: #9fc164;
     border-radius: 0px;
 }
-
-@font-face {
-  font-family: 'im_fell_english_proregular';
-  src: url("../fonts/feenrm28c.woff2") format("woff2"), url("../fonts/feenrm28c.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+body, .window-app {
+  font-family: "Alegreya", "Times new roman", "Times", "Serif";
+}
+.cairn  .flexcol > .flexrow {
+    border: 2px solid black;
+    /* width: 140px; */
+    margin-bottom: 1px;
+    border-radius: 0 0 5px 5px;
+}
+.resource input[type="text"] {
+    background: white;
+    border: 0;
+}
+.sheet header.sheet-header .stat {
+    border: 2px solid black;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    /* box-sizing: border-box; */
+    background: white;
+}
+.sheet header.sheet-header .stat > img {
+    width: auto;
+    height: auto;
+    height: 102px;
+    border: none;
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+.cairn  .flexrow.resource.hp {
+    width: 150px;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 5px;
+}
+.cairn  .hp + span {
+    margin-bottom: 1px;
+}
+.cairn  h2.background {
+    border-bottom: 2px solid black;
+}
+.cairn  nav.sheet-tabs.tabs {
+    border: none;
+}
+.cairn  .flexrow .flexrow {
+    background-color: white;
 }
 
-body, .window-app {
-  font-family: "im_fell_english_proregular", "Times new roman", "Times", "Serif";
+
+.success {
+   background-color: #18520b !important;
+  color: white !important;
+  font-size: 1rem !important;
+}
+.failure {
+    color: white !important;
+    background-color: #aa0200 !important;
+    font-size: 1rem !important;
+}
+
+
+.chat-message .message-header .message-sender{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#chat-log .message{
+    padding: 10px;
+}
+.chat-message .message-header .flavor-text,
+.chat-message .message-header .whisper-to {
+  flex: 0 0 100%;
+  font-size: 0.9rem;
+  margin: 5px 0 10px 0px;
 }
