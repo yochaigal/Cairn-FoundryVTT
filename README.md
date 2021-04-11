@@ -8,6 +8,8 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 
 1. In the FVTT Game Systems Menu, click `Install System`
 2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
+3. After the world is created, import each of the compendium packs and the macro.
+4. Go to the tables and update each of them.
 
 ## Installation - Manual
 
