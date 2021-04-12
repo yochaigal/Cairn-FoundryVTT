@@ -27,12 +27,9 @@ export class CairnActorSheet extends ActorSheet {
     //     return super.getData();
     // }
       /** @override */
-  getData() {
+getData() {
     const data = super.getData();
-    // data.dtypes = ["String", "Number", "Boolean"];
-    // for (let attr of Object.values(data.data.attributes)) {
-    //   attr.isCheckbox = attr.dtype === "Boolean";
-    // }
+    data.items = data.items.sort((a, b) => a["name"] < b["name"] ? -1 : a["name"] > b["name"] ? 1 : 0);
     return data;
   }
   

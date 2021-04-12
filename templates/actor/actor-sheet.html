@@ -215,15 +215,15 @@
                     </span>
                     <div class="item-controls">
                         {{#if item.data.equipped}}
-                        {{#if item.data.damageFormula}}
-                        <span
-                            class="rollable"
-                            data-label="damage with {{item.name}}"
-                            data-roll="{{item.data.damageFormula}}"
-                            title="Roll Damage">
-                            <i class="fas fa-dice-d20"></i>
-                        </span>
-                        {{/if}}
+                            {{#if item.data.damageFormula}}
+                                <span
+                                    class="rollable"
+                                    data-label="damage with {{item.name}}"
+                                    data-roll="{{item.data.damageFormula}}"
+                                    title="Roll Damage">
+                                    <i class="fas fa-dice-d20"></i>
+                                </span>
+                            {{/if}}
                         {{/if}}
                         <a
                             class="item-control item-edit"
