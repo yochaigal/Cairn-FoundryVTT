@@ -384,3 +384,24 @@ body, .window-app {
   font-size: 0.9rem;
   margin: 5px 0 10px 0px;
 }
+
+.cairn .editor {
+    min-height: 35px;
+}
+.cairn .tox {
+    height:100% !important;
+    display:block;
+}
+.cairn .tox-tinymce {
+    height:100% !important;
+    display:block;
+}
+.cairn .tox .tox-editor-container {
+    background: #fff;
+}
+.cairn .tox .tox-edit-area {
+    padding: 0 8px;
+    position: inherit;
+    min-height: 20px;
+    height: 200px;
+}
