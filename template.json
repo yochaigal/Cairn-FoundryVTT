@@ -33,18 +33,37 @@
   },
   "Item": {
     "types": [
-      "item"
+      "item",
+      "weapon",
+      "armor",
+      "spellbook"
     ],
+    "templates": {
+      "universal": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "slots": 1
+      }
+    },
     "item": {
-      "description": "",
-      "quantity": 1,
+      "templates": ["base", "universal"],
       "armor": 0,
       "damageFormula": "",
       "equipped": false,
-      "bulky": false,
-      "blast": false,
-      "slots": 1,
       "numberOfUses": 0
-    }
+    },
+    "weapon": {
+      "templates":["base", "universal"],
+      "damageFormula": "",
+      "bulky": false,
+      "blast": false
+    },
+    "armor": {
+      "templates": ["base", "universal"],
+      "bulky": false,
+      "armor": 1
+    },
+    "spellbook": { "templates": ["base", "universal"] }
   }
 }

@@ -26,6 +26,7 @@ export class CairnActor extends Actor {
 
     data.armor = actorData
       .items
+      .filter(item => item.type == 'armor' || item.type == 'item')
       .map(item => item.data.armor * item.data.equipped)
       .reduce((a, b) => a + b, 0)
 
