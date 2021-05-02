@@ -1,14 +1,15 @@
 {
   "name": "cairn",
   "version": "1.0.0",
-  "scripts": {
-  },
+  "scripts": {},
   "browserslist": [
     "last 3 versions"
   ],
   "author": "smcabrera",
   "license": "MIT",
   "private": true,
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^16.0.3"
   }
 }
