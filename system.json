@@ -56,7 +56,14 @@
     "system": "cairn"
     },
     {
-    "name": "spellbooks",
+    "name": "monsters",
+    "label": "Monsters",
+    "path": "packs/monsters.db",
+    "entity": "Actor",
+    "system": "cairn"
+    },
+    { 
+	"name": "spellbooks",
     "label": "Spellbooks",
     "path": "packs/spellbooks.db",
     "entity": "Item",
