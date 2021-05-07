@@ -138,12 +138,19 @@
     border-radius: 5px 5px 0 0;
     border: 2px solid #000;
     /* border-bottom: 0; */
+    max-width: 130px;
+    max-height: 130px;
 }
 .cairn .sheet-header .header-fields {
     -webkit-box-flex: 2.2;
     -ms-flex: 2.2;
     flex: 2.2;
 }
+
+.cairn .sheet-header .flex-group-center {
+  padding: 0px; 
+}
+
 .cairn .sheet-header h1.charname {
     /*height: 40px;*/
     padding: 8px;
@@ -278,6 +285,7 @@ h2.background input {
     flex: 0 0 24px;
     margin-right: 5px;
 }
+
 .cairn .items-list .item img {
     display: block;
 }

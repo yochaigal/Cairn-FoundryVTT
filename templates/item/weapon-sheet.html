@@ -13,15 +13,16 @@
                 type="text"
                 value="{{item.name}}"
                 placeholder="Name"/></h1>
-            <div class="grid grid-3col">
+            <div class="grid grid-3col" style="margin-bottom: 0px">
                 <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">Heavy</label>
+                    <label class="resource-label" style="text-align: center">Bulky</label>
                     <input
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
                         data.bulky}}
                         name="data.bulky"
+                        style="display: inline"
                         value="{{data.data.bulky}}"
                         data-dtype="Boolean"/>
                 </div>
@@ -33,6 +34,7 @@
                         {{checked
                         data.equipped}}
                         name="data.equipped"
+                        style="display: inline"
                         value="{{data.data.equipped}}"
                         data-dtype="Boolean"/>
                 </div>
@@ -44,6 +46,7 @@
                         {{checked
                         data.blast}}
                         name="data.blast"
+                        style="display: inline"
                         value="{{data.data.blast}}"
                         data-dtype="Boolean"/>
                 </div>
