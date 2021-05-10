@@ -128,6 +128,7 @@
     justify-content: flex-start;
     margin-bottom: 10px;
 }
+
 .cairn .sheet-header .profile-img {
     width: 150px;
     -webkit-box-flex: 0;
@@ -138,9 +139,22 @@
     border-radius: 5px 5px 0 0;
     border: 2px solid #000;
     /* border-bottom: 0; */
-    max-width: 130px;
-    max-height: 130px;
 }
+
+.item-sheet .resource {
+  padding: 0px;
+}
+
+.cairn .item-sheet .sheet-header .profile-img {
+  max-width: 130px;
+  max-height: 130px;
+}
+
+.cairn .actor-sheet .sheet-header .profile-img {
+  max-width: 145px;
+  max-height: 145px;
+}
+
 .cairn .sheet-header .header-fields {
     -webkit-box-flex: 2.2;
     -ms-flex: 2.2;
@@ -148,7 +162,7 @@
 }
 
 .cairn .sheet-header .flex-group-center {
-  padding: 0px; 
+  padding: 0px;
 }
 
 .cairn .sheet-header h1.charname {
@@ -413,3 +427,5 @@ body, .window-app {
     min-height: 20px;
     height: 200px;
 }
+
+.
