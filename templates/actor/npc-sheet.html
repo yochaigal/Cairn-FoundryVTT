@@ -1,5 +1,5 @@
 <form
-    class="{{cssClass}} flexcol actor-sheet"
+    class="{{cssClass}} flexcol actor-sheet npc-sheet"
     autocomplete="off">
     {{!-- Sheet Header --}}
     <header class="sheet-header">
@@ -55,8 +55,10 @@
                 </div>
 
                 <div class="grid grid-3col resource flexrow flex-group-center">
+                    <div class="flexcol">
                         <div class="flexrow">
                             <label for="data.armor" class="resource-label">Armor</label>
+                            <div class="resource-content flexrow flex-center flex-between">
                                 <span>
                                   <input
                                   type="text"
@@ -67,12 +69,14 @@
                                 </span>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="flexrow resource hp">
-                            <label
-                                for="data.hp.value"
-                                class="resource-label">HP
-                            </label>
+                    <div class="flexcol">
+                      <div class="flexrow resource hp">
+                        <label
+                            for="data.hp.value"
+                            class="resource-label">HP
+                        </label>
                             <div class="resource-content flexrow flex-center flex-between">
                                 <input
                                 type="text"
@@ -87,8 +91,10 @@
                                 value="{{data.hp.max}}"
                                 data-dtype="Number"/>
                             </div>
-                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
             </div>
         </div>
     </header>

@@ -145,6 +145,11 @@
   padding: 0px;
 }
 
+.npc-sheet .resource {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
 .cairn .item-sheet .sheet-header .profile-img {
   max-width: 130px;
   max-height: 130px;
@@ -340,23 +345,28 @@ h2.background input {
     background-color: #669;
     color: white;
 }
+
 .app {
     background-color: #9fc164;
     border-radius: 0px;
 }
+
 body, .window-app {
   font-family: "Alegreya", "Times new roman", "Times", "Serif";
 }
+
 .cairn  .flexcol > .flexrow {
     border: 2px solid black;
     /* width: 140px; */
     margin-bottom: 1px;
     border-radius: 0 0 5px 5px;
 }
+
 .resource input[type="text"] {
     background: white;
     border: 0;
 }
+
 .sheet header.sheet-header .stat {
     border: 2px solid black;
     border-bottom: none;
@@ -364,6 +374,7 @@ body, .window-app {
     /* box-sizing: border-box; */
     background: white;
 }
+
 .sheet header.sheet-header .stat > img {
     width: auto;
     height: auto;
@@ -372,24 +383,27 @@ body, .window-app {
     padding: 5px 0 0 0;
     margin: 0;
 }
-.cairn  .flexrow.resource.hp {
+.cairn .character-sheet .flexrow.resource.hp {
     width: 150px;
     border-radius: 0 0 5px 5px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
+
 .cairn  .hp + span {
     margin-bottom: 1px;
 }
+
 .cairn  h2.background {
     border-bottom: 2px solid black;
 }
+
 .cairn  nav.sheet-tabs.tabs {
     border: none;
 }
+
 .cairn  .flexrow .flexrow {
     background-color: white;
 }
-
 
 .success {
    background-color: #18520b !important;
