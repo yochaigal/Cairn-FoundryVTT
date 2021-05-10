@@ -150,9 +150,20 @@
   max-height: 130px;
 }
 
+.cairn .actor-sheet .sheet-header .portrait > div {
+  margin-bottom: 1px;
+  margin-top: 0px;
+}
+
+.cairn .actor-sheet .sheet-header .portrait > span {
+  margin-bottom: 1px;
+  margin-top: 0px;
+}
+
 .cairn .actor-sheet .sheet-header .profile-img {
-  max-width: 145px;
-  max-height: 145px;
+  max-width: 149px;
+  max-height: 149px;
+  margin-bottom: 1px;
 }
 
 .cairn .sheet-header .header-fields {
