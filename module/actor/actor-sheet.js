@@ -22,6 +22,11 @@ export class CairnActorSheet extends ActorSheet {
     })
   }
 
+  get template () {
+    const path = 'systems/cairn/templates/actor'
+    return `${path}/${this.actor.data.type}-sheet.html`
+  }
+
   /* -------------------------------------------- */
   /** @override */
   // getData () {
