@@ -2,7 +2,7 @@
     class="{{cssClass}} flexcol actor-sheet npc-sheet"
     autocomplete="off">
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
+    <header class="sheet-header" style="margin-bottom: -10px">
 
         <div class="portrait flexcol">
             <img
@@ -108,13 +108,10 @@
                 {{#if data.encumbered}}
                 style="color: red"
                 {{/if}}
-            data-tab="items">Items ({{data.slotsUsed}} | 10)</a>
+            data-tab="items">Items</a>
             <a
                 class="item"
             data-tab="description">Description</a>
-             <a
-                class="item"
-            data-tab="notes">Notes</a>
         </nav>
     </div>
     {{!-- Sheet Body --}}
@@ -126,7 +123,7 @@
             data-tab="items">
             <ol class="items-list">
                 <li class="item flexrow item-header">
-                    <div class="item-name">Name <i>(bold means equipped)</i></div>
+                    <div class="item-name">Name</div>
                     <div class="item-controls">
                         <a
                             class="item-control item-create"
@@ -195,26 +192,12 @@
             data-group="primary"
             data-tab="description">
             {{
-            editor
-            content=data.biography
-            target="data.biography"
-            button=true
-            owner=owner
-            editable=editable
-            }}
-        </div>
-                {{!-- Notes Tab --}}
-        <div
-            class="tab biography"
-            data-group="primary"
-            data-tab="notes">
-            {{
-            editor
-            content=data.notes
-            target="data.notes"
-            button=true
-            owner=owner
-            editable=editable
+              editor
+              content=data.biography
+              target="data.biography"
+              button=true
+              owner=owner
+              editable=editable
             }}
         </div>
     </section>
