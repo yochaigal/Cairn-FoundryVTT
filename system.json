@@ -1,7 +1,7 @@
 {
   "name": "cairn",
   "title": "Cairn",
-  "description": "Cairn for FoundryVTT", "version": "0.9.90",
+  "description": "Cairn for FoundryVTT", "version": "0.9.91",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -62,7 +62,7 @@
     "entity": "Actor",
     "system": "cairn"
     },
-    { 
+    {
 	"name": "spellbooks",
     "label": "Spellbooks",
     "path": "packs/spellbooks.db",
@@ -98,6 +98,6 @@
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
   "manifest": "https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json",
-  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/download/0.9.90/0.9.90.zip",
+  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/download/0.9.91/0.9.91.zip",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/"
 }
