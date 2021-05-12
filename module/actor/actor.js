@@ -16,6 +16,7 @@ export class CairnActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'character') this._prepareCharacterData(actorData)
+    if (actorData.type === 'npc') this._prepareNpcData(actorData)
   }
 
   /**
@@ -40,6 +41,18 @@ export class CairnActor extends Actor {
     if (data.encumbered) {
       data.hp.value = 0
     }
+  }
+
+  _prepareNpcData (actorData) {
+    const data = actorData.data
+
+    let itemArmor = actorData
+      .items
+      .filter(item => item.type == 'armor' || item.type == 'item')
+      .map(item => item.data.armor * item.data.equipped)
+      .reduce((a, b) => a + b, 0)
+
+    data.armor = Math.max(itemArmor, data.armor)
   }
 
   /** @override */
