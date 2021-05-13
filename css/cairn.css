@@ -453,4 +453,6 @@ body, .window-app {
     height: 200px;
 }
 
-.
+.editor-content > p {
+  padding-top: 10px;
+}
