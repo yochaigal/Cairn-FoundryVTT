@@ -80,11 +80,14 @@ export class CairnActorSheet extends ActorSheet {
           await this.actor.update({ 'data.hp.value': this.actor.data.data.hp.max })
         }
       })
+
     html.find('.restore')
       .click(async ev => {
-        await this.actor.update({ 'data.abilities.STR.value': this.actor.data.data.abilities.STR.max })
-        await this.actor.update({ 'data.abilities.DEX.value': this.actor.data.data.abilities.DEX.max })
-        await this.actor.update({ 'data.abilities.WIL.value': this.actor.data.data.abilities.WIL.max })
+        if (!this.actor.data.data.deprived) {
+          await this.actor.update({ 'data.abilities.STR.value': this.actor.data.data.abilities.STR.max })
+          await this.actor.update({ 'data.abilities.DEX.value': this.actor.data.data.abilities.DEX.max })
+          await this.actor.update({ 'data.abilities.WIL.value': this.actor.data.data.abilities.WIL.max })
+        }
       })
   }
 
