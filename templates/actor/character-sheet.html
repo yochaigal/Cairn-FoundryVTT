@@ -151,17 +151,13 @@
             class="sheet-tabs tabs"
             data-group="primary">
             <a
-                class="item"
-                {{#if data.encumbered}}
-                style="color: red"
-                {{/if}}
-            data-tab="items">Items ({{data.slotsUsed}} | 10)</a>
-            <a
-                class="item"
-            data-tab="description">Description</a>
-             <a
-                class="item"
-            data-tab="notes">Notes</a>
+              class="item"
+              {{#if data.encumbered}} style="color: red" {{/if}}
+              data-tab="items">
+                Items ({{data.slotsUsed}} | 10)
+            </a>
+            <a class="item" data-tab="description">Description</a>
+            <a class="item" data-tab="notes">Notes</a>
         </nav>
     </div>
     {{!-- Sheet Body --}}
@@ -190,7 +186,8 @@
                     data-item-id="{{item._id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                     <span>
-                        <span class="item-name item-edit">
+                        <!-- <span class="item-name item-edit" id="item-{{item._id}}"> -->
+                        <span class="item-name" id="item-{{item._id}}">
                             {{#if item.data.equipped}}
                             <i class="fas fa-hand-paper"></i>
                             {{/if}}
@@ -232,6 +229,11 @@
                             class="item-control item-delete"
                         title="Delete One Item"><i class="fas fa-trash"></i></a>
                     </div>
+                </li>
+                <li class="" style="margin-left: 5px;" id="item-description-{{item._id}}">
+                  <span>
+                    {{{item.data.description}}}
+                  </span>
                 </li>
                 {{/each}}
             </ol>
