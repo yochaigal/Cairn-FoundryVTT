@@ -89,6 +89,10 @@ export class CairnActorSheet extends ActorSheet {
           await this.actor.update({ 'data.abilities.WIL.value': this.actor.data.data.abilities.WIL.max })
         }
       })
+
+    // Items whose descriptions can be toggled
+      html.find('.item-name')
+        .click(this._onItemDescriptionToggle.bind(this))
   }
 
   /* -------------------------------------------- */
@@ -137,6 +141,16 @@ export class CairnActorSheet extends ActorSheet {
     }
   }
 
+  _onItemDescriptionToggle (e) {
+    let id = `item-description-${e.currentTarget.id.match(/item\-(.*)/)[1]}`
+    let description = document.getElementById(id)
+    if (description.style.display === "none") {
+      description.style.display = "block";
+    } else {
+      description.style.display = "none";
+    }
+  }
+    
   _onRollAbility (event) {
     event.preventDefault()
     const element = event.currentTarget
