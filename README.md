@@ -10,7 +10,7 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
 3. After the world is created, import each of the compendium packs and the macro.
 4. Grant player Observer permissions to the macro and to the items imported so they can view items clicked in chat.
-5. Allow player permissions to "creator actor"
+5. Allow player permissions to "creator actor".
 
 ## Installation - Manual
 
