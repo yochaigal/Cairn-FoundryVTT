@@ -32,24 +32,31 @@
                     data-dtype="Number"/>
                 </div>
             </div>
-            {{#unless data.deprived}}
-              <span>
-                  <button style="
-                  width: 150px;"
-                  type="button"
-                  title="Rest"
-                  class="rest">Rest
+              <span class="tooltip">
+                  <button
+                    style="width: 150px;"
+                    type="button"
+                    title="Rest"
+                    {{#if data.deprived }}
+                      disabled
+                    {{/if }}
+                    class="rest">Rest
                   </button>
-              </span>
-              <span>
+
                   <button style="
                   width: 150px;"
                   type="button"
+                  {{#if data.deprived }}
+                    disabled
+                  {{/if }}
                   title="Rest"
                   class="restore">Restore Abilities
                   </button>
+
+                  {{#if data.deprived }}
+                    <span class="tooltiptext">Cannot rest or restore abilities while deprived</span>
+                  {{/if }}
               </span>
-            {{/unless}}
         </div>
         <div class="header-fields">
             <h1 class="charname">
@@ -230,7 +237,7 @@
                         title="Delete One Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
-                <li class="" style="margin-left: 5px;" id="item-description-{{item._id}}">
+                <li class="" style="margin-left: 5px; display: none;" id="item-description-{{item._id}}">
                   <span>
                     {{{item.data.description}}}
                   </span>
