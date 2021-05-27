@@ -1,7 +1,7 @@
 {
   "Actor": {
     "types": [
-      "character", "npc"
+      "character", "npc", "container"
     ],
     "templates": {
       "actorBase": {
@@ -32,10 +32,17 @@
       "deprived": false,
       "gold": 0
     },
+
     "npc": {
       "templates": [ "base", "actorBase" ],
       "description": "",
       "armor": 0
+    },
+
+    "container": {
+      "templates": [ "base" ],
+      "description": "",
+      "slots": 0
     }
   },
   "Item": {

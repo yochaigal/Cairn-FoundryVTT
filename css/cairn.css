@@ -129,6 +129,10 @@
     margin-bottom: 10px;
 }
 
+.cairn .container-sheet .sheet-header {
+  flex: 0px
+}
+
 .cairn .sheet-header .profile-img {
     width: 150px;
     -webkit-box-flex: 0;
@@ -168,6 +172,12 @@
 .cairn .actor-sheet .sheet-header .profile-img {
   max-width: 149px;
   max-height: 149px;
+  margin-bottom: 1px;
+}
+
+.cairn .container-sheet .sheet-header .profile-img {
+  max-width: 107px;
+  max-height: 107px;
   margin-bottom: 1px;
 }
 
