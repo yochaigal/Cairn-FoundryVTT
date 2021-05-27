@@ -32,10 +32,7 @@ export class CairnActor extends Actor {
       .map(item => item.data.armor * item.data.equipped)
       .reduce((a, b) => a + b, 0)
 
-    data.slotsUsed = actorData
-      .items
-      .map(item => item.data.slots * 1)
-      .reduce((memo, slots) => memo + slots, 0)
+    data.slotsUsed = calcSlotsUsed(actorData)
 
     data.encumbered = data.slotsUsed >= 10
 
@@ -59,10 +56,7 @@ export class CairnActor extends Actor {
   _prepareContainerData (actorData) {
     const data = actorData.data
 
-    data.slotsUsed = actorData
-      .items
-      .map(item => item.data.slots * (item.data.quantity || 1))
-      .reduce((memo, slots) => memo + slots, 0)
+    data.slotsUsed = calcSlotsUsed(actorData)
   }
 
   /** @override */
@@ -85,3 +79,11 @@ export class CairnActor extends Actor {
     }
   }
 }
+
+function calcSlotsUsed(actorData) {
+  return actorData
+    .items
+    .map(item => item.data.slots * (item.data.quantity || 1))
+    .reduce((memo, slots) => memo + slots, 0)
+}
+
