@@ -14,21 +14,21 @@
             />
             <div class="flexrow resource hp">
                 <label
-                    for="data.hp.value"
+                    for="systemData.hp.value"
                     class="resource-label">HP
                 </label>
                 <div class="resource-content flexrow flex-center flex-between">
                     <input
                     type="text"
-                    name="data.hp.value"
-                    value="{{data.hp.value}}"
+                    name="systemData.hp.value"
+                    value="{{systemData.hp.value}}"
                     data-dtype="Number"
                     />
                     <span> / </span>
                     <input
                     type="text"
-                    name="data.hp.max"
-                    value="{{data.hp.max}}"
+                    name="systemData.hp.max"
+                    value="{{systemData.hp.max}}"
                     data-dtype="Number"/>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     style="width: 150px;"
                     type="button"
                     title="Rest"
-                    {{#if data.deprived }}
+                    {{#if systemData.deprived }}
                       disabled
                     {{/if }}
                     class="rest">Rest
@@ -46,14 +46,14 @@
                   <button style="
                   width: 150px;"
                   type="button"
-                  {{#if data.deprived }}
+                  {{#if systemData.deprived }}
                     disabled
                   {{/if }}
                   title="Rest"
                   class="restore">Restore Abilities
                   </button>
 
-                  {{#if data.deprived }}
+                  {{#if systemData.deprived }}
                     <span class="tooltiptext">Cannot rest or restore abilities while deprived</span>
                   {{/if }}
               </span>
@@ -68,18 +68,18 @@
             </h1>
             <h2 class="background">
             <input
-            name="data.background"
+            name="systemData.background"
             type="text"
-            value="{{data.background}}"
+            value="{{systemData.background}}"
             placeholder="Background"/>
             </h2>
             <div class="">
                 <div class="grid grid-3col resource flexrow flex-group-center">
                     <div class="flexcol">
-                        {{#each data.abilities as |ability key|}}
+                        {{#each systemData.abilities as |ability key|}}
                         <div class="flexrow">
                             <label
-                                for="data.abilities.{{key}}.value"
+                                for="systemData.abilities.{{key}}.value"
                                 class="resource-label rollable-ability"
                                 data-roll="d20cs<=@abilities.{{key}}.value"
                                 data-label="{{key}} save">
@@ -88,13 +88,13 @@
                             <div class="flexrow">
                                 <input
                                 type="text"
-                                name="data.abilities.{{key}}.value"
+                                name="systemData.abilities.{{key}}.value"
                                 value="{{ability.value}}"
                                 data-dtype="Number"
                                 /> <span> / </span>
                                 <input
                                 type="text"
-                                name="data.abilities.{{key}}.max"
+                                name="systemData.abilities.{{key}}.max"
                                 value="{{ability.max}}"
                                 data-dtype="Number"
                                 />
@@ -103,11 +103,11 @@
                         {{/each}}
                         <div class="flexrow">
                             <label
-                                for="data.armor"
+                                for="systemData.armor"
                             class="resource-label">Armor</label>
                             <div class="resource-content flexrow flex-center flex-between">
                                 <span>
-                                    {{data.armor}}
+                                    {{systemData.armor}}
                                 </span>
                             </div>
                         </div>
@@ -118,13 +118,13 @@
                         </div>
                         <div class="flexrow">
                             <label
-                                for="data.gold"
+                                for="systemData.gold"
                             class="resource-label">gold</label>
                             <div class="resource-content flexrow flex-center flex-between">
                                 <input
                                 type="text"
-                                name="data.gold"
-                                value="{{data.gold}}"
+                                name="systemData.gold"
+                                value="{{systemData.gold}}"
                                 data-dtype="Number"
                                 />
                             </div>
@@ -141,9 +141,9 @@
                                 class="checkbox-block"
                                 type="checkbox"
                                 {{checked
-                                data.deprived}}
-                                name="data.deprived"
-                                value="{{data.deprived}}"
+                                systemData.deprived}}
+                                name="systemData.deprived"
+                                value="{{systemData.deprived}}"
                                 data-dtype="Boolean"/>
                             </div>
                         </div>
@@ -159,9 +159,9 @@
             data-group="primary">
             <a
               class="item"
-              {{#if data.encumbered}} style="color: red" {{/if}}
+              {{#if systemData.encumbered}} style="color: red" {{/if}}
               data-tab="items">
-                Items ({{data.slotsUsed}} | 10)
+                Items ({{systemData.slotsUsed}} | 10)
             </a>
             <a class="item" data-tab="description">Description</a>
             <a class="item" data-tab="notes">Notes</a>
@@ -253,7 +253,7 @@
             {{
             editor
             content=data.biography
-            target="data.biography"
+            target="systemData.biography"
             button=true
             owner=owner
             editable=editable
@@ -267,7 +267,7 @@
             {{
             editor
             content=data.notes
-            target="data.notes"
+            target="systemData.notes"
             button=true
             owner=owner
             editable=editable

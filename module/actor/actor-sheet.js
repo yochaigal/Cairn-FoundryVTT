@@ -34,9 +34,12 @@ export class CairnActorSheet extends ActorSheet {
   // }
   /** @override */
   getData () {
-    const data = super.getData()
-    data.items = data.items.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
-    return data
+        const context = super.getData();
+        context.systemData = context.data.data;
+
+        context.systemData.items = systemData.items.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
+
+        return context;
   }
 
   /** @override */
