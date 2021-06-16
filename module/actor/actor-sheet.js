@@ -37,7 +37,7 @@ export class CairnActorSheet extends ActorSheet {
         const context = super.getData();
         context.systemData = context.data.data;
 
-        context.systemData.items = systemData.items.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
+        // context.systemData.items = context.systemData.items.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
 
         return context;
   }
@@ -130,14 +130,15 @@ export class CairnActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-  _onRoll (event) {
+  async _onRoll (event) {
     event.preventDefault()
     const element = event.currentTarget
     const dataset = element.dataset
     if (dataset.roll) {
       const roll = new Roll(dataset.roll, this.actor.data.data)
       const label = dataset.label ? `Rolling ${dataset.label}` : ''
-      roll.roll().toMessage({
+      const rolled = await roll.roll();
+      rolled.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       })
@@ -154,18 +155,18 @@ export class CairnActorSheet extends ActorSheet {
     }
   }
     
-  _onRollAbility (event) {
+  async _onRollAbility (event) {
     event.preventDefault()
     const element = event.currentTarget
     const dataset = element.dataset
     if (dataset.roll) {
       const roll = new Roll(dataset.roll, this.actor.data.data)
       const label = dataset.label ? `Rolling ${dataset.label}` : ''
-      const rolled = roll.roll()
+      const rolled = await roll.roll();
 
       const formula = rolled._formula
       const rolled_number = rolled.terms[0].results[0].result
-      if (rolled.results[0] === 0) {
+      if (!rolled.terms[0].results[0].success) {
         rolled.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           flavor: label,
