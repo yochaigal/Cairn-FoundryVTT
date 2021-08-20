@@ -21,10 +21,10 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.equipped}}
+                        data.data.equipped}}
                         name="data.equipped"
                         style="display: inline"
-                        value="{{data.equipped}}"
+                        value="{{data.data.equipped}}"
                         data-dtype="Boolean"/>
                 </div>
 
@@ -34,7 +34,7 @@
                         type="text"
                         name="data.slots"
                         style="display: inline"
-                        value="{{data.slots}}"
+                        value="{{data.data.slots}}"
                         placeholder=0
                         data-dtype="Number"/>
                 </div>
@@ -43,9 +43,9 @@
                     <label class="resource-label" style="text-align: center">Quantity</label>
                     <input
                         type="text"
-                        name="data.quantity"
+                        name="data.data.quantity"
                         style="display: inline"
-                        value="{{data.quantity}}"
+                        value="{{data.data.quantity}}"
                         data-dtype="Number"/>
                 </div>
             </div>
@@ -64,5 +64,5 @@
         </nav>
     </div>
 
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
 </form>

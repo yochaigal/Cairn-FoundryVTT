@@ -210,7 +210,7 @@
                         {{#if item.data.data.armor}}
                         <span class="item-info">Armor {{item.data.data.armor}}</span>
                         {{/if}}
-                        {{#if item.data.damageFormula}}
+                        {{#if item.data.data.damageFormula}}
                         <span class="item-info">{{item.data.data.damageFormula}} damage</span>
                         {{/if}}
                         {{#if item.data.data.bulky}}
@@ -223,7 +223,7 @@
                                 <span
                                     class="rollable"
                                     data-label="damage with {{item.name}}"
-                                    data-roll="{{item.data.damageFormula}}"
+                                    data-roll="{{item.data.data.damageFormula}}"
                                     title="Roll Damage">
                                     <i class="fas fa-dice-d20"></i>
                                 </span>

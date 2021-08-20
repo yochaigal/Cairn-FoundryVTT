@@ -20,7 +20,7 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.bulky}}
+                        data.data.bulky}}
                         name="data.bulky"
                         style="display: inline"
                         value="{{data.data.bulky}}"
@@ -32,7 +32,7 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.equipped}}
+                        data.data.equipped}}
                         name="data.equipped"
                         style="display: inline"
                         value="{{data.data.equipped}}"
@@ -44,7 +44,7 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.blast}}
+                        data.data.blast}}
                         name="data.blast"
                         style="display: inline"
                         value="{{data.data.blast}}"
@@ -61,7 +61,7 @@
             <input
                 type="text"
                 name="data.quantity"
-                value="{{data.quantity}}"
+                value="{{data.data.quantity}}"
                 data-dtype="Number"/>
         </div>
         <div class="resource flex-group-center">
@@ -69,7 +69,7 @@
             <input
                 type="text"
                 name="data.slots"
-                value="{{data.slots}}"
+                value="{{data.data.slots}}"
                 placeholder=0
                 data-dtype="Number"/>
         </div>
@@ -78,7 +78,7 @@
             <input
                 type="text"
                 name="data.damageFormula"
-                value="{{data.damageFormula}}"/>
+                value="{{data.data.damageFormula}}"/>
         </div>
     </div>
     <div class="sheet-tabs-container">
@@ -91,5 +91,5 @@
         </nav>
     </div>
 
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
 </form>
