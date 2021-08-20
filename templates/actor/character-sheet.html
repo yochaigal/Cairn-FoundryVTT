@@ -21,14 +21,14 @@
                     <input
                     type="text"
                     name="data.hp.value"
-                    value="{{data.hp.value}}"
+                    value="{{data.data.hp.value}}"
                     data-dtype="Number"
                     />
                     <span> / </span>
                     <input
                     type="text"
                     name="data.hp.max"
-                    value="{{data.hp.max}}"
+                    value="{{data.data.hp.max}}"
                     data-dtype="Number"/>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     style="width: 150px;"
                     type="button"
                     title="Rest"
-                    {{#if data.deprived }}
+                    {{#if data.data.deprived }}
                       disabled
                     {{/if }}
                     class="rest">Rest
@@ -46,14 +46,14 @@
                   <button style="
                   width: 150px;"
                   type="button"
-                  {{#if data.deprived }}
+                  {{#if data.data.deprived }}
                     disabled
                   {{/if }}
                   title="Rest"
                   class="restore">Restore Abilities
                   </button>
 
-                  {{#if data.deprived }}
+                  {{#if data.data.deprived }}
                     <span class="tooltiptext">Cannot rest or restore abilities while deprived</span>
                   {{/if }}
               </span>
@@ -70,13 +70,13 @@
             <input
             name="data.background"
             type="text"
-            value="{{data.background}}"
+            value="{{data.data.background}}"
             placeholder="Background"/>
             </h2>
             <div class="">
                 <div class="grid grid-3col resource flexrow flex-group-center">
                     <div class="flexcol">
-                        {{#each data.abilities as |ability key|}}
+                        {{#each data.data.abilities as |ability key|}}
                         <div class="flexrow">
                             <label
                                 for="data.abilities.{{key}}.value"
@@ -107,7 +107,7 @@
                             class="resource-label">Armor</label>
                             <div class="resource-content flexrow flex-center flex-between">
                                 <span>
-                                    {{data.armor}}
+                                    {{data.data.armor}}
                                 </span>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                                 <input
                                 type="text"
                                 name="data.gold"
-                                value="{{data.gold}}"
+                                value="{{data.data.gold}}"
                                 data-dtype="Number"
                                 />
                             </div>
@@ -141,9 +141,9 @@
                                 class="checkbox-block"
                                 type="checkbox"
                                 {{checked
-                                data.deprived}}
+                                data.data.deprived}}
                                 name="data.deprived"
-                                value="{{data.deprived}}"
+                                value="{{data.data.deprived}}"
                                 data-dtype="Boolean"/>
                             </div>
                         </div>
@@ -159,9 +159,9 @@
             data-group="primary">
             <a
               class="item"
-              {{#if data.encumbered}} style="color: red" {{/if}}
+              {{#if data.data.encumbered}} style="color: red" {{/if}}
               data-tab="items">
-                Items ({{data.slotsUsed}} | 10)
+                Items ({{data.data.slotsUsed}} | 10)
             </a>
             <a class="item" data-tab="description">Description</a>
             <a class="item" data-tab="notes">Notes</a>
@@ -190,36 +190,36 @@
                 {{#each actor.items as |item id|}}
                 <li
                     class="item flexrow"
-                    data-item-id="{{item._id}}">
+                    data-item-id="{{item.id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                     <span>
-                        <!-- <span class="item-name item-edit" id="item-{{item._id}}"> -->
-                        <span class="item-name" id="item-{{item._id}}">
-                            {{#if item.data.equipped}}
+                        <!-- <span class="item-name item-edit" id="item-{{item.id}}"> -->
+                        <span class="item-name" id="item-{{item.id}}">
+                            {{#if item.data.data.equipped}}
                             <i class="fas fa-hand-paper"></i>
                             {{/if}}
-                            {{item.data.quantity}}
-                            {{#boldIf item.data.equipped}}
+                            {{item.data.data.quantity}}
+                            {{#boldIf item.data.data.equipped}}
                             {{item.name}}
                             {{/boldIf}}
                         </span>
                         <!-- <span class="item-info">{{item.data.slots}} Slots </span> -->
-                        {{#if item.data.blast}}
+                        {{#if item.data.data.blast}}
                         <span class="item-info">BLAST</span>
                         {{/if}}
-                        {{#if item.data.armor}}
-                        <span class="item-info">Armor {{item.data.armor}}</span>
+                        {{#if item.data.data.armor}}
+                        <span class="item-info">Armor {{item.data.data.armor}}</span>
                         {{/if}}
                         {{#if item.data.damageFormula}}
-                        <span class="item-info">{{item.data.damageFormula}} damage</span>
+                        <span class="item-info">{{item.data.data.damageFormula}} damage</span>
                         {{/if}}
-                        {{#if item.data.bulky}}
+                        {{#if item.data.data.bulky}}
                         <span class="item-info">Bulky</span>
                         {{/if}}
                     </span>
                     <div class="item-controls">
-                        {{#if item.data.equipped}}
-                            {{#if item.data.damageFormula}}
+                        {{#if item.data.data.equipped}}
+                            {{#if item.data.data.damageFormula}}
                                 <span
                                     class="rollable"
                                     data-label="damage with {{item.name}}"
@@ -237,9 +237,9 @@
                         title="Delete One Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
-                <li class="" style="margin-left: 5px; display: none;" id="item-description-{{item._id}}">
+                <li class="" style="margin-left: 5px; display: none;" id="item-description-{{item.id}}">
                   <span>
-                    {{{item.data.description}}}
+                    {{{item.data.data.description}}}
                   </span>
                 </li>
                 {{/each}}
@@ -252,7 +252,7 @@
             data-tab="description">
             {{
             editor
-            content=data.biography
+            content=data.data.biography
             target="data.biography"
             button=true
             owner=owner
@@ -266,7 +266,7 @@
             data-tab="notes">
             {{
             editor
-            content=data.notes
+            content=data.data.notes
             target="data.notes"
             button=true
             owner=owner
