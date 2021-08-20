@@ -20,9 +20,9 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.bulky}}
+                        data.data.bulky}}
                         name="data.bulky"
-                        value="{{data.bulky}}"
+                        value="{{data.data.bulky}}"
                         data-dtype="Boolean"/>
                 </div>
                 <div class="resource flex-group-center">
@@ -31,9 +31,9 @@
                         class="checkbox-block"
                         type="checkbox"
                         {{checked
-                        data.equipped}}
+                        data.data.equipped}}
                         name="data.equipped"
-                        value="{{data.equipped}}"
+                        value="{{data.data.equipped}}"
                         data-dtype="Boolean"/>
                 </div>
             </div>
@@ -44,9 +44,9 @@
                       class="checkbox-block"
                       type="checkbox"
                       {{checked
-                      data.blast}}
+                      data.data.blast}}
                       name="data.blast"
-                      value="{{data.blast}}"
+                      value="{{data.data.blast}}"
                       data-dtype="Boolean"/>
               </div>
 
@@ -55,7 +55,7 @@
                   <input
                       type="text"
                       name="data.slots"
-                      value="{{data.slots}}"
+                      value="{{data.data.slots}}"
                       placeholder=0
                       data-dtype="Number"/>
               </div>
@@ -70,7 +70,7 @@
             <input
                 type="text"
                 name="data.quantity"
-                value="{{data.quantity}}"
+                value="{{data.data.quantity}}"
                 data-dtype="Number"/>
         </div>
         <div class="resource flex-group-center">
@@ -78,7 +78,7 @@
             <input
                 type="text"
                 name="data.numberOfUses"
-                value="{{data.numberOfUses}}"
+                value="{{data.data.numberOfUses}}"
                 data-dtype="Number"/>
         </div>
         <div class="resource flex-group-center">
@@ -86,7 +86,7 @@
             <input
                 type="text"
                 name="data.armor"
-                value="{{data.armor}}"
+                value="{{data.data.armor}}"
                 data-dtype="Number"/>
         </div>
         <div class="resource flex-group-center">
@@ -94,7 +94,7 @@
             <input
                 type="text"
                 name="data.damageFormula"
-                value="{{data.damageFormula}}"/>
+                value="{{data.data.damageFormula}}"/>
         </div>
     </div>
     <div class="sheet-tabs-container">
@@ -107,5 +107,5 @@
         </nav>
     </div>
 
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
 </form>

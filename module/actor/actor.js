@@ -29,7 +29,7 @@ export class CairnActor extends Actor {
     data.armor = actorData
       .items
       .filter(item => item.type == 'armor' || item.type == 'item')
-      .map(item => item.data.armor * item.data.equipped)
+      .map(item => item.data.data.armor * item.data.data.equipped)
       .reduce((a, b) => a + b, 0)
 
     data.slotsUsed = calcSlotsUsed(actorData)
@@ -47,7 +47,7 @@ export class CairnActor extends Actor {
     let itemArmor = actorData
       .items
       .filter(item => item.type == 'armor' || item.type == 'item')
-      .map(item => item.data.armor * item.data.equipped)
+      .map(item => item.data.data.armor * item.data.data.equipped)
       .reduce((a, b) => a + b, 0)
 
     data.armor = Math.max(itemArmor, data.armor)
@@ -83,7 +83,7 @@ export class CairnActor extends Actor {
 function calcSlotsUsed(actorData) {
   return actorData
     .items
-    .map(item => item.data.slots * (item.data.quantity || 1))
+    .map(item => item.data.data.slots * (item.data.data.quantity || 1))
     .reduce((memo, slots) => memo + slots, 0)
 }
 

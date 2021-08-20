@@ -25,7 +25,7 @@
             </h1>
             <div class="">
                 <div class="grid grid-3col resource flexrow flex-group-center">
-                        {{#each data.abilities as |ability key|}}
+                        {{#each data.data.abilities as |ability key|}}
                           <div class="flexcol">
                               <div class="flexrow">
                                   <label
@@ -63,7 +63,7 @@
                                   <input
                                   type="text"
                                   name="data.armor"
-                                  value="{{data.armor}}"
+                                  value="{{data.data.armor}}"
                                   data-dtype="Number"
                                   />
                                 </span>
@@ -81,14 +81,14 @@
                                 <input
                                 type="text"
                                 name="data.hp.value"
-                                value="{{data.hp.value}}"
+                                value="{{data.data.hp.value}}"
                                 data-dtype="Number"
                                 />
                                 <span> / </span>
                                 <input
                                 type="text"
                                 name="data.hp.max"
-                                value="{{data.hp.max}}"
+                                value="{{data.data.hp.max}}"
                                 data-dtype="Number"/>
                             </div>
                       </div>
@@ -105,7 +105,7 @@
             data-group="primary">
             <a
                 class="item"
-                {{#if data.encumbered}}
+                {{#if data.data.encumbered}}
                 style="color: red"
                 {{/if}}
             data-tab="items">Items</a>
@@ -137,39 +137,39 @@
                 {{#each actor.items as |item id|}}
                 <li
                     class="item flexrow"
-                    data-item-id="{{item._id}}">
+                    data-item-id="{{item.id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                     <span>
                         <span class="item-name item-edit">
-                            {{#if item.data.equipped}}
+                            {{#if item.data.data.equipped}}
                             <i class="fas fa-hand-paper"></i>
                             {{/if}}
-                            {{item.data.quantity}}
-                            {{#boldIf item.data.equipped}}
+                            {{item.data.data.quantity}}
+                            {{#boldIf item.data.data.equipped}}
                             {{item.name}}
                             {{/boldIf}}
                         </span>
                         <!-- <span class="item-info">{{item.data.slots}} Slots </span> -->
-                        {{#if item.data.blast}}
+                        {{#if item.data.data.blast}}
                         <span class="item-info">BLAST</span>
                         {{/if}}
-                        {{#if item.data.armor}}
-                        <span class="item-info">Armor {{item.data.armor}}</span>
+                        {{#if item.data.data.armor}}
+                        <span class="item-info">Armor {{item.data.data.armor}}</span>
                         {{/if}}
-                        {{#if item.data.damageFormula}}
-                        <span class="item-info">{{item.data.damageFormula}} damage</span>
+                        {{#if item.data.data.damageFormula}}
+                        <span class="item-info">{{item.data.data.damageFormula}} damage</span>
                         {{/if}}
-                        {{#if item.data.bulky}}
+                        {{#if item.data.data.bulky}}
                         <span class="item-info">Bulky</span>
                         {{/if}}
                     </span>
                     <div class="item-controls">
-                        {{#if item.data.equipped}}
-                            {{#if item.data.damageFormula}}
+                        {{#if item.data.data.equipped}}
+                            {{#if item.data.data.damageFormula}}
                                 <span
                                     class="rollable"
                                     data-label="damage with {{item.name}}"
-                                    data-roll="{{item.data.damageFormula}}"
+                                    data-roll="{{item.data.data.damageFormula}}"
                                     title="Roll Damage">
                                     <i class="fas fa-dice-d20"></i>
                                 </span>
@@ -193,7 +193,7 @@
             data-tab="description">
             {{
               editor
-              content=data.description
+              content=data.data.description
               target="data.description"
               button=true
               owner=owner
