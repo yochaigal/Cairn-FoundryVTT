@@ -162,7 +162,7 @@ export class CairnActorSheet extends ActorSheet {
 
       const formula = rolled._formula
       const rolled_number = rolled.terms[0].results[0].result
-      if (rolled.result === 0) {
+      if (rolled.result === "0") {
         rolled.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           flavor: label,
