@@ -1,8 +1,8 @@
 {
   "name": "cairn",
   "title": "Cairn",
-  "description": "Cairn for FoundryVTT", "version": "0.10.1",
-  "minimumCoreVersion": "0.8.6",
+  "description": "Cairn for FoundryVTT", "version": "0.10.2",
+  "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
   "author": "yochaigal",
