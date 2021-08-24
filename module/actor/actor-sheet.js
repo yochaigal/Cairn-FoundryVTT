@@ -91,7 +91,7 @@ export class CairnActorSheet extends ActorSheet {
       })
 
     // Items whose descriptions can be toggled
-      html.find('.item-name')
+      html.find('span.item-name')
         .click(this._onItemDescriptionToggle.bind(this))
   }
 
