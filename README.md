@@ -8,7 +8,7 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 
 1. In the FVTT Game Systems Menu, click `Install System`
 2. Search for "Cairn" in the package search filter.
-3. After the world is created, import each of the compendium packs and the macro.
+3. After the world is created, import each of the compendium gear, table and macro packs.
 4. Grant player Observer permissions to the macro and to the items imported so they can view items clicked in chat.
 5. Allow player permissions to "creator actor".
 
