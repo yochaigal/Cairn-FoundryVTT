@@ -7,13 +7,13 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 ## Installation - Auto Installer (Recommended)
 
 1. In the FVTT Game Systems Menu, click `Install System`
-2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
+2. Search for "Cairn" in the package search filter.
 3. After the world is created, import each of the compendium packs and the macro.
 4. Grant player Observer permissions to the macro and to the items imported so they can view items clicked in chat.
 5. Allow player permissions to "creator actor".
 
 ## Installation - Manual
 
-1. Place the unzipped folder in your `Data/systems` folder
-2. Make sure the folder is named `cairn`
-3. Launch FoundryVTT and create your new world, selecting the Cairn system.
+1. In the FVTT Game Systems Menu, click `Install System`
+2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
+3. Follow steps 3-5 in the Auto Installer above.
