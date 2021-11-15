@@ -39,6 +39,7 @@ export class CairnActor extends Actor {
     if (data.encumbered) {
       data.hp.value = 0
     }
+    if (data.armor > 3 ) {data.armor = 3}
   }
 
   _prepareNpcData (actorData) {
@@ -51,11 +52,11 @@ export class CairnActor extends Actor {
       .reduce((a, b) => a + b, 0)
 
     data.armor = Math.max(itemArmor, data.armor)
+    if (data.armor > 3 ) {data.armor = 3}
   }
 
   _prepareContainerData (actorData) {
     const data = actorData.data
-
     data.slotsUsed = calcSlotsUsed(actorData)
   }
 
@@ -86,4 +87,3 @@ function calcSlotsUsed(actorData) {
     .map(item => item.data.data.slots * (item.data.data.quantity || 1))
     .reduce((memo, slots) => memo + slots, 0)
 }
-
