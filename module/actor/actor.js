@@ -82,10 +82,17 @@ export class CairnActor extends Actor {
 	/** No longer an override as deleteOwnedItem is deprecated on type Actor */
 	deleteOwnedItem(itemId) {
 		const item = this.items.get(itemId);
-		if (item.data.data.quantity > 1) {
-			item.data.data.quantity--;
+		const currentQuantity = item.data.data.quantity;
+		if (item) {
+			if (currentQuantity > 1) {
+				item.update({
+					"data.quantity": currentQuantity - 1,
+				});
+			} else {
+				item.delete();
+			}
 		} else {
-			super.deleteEmbeddedDocuments("Item", [itemId]);
+			ui.notifications.error("Cannot find Item to delete.");
 		}
 	}
 }
