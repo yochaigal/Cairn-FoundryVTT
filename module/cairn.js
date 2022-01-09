@@ -11,7 +11,7 @@ Hooks.once('init', async function () {
   }
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = CairnActor
+  CONFIG.Actor.documentClass = CairnActor;
   CONFIG.Item.entityClass = CairnItem
 
   // Register sheet application classes
