@@ -91,7 +91,12 @@ export class CairnActor extends Actor {
 }
 
 function calcSlotsUsed(actorItems) {
-	return actorItems
-		.map((item) => item.data.data.slots * (item.data.data.quantity || 1))
+  const milliSlots = actorItems
+		.map((item) => {
+			const milliSlots = item.data.data.slots * 1000;
+			const itemSlotPercentage = (item.data.data.quantity || 1) * milliSlots;
+			return Math.trunc(itemSlotPercentage);
+		})
 		.reduce((memo, slots) => memo + slots, 0);
+	return milliSlots / 1000;
 }
