@@ -2,8 +2,8 @@
   "name": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT", "version": "0.10.9",
-  "minimumCoreVersion": "0.9.0",
-  "compatibleCoreVersion": "0.9.0",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9",
   "templateVersion": 2,
   "author": "yochaigal",
   "esmodules": [
