@@ -222,19 +222,6 @@ h2.background input {
     height: 100%;
     margin: 0;
 }
-.cairn .sheet-tabs {
-    -webkit-box-flex: 0;
-    -ms-flex: 0;
-    flex: 0;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-}
-.cairn .sheet-tabs-container {
-    -webkit-box-flex: 0;
-    -ms-flex: 0;
-    border: none;
-    flex: 0;
-}
 .cairn .window-content {
     border: 10px solid black;
     background-color: #F5F5F5;
@@ -279,29 +266,17 @@ h2.background input {
     background-color: black;
     /* margin-bottom: 4px; */
 }
-.cairn .tabs {
-    height: 40px;
-    border-top: 1px solid #AAA;
-    border-bottom: 1px solid #AAA;
+.cairn .sheet-tabs {
+    display: flex;
+    justify-content: space-around;
 }
-.cairn .tabs .item {
-    line-height: 40px;
+.cairn .sheet-tabs a {
     font-weight: bold;
-    background: lightgray;
-    border-bottom: 2px solid black;
-    border-left: 2px solid whitesmoke;
-    border-right: 2px solid whitesmoke;
-    border-top: 2px solid whitesmoke;
+    border-bottom: 3px solid black;
 }
-.cairn .tabs .item.active {
-    text-decoration: underline;
-    text-shadow: none;
-    background: white;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-top: 2px solid black;
-    /* border-bottom-color: white; */
-    /* border-bottom: 2px solid white; */
+.cairn .sheet-tabs a.active {
+    text-shadow: 0 0 10px red;
+    border-bottom: 3px solid #44191A;
 }
 .cairn .items-list {
     list-style: none;
@@ -405,10 +380,6 @@ body, .window-app {
 
 .cairn  h2.background {
     border-bottom: 2px solid black;
-}
-
-.cairn  nav.sheet-tabs.tabs {
-    border: none;
 }
 
 .cairn  .flexrow .flexrow {
