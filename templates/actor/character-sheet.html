@@ -153,18 +153,13 @@
         </div>
     </header>
     {{!-- Sheet Tab Navigation --}}
-    <div class="sheet-tabs-container">
-        <nav
-            class="sheet-tabs tabs"
-            data-group="primary">
-            <a
-              class="item"
-              {{#if data.data.encumbered}} style="color: red" {{/if}}
-              data-tab="items">
+    <div>
+        <nav class="sheet-tabs" data-group="primary">
+            <a {{#if data.data.encumbered}} style="color: red" {{/if}} data-tab="items">
                 Items ({{data.data.slotsUsed}} | 10)
             </a>
-            <a class="item" data-tab="description">Description</a>
-            <a class="item" data-tab="notes">Notes</a>
+            <a data-tab="description">Description</a>
+            <a data-tab="notes">Notes</a>
         </nav>
     </div>
     {{!-- Sheet Body --}}
