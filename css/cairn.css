@@ -250,21 +250,19 @@ h2.background input {
 .cairn .checkbox-block {
     display: block;
 }
-/*.cairn .editor {
-    height: 100%;
-}*/
 .cairn .resource-label {
     text-align: left;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     display: block;
-    /* height: 100%; */
     padding: 5px;
-    /* width: 90px; */
     color: white;
     background-color: black;
-    /* margin-bottom: 4px; */
+}
+.cairn .resource-input {
+    height: 32px;
+    line-height: 32px;
 }
 .cairn .sheet-tabs {
     display: flex;
