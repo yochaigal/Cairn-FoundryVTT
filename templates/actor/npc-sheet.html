@@ -1,207 +1,107 @@
-<form
-    class="{{cssClass}} flexcol actor-sheet npc-sheet"
-    autocomplete="off">
-    {{!-- Sheet Header --}}
-    <header class="sheet-header" style="margin-bottom: -10px">
-
-        <div class="portrait flexcol">
-            <img
-            class="profile-img"
-            src="{{actor.img}}"
-            data-edit="img"
-            title="{{actor.name}}"
-            height="150"
-            width="150"
-            />
-        </div>
-
-        <div class="header-fields">
-            <h1 class="charname">
-            <input
-            name="name"
-            type="text"
-            value="{{actor.name}}"
-            placeholder="Name"/>
-            </h1>
-            <div class="">
-                <div class="grid grid-3col resource flexrow flex-group-center">
-                        {{#each data.data.abilities as |ability key|}}
-                          <div class="flexcol">
-                              <div class="flexrow">
-                                  <label
-                                      for="data.abilities.{{key}}.value"
-                                      class="resource-label rollable-ability"
-                                      data-roll="d20cs<=@abilities.{{key}}.value"
-                                      data-label="{{key}} save">
-                                      {{key}} <i class="fas fa-dice-d20"></i>
-                                  </label>
-                                  <div class="flexrow">
-                                      <input
-                                      type="text"
-                                      name="data.abilities.{{key}}.value"
-                                      value="{{ability.value}}"
-                                      data-dtype="Number"
-                                      /> <span> / </span>
-                                      <input
-                                      type="text"
-                                      name="data.abilities.{{key}}.max"
-                                      value="{{ability.max}}"
-                                      data-dtype="Number"
-                                      />
-                                  </div>
-                              </div>
-                          </div>
-                        {{/each}}
+<form class="cairn" autocomplete="off">
+    <div class="charater-sheet-grid">
+        <!-- Portrait, HP, "Rest" and "Restore Abilities" buttons-->
+        <div class="character-sheet-section-portrait">
+            <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+            <div class="resource-counter">
+                <label class="resource-label" for="data.hp.value">HP</label>
+                <div class="resource-input-wrapper">
+                    <input type="text" name="data.hp.value" value="{{data.data.hp.value}}" data-dtype="Number" />
+                    <span> / </span>
+                    <input type="text" name="data.hp.max" value="{{data.data.hp.max}}" data-dtype="Number" />
                 </div>
-
-                <div class="grid grid-3col resource flexrow flex-group-center">
-                    <div class="flexcol">
-                        <div class="flexrow">
-                            <label for="data.armor" class="resource-label">Armor</label>
-                            <div class="resource-content flexrow flex-center flex-between">
-                                <span>
-                                  <input
-                                  type="text"
-                                  name="data.armor"
-                                  value="{{data.data.armor}}"
-                                  data-dtype="Number"
-                                  />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flexcol">
-                      <div class="flexrow resource hp">
-                        <label
-                            for="data.hp.value"
-                            class="resource-label">HP
-                        </label>
-                            <div class="resource-content flexrow flex-center flex-between">
-                                <input
-                                type="text"
-                                name="data.hp.value"
-                                value="{{data.data.hp.value}}"
-                                data-dtype="Number"
-                                />
-                                <span> / </span>
-                                <input
-                                type="text"
-                                name="data.hp.max"
-                                value="{{data.data.hp.max}}"
-                                data-dtype="Number"/>
-                            </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
+            <button id="rest-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>Rest</button>
+            <button id="restore-abilities-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>Restore
+                Abilities</button>
+        </div>
+        <!-- Name -->
+        <div class="character-sheet-section-name">
+            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
+            <div></div>
+        </div>
+        <!-- Abilities and armor -->
+        <div class="character-sheet-section-abilities">
+            {{#each data.data.abilities as |ability key|}}
+            <div class="resource-counter {{key}}-counter">
+                <a class="resource-label resource-roll" for="data.abilities.{{key}}.value"
+                    data-roll="d20cs<=@abilities.{{key}}.value" data-label="{{key}} save">{{key}}</a>
+                <div class="resource-input-wrapper">
+                    <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
+                        data-dtype="Number" />
+                    <span> / </span>
+                    <input type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number" />
+                </div>
+            </div>
+            {{/each}}
+            <div class="resource-counter armor-counter">
+                <label class="large-resource-label armor-label" for="data.armor">Armor</label>
+                <div class="small-resource-input-wrapper">
+                    <span>{{data.data.armor}}</span>
                 </div>
             </div>
         </div>
-    </header>
-    {{!-- Sheet Tab Navigation --}}
-    <div class="sheet-tabs-container">
-        <nav
-            class="sheet-tabs tabs"
-            data-group="primary">
-            <a
-                class="item"
-                {{#if data.data.encumbered}}
-                style="color: red"
-                {{/if}}
-            data-tab="items">Items</a>
-            <a
-                class="item"
-            data-tab="description">Description</a>
-        </nav>
-    </div>
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        {{!-- Owned Items Tab --}}
-        <div
-            class="tab items"
-            data-group="primary"
-            data-tab="items">
-            <ol class="items-list">
-                <li class="item flexrow item-header">
-                    <div class="item-name">Name</div>
-                    <div class="item-controls">
-                        <a
-                            class="item-control item-create"
-                            title="Create item"
-                            data-type="item">
-                            <i class="fas fa-plus"></i>
-                            Add item
-                        </a>
+        <!-- Gold, not relevant for NPCs -->
+        <div class="character-sheet-section-gold"></div>
+        <!-- Deprived, not relevant for NPCs -->
+        <div class="character-sheet-section-deprived"></div>
+        <div class="character-sheet-section-tabs">
+            <nav class="tabs" data-group="primary">
+                <a class="item" data-group="primary" data-tab="items">Items</a>
+                <a class="item" data-group="primary" data-tab="description">Description</a>
+            </nav>
+            <section class="content">
+                <div class="tab" data-group="primary" data-tab="items">
+                    <div class="item-header">
+                        <div>Name <i>(bold means equipped)</i></div>
+                        <a class="item-control item-create" title="Create item" data-type="item"><i
+                                class="fas fa-plus"></i>&nbsp;Add item</a>
                     </div>
-                </li>
-                {{#each actor.items as |item id|}}
-                <li
-                    class="item flexrow"
-                    data-item-id="{{item.id}}">
-                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-                    <span>
-                        <span class="item-name item-edit">
-                            {{#if item.data.data.equipped}}
-                            <i class="fas fa-hand-paper"></i>
+                    {{#each actor.items as |item id|}}
+                    <div class="item-row" data-item-id="{{item.id}}">
+                        <div class="item-infos">
+                            <div>                           
+                                {{#if item.data.data.equipped}}
+                                <i class="fas fa-hand-paper"></i>
+                                {{/if}}
+                                {{item.data.data.quantity}} {{#boldIf item.data.data.equipped}}{{item.name}}{{/boldIf}}
+                            </div>
+                            {{#if item.data.data.blast}}
+                            &nbsp;<div class="item-info">Blast</div>
                             {{/if}}
-                            {{item.data.data.quantity}}
-                            {{#boldIf item.data.data.equipped}}
-                            {{item.name}}
-                            {{/boldIf}}
-                        </span>
-                        <!-- <span class="item-info">{{item.data.slots}} Slots </span> -->
-                        {{#if item.data.data.blast}}
-                        <span class="item-info">BLAST</span>
-                        {{/if}}
-                        {{#if item.data.data.armor}}
-                        <span class="item-info">Armor {{item.data.data.armor}}</span>
-                        {{/if}}
-                        {{#if item.data.data.damageFormula}}
-                        <span class="item-info">{{item.data.data.damageFormula}} damage</span>
-                        {{/if}}
-                        {{#if item.data.data.bulky}}
-                        <span class="item-info">Bulky</span>
-                        {{/if}}
-                        {{#if item.data.data.criticalDamage}}
-                        <span class="item-info">Crit</span>
-                        {{/if}}
-                    </span>
-                    <div class="item-controls">
-                        {{#if item.data.data.equipped}}
+                            {{#if item.data.data.armor}}
+                            &nbsp;<span class="item-info">Armor {{item.data.data.armor}}</span>
+                            {{/if}}
                             {{#if item.data.data.damageFormula}}
-                                <span
-                                    class="rollable"
-                                    data-label="damage with {{item.name}}"
-                                    data-roll="{{item.data.data.damageFormula}}"
-                                    title="Roll Damage">
-                                    <i class="fas fa-dice-d20"></i>
-                                </span>
+                            &nbsp;<div class="item-info">{{item.data.data.damageFormula}} damage</div>
                             {{/if}}
-                        {{/if}}
-                        <a
-                            class="item-control item-edit"
-                        title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a
-                            class="item-control item-delete"
-                        title="Delete One Item"><i class="fas fa-trash"></i></a>
+                            {{#if item.data.data.bulky}}
+                            &nbsp;<div class="item-info">Bulky</div>
+                            {{/if}}
+                            {{#if item.data.data.criticalDamage}}
+                            &nbsp;<div class="item-info">Crit</div>
+                            {{/if}}
+                        </div>
+                        <div>
+                            {{#if item.data.data.equipped}}
+                            {{#if item.data.data.damageFormula}}
+                            <a class="roll-control" data-label="damage with {{item.name}}"
+                                data-roll="{{item.data.data.damageFormula}}" title="Roll Damage">
+                                <i class="fas fa-dice-d20"></i>
+                            </a>
+                            {{/if}}
+                            {{/if}}
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete One Item"><i class="fas fa-trash"></i></a>
+                        </div>
                     </div>
-                </li>
-                {{/each}}
-            </ol>
+                    {{/each}}
+                </div>
+                <div class="tab" data-group="primary" data-tab="description">
+                    {{ editor content=data.data.biography target="data.biography" button=true owner=owner
+                    editable=editable }}
+                </div>
+            </section>
         </div>
-                {{!-- Biography Tab --}}
-        <div
-            class="tab biography"
-            data-group="primary"
-            data-tab="description">
-            {{
-              editor
-              content=data.data.description
-              target="data.description"
-              button=true
-              owner=owner
-              editable=editable
-            }}
-        </div>
-    </section>
+    </div>
 </form>
