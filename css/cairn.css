@@ -255,7 +255,7 @@ h2.background input {
 }
 .cairn .items-list .item-name {
     margin: 0;
-    padding.left: 5;
+    padding-left: 5;
 }
 .cairn .items-list .item-controls {
     -webkit-box-flex: 0;
