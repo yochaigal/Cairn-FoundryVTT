@@ -3,7 +3,10 @@
 .window-app {
     font-size: 1rem;
 }
-.rollable:hover, .rollable:focus, .rollable-ability:hover, .rollable-ability:focus {
+.rollable:hover,
+.rollable:focus,
+.rollable-ability:hover,
+.rollable-ability:focus {
     color: #000;
     text-shadow: 0 0 10px red;
     cursor: pointer;
@@ -56,7 +59,7 @@
 }
 /* Styles limited to cairn sheets */
 .cairn .item-form {
-    font-family: 'Krona One', sans-serif;
+    font-family: "Krona One", sans-serif;
     font-size: 8pt;
 }
 .cairn .sheet-header .portrait {
@@ -84,7 +87,7 @@
 }
 
 .cairn .container-sheet .sheet-header {
-  flex: 0px
+    flex: 0px;
 }
 
 .cairn .sheet-header .profile-img {
@@ -99,39 +102,39 @@
 }
 
 .item-sheet .resource {
-  padding: 0px;
+    padding: 0px;
 }
 
 .npc-sheet .resource {
-  margin-top: 0px;
-  margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .cairn .item-sheet .sheet-header .profile-img {
-  max-width: 130px;
-  max-height: 130px;
+    max-width: 130px;
+    max-height: 130px;
 }
 
 .cairn .actor-sheet .sheet-header .portrait > div {
-  margin-bottom: 1px;
-  margin-top: 0px;
+    margin-bottom: 1px;
+    margin-top: 0px;
 }
 
 .cairn .actor-sheet .sheet-header .portrait > span {
-  margin-bottom: 1px;
-  margin-top: 0px;
+    margin-bottom: 1px;
+    margin-top: 0px;
 }
 
 .cairn .actor-sheet .sheet-header .profile-img {
-  max-width: 149px;
-  max-height: 149px;
-  margin-bottom: 1px;
+    max-width: 149px;
+    max-height: 149px;
+    margin-bottom: 1px;
 }
 
 .cairn .container-sheet .sheet-header .profile-img {
-  max-width: 107px;
-  max-height: 107px;
-  margin-bottom: 1px;
+    max-width: 107px;
+    max-height: 107px;
+    margin-bottom: 1px;
 }
 
 .cairn .sheet-header .header-fields {
@@ -141,7 +144,7 @@
 }
 
 .cairn .sheet-header .flex-group-center {
-  padding: 0px;
+    padding: 0px;
 }
 
 .cairn .sheet-header h1.charname {
@@ -174,7 +177,7 @@ h2.background input {
 }
 .cairn .window-content {
     border: 10px solid black;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     background-image: none;
 }
 .cairn .sheet-body,
@@ -225,7 +228,7 @@ h2.background input {
 }
 .cairn .sheet-tabs a.active {
     text-shadow: 0 0 10px red;
-    border-bottom: 3px solid #44191A;
+    border-bottom: 3px solid #44191a;
 }
 .cairn .items-list {
     list-style: none;
@@ -241,7 +244,7 @@ h2.background input {
     line-height: 24px;
     padding: 3px 5px 3px 5px;
     background: white;
-    border-bottom: 1px solid #BBB;
+    border-bottom: 1px solid #bbb;
 }
 .cairn .items-list .item .item-image {
     -webkit-box-flex: 0;
@@ -273,7 +276,7 @@ h2.background input {
     border-width: thin;
     border-radius: 3px;
     padding: 0 4px;
-    font-size: .75rem;
+    font-size: 0.75rem;
 }
 .cairn .items-list .clickable {
     background-color: #669;
@@ -285,11 +288,12 @@ h2.background input {
     border-radius: 0px;
 }
 
-body, .window-app {
-  font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
+body,
+.window-app {
+    font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
 }
 
-.cairn  .flexcol > .flexrow {
+.cairn .flexcol > .flexrow {
     border: 2px solid black;
     margin-bottom: 1px;
     border-radius: 0 0 5px 5px;
@@ -320,22 +324,22 @@ body, .window-app {
     border-radius: 0 0 5px 5px;
 }
 
-.cairn  .hp + span {
+.cairn .hp + span {
     margin-bottom: 1px;
 }
 
-.cairn  h2.background {
+.cairn h2.background {
     border-bottom: 2px solid black;
 }
 
-.cairn  .flexrow .flexrow {
+.cairn .flexrow .flexrow {
     background-color: white;
 }
 
 .success {
-   background-color: #18520b !important;
-  color: white !important;
-  font-size: 1rem !important;
+    background-color: #18520b !important;
+    color: white !important;
+    font-size: 1rem !important;
 }
 .failure {
     color: white !important;
@@ -343,32 +347,31 @@ body, .window-app {
     font-size: 1rem !important;
 }
 
-
-.chat-message .message-header .message-sender{
+.chat-message .message-header .message-sender {
     font-size: 1rem;
     font-weight: bold;
 }
 
-#chat-log .message{
+#chat-log .message {
     padding: 10px;
 }
 .chat-message .message-header .flavor-text,
 .chat-message .message-header .whisper-to {
-  flex: 0 0 100%;
-  font-size: 0.9rem;
-  margin: 5px 0 10px 0px;
+    flex: 0 0 100%;
+    font-size: 0.9rem;
+    margin: 5px 0 10px 0px;
 }
 
 .cairn .editor {
     min-height: 35px;
 }
 .cairn .tox {
-    height:100% !important;
-    display:block;
+    height: 100% !important;
+    display: block;
 }
 .cairn .tox-tinymce {
-    height:100% !important;
-    display:block;
+    height: 100% !important;
+    display: block;
 }
 .cairn .tox .tox-editor-container {
     background: #fff;
@@ -381,49 +384,48 @@ body, .window-app {
 }
 
 .editor-content > p {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 /* Tooltip container */
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-
-  /* bottom tooltip */
-  /* width: 120px; */
-  /* top: 100%; */
-  /* left: 50%; */
-  /* margin-left: -60px; [> Use half of the width (120/2 = 60), to center the tooltip <] */
-
-  /* left tooltip */
-  /* top: -5px; */
-  /* right: 105%; */
-
-  /* top tooltip */
+    visibility: hidden;
     width: 120px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    /* bottom tooltip */
+    /* width: 120px; */
+    /* top: 100%; */
+    /* left: 50%; */
+    /* margin-left: -60px; [> Use half of the width (120/2 = 60), to center the tooltip <] */
+
+    /* left tooltip */
+    /* top: -5px; */
+    /* right: 105%; */
+
+    /* top tooltip */
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
-
