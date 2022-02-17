@@ -1,101 +1,98 @@
 {
   "name": "cairn",
   "title": "Cairn",
-  "description": "Cairn for FoundryVTT", "version": "0.10.10",
+  "description": "Cairn for FoundryVTT",
+  "version": "0.10.10",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9",
   "templateVersion": 2,
   "author": "yochaigal",
-  "esmodules": [
-    "module/cairn.js"
-  ],
-  "styles": [
-    "css/cairn.css"
-  ],
+  "esmodules": ["module/cairn.js"],
+  "styles": ["css/cairn.css"],
   "packs": [
     {
-    "name": "armor",
-    "label": "Armor",
-    "path": "packs/armor.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "armor",
+      "label": "Armor",
+      "path": "packs/armor.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "character-traits",
-    "label": "Character Traits",
-    "path": "packs/character-traits.db",
-    "entity": "RollTable",
-    "system": "cairn"
+      "name": "character-traits",
+      "label": "Character Traits",
+      "path": "packs/character-traits.db",
+      "entity": "RollTable",
+      "system": "cairn"
     },
     {
-    "name": "expeditionary-gear",
-    "label": "Expeditionary Gear",
-    "path": "packs/expeditionary-gear.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "expeditionary-gear",
+      "label": "Expeditionary Gear",
+      "path": "packs/expeditionary-gear.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "extra",
-    "label": "Extra",
-    "path": "packs/extra.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "extra",
+      "label": "Extra",
+      "path": "packs/extra.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "gear-tables",
-    "label": "Gear Tables",
-    "path": "packs/gear-tables.db",
-    "entity": "RollTable",
-    "system": "cairn"
+      "name": "gear-tables",
+      "label": "Gear Tables",
+      "path": "packs/gear-tables.db",
+      "entity": "RollTable",
+      "system": "cairn"
     },
     {
-    "name": "macros",
-    "label": "Macros",
-    "path": "packs/macros.db",
-    "entity": "Macro",
-    "system": "cairn"
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros.db",
+      "entity": "Macro",
+      "system": "cairn"
     },
     {
-    "name": "monsters",
-    "label": "Monsters",
-    "path": "packs/monsters.db",
-    "entity": "Actor",
-    "system": "cairn"
+      "name": "monsters",
+      "label": "Monsters",
+      "path": "packs/monsters.db",
+      "entity": "Actor",
+      "system": "cairn"
     },
     {
-	"name": "spellbooks",
-    "label": "Spellbooks",
-    "path": "packs/spellbooks.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "spellbooks",
+      "label": "Spellbooks",
+      "path": "packs/spellbooks.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-	"name": "more-spellbooks",
-    "label": "More Spellbooks",
-    "path": "packs/more-spellbooks.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "more-spellbooks",
+      "label": "More Spellbooks",
+      "path": "packs/more-spellbooks.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "tools",
-    "label": "Tools",
-    "path": "packs/tools.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "tools",
+      "label": "Tools",
+      "path": "packs/tools.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "trinkets",
-    "label": "Trinkets",
-    "path": "packs/trinkets.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "trinkets",
+      "label": "Trinkets",
+      "path": "packs/trinkets.db",
+      "entity": "Item",
+      "system": "cairn"
     },
     {
-    "name": "weapons",
-    "label": "Weapons",
-    "path": "packs/weapons.db",
-    "entity": "Item",
-    "system": "cairn"
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons.db",
+      "entity": "Item",
+      "system": "cairn"
     }
   ],
   "scripts": [],
