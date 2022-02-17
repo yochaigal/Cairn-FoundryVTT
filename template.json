@@ -1,8 +1,6 @@
 {
   "Actor": {
-    "types": [
-      "character", "npc", "container"
-    ],
+    "types": ["character", "npc", "container"],
     "templates": {
       "actorBase": {
         "hp": {
@@ -26,7 +24,7 @@
       }
     },
     "character": {
-      "templates": [ "base", "actorBase" ],
+      "templates": ["base", "actorBase"],
       "background": "",
       "biography": "",
       "deprived": false,
@@ -34,24 +32,19 @@
     },
 
     "npc": {
-      "templates": [ "base", "actorBase" ],
+      "templates": ["base", "actorBase"],
       "description": "",
       "armor": 0
     },
 
     "container": {
-      "templates": [ "base" ],
+      "templates": ["base"],
       "description": "",
       "slots": 0
     }
   },
   "Item": {
-    "types": [
-      "item",
-      "weapon",
-      "armor",
-      "spellbook"
-    ],
+    "types": ["item", "weapon", "armor", "spellbook"],
     "templates": {
       "universal": {
         "description": "",
@@ -68,7 +61,7 @@
       "numberOfUses": 0
     },
     "weapon": {
-      "templates":["base", "universal"],
+      "templates": ["base", "universal"],
       "damageFormula": "",
       "bulky": false,
       "blast": false
