@@ -142,7 +142,6 @@
     margin-right: 10px;
     border-radius: 5px 5px 0 0;
     border: 2px solid #000;
-    /* border-bottom: 0; */
 }
 
 .item-sheet .resource {
@@ -192,7 +191,6 @@
 }
 
 .cairn .sheet-header h1.charname {
-    /*height: 40px;*/
     padding: 8px;
     margin: 0 0 5px 0;
     border-bottom: 0;
@@ -211,9 +209,7 @@ h1.charname input {
 h2.background input {
     border: 0px;
     background: inherit;
-    /* background-color: white; */
     color: black;
-    /*border-bottom: 1px solid black;*/
     padding: 2px;
     font-variant: small-caps;
 }
@@ -239,7 +235,6 @@ h2.background input {
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
-    /* border-top: 2px solid black; */
 }
 .cairn .tox .tox-editor-container {
     background: #fff;
@@ -342,7 +337,6 @@ body, .window-app {
 
 .cairn  .flexcol > .flexrow {
     border: 2px solid black;
-    /* width: 140px; */
     margin-bottom: 1px;
     border-radius: 0 0 5px 5px;
 }
@@ -356,7 +350,6 @@ body, .window-app {
     border: 2px solid black;
     border-bottom: none;
     border-radius: 5px 5px 0 0;
-    /* box-sizing: border-box; */
     background: white;
 }
 
@@ -371,7 +364,6 @@ body, .window-app {
 .cairn .character-sheet .flexrow.resource.hp {
     width: 150px;
     border-radius: 0 0 5px 5px;
-    /* margin-bottom: 5px; */
 }
 
 .cairn  .hp + span {
