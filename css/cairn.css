@@ -286,7 +286,7 @@ h2.background input {
 }
 
 body, .window-app {
-  font-family: "Alegreya", "Times new roman", "Times", "Serif";
+  font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
 }
 
 .cairn  .flexcol > .flexrow {
