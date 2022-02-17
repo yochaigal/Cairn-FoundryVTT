@@ -18,18 +18,9 @@
                     class="resource-label">HP
                 </label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input
-                    type="text"
-                    name="data.hp.value"
-                    value="{{data.data.hp.value}}"
-                    data-dtype="Number"
-                    />
-                    <span> / </span>
-                    <input
-                    type="text"
-                    name="data.hp.max"
-                    value="{{data.data.hp.max}}"
-                    data-dtype="Number"/>
+                    <input class="resource-input" type="text" name="data.hp.value" value="{{data.data.hp.value}}" data-dtype="Number"/>
+                    <span class="resource-input"> / </span>
+                    <input class="resource-input" type="text" name="data.hp.max" value="{{data.data.hp.max}}" data-dtype="Number"/>
                 </div>
             </div>
               <span class="tooltip">
@@ -86,29 +77,16 @@
                                 {{key}} <i class="fas fa-dice-d20"></i>
                             </label>
                             <div class="flexrow">
-                                <input
-                                type="text"
-                                name="data.abilities.{{key}}.value"
-                                value="{{ability.value}}"
-                                data-dtype="Number"
-                                /> <span> / </span>
-                                <input
-                                type="text"
-                                name="data.abilities.{{key}}.max"
-                                value="{{ability.max}}"
-                                data-dtype="Number"
-                                />
+                                <input class="resource-input" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/> 
+                                <span class="resource-input"> / </span>
+                                <input class="resource-input" type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
                             </div>
                         </div>
                         {{/each}}
                         <div class="flexrow">
-                            <label
-                                for="data.armor"
-                            class="resource-label">Armor</label>
+                            <label for="data.armor" class="resource-label">Armor</label>
                             <div class="resource-content flexrow flex-center flex-between">
-                                <span>
-                                    {{data.data.armor}}
-                                </span>
+                                <span class="resource-input">{{data.data.armor}}</span>
                             </div>
                         </div>
                     </div>
@@ -119,14 +97,9 @@
                         <div class="flexrow">
                             <label
                                 for="data.gold"
-                            class="resource-label">gold</label>
+                            class="resource-label">Gold</label>
                             <div class="resource-content flexrow flex-center flex-between">
-                                <input
-                                type="text"
-                                name="data.gold"
-                                value="{{data.data.gold}}"
-                                data-dtype="Number"
-                                />
+                                <input class="resource-input" type="text" name="data.gold" value="{{data.data.gold}}" data-dtype="Number"/>
                             </div>
                         </div>
                     </div>
