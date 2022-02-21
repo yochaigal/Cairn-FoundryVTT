@@ -17,3 +17,9 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 1. In the FVTT Game Systems Menu, click `Install System`
 2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
 3. Follow steps 3-5 in the Auto Installer above.
+
+## Contributing
+
+If you want to contribute to this sheet, you'll need to clone this repository in the `systems` directory in Foundry VTT data path.
+
+Please note that the directory needs to be named `cairn` in order to be properly detected by Foundry VTT (i.e. it needs to look like `Data\systems\cairn`).
