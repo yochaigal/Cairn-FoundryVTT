@@ -1,3 +1,20 @@
+@font-face {
+    src: url("../fonts/Alegreya-Regular.woff2");
+    font-family: "Alegreya";
+}
+
+@font-face {
+    src: url("../fonts/Alegreya-Medium.woff2");
+    font-family: "Alegreya";
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("../fonts/Alegreya-Bold.woff2");
+    font-family: "Alegreya";
+    font-weight: bold;
+}
+
 /******************************************************************************
  * General style.                                                             * 
  ******************************************************************************/
@@ -103,7 +120,7 @@
  * Item sheet grid.                                                           * 
  ******************************************************************************/
 
- .item-sheet-grid {
+.item-sheet-grid {
     display: grid;
     column-gap: 8px;
     row-gap: 8px;
@@ -147,7 +164,7 @@
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
     font-variant: small-caps;
     font-size: 23px !important;
-    font-weight: bold;
+    font-weight: 500;
     padding: 8px !important;
     height: 100% !important;
 }
@@ -189,7 +206,7 @@
     color: #f5f5f5;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 32px;
     text-align: center;
 }
@@ -284,7 +301,7 @@
  * Items list.                                                                * 
  ******************************************************************************/
 
- .item-header {
+.item-header {
     border-bottom: 1px solid #b5b3a4;
     display: flex;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
@@ -293,22 +310,22 @@
     padding: 0 8px;
     line-height: 36px;
     height: 36px;
- }
+}
 
- .item-row {
+.item-row {
     border-bottom: 1px solid #b5b3a4;
     display: flex;
     justify-content: space-between;
     padding: 0 8px;
     line-height: 26px;
     height: 26px;
- }
+}
 
 .item-infos {
     display: flex;
 }
 
- .item-info {
+.item-info {
     align-self: center;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #999;
@@ -318,4 +335,4 @@
     line-height: 16px;
     padding: 0 3px;
     height: 18px;
- }
+}
