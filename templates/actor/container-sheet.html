@@ -1,26 +1,19 @@
 <form class="cairn" autocomplete="off">
-    <div class="charater-sheet-grid">
-        <!-- Portrait, HP, "Rest" and "Restore Abilities" buttons-->
-        <div class="character-sheet-section-portrait">
-            <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-            <div class="resource-counter">
-                <label class="large-resource-label" for="data.slots">Slots</label>
-                <div class="small-resource-input-wrapper">
-                    <input type="text" name="data.slots" value="{{data.data.slots}}" data-dtype="Number" />
+    <div class="container-sheet-grid">
+        <!-- Portrait -->
+        <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <!-- Name and slots -->
+        <div class="character-sheet-section-name">
+            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
+            <!-- Background, not relevant for containers -->
+            <div class="background-input"></div>
+            <div class="resource-counter slots-counter">
+                <label for="data.slots.value">Slots</label>
+                <div class="resource-input-wrapper">
+                    <input type="text" name="data.slots.value" value="{{data.data.slots.value}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
-        <!-- Name -->
-        <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
-            <div></div>
-        </div>
-        <!-- Abilities, not relevant for containers -->
-        <div class="character-sheet-section-abilities"></div>
-        <!-- Gold, not relevant for containers -->
-        <div class="character-sheet-section-gold"></div>
-        <!-- Deprived, not relevant for containers -->
-        <div class="character-sheet-section-deprived"></div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="items">Items</a>

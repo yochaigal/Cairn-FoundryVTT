@@ -8,8 +8,8 @@ export class CairnActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 580,
+      width: 480,
+      height: 480,
       tabs: [
         {
           navSelector: ".tabs",
@@ -92,6 +92,14 @@ export class CairnActorSheet extends ActorSheet {
 
     // Items whose descriptions can be toggled
     html.find("span.item-name").click(this._onItemDescriptionToggle.bind(this));
+
+    html.find("#die-of-fate-button").click(async (ev) => {
+      let roll = new Roll("1d6");
+      roll.roll({ async: false }).toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: "Die of Fate",
+      });;
+    });
   }
 
   /* -------------------------------------------- */
