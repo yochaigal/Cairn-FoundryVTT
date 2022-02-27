@@ -7,8 +7,8 @@ export class CairnItemSheet extends ItemSheet {
   static get defaultOptions () {
     return mergeObject(super.defaultOptions, {
       classes: ['cairn', 'sheet', 'item'],
-      width: 600,
-      height: 580,
+      width: 480,
+      height: 480,
       tabs: [
         {
           navSelector: ".tabs",

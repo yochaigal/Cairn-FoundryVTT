@@ -21,8 +21,8 @@
 
 .cairn.sheet.actor,
 .cairn.sheet.item {
-    min-height: 580px;
-    min-width: 600px;
+    min-height: 480px;
+    min-width: 480px;
 }
 
 .cairn .window-content {
@@ -34,86 +34,69 @@
     height: 100%;
 }
 
-.cairn .editor-content {
-    padding: 0 8px;
-}
-
 /******************************************************************************
  * Character sheet grid.                                                      * 
  ******************************************************************************/
 
 .charater-sheet-grid {
     display: grid;
-    column-gap: 8px;
-    row-gap: 8px;
-    grid-template-columns: 140px 1fr 140px 140px;
-    grid-template-rows: 72px 180px 1fr;
+    gap: 8px;
+    grid-template-columns: 140px 1fr 1fr;
+    grid-template-rows: 140px 112px 1fr;
     height: 100%;
-}
-
-.character-sheet-section-portrait {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
-
-    display: grid;
-    row-gap: 2px;
-    grid-template-rows: 140px 36px 36px 36px;
 }
 
 .character-sheet-section-name {
     grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-column-end: 4;
 
     display: grid;
+    column-gap: 8px;
     row-gap: 2px;
-    grid-template-rows: 46px 24px;
+    grid-template-rows: 46px 24px 66px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.character-sheet-section-buttons {
+    display: grid;
+    row-gap: 2px;
+    grid-template-rows: 36px 36px 36px;
+}
+
+.character-sheet-section-buttons button {
+    height: 36px;
 }
 
 .character-sheet-section-abilities {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-
     display: grid;
     row-gap: 2px;
-    grid-template-rows: 36px 36px 36px 36px;
+    grid-template-rows: 36px 36px 36px;
 }
 
-.character-sheet-section-gold {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-
+.character-sheet-section-others {
     display: grid;
     row-gap: 2px;
-    grid-template-rows: 140px 36px;
-}
-
-.character-sheet-section-deprived {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 3;
-
-    display: grid;
-    row-gap: 2px;
-    grid-template-rows: 140px 36px;
+    grid-template-rows: 55px 55px;
 }
 
 .character-sheet-section-tabs {
     grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-column-end: 4;
 
     display: grid;
     grid-template-rows: 36px 1fr;
+}
+
+/******************************************************************************
+ * Container sheet grid.                                                      * 
+ ******************************************************************************/
+
+.container-sheet-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 140px 1fr 1fr;
+    grid-template-rows: 140px 1fr;
+    height: 100%;
 }
 
 /******************************************************************************
@@ -124,8 +107,8 @@
     display: grid;
     column-gap: 8px;
     row-gap: 8px;
-    grid-template-columns: 140px 140px 140px 140px;
-    grid-template-rows: 46px 36px 36px 36px 1fr;
+    grid-template-columns: 140px 1fr 1fr;
+    grid-template-rows: 46px 36px 36px 36px 36px 1fr;
     height: 100%;
 }
 
@@ -138,70 +121,72 @@
 
 .item-sheet-section-name {
     grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 
 .item-sheet-section-tabs {
     grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
 
     display: grid;
     grid-template-rows: 36px 1fr;
 }
 
 /******************************************************************************
- * Portrait and abilities section.                                            * 
+ * Portrait and name section.                                                 * 
  ******************************************************************************/
 
+.portrait {
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 140px;
+    width: 100%;
+}
+
 .name-input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
     background: black !important;
     border: none !important;
-    color: white !important;
+    color: #f5f5f5 !important;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
-    font-variant: small-caps;
     font-size: 23px !important;
+    font-variant: small-caps;
     font-weight: 500;
     padding: 8px !important;
     height: 100% !important;
 }
 
 .background-input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
     background: none !important;
     border: none !important;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
-    font-variant: small-caps;
     font-size: 17px !important;
+    font-variant: small-caps;
     height: 100% !important;
 }
 
-.portrait {
-    border: 2px solid black;
-    border-radius: 5px 5px 0 0;
-    width: 100%;
-    height: 140px;
-}
+/******************************************************************************
+ * Generic resources counters style.                                          * 
+ ******************************************************************************/
 
 .resource-counter {
     border: 2px solid black;
+    border-radius: 5px;
     display: flex;
+    height: 36px;
 }
 
-.STR-counter {
-    border-radius: 5px 5px 0 0;
-}
-
-.armor-counter,
-.gold-counter,
-.deprived-counter {
-    border-radius: 0 0 5px 5px;
-}
-
-.resource-label,
-.large-resource-label {
+.resource-counter a,
+.resource-counter label {
     background-color: black;
     color: #f5f5f5;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
@@ -211,47 +196,103 @@
     text-align: center;
 }
 
-.resource-label {
-    width: 50%;
-}
-
-.large-resource-label {
-    width: 70%;
-}
-
-.resource-input-wrapper,
-.small-resource-input-wrapper {
-    display: flex;
-    line-height: 32px;
-}
-
 .resource-input-wrapper {
-    width: 50%;
+    display: flex;
 }
 
-.small-resource-input-wrapper {
-    width: 30%;
-}
-
-.resource-input-wrapper input,
-.small-resource-input-wrapper input {
+.resource-input-wrapper input {
     background: none !important;
     border: none !important;
     margin: auto;
     text-align: center !important;
-    height: 32px !important;
     width: 100%;
 }
 
-.resource-input-wrapper input:focus,
-.small-resource-input-wrapper input:focus {
+.resource-input-wrapper input:focus {
     box-shadow: none;
 }
 
-.resource-input-wrapper span,
-.small-resource-input-wrapper span {
+.resource-input-wrapper span {
     margin: auto;
     text-align: center;
+}
+
+/******************************************************************************
+ * Stacked resources counters style.                                          * 
+ ******************************************************************************/
+
+.stacked-counter {
+    flex-direction: column;
+    height: auto;
+}
+
+.stacked-input-wrapper {
+    display: flex;
+    line-height: 19px;
+}
+
+.stacked-input-wrapper input {
+    background: none !important;
+    border: none !important;
+    margin: auto;
+    text-align: center !important;
+    height: 19px !important;
+    width: 100%;
+}
+
+.stacked-input-wrapper input:focus {
+    box-shadow: none;
+}
+
+.stacked-input-wrapper span {
+    margin: auto;
+    text-align: center;
+}
+
+/******************************************************************************
+ * Specific resources counters style.                                         * 
+ ******************************************************************************/
+
+.hp-counter label,
+.slots-counter label,
+.STR-counter a,
+.DEX-counter a,
+.WIL-counter a {
+    width: 50%;
+}
+
+.hp-counter .resource-input-wrapper,
+.slots-counter .resource-input-wrapper,
+.STR-counter .resource-input-wrapper,
+.DEX-counter .resource-input-wrapper,
+.WIL-counter .resource-input-wrapper {
+    width: 50%;
+}
+
+.long-counter label {
+    width: 70%;
+}
+
+.long-counter .resource-input-wrapper {
+    width: 30%;
+}
+
+.hp-counter,
+.deprived-counter,
+.slots-counter {
+    align-self: end;
+}
+
+.STR-counter {
+    border-radius: 5px 5px 0 0;
+}
+
+.DEX-counter {
+    border-radius: 0;
+}
+
+.WIL-counter {
+    border-radius: 0 0 5px 5px;
 }
 
 /******************************************************************************
@@ -263,37 +304,16 @@
 }
 
 .cairn .tabs a {
-    border-left: 1px solid black;
+    border-bottom: 2px solid black;
     border-top: 2px solid black;
-    border-right: 1px solid black;
+    flex-grow: 1;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif;
     font-size: 17px;
     font-weight: bold;
     line-height: 32px;
-    flex-grow: 1;
-}
-
-.cairn .tabs a:first-child {
-    border-left: 2px solid black;
-    border-right: 1px solid black;
-    border-radius: 5px 0 0 0;
-}
-
-.cairn .tabs a:last-child {
-    border-left: 1px solid black;
-    border-right: 2px solid black;
-    border-radius: 0 5px 0 0;
-}
-
-.cairn .tabs a:not(.active) {
-    border-bottom: 2px solid black;
 }
 
 .cairn .tab {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-    border-radius: 0 0 5px 5px;
     height: 100%;
 }
 
@@ -307,7 +327,6 @@
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
     font-weight: bold;
     justify-content: space-between;
-    padding: 0 8px;
     line-height: 36px;
     height: 36px;
 }
@@ -316,7 +335,6 @@
     border-bottom: 1px solid #b5b3a4;
     display: flex;
     justify-content: space-between;
-    padding: 0 8px;
     line-height: 26px;
     height: 26px;
 }

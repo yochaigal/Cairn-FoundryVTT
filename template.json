@@ -63,12 +63,10 @@
     "weapon": {
       "templates": ["base", "universal"],
       "damageFormula": "",
-      "bulky": false,
       "blast": false
     },
     "armor": {
       "templates": ["base", "universal"],
-      "bulky": false,
       "armor": 1
     },
     "spellbook": { "templates": ["base", "universal"] }

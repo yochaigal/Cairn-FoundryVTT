@@ -1,32 +1,41 @@
 <form class="cairn" autocomplete="off">
     <div class="charater-sheet-grid">
-        <!-- Portrait, HP, "Rest" and "Restore Abilities" buttons -->
-        <div class="character-sheet-section-portrait">
-            <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-            <div class="resource-counter">
-                <label class="resource-label" for="data.hp.value">HP</label>
+        <!-- Portrait -->
+        <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <!-- Name, background, HP and deprived -->
+        <div class="character-sheet-section-name">
+            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
+            <input class="background-input" type="text" name="data.background" value="{{data.data.background}}"
+                placeholder="Background" />
+            <div class="resource-counter hp-counter">
+                <label for="data.hp.value">HP</label>
                 <div class="resource-input-wrapper">
                     <input type="text" name="data.hp.value" value="{{data.data.hp.value}}" data-dtype="Number" />
                     <span> / </span>
                     <input type="text" name="data.hp.max" value="{{data.data.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
+            <div class="resource-counter long-counter deprived-counter">
+                <label for="data.deprived">Deprived</label>
+                <div class="resource-input-wrapper">
+                    <input type="checkbox" {{checked data.data.deprived}} name="data.deprived"
+                        value="{{data.data.deprived}}" data-dtype="Boolean" />
+                </div>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="character-sheet-section-buttons">
             <button id="rest-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>Rest</button>
             <button id="restore-abilities-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>Restore
                 Abilities</button>
+            <button id="die-of-fate-button" type="button">Die of Fate</button>
         </div>
-        <!-- Name and background -->
-        <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
-            <input class="background-input" type="text" name="data.background" value="{{data.data.background}}"
-                placeholder="Background" />
-        </div>
-        <!-- Abilities and armor -->
+        <!-- Abilities -->
         <div class="character-sheet-section-abilities">
             {{#each data.data.abilities as |ability key|}}
             <div class="resource-counter {{key}}-counter">
-                <a class="resource-label resource-roll" for="data.abilities.{{key}}.value"
-                    data-roll="d20cs<=@abilities.{{key}}.value" data-label="{{key}} save">{{key}}</a>
+                <a class="resource-roll" for="data.abilities.{{key}}.value" data-roll="d20cs<=@abilities.{{key}}.value"
+                    data-label="{{key}} save">{{key}}</a>
                 <div class="resource-input-wrapper">
                     <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
                         data-dtype="Number" />
@@ -35,33 +44,19 @@
                 </div>
             </div>
             {{/each}}
-            <div class="resource-counter armor-counter">
-                <label class="large-resource-label armor-label" for="data.armor">Armor</label>
-                <div class="small-resource-input-wrapper">
+        </div>
+        <!-- Armor and gold -->
+        <div class="character-sheet-section-others">
+            <div class="resource-counter stacked-counter">
+                <label for="data.armor">Armor</label>
+                <div class="stacked-input-wrapper">
                     <span>{{data.data.armor}}</span>
                 </div>
             </div>
-        </div>
-        <!-- Gold -->
-        <div class="character-sheet-section-gold">
-            <img class="portrait" src="systems/cairn/tokens/extra/gold-piece-resized.webp"
-                style="image-rendering: pixelated;" />
-            <div class="resource-counter gold-counter">
-                <label class="large-resource-label" for="data.gold">Gold</label>
-                <div class="small-resource-input-wrapper">
+            <div class="resource-counter stacked-counter">
+                <label for="data.gold">Gold</label>
+                <div class="stacked-input-wrapper">
                     <input type="text" name="data.gold" value="{{data.data.gold}}" data-dtype="Number" />
-                </div>
-            </div>
-        </div>
-        <!-- Deprived -->
-        <div class="character-sheet-section-deprived">
-            <img class="portrait" src="systems/cairn/tokens/extra/fatigue-alt-resized.webp"
-                style="image-rendering: pixelated;" />
-            <div class="resource-counter deprived-counter">
-                <label class="large-resource-label" for="data.deprived">Deprived</label>
-                <div class="small-resource-input-wrapper">
-                    <input type="checkbox" {{checked data.data.deprived}} name="data.deprived"
-                        value="{{data.data.deprived}}" data-dtype="Boolean" />
                 </div>
             </div>
         </div>
