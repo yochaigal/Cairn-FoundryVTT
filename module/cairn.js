@@ -20,6 +20,13 @@ Hooks.once('init', async function () {
   Items.unregisterSheet('core', ItemSheet)
   Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true })
 
+  // Pre-load templates
+  const templatePaths = [
+    "systems/cairn/templates/parts/items-list.html",
+
+  ];
+  loadTemplates(templatePaths);
+
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function () {
     let outStr = ''
