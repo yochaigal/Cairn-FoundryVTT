@@ -48,14 +48,14 @@ export class CairnActorSheet extends ActorSheet {
 
     // Update inventory item
     html.find(".item-edit").click((ev) => {
-      const li = $(ev.currentTarget).parents(".item-row");
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete inventory item
     html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".item-row");
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
@@ -90,15 +90,16 @@ export class CairnActorSheet extends ActorSheet {
       }
     });
 
-    // Items whose descriptions can be toggled
-    html.find("span.item-name").click(this._onItemDescriptionToggle.bind(this));
+    html
+      .find(".cairn-item-title")
+      .click((event) => this._onItemDescriptionToggle(event));
 
     html.find("#die-of-fate-button").click(async (ev) => {
       let roll = new Roll("1d6");
       roll.roll({ async: false }).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: "Die of Fate",
-      });;
+      });
     });
   }
 
@@ -148,14 +149,21 @@ export class CairnActorSheet extends ActorSheet {
     }
   }
 
-  _onItemDescriptionToggle(e) {
-    let id = `item-description-${e.currentTarget.id.match(/item\-(.*)/)[1]}`;
-    let description = document.getElementById(id);
-    if (description.style.display === "none") {
-      description.style.display = "block";
+  _onItemDescriptionToggle(event) {
+    event.preventDefault();
+    const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
+    const item = this.actor.items.get(boxItem.data("itemId"));
+    if (boxItem.hasClass("expanded")) {
+      let summary = boxItem.children(".item-description");
+      summary.slideUp(200, () => summary.remove());
     } else {
-      description.style.display = "none";
+      let div = $(
+        `<div class="item-description">${item.data.data.description}</div>`
+      );
+      boxItem.append(div.hide());
+      div.slideDown(200);
     }
+    boxItem.toggleClass("expanded");
   }
 
   _onRollAbility(event) {

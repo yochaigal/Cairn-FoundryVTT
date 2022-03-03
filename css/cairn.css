@@ -321,7 +321,7 @@
  * Items list.                                                                * 
  ******************************************************************************/
 
-.item-header {
+.cairn-items-list-header {
     border-bottom: 1px solid #b5b3a4;
     display: flex;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
@@ -331,19 +331,23 @@
     height: 36px;
 }
 
-.item-row {
+.cairn-items-list-row {
     border-bottom: 1px solid #b5b3a4;
+}
+
+.cairn-items-list-row-header {
     display: flex;
     justify-content: space-between;
+}
+
+.cairn-item-name-and-tags {
+    display: flex;
     line-height: 26px;
     height: 26px;
+    gap: 2px;
 }
 
-.item-infos {
-    display: flex;
-}
-
-.item-info {
+.cairn-item-tag {
     align-self: center;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #999;
@@ -353,4 +357,20 @@
     line-height: 16px;
     padding: 0 3px;
     height: 18px;
+}
+
+.cairn-item-controls {
+    display: flex;
+    height: 26px;
+}
+
+.cairn-item-controls a {
+    text-align: center;
+    width: 18px;
+}
+
+.cairn-item-name-and-tags .fas,
+.cairn-item-controls .fas {
+    line-height: 26px;
+
 }

@@ -21,50 +21,7 @@
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
-                    <div class="item-header">
-                        <div>Name <i>(bold means equipped)</i></div>
-                        <a class="item-control item-create" title="Create item" data-type="item"><i
-                                class="fas fa-plus"></i>&nbsp;Add item</a>
-                    </div>
-                    {{#each actor.items as |item id|}}
-                    <div class="item-row" data-item-id="{{item.id}}">
-                        <div class="item-infos">
-                            <div>
-                                {{#if item.data.data.equipped}}
-                                <i class="fas fa-hand-paper"></i>
-                                {{/if}}
-                                {{item.data.data.quantity}} {{#boldIf item.data.data.equipped}}{{item.name}}{{/boldIf}}
-                            </div>
-                            {{#if item.data.data.blast}}
-                            &nbsp;<div class="item-info">Blast</div>
-                            {{/if}}
-                            {{#if item.data.data.armor}}
-                            &nbsp;<span class="item-info">Armor {{item.data.data.armor}}</span>
-                            {{/if}}
-                            {{#if item.data.data.damageFormula}}
-                            &nbsp;<div class="item-info">{{item.data.data.damageFormula}} damage</div>
-                            {{/if}}
-                            {{#if item.data.data.bulky}}
-                            &nbsp;<div class="item-info">Bulky</div>
-                            {{/if}}
-                            {{#if item.data.data.criticalDamage}}
-                            &nbsp;<div class="item-info">Crit</div>
-                            {{/if}}
-                        </div>
-                        <div>
-                            {{#if item.data.data.equipped}}
-                            {{#if item.data.data.damageFormula}}
-                            <a class="roll-control" data-label="damage with {{item.name}}"
-                                data-roll="{{item.data.data.damageFormula}}" title="Roll Damage">
-                                <i class="fas fa-dice-d20"></i>
-                            </a>
-                            {{/if}}
-                            {{/if}}
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete One Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>
-                    {{/each}}
+                    {{> "systems/cairn/templates/parts/items-list.html" actor=actor}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor content=data.data.biography target="data.biography" button=true owner=owner
