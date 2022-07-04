@@ -4,11 +4,11 @@
         <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
         <!-- Name and slots -->
         <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
+            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
             <!-- Background, not relevant for containers -->
             <div class="background-input"></div>
             <div class="resource-counter slots-counter">
-                <label for="data.slots.value">Slots</label>
+                <label for="data.slots.value">{{ localize 'CAIRN.Slots' }}</label>
                 <div class="resource-input-wrapper">
                     <input type="text" name="data.slots.value" value="{{data.data.slots.value}}" data-dtype="Number" />
                 </div>
@@ -16,8 +16,8 @@
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">Items</a>
-                <a class="item" data-group="primary" data-tab="description">Description</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }}</a>
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">

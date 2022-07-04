@@ -141,7 +141,7 @@ export class CairnActorSheet extends ActorSheet {
     const dataset = element.dataset;
     if (dataset.roll) {
       const roll = new Roll(dataset.roll, this.actor.data.data);
-      const label = dataset.label ? `Rolling ${dataset.label}` : "";
+      const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
       roll.roll({ async: false }).toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
@@ -172,7 +172,7 @@ export class CairnActorSheet extends ActorSheet {
     const dataset = element.dataset;
     if (dataset.roll) {
       const roll = new Roll(dataset.roll, this.actor.data.data);
-      const label = dataset.label ? `Rolling ${dataset.label}` : "";
+      const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
       const rolled = roll.roll({ async: false });
 
       const formula = rolled._formula;

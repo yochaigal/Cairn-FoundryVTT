@@ -92,7 +92,7 @@ export class CairnActor extends Actor {
 				item.delete();
 			}
 		} else {
-			ui.notifications.error("Cannot find Item to delete.");
+			ui.notifications.error(game.i18n.localize("CAIRN.NoItemToDelete"));
 		}
 	}
 }
