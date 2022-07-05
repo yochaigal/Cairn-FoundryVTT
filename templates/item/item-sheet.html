@@ -6,11 +6,11 @@
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{item.name}}" placeholder="Name" />
+            <input class="name-input" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
         </div>
         <!-- Equipped -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.equipped">Equipped</label>
+            <label class="large-resource-label" for="data.equipped">{{ localize 'CAIRN.Equipped' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.data.equipped}} name="data.equipped"
                     value="{{data.data.equipped}}" data-dtype="Boolean" />
@@ -18,7 +18,7 @@
         </div>
         <!-- Blast -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.blast">Blast</label>
+            <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.data.blast}} name="data.blast" value="{{data.data.blast}}"
                     data-dtype="Boolean" />
@@ -26,42 +26,42 @@
         </div>
         <!-- Quantity -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.quantity">Quantity</label>
+            <label class="large-resource-label" for="data.quantity">{{ localize 'CAIRN.Quantity' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Number of uses -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.numberOfUses"># of Uses</label>
+            <label class="large-resource-label" for="data.numberOfUses">{{ localize 'CAIRN.Uses' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.numberOfUses" value="{{data.data.numberOfUses}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Slots -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.slots">Slots</label>
+            <label class="large-resource-label" for="data.slots">{{ localize 'CAIRN.Slots' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.slots" value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
             </div>
         </div>
         <!-- Armor -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.armor">Armor</label>
+            <label class="large-resource-label" for="data.armor">{{ localize 'CAIRN.Armor' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.armor" value="{{data.data.armor}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Damage -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.damageFormula">Damage</label>
+            <label class="large-resource-label" for="data.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.damageFormula" value="{{data.data.damageFormula}}" data-dtype="String" />
             </div>
         </div>
         <!-- Critical Damage -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.criticalDamage">Crit. Dmg.</label>
+            <label class="large-resource-label" for="data.criticalDamage">{{ localize 'CAIRN.CriticalDamage' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="data.criticalDamage" value="{{data.data.criticalDamage}}"
                     data-dtype="String" />
@@ -69,7 +69,7 @@
         </div>
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="description">Description</a>
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="description">

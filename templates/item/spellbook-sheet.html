@@ -12,11 +12,11 @@
                 name="name"
                 type="text"
                 value="{{item.name}}"
-                placeholder="Name"/></h1>
+                placeholder="{{ localize 'CAIRN.Name' }}"/></h1>
 
             <div class="grid grid-3col" style="margin-bottom: 0px">
                 <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">Equipped</label>
+                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Equipped' }}</label>
                     <input
                         class="checkbox-block"
                         type="checkbox"
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">Slots</label>
+                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Slots' }}</label>
                     <input
                         type="text"
                         name="data.slots"
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">Quantity</label>
+                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Quantity' }}</label>
                     <input
                         type="text"
                         name="data.data.quantity"
@@ -60,7 +60,7 @@
             data-group="primary">
             <span
                 class="item"
-                data-tab="description">Description</span>
+                data-tab="description">{{ localize 'CAIRN.Description' }}</span>
         </nav>
     </div>
 
