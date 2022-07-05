@@ -101,6 +101,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "da",
+      "name": "Dansk",
+      "path": "lang/da.json"
     }
   ],
   "gridDistance": 5,
