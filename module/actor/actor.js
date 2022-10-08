@@ -119,5 +119,5 @@ function calcSlotsUsed(actorItems) {
 			return Math.trunc(itemSlotPercentage);
 		})
 		.reduce((memo, slots) => memo + slots, 0);
-	return Math.round(milliSlots / 1000);
+	return Math.round((milliSlots / 1000) * 2) / 2;
 }
