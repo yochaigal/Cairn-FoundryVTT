@@ -136,8 +136,16 @@ export const findStartingItems = async (items) => {
   const result = [];
   for (const compendiumItem of items) {
     const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumItem);
+
     const item = duplicate(await findCompendiumItem(compendium, table));
-    item.data.quantity = parseInt(quantity, 10);
+
+    //V10 remove this
+    if (item.system) {
+      item.system.quantity = parseInt(quantity, 10);
+    } else {
+      item.data.quantity = parseInt(quantity, 10);
+    }
+
     result.push(item);
   }
   return result;
