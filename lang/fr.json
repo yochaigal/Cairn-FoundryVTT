@@ -36,6 +36,6 @@
   "CAIRN.RollDamage": "Jet de dégâts",
   "CAIRN.NoItemToDelete": "Aucun objet à supprimer.",
   "CAIRN.RegenerateCharacter": "Régénérer",
-  "CAIRN.CharacterRegeneratorTitle": "Régénérer le personnage ?",
-  "CAIRN.CharacterRegeneratorConfirm": "Voulez-vous vraiment régénérer ce personnage ?"
+  "CAIRN.CharacterRegeneratorTitle": "Supprimer ce personnage et régénérer ?",
+  "CAIRN.CharacterRegeneratorConfirm": "Êtes-vous sûr de vouloir supprimer et régénérer ce personnage ?"
 }

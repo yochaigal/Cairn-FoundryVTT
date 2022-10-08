@@ -34,6 +34,6 @@
   "CAIRN.RollDamage": "Rul Skade",
   "CAIRN.NoItemToDelete": "Kunne ikke finde Udstyr der skulle slettes.",
   "CAIRN.RegenerateCharacter": "Regenerer",
-  "CAIRN.CharacterRegeneratorTitle": "Genskabe karakter?",
-  "CAIRN.CharacterRegeneratorConfirm": "Er du sikker på, at du vil genskabe denne karakter?"
+  "CAIRN.CharacterRegeneratorTitle": "Vil du slette denne karakter og genskabe?",
+  "CAIRN.CharacterRegeneratorConfirm": "Er du sikker på, at du vil slette og genskabe dette tegn?"
 }
