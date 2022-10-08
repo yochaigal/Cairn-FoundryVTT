@@ -32,5 +32,8 @@
   "CAIRN.AddItem": "Tilføj Udstyr",
   "CAIRN.BoldMeanEquipped": "(fed skrift betyder båret)",
   "CAIRN.RollDamage": "Rul Skade",
-  "CAIRN.NoItemToDelete": "Kunne ikke finde Udstyr der skulle slettes."
+  "CAIRN.NoItemToDelete": "Kunne ikke finde Udstyr der skulle slettes.",
+  "CAIRN.RegenerateCharacter": "Regenerer",
+  "CAIRN.CharacterRegeneratorTitle": "Genskabe karakter?",
+  "CAIRN.CharacterRegeneratorConfirm": "Er du sikker på, at du vil genskabe denne karakter?"
 }

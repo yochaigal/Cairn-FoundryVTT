@@ -46,6 +46,13 @@
       "system": "cairn"
     },
     {
+      "name": "character-creation-tables-srd",
+      "label": "Character Creation Tables - SRD",
+      "path": "packs/character-creation-tables-srd.db",
+      "entity": "RollTable",
+      "system": "cairn"
+    },
+    {
       "name": "macros",
       "label": "Macros",
       "path": "packs/macros.db",

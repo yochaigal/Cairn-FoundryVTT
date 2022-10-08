@@ -1,3 +1,6 @@
+import { regenerateActor } from '../character-generator.js'
+import { getInfoFromDropData } from '../utils.js'
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -17,6 +20,7 @@ export class CairnActorSheet extends ActorSheet {
           initial: "items",
         },
       ],
+      dragDrop: [{ dragSelector: ".cairn-items-list-row", dropSelector: null }],
     });
   }
 
@@ -30,6 +34,9 @@ export class CairnActorSheet extends ActorSheet {
     const data = super.getData();
     data.items = data.items.sort((a, b) =>
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+    );
+    data.items = data.items.sort((a, b) =>
+      a.data.equipped && !b.data.equipped  ? -1 : a.data.equipped === b.data.equipped ? 0 : 1
     );
     return data;
   }
@@ -190,6 +197,60 @@ export class CairnActorSheet extends ActorSheet {
           content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled_number}</li></ol></div></section></div><h4 class="dice-total success">Success (${rolled_number})</h4</div></div>`,
         });
       }
+    }
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onRegenerateCharacter(event) {
+    event.preventDefault();
+
+    const confirm = await Dialog.confirm({
+      title: game.i18n.localize("CAIRN.CharacterRegeneratorTitle"),
+      content: `<p>${game.i18n.localize("CAIRN.CharacterRegeneratorConfirm")}</p>`,
+      defaultYes: false,
+    });
+
+    if (confirm) {
+      await regenerateActor(this.actor);
+    }
+  }
+
+  /** @override */
+  _getHeaderButtons() {
+    if (this.actor.type === 'character') {
+      return [
+        {
+          class: `regenerate-character-button-${this.actor.id}`,
+          label: game.i18n.localize("CAIRN.RegenerateCharacter"),
+          icon: "fas fa-skull",
+          onclick: this._onRegenerateCharacter.bind(this),
+        },
+        ...super._getHeaderButtons(),
+      ];
+    } else {
+      return super._getHeaderButtons();
+    }
+  }
+
+
+  /**
+   * @override
+   *
+   * @param {DragEvent} event
+   * @param {Object} itemData
+   */
+  async _onDropItem(event, itemData) {
+    const item = ((await super._onDropItem(event, itemData)) || []).pop();
+    if (!item) return;
+
+    const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
+    const itemId = $(event.target).closest(".item").data("itemId");
+
+    if (originalItem) {
+      await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
   }
 }

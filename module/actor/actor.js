@@ -3,6 +3,20 @@
  * @extends {Actor}
  */
 export class CairnActor extends Actor {
+	/** @override */
+	static async create(data, options = {}) {
+		if (data.type === "character") {
+			mergeObject(data, {
+				token: {
+					disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+					actorLink: true,
+					vision: true,
+				}
+			}, {override: false});
+		}
+		return super.create(data, options);
+	}
+
 	/**
 	 * Augment the basic actor data with additional dynamic data.
 	 */
@@ -24,6 +38,7 @@ export class CairnActor extends Actor {
 	 */
 	_prepareCharacterData(actorData) {
 		const data = actorData.data;
+
 
 		data.armor = actorData.items
 			.filter((item) => item.type == "armor" || item.type == "item")
@@ -49,7 +64,6 @@ export class CairnActor extends Actor {
 			.filter((item) => item.type == "armor" || item.type == "item")
 			.map((item) => item.data.data.armor * item.data.data.equipped)
 			.reduce((a, b) => a + b, 0);
-
 		data.armor = Math.max(itemArmor, data.armor);
 		if (data.armor > 3) {
 			data.armor = 3;
@@ -105,5 +119,5 @@ function calcSlotsUsed(actorItems) {
 			return Math.trunc(itemSlotPercentage);
 		})
 		.reduce((memo, slots) => memo + slots, 0);
-	return milliSlots / 1000;
+	return Math.round(milliSlots / 1000);
 }
