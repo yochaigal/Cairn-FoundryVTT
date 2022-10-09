@@ -32,5 +32,9 @@
   "CAIRN.AddItem": "Add Item",
   "CAIRN.BoldMeanEquipped": "(bold means equipped)",
   "CAIRN.RollDamage": "Roll Damage",
-  "CAIRN.NoItemToDelete": "Cannot find Item to delete."
+  "CAIRN.NoItemToDelete": "Cannot find Item to delete.",
+  "CAIRN.RegenerateCharacter": "Regenerate",
+  "CAIRN.CharacterGenerator": "Create character",
+  "CAIRN.CharacterRegeneratorTitle": "Delete this character and regenerate?",
+  "CAIRN.CharacterRegeneratorConfirm": "Are you sure you want to delete and regenerate this character?"
 }

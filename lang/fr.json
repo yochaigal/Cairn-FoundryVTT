@@ -34,5 +34,8 @@
   "CAIRN.AddItem": "Ajouter un objet",
   "CAIRN.BoldMeanEquipped": "(équipé en gras)",
   "CAIRN.RollDamage": "Jet de dégâts",
-  "CAIRN.NoItemToDelete": "Aucun objet à supprimer."
+  "CAIRN.NoItemToDelete": "Aucun objet à supprimer.",
+  "CAIRN.RegenerateCharacter": "Régénérer",
+  "CAIRN.CharacterRegeneratorTitle": "Supprimer ce personnage et régénérer ?",
+  "CAIRN.CharacterRegeneratorConfirm": "Êtes-vous sûr de vouloir supprimer et régénérer ce personnage ?"
 }
