@@ -125,6 +125,6 @@
   "primaryTokenAttribute": "hp",
   "license": "LICENSE.txt",
   "manifest": "https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json",
-  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/download/0.10.18/0.10.18.zip",
+  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/download/0.10.19/0.10.19.zip",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/"
 }
