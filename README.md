@@ -13,7 +13,7 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 ## Installation - Manual
 
 1. In the FVTT Game Systems Menu, click `Install System`
-2. Enter the Manifest URL: `https://raw.githubusercontent.com/yochaigal/Cairn-FoundryVTT/master/system.json`
+2. Enter the Manifest URL: `https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.json`
 3. Follow steps 3-5 in the Auto Installer above.
 
 ## Contributing

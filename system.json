@@ -1,10 +1,15 @@
 {
+  "id": "cairn",
   "name": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
   "version": "0.10.22",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "minimumCoreVersion": 9,
+  "compatibleCoreVersion": "10.287",
+  "compatibility": {
+    "minimum": 9,
+    "verified": "10.287"
+  },
   "templateVersion": 2,
   "author": "yochaigal",
   "esmodules": ["module/cairn.js"],
