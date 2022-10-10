@@ -14,7 +14,7 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 
 1. In the FVTT Game Systems Menu, click `Install System`
 2. Enter the Manifest URL: `https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.json`
-3. Follow steps 3-5 in the Auto Installer above.
+3. Allow players to "Create new Actors" in the "Configure Settings" permissions menu
 
 ## Contributing
 
