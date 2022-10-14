@@ -16,20 +16,28 @@
                        value="{{data.data.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
+        <!-- Bulky -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.bulky">{{ localize 'CAIRN.Bulky' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.data.bulky}} name="data.bulky" id="data.bulky"
+                       value="{{data.data.bulky}}" data-dtype="Boolean" />
+            </div>
+        </div>
+        <!-- Weightless -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.data.weightless}} name="data.weightless" id="data.weightless"
+                       value="{{data.data.equipped}}" data-dtype="Boolean" />
+            </div>
+        </div>
         <!-- Blast -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
                        value="{{data.data.blast}}" data-dtype="Boolean" />
-            </div>
-        </div>
-        <!-- Slots -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.slots">{{ localize 'CAIRN.Slots' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="text" name="data.slots" id="data.slots"
-                       value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
             </div>
         </div>
         <!-- Damage -->

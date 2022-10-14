@@ -388,9 +388,20 @@
 }
 
 .weapon.item-sheet-grid{
-    grid-template-rows: 46px 36px 36px 36px 1fr;
+    grid-template-rows: 46px 36px 36px 36px 36px 1fr;
 }
 .weapon.item-sheet-grid .item-sheet-section-tabs{
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+
+.spellbook.item-sheet-grid,
+.armor.item-sheet-grid{
+    grid-template-rows: 46px 36px 36px 1fr;
+}
+.spellbook.item-sheet-grid .item-sheet-section-tabs,
+.armor.item-sheet-grid .item-sheet-section-tabs{
+    grid-row-start: 4;
+    grid-row-end: 5;
 }

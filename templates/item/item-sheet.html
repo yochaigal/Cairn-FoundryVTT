@@ -16,22 +16,6 @@
                     value="{{data.data.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
-        <!-- Blast -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
-                       value="{{data.data.blast}}" data-dtype="Boolean" />
-            </div>
-        </div>
-        <!-- Quantity -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.quantity">{{ localize 'CAIRN.Quantity' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="text" name="data.quantity" id="data.quantity"
-                       value="{{data.data.quantity}}" data-dtype="Number" />
-            </div>
-        </div>
         <!-- Number of uses -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.numberOfUses">{{ localize 'CAIRN.Uses' }}</label>
@@ -40,20 +24,28 @@
                        value="{{data.data.numberOfUses}}" data-dtype="Number" />
             </div>
         </div>
-        <!-- Slots -->
+        <!-- Bulky -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.slots">{{ localize 'CAIRN.Slots' }}</label>
+            <label class="large-resource-label" for="data.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.slots" id="data.slots"
-                       value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
+                <input type="checkbox" {{checked data.data.bulky}} name="data.bulky" id="data.bulky"
+                       value="{{data.data.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
-        <!-- Armor -->
+        <!-- Weightless -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.armor">{{ localize 'CAIRN.Armor' }}</label>
+            <label class="large-resource-label" for="data.weightless">{{ localize 'CAIRN.Weightless' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.armor" id="data.armor"
-                       value="{{data.data.armor}}" data-dtype="Number" />
+                <input type="checkbox" {{checked data.data.weightless}} name="data.weightless" id="data.weightless"
+                       value="{{data.data.equipped}}" data-dtype="Boolean" />
+            </div>
+        </div>
+        <!-- Blast -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
+                       value="{{data.data.blast}}" data-dtype="Boolean" />
             </div>
         </div>
         <!-- Damage -->
