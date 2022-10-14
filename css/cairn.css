@@ -374,3 +374,34 @@
     line-height: 26px;
 
 }
+
+.resource-counter.crit-dmg {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.crit-dmg.long-counter label {
+    width: 40%;
+}
+
+.crit-dmg.long-counter .resource-input-wrapper {
+    width: 60%;
+}
+
+.weapon.item-sheet-grid{
+    grid-template-rows: 46px 36px 36px 36px 36px 1fr;
+}
+.weapon.item-sheet-grid .item-sheet-section-tabs{
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+
+.spellbook.item-sheet-grid,
+.armor.item-sheet-grid{
+    grid-template-rows: 46px 36px 36px 1fr;
+}
+.spellbook.item-sheet-grid .item-sheet-section-tabs,
+.armor.item-sheet-grid .item-sheet-section-tabs{
+    grid-row-start: 4;
+    grid-row-end: 5;
+}

@@ -52,15 +52,20 @@ export class CairnItemSheet extends ItemSheet {
 		// Everything below here is only needed if the sheet is editable
 		if (!this.options.editable) return;
 
-		// Roll handlers, click handlers, etc. would go here.
-
-		// Prevent entering any less than 1 / 1000 of a slot per item.
-		html.find("[name='data.slots']").change((e) => {
-      const value = parseFloat(e.target.value);
-			if (value !== 0 && value < 0.001) {
-				ui.notifications.error("Slots Value should be 0 or greater than 0.001");
-				e.target.value = 0;
-			}
+		// If it's bulky it cannot be weightless too
+		html.find("[name='data.bulky']").change((e) => {
+      if(e.target.checked){
+        if(html.find("[name='data.weightless']").length > 0){
+          html.find("[name='data.weightless']")[0].checked = false;
+        }
+      }
 		});
+    html.find("[name='data.weightless']").change((e) => {
+      if(e.target.checked){
+        if(html.find("[name='data.bulky']").length > 0) {
+          html.find("[name='data.bulky']")[0].checked = false;
+        }
+      }
+    });
 	}
 }
