@@ -12,7 +12,7 @@
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.equipped">{{ localize 'CAIRN.Equipped' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.equipped}} name="data.equipped"
+                <input type="checkbox" {{checked data.data.equipped}} name="data.equipped" id="data.equipped"
                     value="{{data.data.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
@@ -20,50 +20,56 @@
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.blast}} name="data.blast" value="{{data.data.blast}}"
-                    data-dtype="Boolean" />
+                <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
+                       value="{{data.data.blast}}" data-dtype="Boolean" />
             </div>
         </div>
         <!-- Quantity -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.quantity">{{ localize 'CAIRN.Quantity' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
+                <input type="text" name="data.quantity" id="data.quantity"
+                       value="{{data.data.quantity}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Number of uses -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.numberOfUses">{{ localize 'CAIRN.Uses' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.numberOfUses" value="{{data.data.numberOfUses}}" data-dtype="Number" />
+                <input type="text" name="data.numberOfUses" id="data.numberOfUses"
+                       value="{{data.data.numberOfUses}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Slots -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.slots">{{ localize 'CAIRN.Slots' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.slots" value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
+                <input type="text" name="data.slots" id="data.slots"
+                       value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
             </div>
         </div>
         <!-- Armor -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.armor">{{ localize 'CAIRN.Armor' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.armor" value="{{data.data.armor}}" data-dtype="Number" />
+                <input type="text" name="data.armor" id="data.armor"
+                       value="{{data.data.armor}}" data-dtype="Number" />
             </div>
         </div>
         <!-- Damage -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="data.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.damageFormula" value="{{data.data.damageFormula}}" data-dtype="String" />
+                <input type="text" name="data.damageFormula" id="data.damageFormula"
+                       value="{{data.data.damageFormula}}" data-dtype="String" />
             </div>
         </div>
         <!-- Critical Damage -->
-        <div class="resource-counter long-counter">
+        <div class="resource-counter long-counter crit-dmg">
             <label class="large-resource-label" for="data.criticalDamage">{{ localize 'CAIRN.CriticalDamage' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.criticalDamage" value="{{data.data.criticalDamage}}"
+                <input type="text" name="data.criticalDamage" id="data.criticalDamage"
+                       value="{{data.data.criticalDamage}}"
                     data-dtype="String" />
             </div>
         </div>

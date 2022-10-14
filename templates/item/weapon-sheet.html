@@ -1,105 +1,64 @@
-<form
-    class="{{cssClass}} item-sheet weapon-sheet"
-    autocomplete="off">
-    <header class="sheet-header">
-        <img
-            class="profile-img"
-            src="{{item.img}}"
-            data-edit="img"
-            title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input
-                name="name"
-                type="text"
-                value="{{item.name}}"
-                placeholder="{{ localize 'CAIRN.Name' }}"/></h1>
-            <div class="grid grid-3col" style="margin-bottom: 0px">
-                <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Bulky' }}</label>
-                    <input
-                        class="checkbox-block"
-                        type="checkbox"
-                        {{checked
-                        data.data.bulky}}
-                        name="data.bulky"
-                        style="display: inline"
-                        value="{{data.data.bulky}}"
-                        data-dtype="Boolean"/>
-                </div>
-                <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Equipped' }}</label>
-                    <input
-                        class="checkbox-block"
-                        type="checkbox"
-                        {{checked
-                        data.data.equipped}}
-                        name="data.equipped"
-                        style="display: inline"
-                        value="{{data.data.equipped}}"
-                        data-dtype="Boolean"/>
-                </div>
-                <div class="resource flex-group-center">
-                    <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Blast' }}</label>
-                    <input
-                        class="checkbox-block"
-                        type="checkbox"
-                        {{checked
-                        data.data.blast}}
-                        name="data.blast"
-                        style="display: inline"
-                        value="{{data.data.blast}}"
-                        data-dtype="Boolean"/>
-                </div>
+<form class="cairn" autocomplete="off">
+    <div class="item-sheet-grid weapon">
+        <!-- Portrait -->
+        <div class="item-sheet-section-portrait">
+            <img class="portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <!-- Name -->
+        <div class="item-sheet-section-name">
+            <input class="name-input" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+        </div>
+        <!-- Equipped -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.equipped">{{ localize 'CAIRN.Equipped' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.data.equipped}} name="data.equipped" id="data.equipped"
+                       value="{{data.data.equipped}}" data-dtype="Boolean" />
             </div>
-          </div>
         </div>
-    </header>
-
-    <div class="grid grid-3col">
-        <div class="resource flex-group-center">
-            <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Quantity' }}</label>
-            <input
-                type="text"
-                name="data.quantity"
-                value="{{data.data.quantity}}"
-                data-dtype="Number"/>
+        <!-- Blast -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
+                       value="{{data.data.blast}}" data-dtype="Boolean" />
+            </div>
         </div>
-        <div class="resource flex-group-center">
-            <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Slots' }}</label>
-            <input
-                type="text"
-                name="data.slots"
-                value="{{data.data.slots}}"
-                placeholder=0
-                data-dtype="Number"/>
+        <!-- Slots -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.slots">{{ localize 'CAIRN.Slots' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="data.slots" id="data.slots"
+                       value="{{data.data.slots}}" placeholder=0 data-dtype="Number" />
+            </div>
         </div>
-        <div class="resource flex-group-center">
-            <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.Damage' }}</label>
-            <input
-                type="text"
-                name="data.damageFormula"
-                value="{{data.data.damageFormula}}"/>
+        <!-- Damage -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="data.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="data.damageFormula" id="data.damageFormula"
+                       value="{{data.data.damageFormula}}" data-dtype="String" />
+            </div>
+        </div>
+        <!-- Critical Damage -->
+        <div class="resource-counter long-counter crit-dmg">
+            <label class="large-resource-label" for="data.criticalDamage">{{ localize 'CAIRN.CriticalDamage' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="data.criticalDamage" id="data.criticalDamage"
+                       value="{{data.data.criticalDamage}}"
+                       data-dtype="String" />
+            </div>
+        </div>
+        <div class="item-sheet-section-tabs">
+            <nav class="tabs" data-group="primary">
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+            </nav>
+            <section class="content">
+                <div class="tab" data-group="primary" data-tab="description">
+                    {{ editor content=data.data.description target="data.description" button=true owner=owner
+                    editable=editable }}
+                </div>
+            </section>
         </div>
     </div>
-
-    <div class="resource flex-group-center">
-        <label class="resource-label" style="text-align: center">{{ localize 'CAIRN.CriticalDamage' }}</label>
-        <input
-            type="text"
-            name="data.criticalDamage"
-            value="{{data.data.criticalDamage}}"
-            data-dtype="String"/>
-    </div>
-
-    <div class="sheet-tabs-container">
-        <nav
-            class="sheet-tabs tabs"
-            data-group="primary">
-            <span
-                class="item"
-                data-tab="description">{{ localize 'CAIRN.Description' }}</span>
-        </nav>
-    </div>
-
-    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
 </form>

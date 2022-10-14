@@ -10,7 +10,8 @@
             <div class="resource-counter hp-counter">
                 <label for="data.hp.value">{{ localize 'CAIRN.HitProtection' }}</label>
                 <div class="resource-input-wrapper">
-                    <input type="text" name="data.hp.value" value="{{data.data.hp.value}}" data-dtype="Number" />
+                    <input type="text" name="data.hp.value" id="data.hp.value"
+                           value="{{data.data.hp.value}}" data-dtype="Number" />
                     <span> / </span>
                     <input type="text" name="data.hp.max" value="{{data.data.hp.max}}" data-dtype="Number" />
                 </div>
@@ -18,7 +19,7 @@
             <div class="resource-counter long-counter deprived-counter">
                 <label for="data.deprived">{{ localize 'CAIRN.Deprived' }}</label>
                 <div class="resource-input-wrapper">
-                    <input type="checkbox" {{checked data.data.deprived}} name="data.deprived"
+                    <input type="checkbox" {{checked data.data.deprived}} name="data.deprived" id="data.deprived"
                         value="{{data.data.deprived}}" data-dtype="Boolean" />
                 </div>
             </div>
@@ -47,7 +48,7 @@
         <!-- Armor and gold -->
         <div class="character-sheet-section-others">
             <div class="resource-counter stacked-counter">
-                <label for="data.armor">{{ localize 'CAIRN.Armor' }}</label>
+                <label>{{ localize 'CAIRN.Armor' }}</label>
                 <div class="stacked-input-wrapper">
                     <span>{{data.data.armor}}</span>
                 </div>
@@ -55,7 +56,7 @@
             <div class="resource-counter stacked-counter">
                 <label for="data.gold">{{ localize 'CAIRN.Gold' }}</label>
                 <div class="stacked-input-wrapper">
-                    <input type="text" name="data.gold" value="{{data.data.gold}}" data-dtype="Number" />
+                    <input type="text" name="data.gold" id="data.gold" value="{{data.data.gold}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
