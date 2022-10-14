@@ -112,5 +112,5 @@ export class CairnActor extends Actor {
 }
 
 function calcSlotsUsed(items) {
-  return items.reduce((memo, item) => memo + (item.data.data?.bulky ? 2 : item.data.data?.weightless ? 0 : 1), 0);
+  return items.reduce((memo, item) => memo + (item.data.data.slots ?? 1), 0);
 }
