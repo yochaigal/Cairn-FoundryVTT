@@ -3,7 +3,7 @@
   "name": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
-  "version": "0.10.22",
+  "version": "0.10.26",
   "minimumCoreVersion": 9,
   "compatibleCoreVersion": "10.287",
   "compatibility": {
