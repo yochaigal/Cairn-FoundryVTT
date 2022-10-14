@@ -4,8 +4,8 @@
     "templates": {
       "actorBase": {
         "hp": {
-          "value": 10,
-          "max": 10
+          "value": 6,
+          "max": 6
         },
         "abilities": {
           "STR": {
