@@ -4,8 +4,8 @@
     "templates": {
       "actorBase": {
         "hp": {
-          "value": 6,
-          "max": 6
+          "value": 10,
+          "max": 10
         },
         "abilities": {
           "STR": {
@@ -48,29 +48,27 @@
     "templates": {
       "universal": {
         "description": "",
-        "weightless": false,
+        "quantity": 1,
         "equipped": false,
-        "bulky": false
-      },
-      "withDamage" : {
-        "damageFormula": "",
-        "criticalDamage": "",
-        "blast": false
+        "slots": 1
       }
     },
     "item": {
-      "templates": ["base", "universal","withDamage"],
+      "templates": ["base", "universal"],
+      "armor": 0,
+      "damageFormula": "",
+      "equipped": false,
       "numberOfUses": 0
     },
     "weapon": {
-      "templates": ["base", "universal","withDamage"]
+      "templates": ["base", "universal"],
+      "damageFormula": "",
+      "blast": false
     },
     "armor": {
       "templates": ["base", "universal"],
       "armor": 1
     },
-    "spellbook": {
-      "templates": ["base", "universal"]
-    }
+    "spellbook": { "templates": ["base", "universal"] }
   }
 }
