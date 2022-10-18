@@ -1,19 +1,19 @@
 <form class="cairn" autocomplete="off">
     <div class="charater-sheet-grid">
         <!-- Portrait -->
-        <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         <!-- Name, background, HP and deprived -->
         <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
-            <input class="background-input" type="text" name="data.background" value="{{data.data.background}}"
+            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="background-input" type="text" name="system.background" value="{{data.system.background}}"
                 placeholder="{{ localize 'CAIRN.Background' }}" />
             <div class="resource-counter hp-counter">
-                <label for="data.hp.value">{{ localize 'CAIRN.HitProtection' }}</label>
+                <label for="system.hp.value">{{ localize 'CAIRN.HitProtection' }}</label>
                 <div class="resource-input-wrapper">
-                    <input type="text" name="data.hp.value" id="data.hp.value"
-                           value="{{data.data.hp.value}}" data-dtype="Number" />
+                    <input type="text" name="system.hp.value" id="system.hp.value"
+                           value="{{data.system.hp.value}}" data-dtype="Number" />
                     <span> / </span>
-                    <input type="text" name="data.hp.max" value="{{data.data.hp.max}}" data-dtype="Number" />
+                    <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
             <!-- Deprived, not relevant for NPCs -->
@@ -21,21 +21,21 @@
         </div>
         <!-- Buttons -->
         <div class="character-sheet-section-buttons">
-            <button id="rest-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>{{ localize 'CAIRN.Rest' }}</button>
-            <button id="restore-abilities-button" type="button" {{#if data.data.deprived}}disabled{{/if}}>{{ localize 'CAIRN.RestoreAbilities' }}</button>
+            <button id="rest-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.Rest' }}</button>
+            <button id="restore-abilities-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.RestoreAbilities' }}</button>
             <button id="die-of-fate-button" type="button">{{ localize 'CAIRN.DieOfFate' }}</button>
         </div>
         <!-- Abilities -->
         <div class="character-sheet-section-abilities">
-            {{#each data.data.abilities as |ability key|}}
+            {{#each data.system.abilities as |ability key|}}
             <div class="resource-counter {{key}}-counter">
-                <a class="resource-roll" for="data.abilities.{{key}}.value" data-roll="d20cs<=@abilities.{{key}}.value"
+                <a class="resource-roll" for="system.abilities.{{key}}.value" data-roll="d20cs<=@abilities.{{key}}.value"
                     data-label="{{{ localize 'CAIRN.Save' key=key }}}">{{ localize key }}</a>
                 <div class="resource-input-wrapper">
-                    <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
+                    <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
                         data-dtype="Number" />
                     <span> / </span>
-                    <input type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number" />
+                    <input type="text" name="system.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number" />
                 </div>
             </div>
             {{/each}}
@@ -45,7 +45,7 @@
             <div class="resource-counter stacked-counter">
                 <label>{{ localize 'CAIRN.Armor' }}</label>
                 <div class="stacked-input-wrapper">
-                    <span>{{data.data.armor}}</span>
+                    <span>{{data.system.armor}}</span>
                 </div>
             </div>
             <div></div>
@@ -57,10 +57,10 @@
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
-                    {{> "systems/cairn/templates/parts/items-list.html" actor=actor}}
+                    {{> "systems/cairn/templates/parts/items-list.html" }}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{ editor content=data.data.biography target="data.biography" button=true owner=owner
+                    {{ editor data.system.biography target="system.biography" button=true owner=owner
                     editable=editable }}
                 </div>
             </section>

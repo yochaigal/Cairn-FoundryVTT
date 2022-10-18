@@ -1,5 +1,5 @@
 import { regenerateActor } from '../character-generator.js'
-import { getInfoFromDropData } from '../utils.js'
+import { evaluateFormula, getInfoFromDropData } from '../utils.js'
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -26,7 +26,7 @@ export class CairnActorSheet extends ActorSheet {
 
   get template() {
     const path = "systems/cairn/templates/actor";
-    return `${path}/${this.actor.data.type}-sheet.html`;
+    return `${path}/${this.actor.type}-sheet.html`;
   }
 
   /** @override */
@@ -36,7 +36,7 @@ export class CairnActorSheet extends ActorSheet {
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
     );
     data.items = data.items.sort((a, b) =>
-      a.data.equipped && !b.data.equipped  ? -1 : a.data.equipped === b.data.equipped ? 0 : 1
+      a.system.equipped && !b.system.equipped  ? -1 : a.system.equipped === b.system.equipped ? 0 : 1
     );
     return data;
   }
@@ -73,26 +73,26 @@ export class CairnActorSheet extends ActorSheet {
     html.find(".resource-roll").click(this._onRollAbility.bind(this));
 
     // Rest restores HP
-    html.find("#rest-button").click(async (ev) => {
+    html.find("#rest-button").click(async () => {
       // Someone DEPRIVED of a crucial need (e.g. food,water or warmth) cannot
       // benefit from RESTS
-      if (!this.actor.data.data.deprived) {
+      if (!this.actor.system.deprived) {
         await this.actor.update({
-          "data.hp.value": this.actor.data.data.hp.max,
+          "system.hp.value": this.actor.system.hp.max,
         });
       }
     });
 
-    html.find("#restore-abilities-button").click(async (ev) => {
-      if (!this.actor.data.data.deprived) {
+    html.find("#restore-abilities-button").click(async () => {
+      if (!this.actor.system.deprived) {
         await this.actor.update({
-          "data.abilities.STR.value": this.actor.data.data.abilities.STR.max,
+          "system.abilities.STR.value": this.actor.system.abilities.STR.max,
         });
         await this.actor.update({
-          "data.abilities.DEX.value": this.actor.data.data.abilities.DEX.max,
+          "system.abilities.DEX.value": this.actor.system.abilities.DEX.max,
         });
         await this.actor.update({
-          "data.abilities.WIL.value": this.actor.data.data.abilities.WIL.max,
+          "system.abilities.WIL.value": this.actor.system.abilities.WIL.max,
         });
       }
     });
@@ -101,9 +101,9 @@ export class CairnActorSheet extends ActorSheet {
       .find(".cairn-item-title")
       .click((event) => this._onItemDescriptionToggle(event));
 
-    html.find("#die-of-fate-button").click(async (ev) => {
-      let roll = new Roll("1d6");
-      roll.roll({ async: false }).toMessage({
+    html.find("#die-of-fate-button").click(async () => {
+      const roll = await evaluateFormula("1d6");
+      roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: "Die of Fate",
       });
@@ -142,14 +142,14 @@ export class CairnActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
     if (dataset.roll) {
-      const roll = new Roll(dataset.roll, this.actor.data.data);
+      const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
-      roll.roll({ async: false }).toMessage({
+      roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
       });
@@ -161,11 +161,11 @@ export class CairnActorSheet extends ActorSheet {
     const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
     const item = this.actor.items.get(boxItem.data("itemId"));
     if (boxItem.hasClass("expanded")) {
-      let summary = boxItem.children(".item-description");
+      const summary = boxItem.children(".item-description");
       summary.slideUp(200, () => summary.remove());
     } else {
-      let div = $(
-        `<div class="item-description">${item.data.data.description}</div>`
+      const div = $(
+        `<div class="item-description">${item.system.description}</div>`
       );
       boxItem.append(div.hide());
       div.slideDown(200);
@@ -173,30 +173,20 @@ export class CairnActorSheet extends ActorSheet {
     boxItem.toggleClass("expanded");
   }
 
-  _onRollAbility(event) {
+  async _onRollAbility(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
     if (dataset.roll) {
-      const roll = new Roll(dataset.roll, this.actor.data.data);
+      const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
-      const rolled = roll.roll({ async: false });
-
-      const formula = rolled._formula;
-      const rolled_number = rolled.terms[0].results[0].result;
-      if (rolled.result === "0") {
-        rolled.toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: label,
-          content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled_number}</li></ol></div></section></div><h4 class="dice-total failure">Fail (${rolled_number})</h4</div></div>`,
-        });
-      } else {
-        rolled.toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: label,
-          content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled_number}</li></ol></div></section></div><h4 class="dice-total success">Success (${rolled_number})</h4</div></div>`,
-        });
-      }
+      const rolled = roll.terms[0].results[0].result;
+      const result = roll.total === 0 ? "Fail" : "Success"; // TODO Localize
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${roll.formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${roll.formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled}</li></ol></div></section></div><h4 class="dice-total failure">${result} (${rolled})</h4</div></div>`,
+      });
     }
   }
 
@@ -247,7 +237,6 @@ export class CairnActorSheet extends ActorSheet {
     if (!item) return;
 
     const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
-    const itemId = $(event.target).closest(".item").data("itemId");
 
     if (originalItem) {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
