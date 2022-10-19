@@ -72,13 +72,7 @@ export class CairnActor extends Actor {
 		const item = this.items.get(itemId);
 		const currentQuantity = item.system.quantity;
 		if (item) {
-			if (currentQuantity > 1) {
-				item.update({
-					"system.quantity": currentQuantity - 1,
-				});
-			} else {
 				item.delete();
-			}
 		} else {
 			ui.notifications.error(game.i18n.localize("CAIRN.NoItemToDelete"));
 		}
