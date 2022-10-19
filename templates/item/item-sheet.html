@@ -16,30 +16,51 @@
                     value="{{data.system.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
-        <!-- Number of uses -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.numberOfUses">{{ localize 'CAIRN.Uses' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="text" name="system.numberOfUses" id="system.numberOfUses"
-                       value="{{data.system.numberOfUses}}" data-dtype="Number" />
-            </div>
-        </div>
-        <!-- Bulky -->
-        <div class="resource-counter long-counter">
+
+          <!-- Bulky -->
+          <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.bulky}} name="system.bulky" id="system.bulky"
-                       value="{{data.system.bulky}}" data-dtype="Boolean" />
+                        value="{{data.system.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
+
         <!-- Weightless -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.weightless}} name="system.weightless" id="system.weightless"
-                       value="{{data.system.equipped}}" data-dtype="Boolean" />
+                        value="{{data.system.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
+      
+        <!-- Quantity -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.quantity">{{ localize 'CAIRN.Quantity' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" {{checked data.system.weightless}} name="system.quantity" id="system.quantity"
+                        value="{{data.system.quantity}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <!-- Number of uses -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.value" id="system.uses.value"
+                       value="{{data.system.uses.value}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.max">{{ localize 'CAIRN.MaxUses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.max" id="system.uses.max"
+                      value="{{data.system.uses.max}}" data-dtype="Number" />
+            </div>
+        </div>
+              
         <!-- Blast -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.blast">{{ localize 'CAIRN.Blast' }}</label>
@@ -65,6 +86,7 @@
                     data-dtype="String" />
             </div>
         </div>
+        
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>

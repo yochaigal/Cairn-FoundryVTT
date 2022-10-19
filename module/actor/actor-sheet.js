@@ -12,7 +12,7 @@ export class CairnActorSheet extends ActorSheet {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
       width: 480,
-      height: 480,
+      height: 640,
       tabs: [
         {
           navSelector: ".tabs",
@@ -36,8 +36,8 @@ export class CairnActorSheet extends ActorSheet {
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
     );
     data.items = data.items.sort((a, b) =>
-      a.system.equipped && !b.system.equipped  ? -1 : a.system.equipped === b.system.equipped ? 0 : 1
-    );
+      a.system.equipped && !b.system.equipped ? -1 : a.system.equipped === b.system.equipped ? 0 : 1
+    );    
     return data;
   }
 
@@ -65,6 +65,32 @@ export class CairnActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
+    });
+
+    html.find(".item-toggle-equipped").click((ev) => {
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      item.update({'system.equipped': !item.system.equipped});
+    });
+
+    html.find(".item-add-quantity").click((ev) => {
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      if (item.system.weightless) {
+        item.update({'system.quantity': item.system.quantity + 1});
+      } else {
+        item.update({'system.uses.value': Math.min(item.system.uses.value + 1, item.system.uses.max)});
+      }      
+    });
+
+    html.find(".item-remove-quantity").click((ev) => {
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      if (item.system.weightless) {
+        item.update({'system.quantity': Math.max(item.system.quantity - 1, 0)});
+      } else {
+        item.update({'system.uses.value': Math.max(item.system.uses.value - 1, 0)});
+      } 
     });
 
     html.find(".roll-control").click(this._onRoll.bind(this));
@@ -116,25 +142,31 @@ export class CairnActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
-    const header = event.currentTarget;
-    // Get the type of item to create.
-    const type = header.dataset.type;
-    // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-    // Prepare the item object.
-    const itemData = {
-      name: name,
-      type: type,
-      data: data,
-    };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data.type;
-    // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+    const template = "systems/cairn/templates/dialog/add-item-dialog.html";
+    const content =  await renderTemplate(template);
+
+    new Dialog({
+      title: game.i18n.localize("CAIRN.CreateItem"),
+      content,
+      buttons: {
+        create: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize("CAIRN.CreateItem"),
+          callback: (html) => {
+            const form = html[0].querySelector("form");
+            if (form.itemname.value.trim() !== '') {
+              this.actor.createOwnedItem({
+                name: form.itemname.value,
+                type: form.itemtype.value
+              });
+            }
+          }
+        },
+      },
+      default: "create"
+    }).render(true);
   }
 
   /**

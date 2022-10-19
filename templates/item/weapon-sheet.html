@@ -57,6 +57,22 @@
                        data-dtype="String" />
             </div>
         </div>
+        <!-- Number of uses -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.value" id="system.uses.value"
+                        value="{{data.system.uses.value}}" data-dtype="Number" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.max">{{ localize 'CAIRN.MaxUses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.max" id="system.uses.max"
+                      value="{{data.system.uses.max}}" data-dtype="Number" />
+            </div>
+        </div>
+
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>

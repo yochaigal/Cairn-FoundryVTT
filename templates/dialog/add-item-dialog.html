@@ -1,0 +1,22 @@
+<form class="custom-dialog">
+  <div class="form-group">
+    <label>{{localize 'CAIRN.Name'}}:</label>
+    <input
+      type="text"
+      name="itemname"
+      value=""
+      placeholder="{{localize 'CAIRN.Name'}}"
+      data-dtype="String"
+    />
+  </div>
+  <div class="form-group">
+    <label>{{localize 'CAIRN.Type'}}:</label>
+    <br />
+    <select name="itemtype" class="add-type">
+      <option value="item" selected>{{localize 'CAIRN.Item'}}</option>
+      <option value="armor">{{localize 'CAIRN.Armor'}}</option>
+      <option value="weapon">{{localize 'CAIRN.Weapon'}}</option>
+      <option value="spellbook">{{localize 'CAIRN.Spellbook'}}</option>
+    </select>
+  </div>
+</form>

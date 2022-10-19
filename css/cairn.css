@@ -108,7 +108,7 @@
     column-gap: 8px;
     row-gap: 8px;
     grid-template-columns: 140px 1fr 1fr;
-    grid-template-rows: 46px 36px 36px 36px 36px 1fr;
+    grid-template-rows: 46px 36px 36px 36px 36px 36px 1fr;
     height: 100%;
 }
 
@@ -116,7 +116,7 @@
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 7;
 }
 
 .item-sheet-section-name {
@@ -129,7 +129,7 @@
 .item-sheet-section-tabs {
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 6;
+    grid-row-start: 7;
     grid-row-end: 7;
 
     display: grid;
@@ -145,6 +145,7 @@
     border-radius: 5px;
     height: 140px;
     width: 100%;
+    object-fit: contain;
 }
 
 .name-input {
@@ -344,7 +345,7 @@
     display: flex;
     line-height: 26px;
     height: 26px;
-    gap: 2px;
+    gap: 4px;
 }
 
 .cairn-item-tag {
@@ -357,6 +358,10 @@
     line-height: 16px;
     padding: 0 3px;
     height: 18px;
+}
+
+.cairn-item-uses i {
+  font-size: 10px;
 }
 
 .cairn-item-controls {
@@ -372,13 +377,16 @@
 .cairn-item-name-and-tags .fas,
 .cairn-item-controls .fas {
     line-height: 26px;
-
 }
 
-.resource-counter.crit-dmg {
-    grid-column-start: 2;
-    grid-column-end: 4;
+.item-toggle-equipped {
+  color: var(--color-text-dark-inactive);
 }
+
+.item-toggle-equipped.equipped {
+  color: var(--color-text-dark-primary);
+}
+
 .crit-dmg.long-counter label {
     width: 40%;
 }
@@ -392,16 +400,16 @@
 }
 .weapon.item-sheet-grid .item-sheet-section-tabs{
     grid-row-start: 6;
-    grid-row-end: 7;
+    grid-row-end: 6;
 }
 
 
 .spellbook.item-sheet-grid,
 .armor.item-sheet-grid{
-    grid-template-rows: 46px 36px 36px 1fr;
+    grid-template-rows: 46px 36px 36px 36px 1fr;
 }
 .spellbook.item-sheet-grid .item-sheet-section-tabs,
 .armor.item-sheet-grid .item-sheet-section-tabs{
-    grid-row-start: 4;
+    grid-row-start: 5;
     grid-row-end: 5;
 }

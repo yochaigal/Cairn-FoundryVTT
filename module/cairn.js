@@ -20,7 +20,7 @@ Hooks.once('init', async function () {
 
   // Define custom Entity classes
   CONFIG.Actor.documentClass = CairnActor;
-  CONFIG.Item.entityClass = CairnItem;
+  CONFIG.Item.documentClass = CairnItem;
 
   // configure combat
   CONFIG.Combat.documentClass = CairnCombat;
@@ -34,33 +34,7 @@ Hooks.once('init', async function () {
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
 
-  // Pre-load templates
-  const templatePaths = [
-    "systems/cairn/templates/parts/items-list.html",
-  ];
-
-  loadTemplates(templatePaths);
-
-  // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function () {
-    let outStr = '';
-
-    for (const arg in arguments) {
-      if (typeof arguments[arg] !== 'object') {
-        outStr += arguments[arg];
-      }
-    }
-
-    return outStr;
-  });
-
-  Handlebars.registerHelper('toLowerCase', function (str) {
-    return str.toLowerCase();
-  });
-
-  Handlebars.registerHelper('boldIf', function (cond, options) {
-    return (cond) ? '<b>' + options.fn(this) + '</b>' : options.fn(this);
-  });
+  configureHandleBar();
 });
 
 Hooks.once("ready", () => {
@@ -89,3 +63,47 @@ Hooks.on("renderActorDirectory", (app, html) => {
     });
   }
 });
+
+const configureHandleBar = () => {
+  // Pre-load templates
+  const templatePaths = [
+    "systems/cairn/templates/parts/items-list.html",
+  ];
+
+  loadTemplates(templatePaths);
+
+  // If you need to add Handlebars helpers, here are a few useful examples:
+  Handlebars.registerHelper('concat', function () {
+    let outStr = '';
+
+    for (const arg in arguments) {
+      if (typeof arguments[arg] !== 'object') {
+        outStr += arguments[arg];
+      }
+    }
+
+    return outStr;
+  });
+
+  Handlebars.registerHelper('toLowerCase', function (str) {
+    return str.toLowerCase();
+  });
+
+  Handlebars.registerHelper('boldIf', function (cond, options) {
+    return (cond) ? '<strong>' + options.fn(this) + '</strong>' : options.fn(this);
+  });
+
+  Handlebars.registerHelper("ifPrint", (cond, v1) => (cond ? v1 : ""));
+  Handlebars.registerHelper("ifPrintElse", (cond, v1, v2) => (cond ? v1 : v2));
+
+  Handlebars.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i) {
+        block.data.index = i;
+        block.data.first = i === 0;
+        block.data.last = i === (n - 1);
+        accum += block.fn(this);
+    }
+    return accum;
+});
+}
