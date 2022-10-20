@@ -1,4 +1,4 @@
-import { getInfoFromDropData, getMacroCommand } from "./utils.js";
+import { evaluateFormula, getInfoFromDropData } from "./utils.js";
 
 /**
  * @param {Object} data
@@ -16,7 +16,7 @@ export const createCairnMacro = async (data, slot) => {
     return ui.notifications.warn("You can only create macro buttons for owned Items");
   }
 
-  if (item.data.type !== "weapon") {
+  if (item.type !== "weapon") {
     return ui.notifications.warn("Macros only supported for weapons");
   }
 
@@ -32,6 +32,7 @@ export const createCairnMacro = async (data, slot) => {
     });
   }
   game.user.assignHotbarMacro(macro, slot);
+  return false;
 };
 
 /**
@@ -47,11 +48,10 @@ export const rollItemMacro = async (actorId, itemId) => {
     return ui.notifications.warn(`Actor "${actor.name}" does not have an item named ${item.name}`);
   }
 
-  const roll = new Roll(item.data.data.damageFormula, actor.getRollData());
-
+  const roll = await evaluateFormula(item.system.damageFormula, actor.getRollData());
   const flavor = `${game.i18n.localize("CAIRN.Rolling")} damage with ${item.name}`;
 
-  roll.roll({ async: false }).toMessage({
+  roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor: actor }),
     flavor,
   });

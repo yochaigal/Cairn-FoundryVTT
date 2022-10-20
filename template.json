@@ -51,22 +51,29 @@
         "weightless": false,
         "equipped": false,
         "bulky": false
+        
       },
       "withDamage" : {
         "damageFormula": "",
         "criticalDamage": "",
         "blast": false
+      },
+      "consumable" : {
+        "uses": {
+          "value": 0,
+          "max": 0          
+        }
       }
     },
     "item": {
-      "templates": ["base", "universal","withDamage"],
-      "numberOfUses": 0
+      "templates": ["base", "universal","withDamage", "consumable"],
+      "quantity": 0
     },
     "weapon": {
-      "templates": ["base", "universal","withDamage"]
+      "templates": ["base", "universal","withDamage", "consumable"]
     },
     "armor": {
-      "templates": ["base", "universal"],
+      "templates": ["base", "universal", "consumable"],
       "armor": 1
     },
     "spellbook": {

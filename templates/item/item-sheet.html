@@ -2,76 +2,98 @@
     <div class="item-sheet-grid">
         <!-- Portrait -->
         <div class="item-sheet-section-portrait">
-            <img class="portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
         </div>
         <!-- Equipped -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.equipped">{{ localize 'CAIRN.Equipped' }}</label>
+            <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.equipped}} name="data.equipped" id="data.equipped"
-                    value="{{data.data.equipped}}" data-dtype="Boolean" />
+                <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
+                    value="{{data.system.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
-        <!-- Number of uses -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.numberOfUses">{{ localize 'CAIRN.Uses' }}</label>
+
+          <!-- Bulky -->
+          <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.numberOfUses" id="data.numberOfUses"
-                       value="{{data.data.numberOfUses}}" data-dtype="Number" />
+                <input type="checkbox" {{checked data.system.bulky}} name="system.bulky" id="system.bulky"
+                        value="{{data.system.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
-        <!-- Bulky -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.bulky">{{ localize 'CAIRN.Bulky' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.bulky}} name="data.bulky" id="data.bulky"
-                       value="{{data.data.bulky}}" data-dtype="Boolean" />
-            </div>
-        </div>
+
         <!-- Weightless -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.weightless}} name="data.weightless" id="data.weightless"
-                       value="{{data.data.equipped}}" data-dtype="Boolean" />
+                <input type="checkbox" {{checked data.system.weightless}} name="system.weightless" id="system.weightless"
+                        value="{{data.system.equipped}}" data-dtype="Boolean" />
             </div>
         </div>
+      
+        <!-- Quantity -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.quantity">{{ localize 'CAIRN.Quantity' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" {{checked data.system.weightless}} name="system.quantity" id="system.quantity"
+                        value="{{data.system.quantity}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <!-- Number of uses -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.value" id="system.uses.value"
+                       value="{{data.system.uses.value}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.max">{{ localize 'CAIRN.MaxUses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.uses.max" id="system.uses.max"
+                      value="{{data.system.uses.max}}" data-dtype="Number" />
+            </div>
+        </div>
+              
         <!-- Blast -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.blast">{{ localize 'CAIRN.Blast' }}</label>
+            <label class="large-resource-label" for="system.blast">{{ localize 'CAIRN.Blast' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.data.blast}} name="data.blast" id="data.blast"
-                       value="{{data.data.blast}}" data-dtype="Boolean" />
+                <input type="checkbox" {{checked data.system.blast}} name="system.blast" id="system.blast"
+                       value="{{data.system.blast}}" data-dtype="Boolean" />
             </div>
         </div>
         <!-- Damage -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="data.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
+            <label class="large-resource-label" for="system.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.damageFormula" id="data.damageFormula"
-                       value="{{data.data.damageFormula}}" data-dtype="String" />
+                <input type="text" name="system.damageFormula" id="system.damageFormula"
+                       value="{{data.system.damageFormula}}" data-dtype="String" />
             </div>
         </div>
         <!-- Critical Damage -->
         <div class="resource-counter long-counter crit-dmg">
-            <label class="large-resource-label" for="data.criticalDamage">{{ localize 'CAIRN.CriticalDamage' }}</label>
+            <label class="large-resource-label" for="system.criticalDamage">{{ localize 'CAIRN.CriticalDamage' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="data.criticalDamage" id="data.criticalDamage"
-                       value="{{data.data.criticalDamage}}"
+                <input type="text" name="system.criticalDamage" id="system.criticalDamage"
+                       value="{{data.system.criticalDamage}}"
                     data-dtype="String" />
             </div>
         </div>
+        
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{ editor content=data.data.description target="data.description" button=true owner=owner
+                    {{ editor data.system.description target="system.description" button=true owner=owner
                     editable=editable }}
                 </div>
             </section>

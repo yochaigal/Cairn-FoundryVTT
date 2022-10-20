@@ -7,7 +7,7 @@ export class CairnActor extends Actor {
 	static async create(data, options = {}) {
 		if (data.type === "character") {
 			mergeObject(data, {
-				token: {
+				prototypeToken: {
 					disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
 					actorLink: true,
 					vision: true,
@@ -22,57 +22,31 @@ export class CairnActor extends Actor {
 	 */
 	prepareData() {
 		super.prepareData();
-		const actorData = this.data; // Not sure actorData is to spec.
-		const data = actorData.data;
-		const flags = actorData.flags;
-
-		// Make separate methods for each Actor type (character, npc, etc.) to keep
-		// things organized.
-		if (actorData.type === "character") this._prepareCharacterData(actorData);
-		if (actorData.type === "npc") this._prepareNpcData(actorData);
-		if (actorData.type === "container") this._prepareContainerData(actorData);
+    
+		if (this.type === "character") this._prepareCharacterData();
+		if (this.type === "npc") this._prepareNpcData();
+		if (this.type === "container") this._prepareContainerData();
 	}
 
 	/**
 	 * Prepare Character type specific data
 	 */
-	_prepareCharacterData(actorData) {
-		const data = actorData.data;
+	_prepareCharacterData() {
+    this.system.armor = this.calcArmor();
+    this.system.slotsUsed = this.calcSlotsUsed();
+    this.system.encumbered = this.system.slotsUsed >= 10;
 
-
-		data.armor = actorData.items
-			.filter((item) => item.type == "armor" || item.type == "item")
-			.map((item) => item.data.data.armor * item.data.data.equipped)
-			.reduce((a, b) => a + b, 0);
-
-		data.slotsUsed = calcSlotsUsed(this.items);
-
-		data.encumbered = data.slotsUsed >= 10;
-
-		if (data.encumbered) {
-			data.hp.value = 0;
-		}
-		if (data.armor > 3) {
-			data.armor = 3;
+		if (this.system.encumbered) {
+			this.system.hp.value = 0;
 		}
 	}
 
-	_prepareNpcData(actorData) {
-		const data = actorData.data;
-
-		let itemArmor = actorData.items
-			.filter((item) => item.type == "armor" || item.type == "item")
-			.map((item) => item.data.data.armor * item.data.data.equipped)
-			.reduce((a, b) => a + b, 0);
-		data.armor = Math.max(itemArmor, data.armor);
-		if (data.armor > 3) {
-			data.armor = 3;
-		}
+	_prepareNpcData() {
+    this.system.armor = this.calcArmor();
 	}
 
-	_prepareContainerData(actorData) {
-		const data = actorData.data;
-		data.slotsUsed = calcSlotsUsed(this.items);
+	_prepareContainerData() {
+		this.system.slotsUsed = this.calcSlotsUsed();
 	}
 
 	/** @override */
@@ -96,11 +70,11 @@ export class CairnActor extends Actor {
 	/** No longer an override as deleteOwnedItem is deprecated on type Actor */
 	deleteOwnedItem(itemId) {
 		const item = this.items.get(itemId);
-		const currentQuantity = item.data.data.quantity;
+		const currentQuantity = item.system.quantity;
 		if (item) {
 			if (currentQuantity > 1) {
 				item.update({
-					"data.quantity": currentQuantity - 1,
+					"system.quantity": currentQuantity - 1,
 				});
 			} else {
 				item.delete();
@@ -109,8 +83,18 @@ export class CairnActor extends Actor {
 			ui.notifications.error(game.i18n.localize("CAIRN.NoItemToDelete"));
 		}
 	}
-}
 
-function calcSlotsUsed(items) {
-  return items.reduce((memo, item) => memo + (item.data.data?.bulky ? 2 : item.data.data?.weightless ? 0 : 1), 0);
+  calcSlotsUsed() {
+    return this.items.reduce((memo, item) => memo + ((item.system.bulky ?? false) ? 2 : (item.system.weightless ?? false) ? 0 : 1), 0);
+  }
+
+  calcArmor() {
+    const armor = this.items
+			.filter((item) => ["armor", "item"].includes(item.type))
+      .filter((item) => item.system.equipped ?? false)
+			.map((item) => parseInt(item.system.armor ?? 0, 10))
+			.reduce((a, b) => a + b, 0);
+
+    return Math.min(armor, 3);
+  }
 }

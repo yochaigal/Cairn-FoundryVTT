@@ -22,14 +22,14 @@ export class CairnItemSheet extends ItemSheet {
   /** @override */
   get template () {
     const path = 'systems/cairn/templates/item'
-    return `${path}/${this.item.data.type}-sheet.html`
+    return `${path}/${this.item.type}-sheet.html`
   }
 
   /* -------------------------------------------- */
 
   /** @override */
   getData () {
-    return super.getData()
+    return super.getData();
   }
 
   /* -------------------------------------------- */
@@ -53,17 +53,17 @@ export class CairnItemSheet extends ItemSheet {
 		if (!this.options.editable) return;
 
 		// If it's bulky it cannot be weightless too
-		html.find("[name='data.bulky']").change((e) => {
+		html.find("[name='system.bulky']").change((e) => {
       if(e.target.checked){
-        if(html.find("[name='data.weightless']").length > 0){
-          html.find("[name='data.weightless']")[0].checked = false;
+        if(html.find("[name='system.weightless']").length > 0){
+          html.find("[name='system.weightless']")[0].checked = false;
         }
       }
 		});
-    html.find("[name='data.weightless']").change((e) => {
+    html.find("[name='system.weightless']").change((e) => {
       if(e.target.checked){
-        if(html.find("[name='data.bulky']").length > 0) {
-          html.find("[name='data.bulky']")[0].checked = false;
+        if(html.find("[name='system.bulky']").length > 0) {
+          html.find("[name='system.bulky']")[0].checked = false;
         }
       }
     });

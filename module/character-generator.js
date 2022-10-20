@@ -4,18 +4,18 @@ import {
   drawTableText, findCompendiumItem,
 } from './compendium.js'
 import { Cairn } from "./config.js";
-import { evaluateFormula, formatString, getResultText } from './utils.js'
+import { evaluateFormula, formatString } from './utils.js'
 
 /**
  * @returns {Promise.<CairnActor>}
  */
-export const createCharacter = async () => await createActorWithCharacter(await generateCharacter());
+export const createCharacter = async () => createActorWithCharacter(await generateCharacter());
 
 /**
  * @param {CairnActor} actor
  @returns {Promise.<CairnActor>}
  */
-export const regenerateActor = async (actor)  => await updateActorWithCharacter(actor, await generateCharacter());
+export const regenerateActor = async (actor)  => updateActorWithCharacter(actor, await generateCharacter());
 
 /**
  * @param {Object} characterData
@@ -111,7 +111,7 @@ export const rollName = async (config) => formatString(config.text, await rollTe
  * @param {String} config
  * @returns {Promise.<String>}
  */
-export const rollBackground = async (config) => await drawTableText(...compendiumInfoFromString(config));
+export const rollBackground = async (config) => drawTableText(...compendiumInfoFromString(config));
 
 /**
  * @param {Object} config
@@ -124,9 +124,9 @@ export const rollBiography = async (config) => formatString(config.text,{
 
 /**
  * @param {Object} items
- * @returns {Promise.<CairnItem>[]}
+ * @returns {Promise.<CairnItem[]>}
  */
-export const rollStartingGear = async (items) => await rollItems(items);
+export const rollStartingGear = async (items) => rollItems(items);
 
 /**
  * @param {Object} items
@@ -139,12 +139,7 @@ export const findStartingItems = async (items) => {
 
     const item = duplicate(await findCompendiumItem(compendium, table));
 
-    //V10 remove this
-    if (item.system) {
-      item.system.quantity = parseInt(quantity, 10);
-    } else {
-      item.data.quantity = parseInt(quantity, 10);
-    }
+    item.system.quantity = parseInt(quantity, 10);
 
     result.push(item);
   }
@@ -185,7 +180,7 @@ export const generateCharacter = async () => {
  */
 const characterToActorData = (characterData) => ({
   name: characterData.name,
-  data: {
+  system: {
     abilities: {
       STR: { value: characterData.abilities.STR, max: characterData.abilities.STR },
       DEX: { value: characterData.abilities.DEX, max: characterData.abilities.DEX },

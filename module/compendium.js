@@ -1,4 +1,3 @@
-import { getResultCollection, getResultText, getResultType } from "./utils.js";
 
 /**
  * @param {String} compendiumString
@@ -60,9 +59,8 @@ export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   for (const result of results) {
-    const type = getResultType(result);
-    if (type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
-      item = await findCompendiumItem(getResultCollection(result), getResultText(result));
+    if (result.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
+      item = await findCompendiumItem(result.documentCollection, result.text);
       if (item) {
         items.push(item);
       }

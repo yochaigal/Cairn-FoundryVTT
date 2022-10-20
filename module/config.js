@@ -14,7 +14,7 @@ Cairn.characterGenerator = {
   },
   background: "cairn.character-traits;Background",
   startingItems: [
-    "cairn.expeditionary-gear;Rations;3",
+    "cairn.expeditionary-gear;Rations;1",
     "cairn.expeditionary-gear;Torch;1"
   ],
   startingGear: [

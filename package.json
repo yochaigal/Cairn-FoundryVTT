@@ -1,15 +1,20 @@
 {
   "name": "cairn",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint --fix --ext .js ./module --format node_modules/eslint-plugin-i18n-json/formatter.js lang/*"
+  },
   "browserslist": [
     "last 3 versions"
   ],
   "author": "smcabrera",
   "license": "MIT",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-i18n-json": "^4.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "standard": "^16.0.3"
   }
 }
