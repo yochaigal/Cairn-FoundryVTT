@@ -9,6 +9,6 @@ export class CairnItem extends Item {
    prepareData() {
 		super.prepareData();
     this.system.isEquipable = ["weapon", "armor", "shield"].includes(this.type);    
-    this.system.hasPlusMinus = (this.system.uses?.max ?? 0) > 0 || this.system.weightless;    
+    this.system.hasPlusMinus = (this.system.uses?.max ?? 0) > 0;
 	}
 }
