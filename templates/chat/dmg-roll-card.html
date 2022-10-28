@@ -1,0 +1,18 @@
+<div class="dice-roll"> 
+    <div>{{label}}</div>
+    {{#if flavor}}
+    <div class="dice-flavor">{{flavor}}</div>
+    {{/if}}
+    {{#if (isNotNull targets)}}
+    <div>              
+        <a class="btn apply-dmg" {{#if (isNotNull targets)}}data-targets='{{targets}}'{{/if}} data-tooltip="{{localize 'CAIRN.ApplyDamage'}}">
+            <i class="fas fa-user-minus"></i>
+        </a>
+    </div>
+    {{/if}}
+    <div class="dice-result">
+        <div class="dice-formula">{{formula}}</div>
+        {{{tooltip}}}
+        <h4 class="dice-total">{{total}}</h4>
+    </div>
+</div>
