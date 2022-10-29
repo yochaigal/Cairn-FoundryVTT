@@ -1,13 +1,12 @@
-export class Hitpoints {
+export class Damage {
 
     /**
      * @description Apply damage to several tokens
-     * @param {String} targets Id of the targeted tokens separated by the character ;
+     * @param {String[]} targets Array of Id of the targeted tokens
      * @param {Number} damage Positive number
      */
     static applyToTargets(targets, damage) {
-        let targetsList = targets.split(';');
-        targetsList.forEach(target => {
+        targets.forEach(target => {
             this.applyToTarget(target, damage);
         });
     }
@@ -19,7 +18,6 @@ export class Hitpoints {
      * @returns An updated token
      */
     static applyToTarget(target, damage) {
-
         const tokenDoc = canvas.scene.tokens.get(target);
         // Linked to Actor
         if (tokenDoc.isLinked) {
@@ -57,11 +55,25 @@ export class Hitpoints {
         const btn = $(event.currentTarget);
         const targets = btn.data("targets");
 
-        if (targets !== undefined) {
-            const dmg = parseInt(html.find(".dice-total").text());
-            this.applyToTargets(targets, dmg);
-        }
+        let targetsList = targets.split(';');
 
+        // Shift Click allow to target the targeted tokens
+        if (event.shiftKey) {            
+            for (let index = 0; index < targetsList.length; index++) {
+                const target = targetsList[index];
+                const token = canvas.scene.tokens.get(target).object;
+                const releaseOthers = (index == 0 ? (!token.isTargeted ? true : false) : false);
+                const targeted = !token.isTargeted;
+                token.setTarget(targeted, {releaseOthers: releaseOthers});
+            }
+        }
+        // Apply damage to targets
+        else {
+            if (targets !== undefined) {
+                const dmg = parseInt(html.find(".dice-total").text());
+                this.applyToTargets(targetsList, dmg);
+            }
+        }
     }
 
     /**

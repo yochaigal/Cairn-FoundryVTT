@@ -185,7 +185,7 @@ export class CairnActorSheet extends ActorSheet {
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
 
       const targetedTokens = Array.from(game.user.targets).map(t => t.id);
-      // const targetTokenId = targetedTokens.length > 0 ? targetedTokens[0] : null;
+
       let targetIds;
       if (targetedTokens.length == 0) targetIds = null;
       else if (targetedTokens.length == 1) targetIds = targetedTokens[0];
@@ -201,7 +201,6 @@ export class CairnActorSheet extends ActorSheet {
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           flavor: msg
-          //, targets: targetedTokens
         });
       });
     }

@@ -8,7 +8,7 @@ import * as characterGenerator from "./character-generator.js"
 import { Cairn } from './config.js'
 import { CairnCombat } from './combat.js'
 import { createCairnMacro, rollItemMacro } from './macros.js'
-import { Hitpoints } from './hitpoints.js'
+import { Damage } from './damage.js'
 
 Hooks.once('init', async function () {
   game.cairn = {
@@ -67,7 +67,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
 
 Hooks.on("renderChatMessage", (message, html, data) => {
   if (game.user.isGM) {
-      html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
+      html.find(".apply-dmg").click(ev => Damage.onClickChatMessageApplyButton(ev, html, data));    
   }
   else {
       html.find(".apply-dmg").each((i, btn) => {btn.style.display = "none"});

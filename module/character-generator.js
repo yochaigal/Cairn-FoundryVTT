@@ -152,7 +152,7 @@ export const findStartingItems = async (items) => {
 export const generateCharacter = async () => {
   console.log(`Creating new character`);
 
-  const characterGenerator = CAIRN.characterGenerator;
+  const characterGenerator = Cairn.characterGenerator;
 
   const abilities = await rollAbilities(characterGenerator.ability);
   const hp = await rollHitProtection(characterGenerator.hitProtection);
