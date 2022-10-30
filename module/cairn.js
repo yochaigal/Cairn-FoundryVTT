@@ -4,10 +4,11 @@ import { CairnActorSheet } from './actor/actor-sheet.js'
 import { CairnItem } from './item/item.js'
 import { CairnItemSheet } from './item/item-sheet.js'
 import { createCharacter } from './character-generator.js'
-import * as characterGenerator from "./character-generator.js";
+import * as characterGenerator from "./character-generator.js"
 import { Cairn } from './config.js'
 import { CairnCombat } from './combat.js'
 import { createCairnMacro, rollItemMacro } from './macros.js'
+import { Damage } from './damage.js'
 
 Hooks.once('init', async function () {
   game.cairn = {
@@ -64,6 +65,15 @@ Hooks.on("renderActorDirectory", (app, html) => {
   }
 });
 
+Hooks.on("renderChatMessage", (message, html, data) => {
+  if (game.user.isGM) {
+      html.find(".apply-dmg").click(ev => Damage.onClickChatMessageApplyButton(ev, html, data));    
+  }
+  else {
+      html.find(".apply-dmg").each((i, btn) => {btn.style.display = "none"});
+  }        
+});
+
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
@@ -105,5 +115,9 @@ const configureHandleBar = () => {
         accum += block.fn(this);
     }
     return accum;
+});
+
+Handlebars.registerHelper('isNotNull', function (val) {
+  return val !== null && val != undefined;
 });
 }

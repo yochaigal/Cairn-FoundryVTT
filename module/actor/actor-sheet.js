@@ -134,6 +134,8 @@ export class CairnActorSheet extends ActorSheet {
         flavor: "Die of Fate",
       });
     });
+
+
   }
 
   /* -------------------------------------------- */
@@ -181,12 +183,34 @@ export class CairnActorSheet extends ActorSheet {
     if (dataset.roll) {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
+
+      const targetedTokens = Array.from(game.user.targets).map(t => t.id);
+
+      let targetIds;
+      if (targetedTokens.length == 0) targetIds = null;
+      else if (targetedTokens.length == 1) targetIds = targetedTokens[0];
+      else {
+        targetIds = targetedTokens[0];
+        for (let index = 1; index < targetedTokens.length; index++) {
+          const element = targetedTokens[index];
+          targetIds = targetIds.concat(";",element);
+        }
+      }
+
+      this._buildDamageRollMessage(label, targetIds).then(msg => {
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: msg
+        });
       });
     }
   }
+
+  _buildDamageRollMessage(label, targetIds) {
+    const rollMessageTpl = 'systems/cairn/templates/chat/dmg-roll-card.html';   
+    const tplData = {label: label, targets: targetIds};
+    return renderTemplate(rollMessageTpl, tplData);
+}
 
   _onItemDescriptionToggle(event) {
     event.preventDefault();
