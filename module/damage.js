@@ -7,7 +7,8 @@ export class Damage {
      */
     static applyToTargets(targets, damage) {
         targets.forEach(target => {
-            this.applyToTarget(target, damage);
+            const data = this.applyToTarget(target, damage);
+            this._showDetails(data);
         });
     }
 
@@ -15,7 +16,7 @@ export class Damage {
      * @description Apply damage to one token
      * @param {*} target Id of one token
      * @param {*} damage Amount of damaage
-     * @returns An updated token
+     * @returns actor + old and new values
      */
     static applyToTarget(target, damage) {
         const tokenDoc = canvas.scene.tokens.get(target);
@@ -25,9 +26,13 @@ export class Damage {
             const hp = tokenDoc.actor.system.hp.value;
             const str = tokenDoc.actor.system.abilities.STR.value;
 
-            let {newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
+            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
 
-            return tokenDoc.actor.update({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+            tokenDoc.actor.update({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+
+            const actor = tokenDoc.actor;
+
+            return { actor, dmg, damage, armor, hp, str, newHp, newStr };
         }
         // Synthetic actor
         else {
@@ -40,8 +45,12 @@ export class Damage {
             let str = tokenDoc.actorData?.system?.abilities?.STR?.value;
             if (str === undefined) str = tokenDoc.actor.system.abilities.STR.value;
 
-            let {newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
-            return tokenDoc.modifyActorDocument({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
+            tokenDoc.modifyActorDocument({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+
+            const actor = ( tokenDoc.actorData !== undefined ) ? tokenDoc.actorData : tokenDoc.actor
+
+            return { actor, dmg, damage, armor, hp, str, newHp, newStr };
         }
     }
 
@@ -82,7 +91,7 @@ export class Damage {
      * @param {*} armor 
      * @param {*} hp 
      * @param {*} str 
-     * @returns new HP value and STR value
+     * @returns damage done, new HP value and STR value
      */
      static _calculateHpAndStr(damage, armor, hp, str) {
         let dmg = damage - armor;
@@ -99,6 +108,43 @@ export class Damage {
             newStr = str - (dmg - hp);
         }
 
-        return {newHp, newStr};
+        return {dmg, newHp, newStr};
+    }
+
+    /**
+     * Show chat message details of damage done for a token
+     * @param data
+     * @private
+     */
+    static _showDetails(data) {
+
+        const { actor, dmg, damage, armor, hp, str, newHp, newStr } = data
+
+        let content = '<p><strong>' + game.i18n.localize('CAIRN.Damage') + '</strong>: ' + dmg + ' (' + damage + '-' + armor + ')</p>'
+        if (newHp !== hp) {
+            content += '<p><strong>' + game.i18n.localize('CAIRN.HitProtection') + '</strong>: <s>' + hp + '</s> => ' + newHp + '</p>'
+        } else {
+            content += '<p><strong>' + game.i18n.localize('CAIRN.HitProtection') + '</strong>: ' + hp + '</p>'
+        }
+        if (newStr !== str) {
+            content += '<p><strong>' + game.i18n.localize('STR') + '</strong>: <s>' + str + '</s> => ' + newStr + '</p>'
+        }
+
+        if (newStr < str) {
+            if (newStr === 0) {
+                content += '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>'
+            } else  {
+                content += '<strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong>'
+            }
+        } else if (newHp === 0 && hp !== 0) {
+            content += '<strong>' + game.i18n.localize('CAIRN.Scars') + '</strong>'
+        }
+
+        ChatMessage.create({
+            user: game.user._id,
+            speaker: { actor },
+            content: content,
+        }, {})
+
     }
 }

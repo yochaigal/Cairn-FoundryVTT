@@ -413,3 +413,16 @@
     grid-row-start: 5;
     grid-row-end: 5;
 }
+
+/******************************************************************************
+ * Chat message.                                                                *
+ ******************************************************************************/
+
+.chat-message .flavor-dice-roll{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.chat-message .icon-action{
+    margin-left: auto;
+}

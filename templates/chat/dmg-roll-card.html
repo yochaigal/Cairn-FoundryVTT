@@ -1,11 +1,9 @@
-<div class="dice-roll"> 
+<div class="flavor-dice-roll">
     <div>{{label}}</div>
-    {{#if flavor}}
-    <div class="dice-flavor">{{flavor}}</div>
-    {{/if}}
+
     {{#if (isNotNull targets)}}
-    <div>              
-        <a class="btn apply-dmg" {{#if (isNotNull targets)}}data-targets='{{targets}}'{{/if}} data-tooltip="{{localize 'CAIRN.ApplyDamage'}}">
+    <div class="icon-action">
+        <a class="btn apply-dmg" data-targets='{{targets}}' data-tooltip="{{localize 'CAIRN.ApplyDamage'}}">
             <i class="fas fa-user-minus"></i>
         </a>
     </div>
