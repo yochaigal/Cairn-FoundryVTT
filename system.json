@@ -63,6 +63,13 @@
       "system": "cairn"
     },
     {
+      "name": "utils",
+      "label": "Utils",
+      "path": "packs/utils.db",
+      "type": "RollTable",
+      "system": "cairn"
+    },
+    {
       "name": "macros",
       "label": "Macros",
       "path": "packs/macros.db",

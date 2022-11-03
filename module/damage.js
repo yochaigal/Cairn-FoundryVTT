@@ -1,3 +1,6 @@
+import { findCompendiumItem } from './compendium.js'
+import { evaluateFormula } from './utils.js'
+
 export class Damage {
 
     /**
@@ -134,10 +137,12 @@ export class Damage {
             if (newStr === 0) {
                 content += '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>'
             } else  {
-                content += '<strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong>'
+                content += '<p><strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong></p>'
+                content += '<button type="button" class="roll-str-save">Roll STR save</button>'
             }
         } else if (newHp === 0 && hp !== 0) {
-            content += '<strong>' + game.i18n.localize('CAIRN.Scars') + '</strong>'
+            content += '<p><strong>' + game.i18n.localize('CAIRN.Scars') + '</strong></p>'
+            this._rollScarsTable(dmg);
         }
 
         ChatMessage.create({
@@ -146,5 +151,25 @@ export class Damage {
             content: content,
         }, {})
 
+    }
+
+    static async _rollScarsTable(damage){
+        const table = await findCompendiumItem("cairn.utils", "Scars");
+        const roll = new Roll(damage.toString());
+        await table.draw({roll});
+    }
+
+    static async _rollStrSave(actor,html){
+        const roll = await evaluateFormula("d20cs<=@STR", actor.getRollData());
+        const label = game.i18n.format("CAIRN.Save",{key: game.i18n.localize("STR")});
+        const rolled = roll.terms[0].results[0].result;
+        const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
+        const resultCls = roll.total === 0 ? "failure" : "success";
+        roll.toMessage({
+            speaker: ChatMessage.getSpeaker({ actor: actor }),
+            flavor: label,
+            content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${roll.formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${roll.formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled}</li></ol></div></section></div><h4 class="dice-total ${resultCls}">${result} (${rolled})</h4</div></div>`,
+        });
+        html.find(".roll-str-save").attr('disabled','disabled')
     }
 }

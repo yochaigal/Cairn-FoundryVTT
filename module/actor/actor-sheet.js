@@ -275,7 +275,7 @@ export class CairnActorSheet extends ActorSheet {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
       const rolled = roll.terms[0].results[0].result;
-      const result = roll.total === 0 ? "Fail" : "Success"; // TODO Localize
+      const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
       const resultCls = roll.total === 0 ? "failure" : "success";
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
