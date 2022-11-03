@@ -53,6 +53,12 @@ export class CairnActorSheet extends ActorSheet {
     // Add inventory item
     html.find(".item-create").click(this._onItemCreate.bind(this));
 
+    // Add fatigue
+    html.find(".add-fatigue").click(this._onAddFatigue.bind(this));
+
+    // Remove fatigue
+    html.find(".remove-fatigue").click(this._onRemoveFatigue.bind(this));
+
     // Update inventory item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
@@ -172,6 +178,38 @@ export class CairnActorSheet extends ActorSheet {
   }
 
   /**
+   * Handle creating a fatigue for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onAddFatigue(event) {
+    event.preventDefault();
+
+    this.actor.createOwnedItem({
+      name: game.i18n.localize("CAIRN.Fatigue"),
+      type: 'item'
+    });
+  }
+
+  /**
+   * Handle removing any fatigue for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onRemoveFatigue(event) {
+    event.preventDefault();
+
+    // Find a fatigue to delete
+    const fatigues = this.actor.items
+      .filter(i => i.name === game.i18n.localize("CAIRN.Fatigue"));
+
+    if(fatigues.length > 0){
+      const fatigue = fatigues[0];
+      this.actor.deleteOwnedItem(fatigue._id);
+    }
+  }
+
+  /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
    * @private
@@ -237,7 +275,7 @@ export class CairnActorSheet extends ActorSheet {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
       const rolled = roll.terms[0].results[0].result;
-      const result = roll.total === 0 ? "Fail" : "Success"; // TODO Localize
+      const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
       const resultCls = roll.total === 0 ? "failure" : "success";
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

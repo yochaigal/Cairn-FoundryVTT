@@ -66,6 +66,20 @@ Hooks.on("renderActorDirectory", (app, html) => {
 });
 
 Hooks.on("renderChatMessage", (message, html, data) => {
+
+  // Roll Str Save
+  const actor = game.actors.get(message.speaker?.actor);
+
+  if(actor !== undefined){
+    if(actor.testUserPermission(game.user,"OWNER") || game.user.isGM){
+      html.find(".roll-str-save").click(ev => Damage._rollStrSave(actor,html));
+    }else{
+      html.find(".roll-str-save").each((i, btn) => {btn.style.display = "none"});
+    }
+  }else{
+    html.find(".roll-str-save").each((i, btn) => {btn.style.display = "none"});
+  }
+
   if (game.user.isGM) {
       html.find(".apply-dmg").click(ev => Damage.onClickChatMessageApplyButton(ev, html, data));    
   }

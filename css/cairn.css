@@ -332,6 +332,10 @@
     height: 36px;
 }
 
+.cairn-items-list-header .end{
+    margin-left: auto;
+}
+
 .cairn-items-list-row {
     border-bottom: 1px solid #b5b3a4;
 }

@@ -52,7 +52,7 @@ export class CairnActor extends Actor {
 	/** @override */
 	getRollData() {
 		const data = super.getRollData();
-		// Let us do @str etc, instead of @abilities.str.value
+		// Let us do @STR etc, instead of @abilities.str.value
 		for (const [k, v] of Object.entries(data.abilities)) {
 			if (!(k in data)) data[k] = v.value;
 		}
