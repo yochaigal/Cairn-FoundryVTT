@@ -53,6 +53,12 @@ export class CairnActorSheet extends ActorSheet {
     // Add inventory item
     html.find(".item-create").click(this._onItemCreate.bind(this));
 
+    // Add fatigue
+    html.find(".add-fatigue").click(this._onAddFatigue.bind(this));
+
+    // Remove fatigue
+    html.find(".remove-fatigue").click(this._onRemoveFatigue.bind(this));
+
     // Update inventory item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
@@ -169,6 +175,38 @@ export class CairnActorSheet extends ActorSheet {
       },
       default: "create"
     }).render(true);
+  }
+
+  /**
+   * Handle creating a fatigue for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onAddFatigue(event) {
+    event.preventDefault();
+
+    this.actor.createOwnedItem({
+      name: game.i18n.localize("CAIRN.Fatigue"),
+      type: 'item'
+    });
+  }
+
+  /**
+   * Handle removing any fatigue for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onRemoveFatigue(event) {
+    event.preventDefault();
+
+    // Find a fatigue to delete
+    const fatigues = this.actor.items
+      .filter(i => i.name === game.i18n.localize("CAIRN.Fatigue"));
+
+    if(fatigues.length > 0){
+      const fatigue = fatigues[0];
+      this.actor.deleteOwnedItem(fatigue._id);
+    }
   }
 
   /**

@@ -68,7 +68,7 @@
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
-                    {{> "systems/cairn/templates/parts/items-list.html" }}
+                    {{> "systems/cairn/templates/parts/items-list.html" withFatigue=1}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor data.system.biography target="system.biography" button=true owner=owner
