@@ -1,7 +1,7 @@
 {
-  "ACTOR.TypeCharacter": "Spillerkarakter",
-  "ACTOR.TypeContainer": "Beholder",
-  "ACTOR.TypeNpc": "Ikkespillerkarakter",
+  "TYPES.Actor.character": "Spillerkarakter",
+  "TYPES.Actor.container": "Beholder",
+  "TYPES.Actor.npc": "Ikkespillerkarakter",
   "CAIRN.AddFatigue": "Tilføj træthed",
   "CAIRN.AddItem": "Tilføj Udstyr",
   "CAIRN.Armor": "Rustning",

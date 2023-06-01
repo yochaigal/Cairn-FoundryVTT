@@ -1,7 +1,7 @@
 {
-  "ACTOR.TypeCharacter": "Player Character",
-  "ACTOR.TypeContainer": "Container",
-  "ACTOR.TypeNpc": "Non-Player Character",
+  "TYPES.Actor.character": "Player Character",
+  "TYPES.Actor.container": "Container",
+  "TYPES.Actor.npc": "Non-Player Character",
   "CAIRN.AddFatigue": "Add fatigue",
   "CAIRN.AddItem": "Add Item",
   "CAIRN.Armor": "Armor",
