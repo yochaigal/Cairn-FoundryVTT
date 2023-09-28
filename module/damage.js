@@ -138,7 +138,7 @@ export class Damage {
                 content += '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>'
             } else  {
                 content += '<p><strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong></p>'
-                content += '<button type="button" class="roll-str-save">Roll STR save</button>'
+                content += '<button type="button" class="roll-str-save">' + game.i18n.localize('CAIRN.RollStrSave') + '</button>'
             }
         } else if (newHp === 0 && hp !== 0) {
             content += '<p><strong>' + game.i18n.localize('CAIRN.Scars') + '</strong></p>'

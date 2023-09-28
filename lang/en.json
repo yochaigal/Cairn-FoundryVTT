@@ -43,6 +43,7 @@
   "CAIRN.Slots": "Slots",
   "CAIRN.Spellbook": "Spellbook",
   "CAIRN.StrSave": "Must pass a STR save",
+  "CAIRN.RollStrSave": "Roll STR save",
   "CAIRN.Success": "Success",
   "CAIRN.Type": "Type",
   "CAIRN.Uses": "# of uses",
