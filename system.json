@@ -16,7 +16,7 @@
       "name": "yochaigal",
       "url": "https://yochaigal.itch.io/"
     }
-  ],  
+  ],
   "esmodules": ["module/cairn.js"],
   "styles": ["css/cairn.css"],
   "packs": [
@@ -140,6 +140,11 @@
       "lang": "pt-BR",
       "name": "Português brasileiro",
       "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
     }
   ],
   "gridDistance": 5,
