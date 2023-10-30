@@ -29,7 +29,7 @@ export class Damage {
             const hp = tokenDoc.actor.system.hp.value;
             const str = tokenDoc.actor.system.abilities.STR.value;
 
-            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
+            const {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
 
             tokenDoc.actor.update({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
 
@@ -48,7 +48,7 @@ export class Damage {
             let str = tokenDoc.actorData?.system?.abilities?.STR?.value;
             if (str === undefined) str = tokenDoc.actor.system.abilities.STR.value;
 
-            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
+            const {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
             tokenDoc.modifyActorDocument({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
 
             const actor = ( tokenDoc.actorData !== undefined ) ? tokenDoc.actorData : tokenDoc.actor
@@ -67,7 +67,7 @@ export class Damage {
         const btn = $(event.currentTarget);
         const targets = btn.data("targets");
 
-        let targetsList = targets.split(';');
+        const targetsList = targets.split(';');
 
         // Shift Click allow to target the targeted tokens
         if (event.shiftKey) {            
