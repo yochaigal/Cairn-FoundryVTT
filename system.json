@@ -125,26 +125,6 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
-    },
-    {
-      "lang": "da",
-      "name": "Dansk",
-      "path": "lang/da.json"
-    },
-    {
-      "lang": "fr",
-      "name": "Français",
-      "path": "lang/fr.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Português brasileiro",
-      "path": "lang/pt-BR.json"
-    },
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
     }
   ],
   "gridDistance": 5,
