@@ -2,7 +2,7 @@
 /**
  * @extends Combat
  */
-export class CairnCombat extends Combat {
+export class SabCombat extends Combat {
   /** @override */
   async rollInitiative(ids, options) {
     await super.rollInitiative(ids, options);

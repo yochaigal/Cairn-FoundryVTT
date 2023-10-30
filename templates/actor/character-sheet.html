@@ -1,14 +1,14 @@
-<form class="cairn" autocomplete="off">
+<form class="sab" autocomplete="off">
     <div class="charater-sheet-grid">
         <!-- Portrait -->
         <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         <!-- Name, background, HP and deprived -->
         <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'SAB.Name' }}" />
             <input class="background-input" type="text" name="system.background" value="{{data.system.background}}"
-                placeholder="{{ localize 'CAIRN.Background' }}" />
+                placeholder="{{ localize 'SAB.Background' }}" />
             <div class="resource-counter hp-counter">
-                <label for="system.hp.value">{{ localize 'CAIRN.HitProtection' }}</label>
+                <label for="system.hp.value">{{ localize 'SAB.HitProtection' }}</label>
                 <div class="resource-input-wrapper">
                     <input type="text" name="system.hp.value" id="system.hp.value"
                            value="{{data.system.hp.value}}" data-dtype="Number" />
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="resource-counter long-counter deprived-counter">
-                <label for="system.deprived">{{ localize 'CAIRN.Deprived' }}</label>
+                <label for="system.deprived">{{ localize 'SAB.Deprived' }}</label>
                 <div class="resource-input-wrapper">
                     <input type="checkbox" {{checked data.system.deprived}} name="system.deprived" id="system.deprived"
                         value="{{data.system.deprived}}" data-dtype="Boolean" />
@@ -26,16 +26,16 @@
         </div>
         <!-- Buttons -->
         <div class="character-sheet-section-buttons">
-            <button id="rest-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.Rest' }}</button>
-            <button id="restore-abilities-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.RestoreAbilities' }}</button>
-            <button id="die-of-fate-button" type="button">{{ localize 'CAIRN.DieOfFate' }}</button>
+            <button id="rest-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'SAB.Rest' }}</button>
+            <button id="restore-abilities-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'SAB.RestoreAbilities' }}</button>
+            <button id="die-of-fate-button" type="button">{{ localize 'SAB.DieOfFate' }}</button>
         </div>
         <!-- Abilities -->
         <div class="character-sheet-section-abilities">
             {{#each data.system.abilities as |ability key|}}
             <div class="resource-counter {{key}}-counter">
                 <a class="resource-roll" for="system.abilities.{{key}}.value" data-roll="d20cs<=@abilities.{{key}}.value"
-                    data-label="{{{ localize 'CAIRN.Save' key=key}}}">{{ localize key }}</a>
+                    data-label="{{{ localize 'SAB.Save' key=key}}}">{{ localize key }}</a>
                 <div class="resource-input-wrapper">
                     <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
                         data-dtype="Number" />
@@ -48,13 +48,13 @@
         <!-- Armor and gold -->
         <div class="character-sheet-section-others">
             <div class="resource-counter stacked-counter">
-                <label>{{ localize 'CAIRN.Armor' }}</label>
+                <label>{{ localize 'SAB.Armor' }}</label>
                 <div class="stacked-input-wrapper">
                     <span>{{data.system.armor}}</span>
                 </div>
             </div>
             <div class="resource-counter stacked-counter">
-                <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
+                <label for="system.gold">{{ localize 'SAB.Gold' }}</label>
                 <div class="stacked-input-wrapper">
                     <input type="text" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
                 </div>
@@ -62,13 +62,13 @@
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / 10)</a>
-                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
-                <a class="item" data-group="primary" data-tab="notes">{{ localize 'CAIRN.Notes' }}</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'SAB.Items' }} ({{data.system.slotsUsed}} / 10)</a>
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'SAB.Description' }}</a>
+                <a class="item" data-group="primary" data-tab="notes">{{ localize 'SAB.Notes' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
-                    {{> "systems/cairn/templates/parts/items-list.html" withFatigue=1}}
+                    {{> "systems/sab/templates/parts/items-list.html" withFatigue=1}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor data.system.biography target="system.biography" button=true owner=owner

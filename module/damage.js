@@ -123,11 +123,11 @@ export class Damage {
 
         const { actor, dmg, damage, armor, hp, str, newHp, newStr } = data
 
-        let content = '<p><strong>' + game.i18n.localize('CAIRN.Damage') + '</strong>: ' + dmg + ' (' + damage + '-' + armor + ')</p>'
+        let content = '<p><strong>' + game.i18n.localize('SAB.Damage') + '</strong>: ' + dmg + ' (' + damage + '-' + armor + ')</p>'
         if (newHp !== hp) {
-            content += '<p><strong>' + game.i18n.localize('CAIRN.HitProtection') + '</strong>: <s>' + hp + '</s> => ' + newHp + '</p>'
+            content += '<p><strong>' + game.i18n.localize('SAB.HitProtection') + '</strong>: <s>' + hp + '</s> => ' + newHp + '</p>'
         } else {
-            content += '<p><strong>' + game.i18n.localize('CAIRN.HitProtection') + '</strong>: ' + hp + '</p>'
+            content += '<p><strong>' + game.i18n.localize('SAB.HitProtection') + '</strong>: ' + hp + '</p>'
         }
         if (newStr !== str) {
             content += '<p><strong>' + game.i18n.localize('STR') + '</strong>: <s>' + str + '</s> => ' + newStr + '</p>'
@@ -135,13 +135,13 @@ export class Damage {
 
         if (newStr < str) {
             if (newStr === 0) {
-                content += '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>'
+                content += '<strong>' + game.i18n.localize('SAB.Dead') + '</strong>'
             } else  {
-                content += '<p><strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong></p>'
-                content += '<button type="button" class="roll-str-save">' + game.i18n.localize('CAIRN.RollStrSave') + '</button>'
+                content += '<p><strong>' + game.i18n.localize('SAB.StrSave') + '</strong></p>'
+                content += '<button type="button" class="roll-str-save">' + game.i18n.localize('SAB.RollStrSave') + '</button>'
             }
         } else if (newHp === 0 && hp !== 0) {
-            content += '<p><strong>' + game.i18n.localize('CAIRN.Scars') + '</strong></p>'
+            content += '<p><strong>' + game.i18n.localize('SAB.Scars') + '</strong></p>'
             this._rollScarsTable(dmg);
         }
 
@@ -154,16 +154,16 @@ export class Damage {
     }
 
     static async _rollScarsTable(damage){
-        const table = await findCompendiumItem("cairn.utils", "Scars");
+        const table = await findCompendiumItem("sab.utils", "Scars");
         const roll = new Roll(damage.toString());
         await table.draw({roll});
     }
 
     static async _rollStrSave(actor,html){
         const roll = await evaluateFormula("d20cs<=@STR", actor.getRollData());
-        const label = game.i18n.format("CAIRN.Save",{key: game.i18n.localize("STR")});
+        const label = game.i18n.format("SAB.Save",{key: game.i18n.localize("STR")});
         const rolled = roll.terms[0].results[0].result;
-        const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
+        const result = roll.total === 0 ? game.i18n.localize("SAB.Fail") : game.i18n.localize("SAB.Success");
         const resultCls = roll.total === 0 ? "failure" : "success";
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: actor }),

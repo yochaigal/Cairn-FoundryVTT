@@ -5,12 +5,12 @@ import { evaluateFormula, getInfoFromDropData } from '../utils.js'
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class CairnActorSheet extends ActorSheet {
+export class SabActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["cairn", "sheet", "actor"],
-      template: "systems/cairn/templates/actor/actor-sheet.html",
+      classes: ["sab", "sheet", "actor"],
+      template: "systems/sab/templates/actor/actor-sheet.html",
       width: 480,
       height: 640,
       tabs: [
@@ -20,12 +20,12 @@ export class CairnActorSheet extends ActorSheet {
           initial: "items",
         },
       ],
-      dragDrop: [{ dragSelector: ".cairn-items-list-row", dropSelector: null }],
+      dragDrop: [{ dragSelector: ".sab-items-list-row", dropSelector: null }],
     });
   }
 
   get template() {
-    const path = "systems/cairn/templates/actor";
+    const path = "systems/sab/templates/actor";
     return `${path}/${this.actor.type}-sheet.html`;
   }
 
@@ -61,26 +61,26 @@ export class CairnActorSheet extends ActorSheet {
 
     // Update inventory item
     html.find(".item-edit").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".sab-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete inventory item
     html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".sab-items-list-row");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
 
     html.find(".item-toggle-equipped").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".sab-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.update({'system.equipped': !item.system.equipped});
     });
 
     html.find(".item-add-quantity").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".sab-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
         item.update({'system.quantity': item.system.quantity + 1});
@@ -90,7 +90,7 @@ export class CairnActorSheet extends ActorSheet {
     });
 
     html.find(".item-remove-quantity").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".sab-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
         item.update({'system.quantity': Math.max(item.system.quantity - 1, 0)});
@@ -130,7 +130,7 @@ export class CairnActorSheet extends ActorSheet {
     });
 
     html
-      .find(".cairn-item-title")
+      .find(".sab-item-title")
       .click((event) => this._onItemDescriptionToggle(event));
 
     html.find("#die-of-fate-button").click(async () => {
@@ -152,16 +152,16 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/cairn/templates/dialog/add-item-dialog.html";
+    const template = "systems/sab/templates/dialog/add-item-dialog.html";
     const content =  await renderTemplate(template);
 
     new Dialog({
-      title: game.i18n.localize("CAIRN.CreateItem"),
+      title: game.i18n.localize("SAB.CreateItem"),
       content,
       buttons: {
         create: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("CAIRN.CreateItem"),
+          label: game.i18n.localize("SAB.CreateItem"),
           callback: (html) => {
             const form = html[0].querySelector("form");
             if (form.itemname.value.trim() !== '') {
@@ -186,7 +186,7 @@ export class CairnActorSheet extends ActorSheet {
     event.preventDefault();
 
     this.actor.createOwnedItem({
-      name: game.i18n.localize("CAIRN.Fatigue"),
+      name: game.i18n.localize("SAB.Fatigue"),
       type: 'item'
     });
   }
@@ -201,7 +201,7 @@ export class CairnActorSheet extends ActorSheet {
 
     // Find a fatigue to delete
     const fatigues = this.actor.items
-      .filter(i => i.name === game.i18n.localize("CAIRN.Fatigue"));
+      .filter(i => i.name === game.i18n.localize("SAB.Fatigue"));
 
     if(fatigues.length > 0){
       const fatigue = fatigues[0];
@@ -220,7 +220,7 @@ export class CairnActorSheet extends ActorSheet {
     const dataset = element.dataset;
     if (dataset.roll) {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ? game.i18n.localize("CAIRN.RollingDmgWith") + ` ${dataset.label}` : "";
+      const label = dataset.label ? game.i18n.localize("SAB.RollingDmgWith") + ` ${dataset.label}` : "";
 
       const targetedTokens = Array.from(game.user.targets).map(t => t.id);
 
@@ -245,14 +245,14 @@ export class CairnActorSheet extends ActorSheet {
   }
 
   _buildDamageRollMessage(label, targetIds) {
-    const rollMessageTpl = 'systems/cairn/templates/chat/dmg-roll-card.html';   
+    const rollMessageTpl = 'systems/sab/templates/chat/dmg-roll-card.html';   
     const tplData = {label: label, targets: targetIds};
     return renderTemplate(rollMessageTpl, tplData);
 }
 
   _onItemDescriptionToggle(event) {
     event.preventDefault();
-    const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
+    const boxItem = $(event.currentTarget).parents(".sab-items-list-row");
     const item = this.actor.items.get(boxItem.data("itemId"));
     if (boxItem.hasClass("expanded")) {
       const summary = boxItem.children(".item-description");
@@ -273,9 +273,9 @@ export class CairnActorSheet extends ActorSheet {
     const dataset = element.dataset;
     if (dataset.roll) {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
+      const label = dataset.label ? game.i18n.localize("SAB.Rolling") + ` ${dataset.label}` : "";
       const rolled = roll.terms[0].results[0].result;
-      const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
+      const result = roll.total === 0 ? game.i18n.localize("SAB.Fail") : game.i18n.localize("SAB.Success");
       const resultCls = roll.total === 0 ? "failure" : "success";
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -293,8 +293,8 @@ export class CairnActorSheet extends ActorSheet {
     event.preventDefault();
 
     const confirm = await Dialog.confirm({
-      title: game.i18n.localize("CAIRN.CharacterRegeneratorTitle"),
-      content: `<p>${game.i18n.localize("CAIRN.CharacterRegeneratorConfirm")}</p>`,
+      title: game.i18n.localize("SAB.CharacterRegeneratorTitle"),
+      content: `<p>${game.i18n.localize("SAB.CharacterRegeneratorConfirm")}</p>`,
       defaultYes: false,
     });
 
@@ -309,7 +309,7 @@ export class CairnActorSheet extends ActorSheet {
       return [
         {
           class: `regenerate-character-button-${this.actor.id}`,
-          label: game.i18n.localize("CAIRN.RegenerateCharacter"),
+          label: game.i18n.localize("SAB.RegenerateCharacter"),
           icon: "fas fa-skull",
           onclick: this._onRegenerateCharacter.bind(this),
         },

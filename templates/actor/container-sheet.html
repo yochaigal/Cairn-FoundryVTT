@@ -1,14 +1,14 @@
-<form class="cairn" autocomplete="off">
+<form class="sab" autocomplete="off">
     <div class="container-sheet-grid">
         <!-- Portrait -->
         <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         <!-- Name and slots -->
         <div class="character-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'SAB.Name' }}" />
             <!-- Background, not relevant for containers -->
             <div class="background-input"></div>
             <div class="resource-counter slots-counter">
-                <label for="system.slots.value">{{ localize 'CAIRN.Slots' }}</label>
+                <label for="system.slots.value">{{ localize 'SAB.Slots' }}</label>
                 <div class="resource-input-wrapper">
                     <input type="text" name="system.slots.value" id="system.slots.value"
                            value="{{data.system.slots.value}}" data-dtype="Number" />
@@ -17,12 +17,12 @@
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slots.value}})</a>
-                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'SAB.Items' }} ({{data.system.slotsUsed}} / {{data.system.slots.value}})</a>
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'SAB.Description' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
-                    {{> "systems/cairn/templates/parts/items-list.html"}}
+                    {{> "systems/sab/templates/parts/items-list.html"}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor data.system.biography target="system.biography" button=true owner=owner

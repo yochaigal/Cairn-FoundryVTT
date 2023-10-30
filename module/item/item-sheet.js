@@ -2,11 +2,11 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class CairnItemSheet extends ItemSheet {
+export class SabItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions () {
     return mergeObject(super.defaultOptions, {
-      classes: ['cairn', 'sheet', 'item'],
+      classes: ['sab', 'sheet', 'item'],
       width: 480,
       height: 480,
       tabs: [
@@ -21,7 +21,7 @@ export class CairnItemSheet extends ItemSheet {
 
   /** @override */
   get template () {
-    const path = 'systems/cairn/templates/item'
+    const path = 'systems/sab/templates/item'
     return `${path}/${this.item.type}-sheet.html`
   }
 

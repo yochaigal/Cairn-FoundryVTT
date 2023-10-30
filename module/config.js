@@ -1,48 +1,48 @@
-/** @name CONFIG.Cairn */
-export const Cairn = {};
+/** @name CONFIG.Sab */
+export const Sab = {};
 
-Cairn.characterGenerator = {
+Sab.characterGenerator = {
   ability: "3d6",
   hitProtection: "1d6",
   gold: "3d6",
   name: {
     text: "{name} {surname}",
     items: {
-      name: "cairn.character-creation-tables-srd;Names",
-      surname: "cairn.character-traits;Surnames"
+      name: "sab.character-creation-tables-srd;Names",
+      surname: "sab.character-traits;Surnames"
     }
   },
-  background: "cairn.character-traits;Background",
+  background: "sab.character-traits;Background",
   startingItems: [
-    "cairn.expeditionary-gear;Rations;1",
-    "cairn.expeditionary-gear;Torch;1"
+    "sab.expeditionary-gear;Rations;1",
+    "sab.expeditionary-gear;Torch;1"
   ],
   startingGear: [
-    "cairn.character-creation-tables-srd;Starting Gear - Armor",
-    "cairn.character-creation-tables-srd;Starting Gear - Helmet & Shields",
-    "cairn.character-creation-tables-srd;Starting Gear - Weapons",
-    "cairn.character-creation-tables-srd;Starting Gear - Expeditionary Gear",
-    "cairn.character-creation-tables-srd;Starting Gear - Tools",
-    "cairn.character-creation-tables-srd;Starting Gear - Trinkets",
-    "cairn.character-creation-tables-srd;Starting Gear - Bonus Item"
+    "sab.character-creation-tables-srd;Starting Gear - Armor",
+    "sab.character-creation-tables-srd;Starting Gear - Helmet & Shields",
+    "sab.character-creation-tables-srd;Starting Gear - Weapons",
+    "sab.character-creation-tables-srd;Starting Gear - Expeditionary Gear",
+    "sab.character-creation-tables-srd;Starting Gear - Tools",
+    "sab.character-creation-tables-srd;Starting Gear - Trinkets",
+    "sab.character-creation-tables-srd;Starting Gear - Bonus Item"
   ],
   biography: {
     text: "I have a <strong>{physique}</strong> physique, <strong>{skin}</strong> skin, <strong>{hair}</strong> hair, and a <strong>{face}</strong> face. I speak in a <strong>{speech}</strong> manner and wear <strong>{clothing}</strong> clothing. I am <strong>{vice}</strong> yet <strong>{virtue}</strong>, and I am generally regarded as <strong>{reputation}</strong>. I have had the misfortune of being <strong>{misfortune}</strong>. I am <strong>{age}</strong> years old.",
     age: "2d20 + 10",
     items: {
-      physique: "cairn.character-traits;Physique",
-      skin: "cairn.character-traits;Skin",
-      hair: "cairn.character-traits;Hair",
-      face: "cairn.character-traits;Face",
-      speech: "cairn.character-traits;Speech",
-      clothing: "cairn.character-traits;Clothing",
-      vice: "cairn.character-traits;Vice",
-      virtue: "cairn.character-traits;Virtue",
-      misfortune: "cairn.character-traits;Misfortunes",
-      reputation: "cairn.character-traits;Reputation"
+      physique: "sab.character-traits;Physique",
+      skin: "sab.character-traits;Skin",
+      hair: "sab.character-traits;Hair",
+      face: "sab.character-traits;Face",
+      speech: "sab.character-traits;Speech",
+      clothing: "sab.character-traits;Clothing",
+      vice: "sab.character-traits;Vice",
+      virtue: "sab.character-traits;Virtue",
+      misfortune: "sab.character-traits;Misfortunes",
+      reputation: "sab.character-traits;Reputation"
     }
   }
 };
 
-CONFIG.Cairn = Cairn;
+CONFIG.Sab = Sab;
 

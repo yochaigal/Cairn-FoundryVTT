@@ -1,5 +1,5 @@
 {
-  "name": "cairn",
+  "name": "sab",
   "version": "1.0.0",
   "scripts": {
     "lint": "eslint --fix --ext .js ./module --format node_modules/eslint-plugin-i18n-json/formatter.js lang/*"

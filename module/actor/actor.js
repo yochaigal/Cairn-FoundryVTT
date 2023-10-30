@@ -2,7 +2,7 @@
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class CairnActor extends Actor {
+export class SabActor extends Actor {
 	/** @override */
 	static async create(data, options = {}) {
 		if (data.type === "character") {
@@ -74,7 +74,7 @@ export class CairnActor extends Actor {
 		if (item) {
 				item.delete();
 		} else {
-			ui.notifications.error(game.i18n.localize("CAIRN.NoItemToDelete"));
+			ui.notifications.error(game.i18n.localize("SAB.NoItemToDelete"));
 		}
 	}
 

@@ -1,122 +1,122 @@
 {
-  "id": "cairn",
-  "title": "Cairn",
-  "description": "Cairn for FoundryVTT",
+  "id": "sab",
+  "title": "Spellburn and Battlescars",
+  "description": "Spellburn and Battlescars for FoundryVTT",
   "version": "0.10.28",
   "compatibility": {
     "minimum": "10",
     "verified": "10"
   },
   "license": "LICENSE.txt",
-  "url": "https://github.com/yochaigal/Cairn-FoundryVTT/",
-  "manifest": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.json",
-  "download": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.zip",
+  "url": "https://github.com/bingus-bonkus/Spellburn-and-Battlescars-FoundryVTT/",
+  "manifest": "https://github.com/bingus-bonkus/Spellburn-and-Battlescars-FoundryVTT/releases/latest/download/system.json",
+  "download": "https://github.com/bingus-bonkus/Spellburn-and-Battlescars-FoundryVTT/releases/latest/download/system.zip",
   "authors": [
     {
-      "name": "yochaigal",
-      "url": "https://yochaigal.itch.io/"
+      "name": "bonkposting",
+      "url": "https://bonkposting.online/"
     }
   ],
-  "esmodules": ["module/cairn.js"],
-  "styles": ["css/cairn.css"],
+  "esmodules": ["module/sab.js"],
+  "styles": ["css/sab.css"],
   "packs": [
     {
       "name": "armor",
       "label": "Armor",
       "path": "packs/armor.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "character-traits",
       "label": "Character Traits",
       "path": "packs/character-traits.db",
       "type": "RollTable",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "expeditionary-gear",
       "label": "Expeditionary Gear",
       "path": "packs/expeditionary-gear.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "extra",
       "label": "Extra",
       "path": "packs/extra.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "gear-tables",
       "label": "Gear Tables",
       "path": "packs/gear-tables.db",
       "type": "RollTable",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "character-creation-tables-srd",
       "label": "Character Creation Tables - SRD",
       "path": "packs/character-creation-tables-srd.db",
       "type": "RollTable",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "utils",
       "label": "Utils",
       "path": "packs/utils.db",
       "type": "RollTable",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "macros",
       "label": "Macros",
       "path": "packs/macros.db",
       "type": "Macro",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "monsters",
       "label": "Monsters",
       "path": "packs/monsters.db",
       "type": "Actor",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "spellbooks",
       "label": "Spellbooks",
       "path": "packs/spellbooks.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "more-spellbooks",
       "label": "More Spellbooks",
       "path": "packs/more-spellbooks.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "tools",
       "label": "Tools",
       "path": "packs/tools.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "trinkets",
       "label": "Trinkets",
       "path": "packs/trinkets.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     },
     {
       "name": "weapons",
       "label": "Weapons",
       "path": "packs/weapons.db",
       "type": "Item",
-      "system": "cairn"
+      "system": "sab"
     }
   ],
   "scripts": [],

@@ -5,7 +5,7 @@ import { evaluateFormula, getInfoFromDropData } from "./utils.js";
  * @param {Number} slot
  * @return {Promise.<void>}
  */
-export const createCairnMacro = async (data, slot) => {
+export const createSabMacro = async (data, slot) => {
   const { item, actor } = await getInfoFromDropData(data);
 
   if (data.type !== "Item") {
@@ -20,7 +20,7 @@ export const createCairnMacro = async (data, slot) => {
     return ui.notifications.warn("Macros only supported for weapons");
   }
 
-  const command = `game.cairn.rollItemMacro("${actor.id}", "${item.id}");`;
+  const command = `game.sab.rollItemMacro("${actor.id}", "${item.id}");`;
   let macro = game.macros.find((m) => m.name === item.name && m.command === command);
   if (!macro) {
     macro = await Macro.create({
@@ -28,7 +28,7 @@ export const createCairnMacro = async (data, slot) => {
       type: "script",
       img: item.img,
       command,
-      flags: { "cairn.itemMacro": true },
+      flags: { "sab.itemMacro": true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);
@@ -49,7 +49,7 @@ export const rollItemMacro = async (actorId, itemId) => {
   }
 
   const roll = await evaluateFormula(item.system.damageFormula, actor.getRollData());
-  const flavor = `${game.i18n.localize("CAIRN.RollingDmgWith")} ${item.name}`;
+  const flavor = `${game.i18n.localize("SAB.RollingDmgWith")} ${item.name}`;
 
   roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor: actor }),

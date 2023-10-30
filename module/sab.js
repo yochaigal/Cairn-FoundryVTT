@@ -1,45 +1,45 @@
 // Import Modules
-import { CairnActor } from './actor/actor.js'
-import { CairnActorSheet } from './actor/actor-sheet.js'
-import { CairnItem } from './item/item.js'
-import { CairnItemSheet } from './item/item-sheet.js'
+import { SabActor } from './actor/actor.js'
+import { SabActorSheet } from './actor/actor-sheet.js'
+import { SabItem } from './item/item.js'
+import { SabItemSheet } from './item/item-sheet.js'
 import { createCharacter } from './character-generator.js'
 import * as characterGenerator from "./character-generator.js"
-import { Cairn } from './config.js'
-import { CairnCombat } from './combat.js'
-import { createCairnMacro, rollItemMacro } from './macros.js'
+import { Sab } from './config.js'
+import { SabCombat } from './combat.js'
+import { createSabMacro, rollItemMacro } from './macros.js'
 import { Damage } from './damage.js'
 
 Hooks.once('init', async function () {
-  game.cairn = {
-    CairnActor,
-    CairnItem,
-    config: Cairn,
+  game.sab = {
+    SabActor,
+    SabItem,
+    config: Sab,
     characterGenerator: characterGenerator,
     rollItemMacro
   }
 
   // Define custom Entity classes
-  CONFIG.Actor.documentClass = CairnActor;
-  CONFIG.Item.documentClass = CairnItem;
+  CONFIG.Actor.documentClass = SabActor;
+  CONFIG.Item.documentClass = SabItem;
 
   // configure combat
-  CONFIG.Combat.documentClass = CairnCombat;
+  CONFIG.Combat.documentClass = SabCombat;
   CONFIG.Combat.initiative = {
     formula: "1d20",
   };
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('cairn', CairnActorSheet, { makeDefault: true });
+  Actors.registerSheet('sab', SabActorSheet, { makeDefault: true });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
+  Items.registerSheet('sab', SabItemSheet, { makeDefault: true });
 
   configureHandleBar();
 });
 
 Hooks.once("ready", () => {
-  Hooks.on("hotbarDrop", (bar, data, slot) => createCairnMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createSabMacro(data, slot));
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {
@@ -54,7 +54,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("CAIRN.CharacterGenerator")}</button>
+        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("SAB.CharacterGenerator")}</button>
       </div>
       `
     );
@@ -91,7 +91,7 @@ Hooks.on("renderChatMessage", (message, html, data) => {
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
-    "systems/cairn/templates/parts/items-list.html",
+    "systems/sab/templates/parts/items-list.html",
   ];
 
   loadTemplates(templatePaths);
