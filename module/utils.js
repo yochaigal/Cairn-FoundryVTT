@@ -5,7 +5,7 @@
  */
 export const evaluateFormula = async (formula, data) => {
   const roll = new Roll(formula, data);
-  return roll.evaluate({ async: true });
+  return roll.evaluate();
 };
 
 /**

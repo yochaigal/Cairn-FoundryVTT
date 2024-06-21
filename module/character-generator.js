@@ -70,7 +70,7 @@ export const rollItems = async (items) => {
     const [compendium, table] = compendiumInfoFromString(value)
     result.push(await drawTableItem(compendium, table));
   }
-  return result.flatMap(item => duplicate(item));
+  return result.flatMap(item => foundry.utils.duplicate(item));
 };
 
 /**
@@ -137,7 +137,7 @@ export const findStartingItems = async (items) => {
   for (const compendiumItem of items) {
     const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumItem);
 
-    const item = duplicate(await findCompendiumItem(compendium, table));
+    const item = foundry.utils.duplicate(await findCompendiumItem(compendium, table));
 
     item.system.quantity = parseInt(quantity, 10);
 

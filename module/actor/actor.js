@@ -6,7 +6,7 @@ export class CairnActor extends Actor {
 	/** @override */
 	static async create(data, options = {}) {
 		if (data.type === "character") {
-			mergeObject(data, {
+			foundry.utils.mergeObject(data, {
 				prototypeToken: {
 					disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
 					actorLink: true,

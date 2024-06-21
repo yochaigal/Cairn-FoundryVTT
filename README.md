@@ -10,10 +10,16 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 2. Search for "Cairn" in the package search filter.
 3. Allow players to "Create new Actors" in the "Configure Settings" permissions menu
 
-## Installation - Manual - Foundry V10+
+## Installation - Manual - Foundry V12+
 
 1. In the FVTT Game Systems Menu, click `Install System`
 2. Enter the Manifest URL: `https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.json`
+3. Allow players to "Create new Actors" in the "Configure Settings" permissions menu
+4. 
+## Installation - Manual - Foundry V10+
+
+1. In the FVTT Game Systems Menu, click `Install System`
+2. Enter the Manifest URL: `https://github.com/yochaigal/Cairn-FoundryVTT/releases/download/0.10.31/system.json`
 3. Allow players to "Create new Actors" in the "Configure Settings" permissions menu
 
 ## Installation - Manual - Foundry V9
