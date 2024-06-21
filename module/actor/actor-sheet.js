@@ -8,7 +8,7 @@ import { evaluateFormula, getInfoFromDropData } from '../utils.js'
 export class CairnActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
       width: 480,
@@ -332,6 +332,8 @@ export class CairnActorSheet extends ActorSheet {
     if (!item) return;
 
     const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
+
+    if (this.actor == originalActor) return;
 
     if (originalItem) {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);

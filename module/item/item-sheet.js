@@ -5,7 +5,7 @@
 export class CairnItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions () {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['cairn', 'sheet', 'item'],
       width: 480,
       height: 480,

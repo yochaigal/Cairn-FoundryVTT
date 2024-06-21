@@ -2,10 +2,10 @@
   "id": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
-  "version": "0.10.28",
+  "version": "0.10.32",
   "compatibility": {
-    "minimum": "10",
-    "verified": "10"
+    "minimum": "12",
+    "verified": "12.327"
   },
   "license": "LICENSE.txt",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/",
@@ -70,13 +70,6 @@
       "system": "cairn"
     },
     {
-      "name": "macros",
-      "label": "Macros",
-      "path": "packs/macros.db",
-      "type": "Macro",
-      "system": "cairn"
-    },
-    {
       "name": "monsters",
       "label": "Monsters",
       "path": "packs/monsters.db",
@@ -119,6 +112,39 @@
       "system": "cairn"
     }
   ],
+  "packFolders": [
+    {
+      "name": "Cairn - Items",
+      "sorting": "a",
+      "packs": [
+        "weapons",
+        "trinkets",
+        "armor",
+        "tools",
+        "expeditionary-gear",
+        "extra",
+        "spellbooks",
+        "more-spellbooks",
+        "character-traits"
+      ]
+    },
+    {
+      "name": "Cairn - Actors",
+      "sorting": "a",
+      "packs": [
+        "monsters"
+      ]
+    },           
+    {
+      "name": "Cairn - Tables",
+      "sorting": "a",
+      "packs": [
+        "character-creation-tables-srd", 
+        "gear-tables",
+        "utils"
+      ]
+    }    
+  ],  
   "scripts": [],
   "languages": [
     {
@@ -147,8 +173,10 @@
       "path": "lang/de.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },  
   "primaryTokenAttribute": "abilities.STR",
   "secondaryTokenAttribute": "hp"
 }
