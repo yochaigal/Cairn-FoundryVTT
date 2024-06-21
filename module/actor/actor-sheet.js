@@ -333,6 +333,8 @@ export class CairnActorSheet extends ActorSheet {
 
     const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
 
+    if (this.actor == originalActor) return;
+
     if (originalItem) {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
