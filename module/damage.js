@@ -29,9 +29,9 @@ export class Damage {
             const hp = tokenDoc.actor.system.hp.value;
             const str = tokenDoc.actor.system.abilities.STR.value;
 
-            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
+            let { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
 
-            tokenDoc.actor.update({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+            tokenDoc.actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
 
             const actor = tokenDoc.actor;
 
@@ -39,19 +39,21 @@ export class Damage {
         }
         // Synthetic actor
         else {
-            let armor = tokenDoc.actorData?.system?.armor;
-            if (armor === undefined) armor = tokenDoc.actor.system.armor;
+            const actor = tokenDoc.actor;
 
-            let hp = tokenDoc.actorData?.system?.hp?.value;
-            if (hp === undefined) hp = tokenDoc.actor.system.hp.value; 
+            let armor = actor?.system?.armor;
+            if (armor === undefined) armor = actor.system.armor;
 
-            let str = tokenDoc.actorData?.system?.abilities?.STR?.value;
-            if (str === undefined) str = tokenDoc.actor.system.abilities.STR.value;
+            let hp = actor?.system?.hp?.value;
+            if (hp === undefined) hp = actor.system.hp.value;
 
-            let {dmg, newHp, newStr} = this._calculateHpAndStr(damage, armor, hp, str);
-            tokenDoc.modifyActorDocument({'system.hp.value': newHp, 'system.abilities.STR.value': newStr});
+            let str = actor?.system?.abilities?.STR?.value;
+            if (str === undefined) str = actor.system.abilities.STR.value;
 
-            const actor = ( tokenDoc.actorData !== undefined ) ? tokenDoc.actorData : tokenDoc.actor
+            let { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
+            if (newStr < 0) newStr = 0; // cannot drop below being dead
+
+            actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
 
             return { actor, dmg, damage, armor, hp, str, newHp, newStr };
         }
@@ -63,20 +65,20 @@ export class Damage {
      * @param {*} html 
      * @param {*} data 
      */
-    static onClickChatMessageApplyButton(event, html, data){
+    static onClickChatMessageApplyButton(event, html, data) {
         const btn = $(event.currentTarget);
         const targets = btn.data("targets");
 
         let targetsList = targets.split(';');
 
         // Shift Click allow to target the targeted tokens
-        if (event.shiftKey) {            
+        if (event.shiftKey) {
             for (let index = 0; index < targetsList.length; index++) {
                 const target = targetsList[index];
                 const token = canvas.scene.tokens.get(target).object;
                 const releaseOthers = (index == 0 ? (!token.isTargeted ? true : false) : false);
                 const targeted = !token.isTargeted;
-                token.setTarget(targeted, {releaseOthers: releaseOthers});
+                token.setTarget(targeted, { releaseOthers: releaseOthers });
             }
         }
         // Apply damage to targets
@@ -96,13 +98,13 @@ export class Damage {
      * @param {*} str 
      * @returns damage done, new HP value and STR value
      */
-     static _calculateHpAndStr(damage, armor, hp, str) {
+    static _calculateHpAndStr(damage, armor, hp, str) {
         let dmg = damage - armor;
         if (dmg < 0) dmg = 0;
 
         let newHp;
         let newStr = str;
-        if (dmg <= hp) { 
+        if (dmg <= hp) {
             newHp = hp - dmg;
             if (newHp < 0) newHp = 0;
         }
@@ -111,7 +113,7 @@ export class Damage {
             newStr = str - (dmg - hp);
         }
 
-        return {dmg, newHp, newStr};
+        return { dmg, newHp, newStr };
     }
 
     /**
@@ -122,6 +124,15 @@ export class Damage {
     static _showDetails(data) {
 
         const { actor, dmg, damage, armor, hp, str, newHp, newStr } = data
+
+        if (str == 0) {
+            ChatMessage.create({
+                user: game.user._id,
+                speaker: { actor },
+                content: '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>',
+            }, {});
+            return;
+        }
 
         let content = '<p><strong>' + game.i18n.localize('CAIRN.Damage') + '</strong>: ' + dmg + ' (' + damage + '-' + armor + ')</p>'
         if (newHp !== hp) {
@@ -136,7 +147,7 @@ export class Damage {
         if (newStr < str) {
             if (newStr === 0) {
                 content += '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>'
-            } else  {
+            } else {
                 content += '<p><strong>' + game.i18n.localize('CAIRN.StrSave') + '</strong></p>'
                 content += '<button type="button" class="roll-str-save">' + game.i18n.localize('CAIRN.RollStrSave') + '</button>'
             }
@@ -153,15 +164,15 @@ export class Damage {
 
     }
 
-    static async _rollScarsTable(damage){
+    static async _rollScarsTable(damage) {
         const table = await findCompendiumItem("cairn.utils", "Scars");
         const roll = new Roll(damage.toString());
-        await table.draw({roll});
+        await table.draw({ roll });
     }
 
-    static async _rollStrSave(actor,html){
+    static async _rollStrSave(actor, html) {
         const roll = await evaluateFormula("d20cs<=@STR", actor.getRollData());
-        const label = game.i18n.format("CAIRN.Save",{key: game.i18n.localize("STR")});
+        const label = game.i18n.format("CAIRN.Save", { key: game.i18n.localize("STR") });
         const rolled = roll.terms[0].results[0].result;
         const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
         const resultCls = roll.total === 0 ? "failure" : "success";
@@ -170,6 +181,6 @@ export class Damage {
             flavor: label,
             content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${roll.formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${roll.formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled}</li></ol></div></section></div><h4 class="dice-total ${resultCls}">${result} (${rolled})</h4</div></div>`,
         });
-        html.find(".roll-str-save").attr('disabled','disabled')
+        html.find(".roll-str-save").attr('disabled', 'disabled')
     }
 }
