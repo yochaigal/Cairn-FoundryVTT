@@ -3,6 +3,14 @@
         <!-- Portrait -->
         <div class="item-sheet-section-portrait">
             <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+             <!-- Cost -->
+            <div class="resource-counter">
+                <label class="small-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
+                <div class="resource-input-wrapper">
+                    <input type="text" name="system.cost.value" id="system.cost.value"
+                        value="{{data.system.cost.value}}" data-dtype="Number" />
+                </div>
+            </div>
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
@@ -56,6 +64,8 @@
                       value="{{data.system.uses.max}}" data-dtype="Number" />
             </div>
         </div>
+
+       
                 
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">

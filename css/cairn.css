@@ -332,7 +332,7 @@
     height: 36px;
 }
 
-.cairn-items-list-header .end{
+.cairn-items-list-header .end {
     margin-left: auto;
 }
 
@@ -365,7 +365,7 @@
 }
 
 .cairn-item-uses i {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 .cairn-item-controls {
@@ -384,11 +384,11 @@
 }
 
 .item-toggle-equipped {
-  color: var(--color-text-dark-inactive);
+    color: var(--color-text-dark-inactive);
 }
 
 .item-toggle-equipped.equipped {
-  color: var(--color-text-dark-primary);
+    color: var(--color-text-dark-primary);
 }
 
 .crit-dmg.long-counter label {
@@ -399,34 +399,43 @@
     width: 60%;
 }
 
-.weapon.item-sheet-grid{
+.weapon.item-sheet-grid {
     grid-template-rows: 46px 36px 36px 36px 36px 1fr;
 }
-.weapon.item-sheet-grid .item-sheet-section-tabs{
+
+.weapon.item-sheet-grid .item-sheet-section-tabs {
     grid-row-start: 6;
     grid-row-end: 6;
 }
 
 
 .spellbook.item-sheet-grid,
-.armor.item-sheet-grid{
+.armor.item-sheet-grid {
     grid-template-rows: 46px 36px 36px 36px 1fr;
 }
+
 .spellbook.item-sheet-grid .item-sheet-section-tabs,
-.armor.item-sheet-grid .item-sheet-section-tabs{
+.armor.item-sheet-grid .item-sheet-section-tabs {
     grid-row-start: 5;
     grid-row-end: 5;
+}
+
+.small-resource-label {
+    max-width: fit-content;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
 }
 
 /******************************************************************************
  * Chat message.                                                                *
  ******************************************************************************/
 
-.chat-message .flavor-dice-roll{
+.chat-message .flavor-dice-roll {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.chat-message .icon-action{
+
+.chat-message .icon-action {
     margin-left: auto;
 }
