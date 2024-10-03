@@ -54,6 +54,7 @@
   "CAIRN.ItemRemoveQuantity": "移除",
   "CAIRN.ItemUnequip": "卸下",
   "CAIRN.ApplyDamage": "应用伤害",
+  "CAIRN.Cost": "Cost",
   "DEX": "敏捷",
   "STR": "力量",
   "WIL": "意志"

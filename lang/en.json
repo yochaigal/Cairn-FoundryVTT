@@ -54,6 +54,7 @@
   "CAIRN.ItemRemoveQuantity": "Remove",
   "CAIRN.ItemUnequip": "Unequip",
   "CAIRN.ApplyDamage": "Apply damage",
+  "CAIRN.Cost": "Cost",
   "DEX": "DEX",
   "STR": "STR",
   "WIL": "WIL"

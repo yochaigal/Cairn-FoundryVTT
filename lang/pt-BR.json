@@ -54,6 +54,7 @@
   "CAIRN.ItemRemoveQuantity": "Remover",
   "CAIRN.ItemUnequip": "Desequipar",
   "CAIRN.ApplyDamage": "Aplicar dano",
+  "CAIRN.Cost": "Cost",
   "DEX": "DES",
   "STR": "FOR",
   "WIL": "VON"
