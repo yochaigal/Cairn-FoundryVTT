@@ -37,6 +37,7 @@
             <div class="cairn-item-tag">{{ localize 'CAIRN.Weightless' }} {{item.system.quantity}} </div>
             {{/if}}
 
+            {{#unless item.system.weightless}}
             <div class="cairn-item-uses">
               {{#times item.system.uses.max}}
                 {{#if (gt item.system.uses.value @index)}}
@@ -46,6 +47,7 @@
                 {{/if}}    
               {{/times}}
             </div>
+            {{/unless}}
 
         </div>
         

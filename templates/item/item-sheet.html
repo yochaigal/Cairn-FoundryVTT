@@ -49,7 +49,7 @@
             <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.uses.value" id="system.uses.value"
-                       value="{{data.system.uses.value}}" data-dtype="Number" />
+                       value="{{data.system.uses.value}}" data-dtype="Number" {{disabled data.system.weightless}} />
             </div>
         </div>
 
@@ -57,7 +57,7 @@
             <label class="large-resource-label" for="system.uses.max">{{ localize 'CAIRN.MaxUses' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.uses.max" id="system.uses.max"
-                      value="{{data.system.uses.max}}" data-dtype="Number" />
+                      value="{{data.system.uses.max}}" data-dtype="Number" {{disabled data.system.weightless}}/>
             </div>
         </div>
               
