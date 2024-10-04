@@ -17,8 +17,12 @@
       "url": "https://yochaigal.itch.io/"
     }
   ],
-  "esmodules": ["module/cairn.js"],
-  "styles": ["css/cairn.css"],
+  "esmodules": [
+    "module/cairn.js"
+  ],
+  "styles": [
+    "css/cairn.css"
+  ],
   "packs": [
     {
       "name": "armor",
@@ -134,17 +138,17 @@
       "packs": [
         "monsters"
       ]
-    },           
+    },
     {
       "name": "Cairn - Tables",
       "sorting": "a",
       "packs": [
-        "character-creation-tables-srd", 
+        "character-creation-tables-srd",
         "gear-tables",
         "utils"
       ]
-    }    
-  ],  
+    }
+  ],
   "scripts": [],
   "languages": [
     {
@@ -171,12 +175,17 @@
       "lang": "de",
       "name": "Deutsch",
       "path": "lang/de.json"
+    },
+    {
+      "lang": "pl",
+      "name": "polski",
+      "path": "lang/pl.json"
     }
   ],
   "grid": {
     "distance": 5,
     "units": "ft"
-  },  
+  },
   "primaryTokenAttribute": "abilities.STR",
   "secondaryTokenAttribute": "hp"
 }

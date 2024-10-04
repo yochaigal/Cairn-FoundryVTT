@@ -19,6 +19,8 @@
   "CAIRN.Deprived": "Deprived",
   "CAIRN.Description": "Description",
   "CAIRN.DieOfFate": "Die Of Fate",
+  "CAIRN.DeleteItem": "Delete Item",
+  "CAIRN.EditItem": "Edit Item",
   "CAIRN.Equipped": "Equipped",
   "CAIRN.Fatigue": "Fatigue",
   "CAIRN.Fail": "Fail",
