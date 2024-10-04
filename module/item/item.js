@@ -6,9 +6,9 @@ export class CairnItem extends Item {
 	/**
 	 * Augment the basic item data with additional dynamic data.
 	 */
-   prepareData() {
+	prepareData() {
 		super.prepareData();
-    this.system.isEquipable = ["weapon", "armor", "shield"].includes(this.type);    
-    this.system.hasPlusMinus = (this.system.uses?.max ?? 0) > 0;
+		this.system.isEquipable = ["weapon", "armor", "spellbook"].includes(this.type);
+		this.system.hasPlusMinus = (this.system.uses?.max ?? 0) > 0;
 	}
 }
