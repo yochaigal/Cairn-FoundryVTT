@@ -409,15 +409,24 @@
 }
 
 
-.spellbook.item-sheet-grid,
-.armor.item-sheet-grid {
+.armor.item-sheet-grid,
+.object.item-sheet-grid {
     grid-template-rows: 46px 36px 36px 36px 1fr;
 }
 
-.spellbook.item-sheet-grid .item-sheet-section-tabs,
-.armor.item-sheet-grid .item-sheet-section-tabs {
+.spellbook.item-sheet-grid {
+    grid-template-rows: 46px 36px 46px 1fr;
+}
+
+.armor.item-sheet-grid .item-sheet-section-tabs,
+.object.item-sheet-grid .item-sheet-section-tabs {
     grid-row-start: 5;
     grid-row-end: 5;
+}
+
+.spellbook.item-sheet-grid .item-sheet-section-tabs {
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 .small-resource-label {
@@ -425,6 +434,31 @@
     padding-left: 0.8rem;
     padding-right: 0.8rem;
 }
+
+.tiny-resource-label {
+    max-width: fit-content;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.container.item-sheet-grid {
+    grid-template-rows: 46px 36px 46px 1fr;
+}
+
+.container.item-sheet-grid .item-sheet-section-tabs {
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+.weapon-desc-divider {
+    font-style: italic;
+    font-size: smaller;
+    /* width: 70%;
+    margin-left: 0; */
+    /* color: var(--color-shadow-primary); */
+    /* box-shadow: 0 0 1px var(--color-shadow-primary); */
+}
+
 
 /******************************************************************************
  * Chat message.                                                                *

@@ -4,7 +4,7 @@
  */
 export class CairnItemSheet extends ItemSheet {
   /** @override */
-  static get defaultOptions () {
+  static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['cairn', 'sheet', 'item'],
       width: 480,
@@ -20,7 +20,7 @@ export class CairnItemSheet extends ItemSheet {
   }
 
   /** @override */
-  get template () {
+  get template() {
     const path = 'systems/cairn/templates/item'
     return `${path}/${this.item.type}-sheet.html`
   }
@@ -28,14 +28,14 @@ export class CairnItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData () {
+  getData() {
     return super.getData();
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  setPosition (options = {}) {
+  setPosition(options = {}) {
     const position = super.setPosition(options)
     const sheetBody = this.element.find('.sheet-body')
     const bodyHeight = position.height - 192
@@ -46,26 +46,26 @@ export class CairnItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  activateListeners (html) {
-		super.activateListeners(html);
+  activateListeners(html) {
+    super.activateListeners(html);
 
-		// Everything below here is only needed if the sheet is editable
-		if (!this.options.editable) return;
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return;
 
-		// If it's bulky it cannot be weightless too
-		html.find("[name='system.bulky']").change((e) => {
-      if(e.target.checked){
-        if(html.find("[name='system.weightless']").length > 0){
+    // If it's bulky it cannot be weightless too
+    html.find("[name='system.bulky']").change((e) => {
+      if (e.target.checked) {
+        if (html.find("[name='system.weightless']").length > 0) {
           html.find("[name='system.weightless']")[0].checked = false;
         }
       }
-		});
+    });
     html.find("[name='system.weightless']").change((e) => {
-      if(e.target.checked){
-        if(html.find("[name='system.bulky']").length > 0) {
+      if (e.target.checked) {
+        if (html.find("[name='system.bulky']").length > 0) {
           html.find("[name='system.bulky']")[0].checked = false;
         }
       }
     });
-	}
+  }
 }

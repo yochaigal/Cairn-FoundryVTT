@@ -37,3 +37,7 @@ export const getInfoFromDropData = async (dropData) => {
   const item = actor ? (itemFromUuid ? itemFromUuid : actor.items.get(dropData.data._id)) : null;
   return { actor, item };
 };
+
+export const stripPar = (text) => {
+  return text.replace('<p>', '').replace('</p>', '');
+}

@@ -1,36 +1,38 @@
 <form class="cairn" autocomplete="off">
-    <div class="item-sheet-grid armor">
+    <div class="item-sheet-grid object">
         <!-- Portrait -->
         <div class="item-sheet-section-portrait">
-            <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />            
+            <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
             <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
         </div>
-        <!-- Equipped -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
-                       value="{{data.system.equipped}}" data-dtype="Boolean" />
-            </div>
-        </div>
+        
         <!-- Bulky -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.bulky}} name="system.bulky" id="system.bulky"
-                       value="{{data.system.bulky}}" data-dtype="Boolean" />
+                        value="{{data.system.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
 
-        <!-- Number of uses -->
-        <div class="resource-counter long-counter">
+         <!-- Weightless -->
+         <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.system.weightless}} name="system.weightless" id="system.weightless"
+                        value="{{data.system.weightless}}" data-dtype="Boolean" />
+            </div>
+        </div>
+
+         <!-- Number of uses -->
+         <div class="resource-counter long-counter" >
             <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.uses.value" id="system.uses.value"
-                        value="{{data.system.uses.value}}" data-dtype="Number" />
+                       value="{{data.system.uses.value}}" data-dtype="Number"  />
             </div>
         </div>
 
@@ -41,13 +43,13 @@
                       value="{{data.system.uses.max}}" data-dtype="Number" />
             </div>
         </div>
-        
-        <!-- Armor -->
+
+        <!-- Quantity -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.armor">{{ localize 'CAIRN.Armor' }}</label>
+            <label class="large-resource-label" for="system.quantity">{{ localize 'CAIRN.Quantity' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="system.armor" id="system.armor"
-                       value="{{data.system.armor}}" data-dtype="Number" />
+                <input type="text" name="system.quantity" id="system.quantity"
+                        value="{{data.system.quantity}}" data-dtype="Number" />
             </div>
         </div>
 
@@ -56,10 +58,11 @@
             <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.cost.value" id="system.cost.value"
-                    value="{{data.system.cost.value}}" data-dtype="Number" />
+                       value="{{data.system.cost.value}}" data-dtype="Number" />
             </div>
         </div>
 
+        
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>

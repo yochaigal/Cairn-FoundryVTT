@@ -1,5 +1,5 @@
 import { regenerateActor } from '../character-generator.js'
-import { evaluateFormula, getInfoFromDropData } from '../utils.js'
+import { evaluateFormula, getInfoFromDropData, stripPar } from '../utils.js'
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -258,8 +258,12 @@ export class CairnActorSheet extends ActorSheet {
       const summary = boxItem.children(".item-description");
       summary.slideUp(200, () => summary.remove());
     } else {
+      const desc = stripPar(item.system.description);
+      let crit = "";
+      if (item.system.criticalDamage && stripPar(item.system.criticalDamage) !== "")
+        crit = '<br/><span class="weapon-desc-divider">' + game.i18n.localize("CAIRN.CriticalDamage") + ': ' + stripPar(item.system.criticalDamage) + '</span>';
       const div = $(
-        `<div class="item-description">${item.system.description}</div>`
+        `<div class="item-description">${desc}${crit}</div>`
       );
       boxItem.append(div.hide());
       div.slideDown(200);

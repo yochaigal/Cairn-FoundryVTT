@@ -1,5 +1,5 @@
 <form class="cairn" autocomplete="off">
-    <div class="item-sheet-grid spellbook">
+    <div class="item-sheet-grid container">
         <!-- Portrait -->
         <div class="item-sheet-section-portrait">
             <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
@@ -8,25 +8,36 @@
         <div class="item-sheet-section-name">
             <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
         </div>
-        <!-- Equipped -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
+       
+          <!-- Bulky -->
+          <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
-                <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
-                       value="{{data.system.equipped}}" data-dtype="Boolean" />
+                <input type="checkbox" {{checked data.system.bulky}} name="system.bulky" id="system.bulky"
+                        value="{{data.system.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
-        
 
-         <!-- Cost -->
-         <div class="resource-counter long-counter">
+      
+        <!-- Slots -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.slots">{{ localize 'CAIRN.Slots' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" {{checked data.system.slots}} name="system.slots" id="system.slots"
+                        value="{{data.system.slots}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <!-- Cost -->
+        <div></div>
+        <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.cost.value" id="system.cost.value"
-                    value="{{data.system.cost.value}}" data-dtype="Number" />
+                       value="{{data.system.cost.value}}" data-dtype="Number" />
             </div>
         </div>
-
+        
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>

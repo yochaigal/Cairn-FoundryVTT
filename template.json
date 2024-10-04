@@ -58,7 +58,9 @@
       "item",
       "weapon",
       "armor",
-      "spellbook"
+      "spellbook",
+      "container",
+      "object"
     ],
     "templates": {
       "universal": {
@@ -110,6 +112,21 @@
         "base",
         "universal"
       ]
+    },
+    "container": {
+      "templates": [
+        "base",
+        "universal"
+      ],
+      "slots": 0
+    },
+    "object": {
+      "templates": [
+        "base",
+        "universal",
+        "consumable"
+      ],
+      "quantity": 0
     }
   }
 }

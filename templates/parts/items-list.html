@@ -35,7 +35,12 @@
             {{/if}}
             {{#if item.system.weightless}}
             <div class="cairn-item-tag">{{ localize 'CAIRN.Weightless' }} {{item.system.quantity}} </div>
+            {{else}}
+            {{#if (gt item.system.quantity 1)}}
+            <div class="cairn-item-tag">{{ localize 'CAIRN.Quantity' }} {{item.system.quantity}} </div>  
             {{/if}}
+            {{/if}}
+            
 
             {{#unless item.system.weightless}}
             <div class="cairn-item-uses">
