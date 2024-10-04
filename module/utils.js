@@ -4,7 +4,11 @@
  * @return {Promise<Roll>}
  */
 export const evaluateFormula = async (formula, data) => {
-  const roll = new Roll(formula, data);
+  let f = formula;
+  if (f.includes("+")) {
+    f = '{' + f.replaceAll('+', ',') + '}kh';
+  }
+  const roll = new Roll(f, data);
   return roll.evaluate();
 };
 
