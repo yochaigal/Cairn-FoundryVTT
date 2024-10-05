@@ -6,7 +6,9 @@
         <div class="character-sheet-section-name">
             <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
             <!-- Background, not relevant for containers -->
-            <div class="background-input"></div>
+            <div class="background-input">
+                {{data.system.ownedBy}}
+            </div>
             <div class="resource-counter slots-counter">
                 <label for="system.slots.value">{{ localize 'CAIRN.Slots' }}</label>
                 <div class="resource-input-wrapper">
@@ -17,7 +19,7 @@
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slots.value}})</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})</a>
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
             </nav>
             <section class="content">

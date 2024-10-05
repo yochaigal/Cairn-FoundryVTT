@@ -13,7 +13,7 @@
             <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
-                       value="{{data.system.equipped}}" data-dtype="Boolean" />
+                       value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable) }} />
             </div>
         </div>
         <!-- Bulky -->

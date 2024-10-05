@@ -9,6 +9,7 @@ import { Cairn } from './config.js'
 import { CairnCombat } from './combat.js'
 import { createCairnMacro, rollItemMacro } from './macros.js'
 import { Damage } from './damage.js'
+import { registerSettings } from "./settings.js"
 
 Hooks.once('init', async function () {
   game.cairn = {
@@ -35,6 +36,7 @@ Hooks.once('init', async function () {
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
 
+  registerSettings();
   configureHandleBar();
 });
 
@@ -70,28 +72,29 @@ Hooks.on("renderChatMessage", (message, html, data) => {
   // Roll Str Save
   const actor = game.actors.get(message.speaker?.actor);
 
-  if(actor !== undefined){
-    if(actor.testUserPermission(game.user,"OWNER") || game.user.isGM){
-      html.find(".roll-str-save").click(ev => Damage._rollStrSave(actor,html));
-    }else{
-      html.find(".roll-str-save").each((i, btn) => {btn.style.display = "none"});
+  if (actor !== undefined) {
+    if (actor.testUserPermission(game.user, "OWNER") || game.user.isGM) {
+      html.find(".roll-str-save").click(ev => Damage._rollStrSave(actor, html));
+    } else {
+      html.find(".roll-str-save").each((i, btn) => { btn.style.display = "none" });
     }
-  }else{
-    html.find(".roll-str-save").each((i, btn) => {btn.style.display = "none"});
+  } else {
+    html.find(".roll-str-save").each((i, btn) => { btn.style.display = "none" });
   }
 
   if (game.user.isGM) {
-      html.find(".apply-dmg").click(ev => Damage.onClickChatMessageApplyButton(ev, html, data));    
+    html.find(".apply-dmg").click(ev => Damage.onClickChatMessageApplyButton(ev, html, data));
   }
   else {
-      html.find(".apply-dmg").each((i, btn) => {btn.style.display = "none"});
-  }        
+    html.find(".apply-dmg").each((i, btn) => { btn.style.display = "none" });
+  }
 });
 
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
     "systems/cairn/templates/parts/items-list.html",
+    "systems/cairn/templates/parts/container-list.html",
   ];
 
   loadTemplates(templatePaths);
@@ -120,18 +123,23 @@ const configureHandleBar = () => {
   Handlebars.registerHelper("ifPrint", (cond, v1) => (cond ? v1 : ""));
   Handlebars.registerHelper("ifPrintElse", (cond, v1, v2) => (cond ? v1 : v2));
 
-  Handlebars.registerHelper('times', function(n, block) {
+  Handlebars.registerHelper('times', function (n, block) {
     var accum = '';
-    for(var i = 0; i < n; ++i) {
-        block.data.index = i;
-        block.data.first = i === 0;
-        block.data.last = i === (n - 1);
-        accum += block.fn(this);
+    for (var i = 0; i < n; ++i) {
+      block.data.index = i;
+      block.data.first = i === 0;
+      block.data.last = i === (n - 1);
+      accum += block.fn(this);
     }
     return accum;
-});
+  });
 
-Handlebars.registerHelper('isNotNull', function (val) {
-  return val !== null && val != undefined;
-});
+  Handlebars.registerHelper('isNotNull', function (val) {
+    return val !== null && val != undefined;
+  });
+
+  Handlebars.registerHelper('not', function (val) {
+    return !val;
+  });
+
 }
