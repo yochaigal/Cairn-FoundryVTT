@@ -11,7 +11,7 @@ export class CairnActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
-      width: 480,
+      width: 500,
       height: 640,
       tabs: [
         {
@@ -38,6 +38,9 @@ export class CairnActorSheet extends ActorSheet {
     data.items = data.items.sort((a, b) =>
       a.system.equipped && !b.system.equipped ? -1 : a.system.equipped === b.system.equipped ? 0 : 1
     );
+    const dt = data.data;
+
+
     return data;
   }
 
@@ -53,6 +56,9 @@ export class CairnActorSheet extends ActorSheet {
     // Add inventory item
     html.find(".item-create").click(this._onItemCreate.bind(this));
 
+    // Add inventory container
+    html.find(".container-create").click(this._onContainerCreate.bind(this));
+
     // Add fatigue
     html.find(".add-fatigue").click(this._onAddFatigue.bind(this));
 
@@ -62,6 +68,11 @@ export class CairnActorSheet extends ActorSheet {
     // Update inventory item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      if (li.data("isContainer")) {
+        const item = this.actor.getOwnedContainer(li.data("itemId"));
+        item.sheet.render(true);
+        return;
+      }
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     });
@@ -69,7 +80,11 @@ export class CairnActorSheet extends ActorSheet {
     // Delete inventory item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
-      this.actor.deleteOwnedItem(li.data("itemId"));
+      if (li.data("isContainer")) {
+        this.actor.deleteOwnedContainer(li.data("itemId"));
+      } else {
+        this.actor.deleteOwnedItem(li.data("itemId"));
+      }
       li.slideUp(200, () => this.render(false));
     });
 
@@ -177,6 +192,42 @@ export class CairnActorSheet extends ActorSheet {
     }).render(true);
   }
 
+  /* -------------------------------------------- */
+  /**
+   * Handle creating a new Owned Container for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onContainerCreate(event) {
+    event.preventDefault();
+    const template = "systems/cairn/templates/dialog/add-container-dialog.html";
+    const content = await renderTemplate(template);
+
+    new Dialog({
+      title: game.i18n.localize("CAIRN.CreateContainer"),
+      content,
+      buttons: {
+        create: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize("CAIRN.CreateContainer"),
+          callback: async (html) => {
+            const form = html[0].querySelector("form");
+            if (form.itemname.value.trim() !== '') {
+              const result = await Actor.create({
+                type: 'container',
+                name: form.itemname.value,
+                "system.slots.value": form.itemslots.value
+              });
+              await this.actor.createOwnedContainer(result);
+            }
+          }
+        },
+      },
+      default: "create"
+    }).render(true);
+  }
+
+
   /**
    * Handle creating a fatigue for the actor
    * @param {Event} event   The originating click event
@@ -184,6 +235,10 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onAddFatigue(event) {
     event.preventDefault();
+    if (this.actor.isEncumbered()) {
+      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      return;
+    }
 
     this.actor.createOwnedItem({
       name: game.i18n.localize("CAIRN.Fatigue"),
@@ -253,6 +308,33 @@ export class CairnActorSheet extends ActorSheet {
   _onItemDescriptionToggle(event) {
     event.preventDefault();
     const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
+    const isContainer = boxItem.data("isContainer");
+    if (isContainer) {
+      this._prepareContainerDescription(boxItem);
+      return
+    }
+    this._prepareItemDescription(boxItem);
+  }
+
+  _prepareContainerDescription(boxItem) {
+    if (boxItem.hasClass("expanded")) {
+      const summary = boxItem.children(".item-description");
+      summary.slideUp(200, () => summary.remove());
+    } else {
+      const id = boxItem.data("itemId");
+      const item = game.actors.find(a => a.uuid == id);
+      if (!item) return;
+      let list = item.items.map(it => it.name);
+      const div = $(
+        `<div class="item-description">${list.join(', ')}</div>`
+      );
+      boxItem.append(div.hide());
+      div.slideDown(200);
+    }
+    boxItem.toggleClass("expanded");
+  }
+
+  _prepareItemDescription(boxItem) {
     const item = this.actor.items.get(boxItem.data("itemId"));
     if (boxItem.hasClass("expanded")) {
       const summary = boxItem.children(".item-description");
@@ -332,15 +414,37 @@ export class CairnActorSheet extends ActorSheet {
    * @param {Object} itemData
    */
   async _onDropItem(event, itemData) {
+    if (this.actor.isEncumbered()) {
+      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      return;
+    }
+
     const item = ((await super._onDropItem(event, itemData)) || []).pop();
     if (!item) return;
-
     const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
-
     if (this.actor == originalActor) return;
-
     if (originalItem) {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
   }
+
+
+  /**
+  * @override
+  *
+  * @param {DragEvent} event
+  * @param {Object} itemData
+  */
+  async _onDropActor(event, data) {
+    let actor = game.actors.find((a) => a.uuid == data.uuid);
+    if (actor.type !== "container") return;
+    if (actor.system.keeper != "") {
+      ui.notifications.warn(game.i18n.localize("CAIRN.ContainerAlreadyOwned"));
+      return;
+    }
+    if (this.actor.uuid == data.uuid) return;
+    await this.actor.createOwnedContainer(actor);
+  }
 }
+
+

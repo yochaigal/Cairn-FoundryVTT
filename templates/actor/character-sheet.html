@@ -26,9 +26,9 @@
         </div>
         <!-- Buttons -->
         <div class="character-sheet-section-buttons">
-            <button id="rest-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.Rest' }}</button>
-            <button id="restore-abilities-button" type="button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.RestoreAbilities' }}</button>
-            <button id="die-of-fate-button" type="button">{{ localize 'CAIRN.DieOfFate' }}</button>
+            <button id="rest-button" type="button" class="strict-size-button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.Rest' }}</button>
+            <button id="restore-abilities-button" type="button" class="strict-size-button" {{#if data.system.deprived}}disabled{{/if}}>{{ localize 'CAIRN.RestoreAbilities' }}</button>
+            <button id="die-of-fate-button" type="button" class="strict-size-button">{{ localize 'CAIRN.DieOfFate' }}</button>
         </div>
         <!-- Abilities -->
         <div class="character-sheet-section-abilities">
@@ -62,13 +62,17 @@
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / 10)</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})</a>
+                <a class="item" data-group="primary" data-tab="containers">{{ localize 'CAIRN.Containers' }} ({{data.system.containers.length}}) </a>
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
                 <a class="item" data-group="primary" data-tab="notes">{{ localize 'CAIRN.Notes' }}</a>
             </nav>
             <section class="content">
-                <div class="tab" data-group="primary" data-tab="items">
-                    {{> "systems/cairn/templates/parts/items-list.html" withFatigue=1}}
+                <div class="tab" data-group="primary" data-tab="items">                   
+                    {{> "systems/cairn/templates/parts/items-list.html" withFatigue=1}} 
+                </div>
+                <div class="tab" data-group="primary" data-tab="containers">                   
+                    {{> "systems/cairn/templates/parts/container-list.html"}} 
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor data.system.biography target="system.biography" button=true owner=owner

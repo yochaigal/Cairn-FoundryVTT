@@ -48,11 +48,16 @@
                     <span>{{data.system.armor}}</span>
                 </div>
             </div>
-            <div></div>
+            <div class="resource-counter stacked-counter">
+                <label for="system.slots">{{ localize 'CAIRN.Slots' }}</label>
+                <div class="stacked-input-wrapper">
+                    <input type="text" name="system.slots" id="system.slots" value="{{data.system.slots}}" data-dtype="Number" />
+                </div>
+            </div>
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }}</a>
+                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})</a>
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
             </nav>
             <section class="content">

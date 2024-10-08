@@ -3,13 +3,13 @@
   "TYPES.Actor.container": "Container",
   "TYPES.Actor.npc": "Non-Player Character",
   "TYPES.Item.armor": "Armor",
-  "TYPES.Item.container": "Container",
   "TYPES.Item.item": "Item",
   "TYPES.Item.weapon": "Weapon",
   "TYPES.Item.spellbook": "Spellbook",
   "TYPES.Item.object": "Object",
   "CAIRN.AddFatigue": "Add fatigue",
   "CAIRN.AddItem": "Add Item",
+  "CAIRN.AddContainer": "Add Container",
   "CAIRN.Armor": "Armor",
   "CAIRN.Background": "Background",
   "CAIRN.Blast": "Blast",
@@ -18,7 +18,10 @@
   "CAIRN.CharacterGenerator": "Create character",
   "CAIRN.CharacterRegeneratorConfirm": "Are you sure you want to delete and regenerate this character?",
   "CAIRN.CharacterRegeneratorTitle": "Delete this character and regenerate?",
+  "CAIRN.Containers": "Containers",
+  "CAIRN.ContainerAlreadyOwned": "Container already owned by someone.",
   "CAIRN.CreateItem": "Create Item",
+  "CAIRN.CreateContainer": "Create Container",
   "CAIRN.CriticalDamage": "Critical Dmg.",
   "CAIRN.Damage": "Damage",
   "CAIRN.Dead": "Dead",
@@ -38,6 +41,10 @@
   "CAIRN.Name": "Name",
   "CAIRN.NoItemToDelete": "Cannot find Item to delete.",
   "CAIRN.Notes": "Notes",
+  "CAIRN.Notify": {
+    "MaxSlotsOccupied": "Maximum equipment slots used."
+  },
+  "CAIRN.Owner": "Owner",
   "CAIRN.Quantity": "Quantity",
   "CAIRN.RemoveFatigue": "Remove fatigue",
   "CAIRN.RegenerateCharacter": "Regenerate",
@@ -48,6 +55,12 @@
   "CAIRN.RollingDmgWith": "Rolling damage with",
   "CAIRN.Save": "{key} save",
   "CAIRN.Scars": "Got a scar",
+  "CAIRN.Settings": {
+    "MaxEquipSlots": {
+      "label": "Equipment Limit",
+      "hint": "Maximum equipment slots for player characters, used for encumbrance tracking."
+    }
+  },
   "CAIRN.Slots": "Slots",
   "CAIRN.Spellbook": "Spellbook",
   "CAIRN.StrSave": "Must pass a STR save",

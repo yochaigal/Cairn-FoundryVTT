@@ -35,7 +35,8 @@
       "background": "",
       "biography": "",
       "deprived": false,
-      "gold": 0
+      "gold": 0,
+      "containers": []
     },
     "npc": {
       "templates": [
@@ -43,14 +44,16 @@
         "actorBase"
       ],
       "description": "",
-      "armor": 0
+      "armor": 0,
+      "slots": 0
     },
     "container": {
       "templates": [
         "base"
       ],
       "description": "",
-      "slots": 0
+      "slots": 0,
+      "keeper": ""
     }
   },
   "Item": {
@@ -59,7 +62,6 @@
       "weapon",
       "armor",
       "spellbook",
-      "container",
       "object"
     ],
     "templates": {
@@ -112,13 +114,6 @@
         "base",
         "universal"
       ]
-    },
-    "container": {
-      "templates": [
-        "base",
-        "universal"
-      ],
-      "slots": 0
     },
     "object": {
       "templates": [
