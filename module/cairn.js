@@ -142,4 +142,8 @@ const configureHandleBar = () => {
     return !val;
   });
 
+  Handlebars.registerHelper('markItemUsed', function (item, options) {
+    return (item.system.uses.max > 0 && item.system.uses.value >= item.system.uses.max) ? '<span style="text-decoration: line-through;">' + options.fn(this) + '</span>' : options.fn(this);
+  });
+
 }

@@ -149,7 +149,6 @@ export class CairnActor extends Actor {
 	}
 
 	calcCurrentMaxSlots() {
-		console.log(this.type, this.system.slots);
 		if (["npc", "container"].includes(this.type) && this.system.slots && this.system.slots.value > 0) return this.system.slots.value;
 		return game.settings.get("cairn", "max-equip-slots");
 	}

@@ -2,7 +2,7 @@
   "id": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
-  "version": "0.12",
+  "version": "0.14",
   "compatibility": {
     "minimum": "12",
     "verified": "12.327"
@@ -15,6 +15,10 @@
     {
       "name": "yochaigal",
       "url": "https://yochaigal.itch.io/"
+    },
+    {
+      "name": "Oskar Świda",
+      "url": "https://github.com/oswida"
     }
   ],
   "esmodules": [

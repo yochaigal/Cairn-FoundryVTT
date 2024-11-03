@@ -1,9 +1,9 @@
 {{#if withFatigue}}
 <div class="cairn-items-list-header">
     <div class="end">
-        {{ localize 'CAIRN.Fatigue' }}
-        <a class="item-control add-fatigue" title="{{ localize 'CAIRN.AddFatigue' }}"><i class="fas fa-plus "></i></a>
-        <a class="item-control remove-fatigue" title="{{ localize 'CAIRN.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
+      <a class="item-control remove-fatigue" title="{{ localize 'CAIRN.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
+      {{ localize 'CAIRN.Fatigue' }}
+      <a class="item-control add-fatigue" title="{{ localize 'CAIRN.AddFatigue' }}"><i class="fas fa-plus "></i></a>  
     </div>
 </div>
 {{/if}}
@@ -16,7 +16,9 @@
     <div class="cairn-items-list-row-header">
         <div class="cairn-item-name-and-tags">
             <a class="cairn-item-title">
+                {{#markItemUsed item}}
                 {{#boldIf item.system.equipped}}{{item.name}}{{/boldIf}}
+                {{/markItemUsed}}
             </a>
             {{#if item.system.blast}}
             <div class="cairn-item-tag">{{ localize 'CAIRN.Blast' }}</div>
@@ -58,11 +60,11 @@
         
         <div class="cairn-item-controls">
             {{#if item.system.hasPlusMinus}}                        
-              <a class="item-control item-add-quantity" title="{{localize 'CAIRN.ItemAddQuantity'}}">
-                <i class="fas fa-plus"></i>
-              </a>
-              <a class="item-control item-remove-quantity" title="{{localize 'CAIRN.ItemRemoveQuantity'}}">
+              <a class="item-control item-remove-quantity" title="{{localize 'CAIRN.ItemRemoveQuantity'}}" style="margin-right: 4px">
                 <i class="fas fa-minus"></i>
+              </a>
+              <a class="item-control item-add-quantity" title="{{localize 'CAIRN.ItemAddQuantity'}}"  style="margin-right: 4px">
+                  <i class="fas fa-plus"></i>
               </a>
             {{/if}}
 
