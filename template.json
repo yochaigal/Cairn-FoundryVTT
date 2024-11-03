@@ -53,7 +53,8 @@
       ],
       "description": "",
       "slots": 0,
-      "keeper": ""
+      "keeper": "",
+      "cost": 0
     }
   },
   "Item": {
