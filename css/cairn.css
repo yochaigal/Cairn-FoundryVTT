@@ -475,3 +475,9 @@
 .chat-message .icon-action {
     margin-left: auto;
 }
+
+.grey-comment {
+    font-size: smaller;
+    color: grey;
+    font-style: italic;
+}

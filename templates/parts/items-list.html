@@ -1,5 +1,8 @@
 {{#if withFatigue}}
 <div class="cairn-items-list-header">
+    {{#if data.system.hasGoldThreshold}}
+      <div class="grey-comment">{{ localize 'CAIRN.Settings.UseGoldThreshold.message'}}</div>
+    {{/if}}
     <div class="end">
       <a class="item-control remove-fatigue" title="{{ localize 'CAIRN.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
       {{ localize 'CAIRN.Fatigue' }}
