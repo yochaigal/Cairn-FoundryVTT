@@ -44,6 +44,7 @@ export class CairnActor extends Actor {
 			this.system.containers = [];
 		}
 		this.system.containerObjects = this.system.containers.map((it) => game.actors.find((a) => a.uuid == it));
+		this.system.hasGoldThreshold = game.settings.get("cairn", "use-gold-threshold") > 0;
 
 		if (this.system.encumbered) {
 			this.system.hp.value = 0;
@@ -135,7 +136,12 @@ export class CairnActor extends Actor {
 
 
 	calcSlotsUsed() {
-		return this.items.reduce((memo, item) => memo + ((item.system.bulky ?? false) ? 2 : (item.system.weightless ?? false) ? 0 : 1), 0);
+		let totalSlots = this.items.reduce((memo, item) => memo + ((item.system.bulky ?? false) ? 2 : (item.system.weightless ?? false) ? 0 : 1), 0);
+		const goldThreshold = game.settings.get("cairn", "use-gold-threshold");
+		if (goldThreshold > 0 && this.system.gold) {
+			totalSlots += Math.floor(this.system.gold / goldThreshold);
+		};
+		return totalSlots;
 	}
 
 	calcArmor() {
@@ -149,7 +155,6 @@ export class CairnActor extends Actor {
 	}
 
 	calcCurrentMaxSlots() {
-		console.log(this.type, this.system.slots);
 		if (["npc", "container"].includes(this.type) && this.system.slots && this.system.slots.value > 0) return this.system.slots.value;
 		return game.settings.get("cairn", "max-equip-slots");
 	}

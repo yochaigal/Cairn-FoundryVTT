@@ -5,6 +5,17 @@ export const registerSettings = () => {
         scope: "world",
         config: true,
         type: Number,
-        default: 10
+        default: 10,
+        requiresReload: true,
+    });
+
+    game.settings.register("cairn", "use-gold-threshold", {
+        name: game.i18n.localize("CAIRN.Settings.UseGoldThreshold.label"),
+        hint: game.i18n.localize("CAIRN.Settings.UseGoldThreshold.hint"),
+        scope: "world",
+        config: true,
+        type: Number,
+        default: 0,
+        requiresReload: true,
     });
 }

@@ -9,7 +9,8 @@ export class CairnItem extends Item {
 	prepareData() {
 		super.prepareData();
 		// Items in containers cannot be equippable.
-		this.system.isEquipable = ["weapon", "armor", "spellbook"].includes(this.type) && this.actor.type != 'container';
+		const actorType = this.actor ? this.actor.type : "";
+		this.system.isEquipable = ["weapon", "armor", "spellbook"].includes(this.type) && actorType != 'container';
 		this.system.hasPlusMinus = (this.system.uses?.max ?? 0) > 0;
 	}
 }

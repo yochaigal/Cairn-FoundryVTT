@@ -59,6 +59,11 @@
     "MaxEquipSlots": {
       "label": "Limit ekwipunku",
       "hint": "Maksymalna liczba miejsc w ekwipunku postaci gracza, używana do śledzenia obciążenia postaci."
+    },
+    "UseGoldThreshold": {
+      "label": "Limit mieszka złota",
+      "hint": "Określa liczbę sztuk złota, która zajmuje już miejsce w ekwipunku. Zero oznacza, że złoto nie jest wliczane do obciążenia.",
+      "message": "Złoto liczone jako przedmioty"
     }
   },
   "CAIRN.Slots": "Miejsca",

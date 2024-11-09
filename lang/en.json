@@ -59,6 +59,11 @@
     "MaxEquipSlots": {
       "label": "Equipment Limit",
       "hint": "Maximum equipment slots for player characters, used for encumbrance tracking."
+    },
+    "UseGoldThreshold": {
+      "label": "Use gold threshold",
+      "hint": "Define number of gold pieces which occupies full inventory slot. Zero means that gold pieces are always petty.",
+      "message": "Gold is counted as an inventory"
     }
   },
   "CAIRN.Slots": "Slots",
