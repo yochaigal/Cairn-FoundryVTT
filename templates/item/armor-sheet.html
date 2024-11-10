@@ -16,6 +16,15 @@
                        value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable) }} />
             </div>
         </div>
+        <!-- Armor -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.armor">{{ localize 'CAIRN.Armor' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.armor" id="system.armor"
+                       value="{{data.system.armor}}" data-dtype="Number" />
+            </div>
+        </div>
+
         <!-- Bulky -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
@@ -24,6 +33,15 @@
                        value="{{data.system.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
+        <!-- Weightless -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.system.weightless}} name="system.weightless" id="system.weightless"
+                        value="{{data.system.weightless}}" data-dtype="Boolean" />
+            </div>
+        </div>
+                
 
         <!-- Number of uses -->
         <div class="resource-counter long-counter">
@@ -42,14 +60,8 @@
             </div>
         </div>
         
-        <!-- Armor -->
-        <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.armor">{{ localize 'CAIRN.Armor' }}</label>
-            <div class="resource-input-wrapper">
-                <input type="text" name="system.armor" id="system.armor"
-                       value="{{data.system.armor}}" data-dtype="Number" />
-            </div>
-        </div>
+        
+        
 
          <!-- Cost -->
          <div class="resource-counter long-counter">

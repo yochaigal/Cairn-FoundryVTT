@@ -286,6 +286,23 @@
     width: 50%;
 }
 
+.short-counter label {
+    width: 45%;
+}
+
+.short-counter .resource-input-wrapper {
+    width: 55%;
+}
+
+.short-resource-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 45%;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
 .hp-counter,
 .deprived-counter,
 .slots-counter {
@@ -419,7 +436,7 @@
 
 .armor.item-sheet-grid,
 .object.item-sheet-grid {
-    grid-template-rows: 46px 36px 36px 36px 1fr;
+    grid-template-rows: 46px 36px 36px 36px 36px 1fr;
 }
 
 .spellbook.item-sheet-grid {
@@ -428,8 +445,8 @@
 
 .armor.item-sheet-grid .item-sheet-section-tabs,
 .object.item-sheet-grid .item-sheet-section-tabs {
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 6;
 }
 
 .spellbook.item-sheet-grid .item-sheet-section-tabs {
