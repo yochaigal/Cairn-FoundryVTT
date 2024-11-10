@@ -274,8 +274,16 @@ export class CairnActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     if (dataset.roll) {
+      const usePanic = game.settings.get("cairn", "use-panic");
+      let panicLabel = "";
+      if (usePanic && this.actor.system.panicked) {
+        dataset.roll = "1d4"; // panicked character
+        panicLabel = "(" + game.i18n.localize("CAIRN.RollingWithPanic") + ")";
+      }
+
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ? game.i18n.localize("CAIRN.RollingDmgWith") + ` ${dataset.label}` : "";
+      const label = dataset.label ?
+        game.i18n.localize("CAIRN.RollingDmgWith") + ` ${dataset.label} ` + panicLabel : "";
 
       const targetedTokens = Array.from(game.user.targets).map(t => t.id);
 

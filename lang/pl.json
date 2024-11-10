@@ -46,6 +46,7 @@
   },
   "CAIRN.Quantity": "Ilość",
   "CAIRN.Owner": "Właściciel",
+  "CAIRN.Panicked": "Panika",
   "CAIRN.RemoveFatigue": "Usuń zmęczenie",
   "CAIRN.RegenerateCharacter": "Generuj",
   "CAIRN.Rest": "Odpoczynek",
@@ -53,6 +54,7 @@
   "CAIRN.RollDamage": "Rzut na obrażenia",
   "CAIRN.Rolling": "Rzut",
   "CAIRN.RollingDmgWith": "Rzut na obrażenia",
+  "CAIRN.RollingWithPanic": "Panika",
   "CAIRN.Save": "rzut obronny {key}",
   "CAIRN.Scars": "Otrzymuje bliznę",
   "CAIRN.Settings": {
@@ -64,6 +66,10 @@
       "label": "Limit mieszka złota",
       "hint": "Określa liczbę sztuk złota, która zajmuje już miejsce w ekwipunku. Zero oznacza, że złoto nie jest wliczane do obciążenia.",
       "message": "Złoto liczone jako przedmioty"
+    },
+    "UsePanic": {
+      "label": "Panika",
+      "hint": "Postacie graczy mogą ulec panice (reguła drugiej edycji)."
     }
   },
   "CAIRN.Slots": "Miejsca",

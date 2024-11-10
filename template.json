@@ -35,6 +35,7 @@
       "background": "",
       "biography": "",
       "deprived": false,
+      "panicked": false,
       "gold": 0,
       "containers": []
     },
