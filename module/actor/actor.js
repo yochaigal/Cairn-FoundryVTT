@@ -44,9 +44,19 @@ export class CairnActor extends Actor {
 			this.system.containers = [];
 		}
 		this.system.containerObjects = this.system.containers.map((it) => game.actors.find((a) => a.uuid == it));
-		this.system.hasGoldThreshold = game.settings.get("cairn", "use-gold-threshold") > 0;
+
+		const gct = game.settings.get("cairn", "use-gold-threshold");
+		this.system.hasGoldThreshold = gct > 0;
+		if (this.system.hasGoldThreshold > 0 && this.system.gold) {
+			this.system.goldSlots = Math.floor(this.system.gold / gct);
+		};
 
 		if (this.system.encumbered) {
+			this.system.hp.value = 0;
+		}
+
+		this.system.usePanic = game.settings.get("cairn", "use-panic") > 0;
+		if (this.system.usePanic && this.system.panicked) {
 			this.system.hp.value = 0;
 		}
 

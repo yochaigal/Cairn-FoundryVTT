@@ -76,7 +76,7 @@
 .character-sheet-section-others {
     display: grid;
     row-gap: 2px;
-    grid-template-rows: 55px 55px;
+    grid-template-rows: 36px 36px 36px;
 }
 
 .character-sheet-section-tabs {
@@ -276,6 +276,14 @@
 
 .long-counter .resource-input-wrapper {
     width: 30%;
+}
+
+.middle-counter label {
+    width: 50%;
+}
+
+.middle-counter .resource-input-wrapper {
+    width: 50%;
 }
 
 .hp-counter,

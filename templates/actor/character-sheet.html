@@ -16,13 +16,13 @@
                     <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
-            <div class="resource-counter long-counter deprived-counter">
-                <label for="system.deprived">{{ localize 'CAIRN.Deprived' }}</label>
+            <div class="resource-counter deprived-counter middle-counter">
+                <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
                 <div class="resource-input-wrapper">
-                    <input type="checkbox" {{checked data.system.deprived}} name="system.deprived" id="system.deprived"
-                        value="{{data.system.deprived}}" data-dtype="Boolean" />
+                    <input type="text" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
                 </div>
             </div>
+            
         </div>
         <!-- Buttons -->
         <div class="character-sheet-section-buttons">
@@ -45,20 +45,34 @@
             </div>
             {{/each}}
         </div>
-        <!-- Armor and gold -->
+        <!-- (panic) deprived and armor -->
         <div class="character-sheet-section-others">
-            <div class="resource-counter stacked-counter">
+            <div class="resource-counter long-counter ">
                 <label>{{ localize 'CAIRN.Armor' }}</label>
-                <div class="stacked-input-wrapper">
+                <div class="resource-input-wrapper">
                     <span>{{data.system.armor}}</span>
                 </div>
             </div>
-            <div class="resource-counter stacked-counter">
-                <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
-                <div class="stacked-input-wrapper">
-                    <input type="text" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
+
+            <div class="resource-counter long-counter deprived-counter">
+                <label for="system.deprived">{{ localize 'CAIRN.Deprived' }}</label>
+                <div class="resource-input-wrapper">
+                    <input type="checkbox" {{checked data.system.deprived}} name="system.deprived" id="system.deprived"
+                        value="{{data.system.deprived}}" data-dtype="Boolean" />
                 </div>
             </div>
+
+            {{#if data.system.usePanic}}
+            <div class="resource-counter long-counter deprived-counter">
+                <label for="system.panicked">{{ localize 'CAIRN.Panicked' }}</label>
+                <div class="resource-input-wrapper">
+                    <input type="checkbox" {{checked data.system.panicked}} name="system.panicked" 
+                            id="system.panicked"
+                        value="{{data.system.panicked}}" data-dtype="Boolean" />
+                </div>
+            </div>
+            {{/if}}
+        
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">

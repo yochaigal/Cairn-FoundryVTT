@@ -46,6 +46,7 @@
   },
   "CAIRN.Owner": "Owner",
   "CAIRN.Quantity": "Quantity",
+  "CAIRN.Panicked": "Panicked",
   "CAIRN.RemoveFatigue": "Remove fatigue",
   "CAIRN.RegenerateCharacter": "Regenerate",
   "CAIRN.Rest": "Rest",
@@ -53,6 +54,7 @@
   "CAIRN.RollDamage": "Roll Damage",
   "CAIRN.Rolling": "Rolling",
   "CAIRN.RollingDmgWith": "Rolling damage with",
+  "CAIRN.RollingWithPanic": "Panic",
   "CAIRN.Save": "{key} save",
   "CAIRN.Scars": "Got a scar",
   "CAIRN.Settings": {
@@ -64,6 +66,10 @@
       "label": "Use gold threshold",
       "hint": "Define number of gold pieces which occupies full inventory slot. Zero means that gold pieces are always petty.",
       "message": "Gold is counted as an inventory"
+    },
+    "UsePanic": {
+      "label": "Use panic condition",
+      "hint": "Use 2e panic condition for player characters."
     }
   },
   "CAIRN.Slots": "Slots",

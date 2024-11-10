@@ -18,4 +18,14 @@ export const registerSettings = () => {
         default: 0,
         requiresReload: true,
     });
+
+    game.settings.register("cairn", "use-panic", {
+        name: game.i18n.localize("CAIRN.Settings.UsePanic.label"),
+        hint: game.i18n.localize("CAIRN.Settings.UsePanic.hint"),
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: true,
+    });
 }
