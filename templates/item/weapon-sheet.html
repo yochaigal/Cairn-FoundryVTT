@@ -16,7 +16,19 @@
                        value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable) }} />
             </div>
         </div>
-        <!-- Bulky -->
+        
+
+         <!-- Damage -->
+         <div class="resource-counter short-counter" >
+            <label class="short-resource-label" for="system.damageFormula" 
+                title="{{ localize 'CAIRN.Damage' }}">{{ localize 'CAIRN.Damage' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.damageFormula" id="system.damageFormula"
+                       value="{{data.system.damageFormula}}" data-dtype="String" />
+            </div>
+         </div>
+
+         <!-- Bulky -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
             <div class="resource-input-wrapper">
@@ -25,18 +37,15 @@
             </div>
         </div>
 
-         <!-- Damage -->
-         <div class="resource-counter long-counter" style="grid-column: span 2">
-            <label class="large-resource-label" for="system.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
-            <div class="resource-input-wrapper" style="width: 100%">
-                <input type="text" name="system.damageFormula" id="system.damageFormula"
-                       value="{{data.system.damageFormula}}" data-dtype="String" />
+         <!-- Weightless -->
+         <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked data.system.weightless}} name="system.weightless" id="system.weightless"
+                        value="{{data.system.weightless}}" data-dtype="Boolean" />
             </div>
-         </div>
+        </div>
          
-        
-        
-
         <!-- Number of uses -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
