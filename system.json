@@ -184,6 +184,11 @@
       "lang": "pl",
       "name": "polski",
       "path": "lang/pl.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
     }
   ],
   "grid": {
