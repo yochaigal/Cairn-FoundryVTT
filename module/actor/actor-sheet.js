@@ -11,7 +11,7 @@ export class CairnActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
-      width: 500,
+      width: 550,
       height: 640,
       tabs: [
         {
