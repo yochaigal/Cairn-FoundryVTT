@@ -42,6 +42,7 @@
   "CAIRN.NoItemToDelete": "Kann Gegenstand zum Löschen nicht finden.",
   "CAIRN.Notes": "Notizen",
   "CAIRN.Owner": "Owner",
+  "CAIRN.OverburdenByGold": "Character may be overburdened by a gold",
   "CAIRN.Quantity": "Menge",
   "CAIRN.RemoveFatigue": "Erschöpfung entfernen",
   "CAIRN.RegenerateCharacter": "Neu generieren",

@@ -45,6 +45,7 @@
     "MaxSlotsOccupied": "Maximum equipment slots used."
   },
   "CAIRN.Owner": "Owner",
+  "CAIRN.OverburdenByGold": "Character may be overburdened by a gold",
   "CAIRN.Quantity": "Quantity",
   "CAIRN.Panicked": "Panicked",
   "CAIRN.RemoveFatigue": "Remove fatigue",

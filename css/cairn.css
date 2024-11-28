@@ -486,6 +486,10 @@
     white-space: nowrap;
 }
 
+.overburdened-gold {
+    border-color: var(--color-level-error-border);
+}
+
 
 /******************************************************************************
  * Chat message.                                                                *
