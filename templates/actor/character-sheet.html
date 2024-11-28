@@ -16,10 +16,13 @@
                     <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
-            <div class="resource-counter deprived-counter middle-counter">
-                <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
+            <div class="resource-counter deprived-counter middle-counter {{#if data.system.maybeTooMuchGold }}overburdened-gold{{/if}}"
+            {{#if data.system.maybeTooMuchGold }} title="{{localize 'CAIRN.OverburdenByGold'}}" {{/if}} >
+                <label for="system.gold" >
+                    {{ localize 'CAIRN.Gold' }}
+                </label>
                 <div class="resource-input-wrapper">
-                    <input type="text" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
+                    <input type="number" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
                 </div>
             </div>
             

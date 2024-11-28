@@ -40,6 +40,8 @@ export class CairnActor extends Actor {
 		this.system.slotsUsed = this.calcSlotsUsed();
 		this.system.slotsMax = this.calcCurrentMaxSlots();
 		this.system.encumbered = this.system.slotsUsed >= this.calcCurrentMaxSlots();
+		this.system.maybeTooMuchGold = false;
+
 		if (!this.system.containers) {
 			this.system.containers = [];
 		}
@@ -53,6 +55,9 @@ export class CairnActor extends Actor {
 
 		if (this.system.encumbered) {
 			this.system.hp.value = 0;
+			if (this.system.hasGoldThreshold && this.system.goldSlots > 0) {
+				this.system.maybeTooMuchGold = true;
+			}
 		}
 
 		this.system.usePanic = game.settings.get("cairn", "use-panic") > 0;

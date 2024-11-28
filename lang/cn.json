@@ -42,6 +42,7 @@
   "CAIRN.NoItemToDelete": "找不到要删除的物品。",
   "CAIRN.Notes": "笔记",
   "CAIRN.Owner": "Owner",
+  "CAIRN.OverburdenByGold": "Character may be overburdened by a gold",
   "CAIRN.Quantity": "数量",
   "CAIRN.RemoveFatigue": "移除疲乏",
   "CAIRN.RegenerateCharacter": "重新生成",
