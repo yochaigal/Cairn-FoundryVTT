@@ -50,6 +50,8 @@
   "CAIRN.RollDamage": "投骰伤害",
   "CAIRN.Rolling": "投骰",
   "CAIRN.RollingDmgWith": "投骰伤害",
+  "CAIRN.RollingWithPanic": "Panic",
+  "CAIRN.Role": "Role",
   "CAIRN.Save": "{key}豁免",
   "CAIRN.Scars": "添加一项伤疤",
   "CAIRN.Slots": "栏位",

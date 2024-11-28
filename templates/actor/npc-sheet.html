@@ -6,7 +6,7 @@
         <div class="character-sheet-section-name">
             <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
             <input class="background-input" type="text" name="system.background" value="{{data.system.background}}"
-                placeholder="{{ localize 'CAIRN.Background' }}" />
+                placeholder="{{ localize 'CAIRN.Role' }}" />
             <div class="resource-counter hp-counter">
                 <label for="system.hp.value">{{ localize 'CAIRN.HitProtection' }}</label>
                 <div class="resource-input-wrapper">
@@ -16,8 +16,12 @@
                     <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
-            <!-- Deprived, not relevant for NPCs -->
-            <div></div>
+            <div class="resource-counter deprived-counter middle-counter">
+                <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
+                <div class="resource-input-wrapper">
+                    <input type="text" name="system.gold" id="system.gold" value="{{data.system.gold}}" data-dtype="Number" />
+                </div>
+            </div>
         </div>
         <!-- Buttons -->
         <div class="character-sheet-section-buttons">
@@ -42,23 +46,18 @@
         </div>
         <!-- Armor and gold, not relevant for NPCs -->
         <div class="character-sheet-section-others">
-            <div class="resource-counter stacked-counter">
+            <div class="resource-counter long-counter">
                 <label>{{ localize 'CAIRN.Armor' }}</label>
-                <div class="stacked-input-wrapper">
+                <div class="resource-input-wrapper">
                     <span>{{data.system.armor}}</span>
                 </div>
-            </div>
-            <div class="resource-counter stacked-counter">
-                <label for="system.slots">{{ localize 'CAIRN.Slots' }}</label>
-                <div class="stacked-input-wrapper">
-                    <input type="text" name="system.slots" id="system.slots" value="{{data.system.slots}}" data-dtype="Number" />
-                </div>
-            </div>
+            </div>           
         </div>
         <div class="character-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
                 <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})</a>
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+                <a class="item" data-group="primary" data-tab="notes">{{ localize 'CAIRN.Notes' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="items">
@@ -67,6 +66,9 @@
                 <div class="tab" data-group="primary" data-tab="description">
                     {{ editor data.system.biography target="system.biography" button=true owner=owner
                     editable=editable }}
+                </div>
+                <div class="tab" data-group="primary" data-tab="notes">
+                    {{ editor data.system.notes target="system.notes" button=true owner=owner editable=editable }}
                 </div>
             </section>
         </div>
