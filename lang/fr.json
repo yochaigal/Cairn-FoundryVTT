@@ -50,6 +50,8 @@
   "CAIRN.RollDamage": "Jet de dégâts",
   "CAIRN.Rolling": "Jet",
   "CAIRN.RollingDmgWith": "Jet de dégâts avec",
+  "CAIRN.RollingWithPanic": "Panic",
+  "CAIRN.Role": "Role",
   "CAIRN.Save": "Sauvegarde de {key}",
   "CAIRN.Scars": "A subit une cicatrice",
   "CAIRN.Slots": "Empl.",
