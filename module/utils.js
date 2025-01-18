@@ -5,8 +5,9 @@
  */
 export const evaluateFormula = async (formula, data) => {
   let f = formula;
-  if (f.includes("+")) {
-    f = '{' + f.replaceAll('+', ',') + '}kh';
+  const cairnDice = game.settings.get("cairn", "use-cairn-dice-notation");
+  if (cairnDice && f.includes("+")) {
+    f = "{" + f.replaceAll("+", ",") + "}kh";
   }
   const roll = new Roll(f, data);
   return roll.evaluate();
@@ -19,11 +20,11 @@ export const evaluateFormula = async (formula, data) => {
  */
 export const formatString = (str, data = {}) => {
   const fmt = /\{[^}]+\}/g;
-  str = str.replace(fmt, k => {
+  str = str.replace(fmt, (k) => {
     return data[k.slice(1, -1)];
   });
   return str;
-}
+};
 
 /* V10/V9 compatibility */
 /**
@@ -35,13 +36,17 @@ export const getInfoFromDropData = async (dropData) => {
   const actor = itemFromUuid
     ? itemFromUuid.actor
     : dropData.sceneId
-      ? game.scenes.get(dropData.sceneId).tokens.get(dropData.tokenId).actor
-      : game.actors.get(dropData.actorId);
+    ? game.scenes.get(dropData.sceneId).tokens.get(dropData.tokenId).actor
+    : game.actors.get(dropData.actorId);
 
-  const item = actor ? (itemFromUuid ? itemFromUuid : actor.items.get(dropData.data._id)) : null;
+  const item = actor
+    ? itemFromUuid
+      ? itemFromUuid
+      : actor.items.get(dropData.data._id)
+    : null;
   return { actor, item };
 };
 
 export const stripPar = (text) => {
-  return text.replace('<p>', '').replace('</p>', '');
-}
+  return text.replace("<p>", "").replace("</p>", "");
+};

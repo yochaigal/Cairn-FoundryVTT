@@ -1,5 +1,5 @@
-import { regenerateActor } from '../character-generator.js'
-import { evaluateFormula, getInfoFromDropData, stripPar } from '../utils.js'
+import { regenerateActor } from "../character-generator.js";
+import { evaluateFormula, getInfoFromDropData, stripPar } from "../utils.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -11,8 +11,8 @@ export class CairnActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
-      width: 550,
-      height: 640,
+      width: 560,
+      height: 700,
       tabs: [
         {
           navSelector: ".tabs",
@@ -36,10 +36,13 @@ export class CairnActorSheet extends ActorSheet {
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
     );
     data.items = data.items.sort((a, b) =>
-      a.system.equipped && !b.system.equipped ? -1 : a.system.equipped === b.system.equipped ? 0 : 1
+      a.system.equipped && !b.system.equipped
+        ? -1
+        : a.system.equipped === b.system.equipped
+        ? 0
+        : 1
     );
     const dt = data.data;
-
 
     return data;
   }
@@ -91,16 +94,21 @@ export class CairnActorSheet extends ActorSheet {
     html.find(".item-toggle-equipped").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.update({ 'system.equipped': !item.system.equipped });
+      item.update({ "system.equipped": !item.system.equipped });
     });
 
     html.find(".item-add-quantity").click((ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
-        item.update({ 'system.quantity': item.system.quantity + 1 });
+        item.update({ "system.quantity": item.system.quantity + 1 });
       } else {
-        item.update({ 'system.uses.value': Math.min(item.system.uses.value + 1, item.system.uses.max) });
+        item.update({
+          "system.uses.value": Math.min(
+            item.system.uses.value + 1,
+            item.system.uses.max
+          ),
+        });
       }
     });
 
@@ -108,9 +116,13 @@ export class CairnActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
-        item.update({ 'system.quantity': Math.max(item.system.quantity - 1, 0) });
+        item.update({
+          "system.quantity": Math.max(item.system.quantity - 1, 0),
+        });
       } else {
-        item.update({ 'system.uses.value': Math.max(item.system.uses.value - 1, 0) });
+        item.update({
+          "system.uses.value": Math.max(item.system.uses.value - 1, 0),
+        });
       }
     });
 
@@ -155,8 +167,6 @@ export class CairnActorSheet extends ActorSheet {
         flavor: game.i18n.localize("CAIRN.DieOfFate"),
       });
     });
-
-
   }
 
   /* -------------------------------------------- */
@@ -179,16 +189,16 @@ export class CairnActorSheet extends ActorSheet {
           label: game.i18n.localize("CAIRN.CreateItem"),
           callback: (html) => {
             const form = html[0].querySelector("form");
-            if (form.itemname.value.trim() !== '') {
+            if (form.itemname.value.trim() !== "") {
               this.actor.createOwnedItem({
                 name: form.itemname.value,
-                type: form.itemtype.value
+                type: form.itemtype.value,
               });
             }
-          }
+          },
         },
       },
-      default: "create"
+      default: "create",
     }).render(true);
   }
 
@@ -212,21 +222,20 @@ export class CairnActorSheet extends ActorSheet {
           label: game.i18n.localize("CAIRN.CreateContainer"),
           callback: async (html) => {
             const form = html[0].querySelector("form");
-            if (form.itemname.value.trim() !== '') {
+            if (form.itemname.value.trim() !== "") {
               const result = await Actor.create({
-                type: 'container',
+                type: "container",
                 name: form.itemname.value,
-                "system.slots.value": form.itemslots.value
+                "system.slots.value": form.itemslots.value,
               });
               await this.actor.createOwnedContainer(result);
             }
-          }
+          },
         },
       },
-      default: "create"
+      default: "create",
     }).render(true);
   }
-
 
   /**
    * Handle creating a fatigue for the actor
@@ -236,13 +245,15 @@ export class CairnActorSheet extends ActorSheet {
   async _onAddFatigue(event) {
     event.preventDefault();
     if (this.actor.isEncumbered()) {
-      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      ui.notifications.warn(
+        game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied")
+      );
       return;
     }
 
     this.actor.createOwnedItem({
       name: game.i18n.localize("CAIRN.Fatigue"),
-      type: 'item'
+      type: "item",
     });
   }
 
@@ -255,8 +266,9 @@ export class CairnActorSheet extends ActorSheet {
     event.preventDefault();
 
     // Find a fatigue to delete
-    const fatigues = this.actor.items
-      .filter(i => i.name === game.i18n.localize("CAIRN.Fatigue"));
+    const fatigues = this.actor.items.filter(
+      (i) => i.name === game.i18n.localize("CAIRN.Fatigue")
+    );
 
     if (fatigues.length > 0) {
       const fatigue = fatigues[0];
@@ -281,11 +293,17 @@ export class CairnActorSheet extends ActorSheet {
         panicLabel = "(" + game.i18n.localize("CAIRN.RollingWithPanic") + ")";
       }
 
-      const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ?
-        game.i18n.localize("CAIRN.RollingDmgWith") + ` ${dataset.label} ` + panicLabel : "";
+      const roll = await evaluateFormula(
+        dataset.roll,
+        this.actor.getRollData()
+      );
+      const label = dataset.label
+        ? game.i18n.localize("CAIRN.RollingDmgWith") +
+          ` ${dataset.label} ` +
+          panicLabel
+        : "";
 
-      const targetedTokens = Array.from(game.user.targets).map(t => t.id);
+      const targetedTokens = Array.from(game.user.targets).map((t) => t.id);
 
       let targetIds;
       if (targetedTokens.length == 0) targetIds = null;
@@ -298,17 +316,17 @@ export class CairnActorSheet extends ActorSheet {
         }
       }
 
-      this._buildDamageRollMessage(label, targetIds).then(msg => {
+      this._buildDamageRollMessage(label, targetIds).then((msg) => {
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: msg
+          flavor: msg,
         });
       });
     }
   }
 
   _buildDamageRollMessage(label, targetIds) {
-    const rollMessageTpl = 'systems/cairn/templates/chat/dmg-roll-card.html';
+    const rollMessageTpl = "systems/cairn/templates/chat/dmg-roll-card.html";
     const tplData = { label: label, targets: targetIds };
     return renderTemplate(rollMessageTpl, tplData);
   }
@@ -319,7 +337,7 @@ export class CairnActorSheet extends ActorSheet {
     const isContainer = boxItem.data("isContainer");
     if (isContainer) {
       this._prepareContainerDescription(boxItem);
-      return
+      return;
     }
     this._prepareItemDescription(boxItem);
   }
@@ -330,12 +348,10 @@ export class CairnActorSheet extends ActorSheet {
       summary.slideUp(200, () => summary.remove());
     } else {
       const id = boxItem.data("itemId");
-      const item = game.actors.find(a => a.uuid == id);
+      const item = game.actors.find((a) => a.uuid == id);
       if (!item) return;
-      let list = item.items.map(it => it.name);
-      const div = $(
-        `<div class="item-description">${list.join(', ')}</div>`
-      );
+      let list = item.items.map((it) => it.name);
+      const div = $(`<div class="item-description">${list.join(", ")}</div>`);
       boxItem.append(div.hide());
       div.slideDown(200);
     }
@@ -350,11 +366,17 @@ export class CairnActorSheet extends ActorSheet {
     } else {
       const desc = stripPar(item.system.description);
       let crit = "";
-      if (item.system.criticalDamage && stripPar(item.system.criticalDamage) !== "")
-        crit = '<br/><span class="weapon-desc-divider">' + game.i18n.localize("CAIRN.CriticalDamage") + ': ' + stripPar(item.system.criticalDamage) + '</span>';
-      const div = $(
-        `<div class="item-description">${desc}${crit}</div>`
-      );
+      if (
+        item.system.criticalDamage &&
+        stripPar(item.system.criticalDamage) !== ""
+      )
+        crit =
+          '<br/><span class="weapon-desc-divider">' +
+          game.i18n.localize("CAIRN.CriticalDamage") +
+          ": " +
+          stripPar(item.system.criticalDamage) +
+          "</span>";
+      const div = $(`<div class="item-description">${desc}${crit}</div>`);
       boxItem.append(div.hide());
       div.slideDown(200);
     }
@@ -366,10 +388,18 @@ export class CairnActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     if (dataset.roll) {
-      const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
+      const roll = await evaluateFormula(
+        dataset.roll,
+        this.actor.getRollData()
+      );
+      const label = dataset.label
+        ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}`
+        : "";
       const rolled = roll.terms[0].results[0].result;
-      const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
+      const result =
+        roll.total === 0
+          ? game.i18n.localize("CAIRN.Fail")
+          : game.i18n.localize("CAIRN.Success");
       const resultCls = roll.total === 0 ? "failure" : "success";
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -388,7 +418,9 @@ export class CairnActorSheet extends ActorSheet {
 
     const confirm = await Dialog.confirm({
       title: game.i18n.localize("CAIRN.CharacterRegeneratorTitle"),
-      content: `<p>${game.i18n.localize("CAIRN.CharacterRegeneratorConfirm")}</p>`,
+      content: `<p>${game.i18n.localize(
+        "CAIRN.CharacterRegeneratorConfirm"
+      )}</p>`,
       defaultYes: false,
     });
 
@@ -399,7 +431,7 @@ export class CairnActorSheet extends ActorSheet {
 
   /** @override */
   _getHeaderButtons() {
-    if (this.actor.type === 'character') {
+    if (this.actor.type === "character") {
       return [
         {
           class: `regenerate-character-button-${this.actor.id}`,
@@ -414,7 +446,6 @@ export class CairnActorSheet extends ActorSheet {
     }
   }
 
-
   /**
    * @override
    *
@@ -423,26 +454,28 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onDropItem(event, itemData) {
     if (this.actor.isEncumbered()) {
-      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      ui.notifications.warn(
+        game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied")
+      );
       return;
     }
 
     const item = ((await super._onDropItem(event, itemData)) || []).pop();
     if (!item) return;
-    const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
+    const { item: originalItem, actor: originalActor } =
+      await getInfoFromDropData(itemData);
     if (this.actor == originalActor) return;
     if (originalItem) {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
   }
 
-
   /**
-  * @override
-  *
-  * @param {DragEvent} event
-  * @param {Object} itemData
-  */
+   * @override
+   *
+   * @param {DragEvent} event
+   * @param {Object} itemData
+   */
   async _onDropActor(event, data) {
     let actor = game.actors.find((a) => a.uuid == data.uuid);
     if (actor.type !== "container") return;
@@ -454,5 +487,3 @@ export class CairnActorSheet extends ActorSheet {
     await this.actor.createOwnedContainer(actor);
   }
 }
-
-

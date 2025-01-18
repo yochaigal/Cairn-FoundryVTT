@@ -42,7 +42,8 @@
   "CAIRN.NoItemToDelete": "Brak przedmiotów do usunięcia.",
   "CAIRN.Notes": "Notatki",
   "CAIRN.Notify": {
-    "MaxSlotsOccupied": "Maksymalna liczba miejsc jest już zajęta."
+    "MaxSlotsOccupied": "Maksymalna liczba miejsc jest już zajęta.",
+    "ConfirmDelete": "Usunąć"
   },
   "CAIRN.Quantity": "Ilość",
   "CAIRN.Owner": "Właściciel",
@@ -72,6 +73,14 @@
     "UsePanic": {
       "label": "Panika",
       "hint": "Postacie graczy mogą ulec panice (reguła drugiej edycji)."
+    },
+    "UseItemIcons": {
+      "label": "Pokaż ikony przedmiotów",
+      "hint": "Pokaż ikony dla nietórych przedmiotów w ekwipunku, przydatne do szybkiego rozpoznawania ich rodzaju."
+    },
+    "UseCairnDiceNotation": {
+      "label": "Użyj notacji Cairn do rzutów",
+      "hint": "Interpretuj zapis rzutów w stylu 'd6+d6' tak, jak opisano w regułach Cairn (rzut dwoma kośćmi i wybór większej wartości)."
     }
   },
   "CAIRN.Slots": "Miejsca",
