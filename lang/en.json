@@ -42,7 +42,8 @@
   "CAIRN.NoItemToDelete": "Cannot find Item to delete.",
   "CAIRN.Notes": "Notes",
   "CAIRN.Notify": {
-    "MaxSlotsOccupied": "Maximum equipment slots used."
+    "MaxSlotsOccupied": "Maximum equipment slots used.",
+    "ConfirmDelete": "Delete"
   },
   "CAIRN.Owner": "Owner",
   "CAIRN.OverburdenByGold": "Character may be overburdened by a gold",
@@ -72,6 +73,14 @@
     "UsePanic": {
       "label": "Use panic condition",
       "hint": "Use 2e panic condition for player characters."
+    },
+    "UseItemIcons": {
+      "label": "Show item icons",
+      "hint": "Show icons for some items in inventory to quickly recognize the type."
+    },
+    "UseCairnDiceNotation": {
+      "label": "Use Cairn dice notation",
+      "hint": "Interpret Cairn dice notation like 'd6+d6' as described in the rules."
     }
   },
   "CAIRN.Slots": "Slots",

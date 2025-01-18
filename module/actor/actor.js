@@ -29,6 +29,8 @@ export class CairnActor extends Actor {
   prepareData() {
     super.prepareData();
 
+    this.system.useItemIcons = game.settings.get("cairn", "use-item-icons");
+
     if (this.type === "character") this._prepareCharacterData();
     if (this.type === "npc") this._prepareNpcData();
     if (this.type === "container") this._prepareContainerData();
@@ -141,8 +143,17 @@ export class CairnActor extends Actor {
   /** No longer an override as deleteOwnedItem is deprecated on type Actor */
   async deleteOwnedItem(itemId) {
     const item = this.items.get(itemId);
-    const currentQuantity = item.system.quantity;
     if (item) {
+      const proceed = await foundry.applications.api.DialogV2.confirm({
+        content:
+          game.i18n.localize("CAIRN.Notify.ConfirmDelete") +
+          " " +
+          item.name +
+          "?",
+        rejectClose: false,
+        modal: true,
+      });
+      if (!proceed) return;
       await item.delete();
       if (this.type == "container") {
         this._synchronizeKeeperSheet();
@@ -153,6 +164,18 @@ export class CairnActor extends Actor {
   }
 
   async deleteOwnedContainer(itemId) {
+    const container = this.getOwnedContainer(itemId);
+    if (!container) return;
+    const proceed = await foundry.applications.api.DialogV2.confirm({
+      content:
+        game.i18n.localize("CAIRN.Notify.ConfirmDelete") +
+        " " +
+        container.name +
+        "?",
+      rejectClose: false,
+      modal: true,
+    });
+    if (!proceed) return;
     const containers = this.system.containers.filter((c) => c !== itemId);
     const actor = game.actors.find((a) => a.uuid == itemId);
     await this.update({ "system.containers": containers });
