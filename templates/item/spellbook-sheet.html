@@ -6,24 +6,35 @@
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="name-input" type="text" name="name" value="{{data.name}}"
+                placeholder="{{ localize 'CAIRN.Name' }}" />
         </div>
         <!-- Equipped -->
         <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
-                       value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable) }}/>
+                    value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable)
+                    }} />
             </div>
         </div>
-        
 
-         <!-- Cost -->
-         <div class="resource-counter long-counter">
+
+        <!-- Cost -->
+        <div class="resource-counter long-counter">
             <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
             <div class="resource-input-wrapper">
-                <input type="text" name="system.cost.value" id="system.cost.value"
-                    value="{{data.system.cost.value}}" data-dtype="Number" />
+                <input type="text" name="system.cost.value" id="system.cost.value" value="{{data.system.cost.value}}"
+                    data-dtype="Number" />
+            </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.quantity">{{ localize 'CAIRN.Quantity' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.quantity" id="system.quantity" value="{{data.system.quantity}}"
+                    data-dtype="Number" />
             </div>
         </div>
 

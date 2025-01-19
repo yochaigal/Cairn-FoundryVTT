@@ -72,7 +72,8 @@
         "weightless": false,
         "equipped": false,
         "bulky": false,
-        "cost": 0
+        "cost": 0,
+        "quantity": 1
       },
       "withDamage": {
         "damageFormula": "",
@@ -92,8 +93,7 @@
         "universal",
         "withDamage",
         "consumable"
-      ],
-      "quantity": 0
+      ]      
     },
     "weapon": {
       "templates": [
@@ -122,8 +122,7 @@
         "base",
         "universal",
         "consumable"
-      ],
-      "quantity": 0
+      ]
     }
   }
 }
