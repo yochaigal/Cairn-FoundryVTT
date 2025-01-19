@@ -81,6 +81,10 @@
     "UseCairnDiceNotation": {
       "label": "Użyj notacji Cairn do rzutów",
       "hint": "Interpretuj zapis rzutów w stylu 'd6+d6' tak, jak opisano w regułach Cairn (rzut dwoma kośćmi i wybór większej wartości)."
+    },
+    "ShowGenerateHeader":{
+      "label":"Przycisk generowania w nagłówku",
+      "hint": "Pokaż przycisk 'Generuj' w nagłówku karty postaci."
     }
   },
   "CAIRN.Slots": "Miejsca",

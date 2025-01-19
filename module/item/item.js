@@ -33,5 +33,9 @@ export class CairnItem extends Item {
           break;
       }
     }
+    // Quantity fallback
+    if (this.system.quantity == undefined) {
+      this.system.quantity = 1;
+    }
   }
 }

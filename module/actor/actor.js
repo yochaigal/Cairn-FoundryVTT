@@ -188,9 +188,13 @@ export class CairnActor extends Actor {
       (memo, item) =>
         memo +
         (item.system.bulky ?? false
-          ? 2
+          ? item.system.quantity != undefined
+            ? 2 * item.system.quantity
+            : 2
           : item.system.weightless ?? false
           ? 0
+          : item.system.quantity != undefined
+          ? item.system.quantity
           : 1),
       0
     );

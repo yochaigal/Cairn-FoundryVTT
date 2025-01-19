@@ -48,4 +48,14 @@ export const registerSettings = () => {
     default: true,
     requiresReload: true,
   });
+
+  game.settings.register("cairn", "show-generate-header", {
+    name: game.i18n.localize("CAIRN.Settings.ShowGenerateHeader.label"),
+    hint: game.i18n.localize("CAIRN.Settings.ShowGenerateHeader.hint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true,
+  });
 };

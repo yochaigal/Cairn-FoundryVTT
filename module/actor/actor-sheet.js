@@ -431,7 +431,8 @@ export class CairnActorSheet extends ActorSheet {
 
   /** @override */
   _getHeaderButtons() {
-    if (this.actor.type === "character") {
+    const showGenHeader = game.settings.get("cairn", "show-generate-header");
+    if (this.actor.type === "character" && showGenHeader) {
       return [
         {
           class: `regenerate-character-button-${this.actor.id}`,
@@ -460,12 +461,33 @@ export class CairnActorSheet extends ActorSheet {
       return;
     }
 
-    const item = ((await super._onDropItem(event, itemData)) || []).pop();
-    if (!item) return;
     const { item: originalItem, actor: originalActor } =
       await getInfoFromDropData(itemData);
+    if (!originalItem) return;
     if (this.actor == originalActor) return;
-    if (originalItem) {
+
+    // Check if we already have such item
+    const foundItem = this.actor.items.find(
+      (it) => it.name == originalItem.name && it.type == originalItem.type
+    );
+    if (foundItem) {
+      foundItem.system.quantity += 1;
+      await foundItem.update({ "system.quantity": foundItem.system.quantity });
+    } else {
+      const item = ((await super._onDropItem(event, itemData)) || []).pop();
+      await item.update({ "system.quantity": 1 });
+    }
+    if (originalItem.system.quantity === undefined) {
+      originalItem.system.quantity = 1;
+    }
+    let osq = originalItem.system.quantity;
+    osq -= 1;
+    if (osq > 0) {
+      // cannot update with 0
+      await originalItem.update({
+        "system.quantity": osq,
+      });
+    } else {
       await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
   }
