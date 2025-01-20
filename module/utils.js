@@ -43,7 +43,7 @@ export const getInfoFromDropData = async (dropData) => {
     ? itemFromUuid
       ? itemFromUuid
       : actor.items.get(dropData.data._id)
-    : null;
+    : itemFromUuid;
   return { actor, item };
 };
 
