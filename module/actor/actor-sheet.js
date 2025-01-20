@@ -463,14 +463,16 @@ export class CairnActorSheet extends ActorSheet {
 
     const { item: originalItem, actor: originalActor } =
       await getInfoFromDropData(itemData);
-    if (!originalItem) return;
+    if (originalItem == undefined || originalItem == null) {
+      return;
+    }
     if (this.actor == originalActor) return;
 
     // Check if we already have such item
     const foundItem = this.actor.items.find(
       (it) => it.name == originalItem.name && it.type == originalItem.type
     );
-    if (foundItem) {
+    if (foundItem != undefined && foundItem != null) {
       foundItem.system.quantity += 1;
       await foundItem.update({ "system.quantity": foundItem.system.quantity });
     } else {
@@ -488,7 +490,8 @@ export class CairnActorSheet extends ActorSheet {
         "system.quantity": osq,
       });
     } else {
-      await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
+      if (originalActor != undefined)
+        await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     }
   }
 
