@@ -115,13 +115,15 @@ export class CairnActor extends Actor {
   }
 
   async createOwnedItem(itemData) {
-    if (this.isEncumbered()) {
+    if (this.isEncumbered() && !itemData.weightless) {
       await ui.notifications.warn(
         game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied")
       );
       return;
     }
-    await this.createEmbeddedDocuments("Item", [itemData]);
+    await this.createEmbeddedDocuments("Item", [{...itemData, system: {
+      weightless: itemData.weightless
+    }}]);
     if (this.type == "container") {
       this._synchronizeKeeperSheet();
     }

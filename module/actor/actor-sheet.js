@@ -191,6 +191,7 @@ export class CairnActorSheet extends ActorSheet {
               this.actor.createOwnedItem({
                 name: form.itemname.value,
                 type: form.itemtype.value,
+                weightless: form.itempetty.checked,
               });
             }
           },
