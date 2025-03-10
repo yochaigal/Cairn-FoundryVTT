@@ -97,33 +97,31 @@ export class CairnActorSheet extends ActorSheet {
       item.update({ "system.equipped": !item.system.equipped });
     });
 
-    html.find(".item-add-quantity").click((ev) => {
+    // Not exactly quantity, this is about uses
+    html.find(".item-add-quantity").click(async (ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      if (item.system.weightless) {
-        item.update({ "system.quantity": item.system.quantity + 1 });
-      } else {
-        item.update({
+      const item = await this.actor.getOwnedItem(li.data("itemId"));
+      await item.update({
           "system.uses.value": Math.min(
             item.system.uses.value + 1,
             item.system.uses.max
           ),
-        });
-      }
+      });      
     });
 
-    html.find(".item-remove-quantity").click((ev) => {
+    html.find(".item-remove-quantity").click(async (ev) => {
       const li = $(ev.currentTarget).parents(".cairn-items-list-row");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      if (item.system.weightless) {
-        item.update({
-          "system.quantity": Math.max(item.system.quantity - 1, 0),
-        });
-      } else {
-        item.update({
-          "system.uses.value": Math.max(item.system.uses.value - 1, 0),
-        });
+      const item = this.actor.getOwnedItem(li.data("itemId"));      
+      let val = Math.max(item.system.uses.value - 1, 0)
+      if (val == 0 && item.system.quantity > 1) {
+        await item.update({
+            "system.quantity": item.system.quantity - 1
+        });  
+        val = item.system.uses.max;
       }
+      await item.update({
+          "system.uses.value": val,
+      });      
     });
 
     html.find(".roll-control").click(this._onRoll.bind(this));
