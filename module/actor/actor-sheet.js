@@ -30,8 +30,8 @@ export class CairnActorSheet extends ActorSheet {
   }
 
   /** @override */
-  getData() {
-    const data = super.getData();
+  async getData() {
+    const data = await super.getData();
     data.items = data.items.sort((a, b) =>
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
     );
@@ -42,8 +42,9 @@ export class CairnActorSheet extends ActorSheet {
         ? 0
         : 1
     );
-    const dt = data.data;
-
+    data.enrichedBiography = await TextEditor.enrichHTML(this.actor.system.biography, { async: true });
+    data.enrichedNotes = await TextEditor.enrichHTML(this.actor.system.notes, { async: true });
+    
     return data;
   }
 
