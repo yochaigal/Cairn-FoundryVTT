@@ -365,6 +365,14 @@
     border-bottom: 1px solid #b5b3a4;
 }
 
+.cairn-items-list-row:hover {
+    background-color: #eee;
+}
+
+.cairn-items-list-row:hover .cairn-item-controls {
+    opacity: 1.0;
+}
+
 .cairn-items-list-row-header {
     display: flex;
     justify-content: space-between;
@@ -396,6 +404,8 @@
 .cairn-item-controls {
     display: flex;
     height: 26px;
+    opacity: 0.7;
+    gap: 4px;
 }
 
 .cairn-item-controls a {
@@ -477,7 +487,6 @@
 
 .weapon-desc-divider {
     font-style: italic;
-    font-size: smaller;
 }
 
 .strict-size-button {
@@ -490,6 +499,16 @@
     border-color: var(--color-level-error-border);
 }
 
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.features {
+    max-height: 150px;
+    overflow: auto;
+    margin-bottom: 16px;
+}
 
 /******************************************************************************
  * Chat message.                                                                *
@@ -509,4 +528,14 @@
     font-size: smaller;
     color: grey;
     font-style: italic;
+}
+
+.indent {
+    margin-left: 16px;
+}
+
+.compact-check {
+    text-align: end;
+    margin-right: 8px;
+    line-height: 1em !important;
 }

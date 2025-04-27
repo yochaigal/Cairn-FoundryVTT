@@ -1,0 +1,45 @@
+<form class="custom-dialog" style="gap: 4px">
+  <div class="form-group">
+    <label>{{localize 'CAIRN.Name'}}:</label>
+    <input
+      type="text"
+      name="itemname"
+      value="{{name}}"
+      placeholder="{{localize 'CAIRN.Name'}}"
+      data-dtype="String"
+    />
+  </div>
+  <label>{{localize 'CAIRN.Description'}}</label>
+  <div class="form-group">
+    <textarea
+      name="itemdesc"
+      rows=7
+      placeholder="{{localize 'CAIRN.Description'}}"
+      data-dtype="String">{{description}}</textarea>
+  </div>
+  <label>{{localize 'CAIRN.ModifiedElements'}}</label>
+  <div class="form-group">
+    <label class="compact-check"> {{localize 'STR'}}</label>
+    <input type="checkbox" name="str" {{#if str}}checked{{/if}} />
+    <label class="compact-check"> {{localize 'DEX'}}</label>
+    <input type="checkbox" name="dex" {{#if dex}}checked{{/if}}/>
+    <label class="compact-check"> {{localize 'WIL'}}</label>
+    <input type="checkbox" name="wil" {{#if wil}}checked{{/if}} />   
+  </div>
+  <div class="form-group">
+    <label class="compact-check"> {{localize 'CAIRN.HitProtection'}}</label>
+    <input type="checkbox" name="hp" {{#if hp}}checked{{/if}} />    
+    <label class="compact-check"> {{localize 'CAIRN.Damage'}}</label>
+    <input type="checkbox" name="dmg" {{#if dmg}}checked{{/if}} />
+    <label class="compact-check"> {{localize 'CAIRN.CriticalDamage'}}</label>
+    <input type="checkbox" name="crit" {{#if crit}}checked{{/if}} />        
+  </div>
+  <div class="form-group">
+    <label class="compact-check"> {{localize 'CAIRN.Blast'}}</label>
+    <input type="checkbox" name="blast" {{#if blast}}checked{{/if}}/>   
+    <label class="compact-check"> {{localize 'CAIRN.Armor'}}</label>
+    <input type="checkbox" name="armor" {{#if armor}}checked{{/if}}/>   
+    <label class="compact-check"> {{localize 'CAIRN.Deprived'}}</label>
+    <input type="checkbox" name="deprived" {{#if deprived}}checked{{/if}}/>         
+  </div>
+</form>

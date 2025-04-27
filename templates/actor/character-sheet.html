@@ -92,7 +92,14 @@
                     {{> "systems/cairn/templates/parts/container-list.html"}} 
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
+                    <div class="description">
+                        {{#if data.system.showFeatures}}
+                        <div class="features">
+                            {{> "systems/cairn/templates/parts/feature-list.html"}} 
+                        </div>
+                        {{/if}}
+                        {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
+                    </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="notes">
                     {{ editor enrichedNotes target="system.notes" button=true owner=owner editable=editable}}
