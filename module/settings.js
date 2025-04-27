@@ -58,4 +58,14 @@ export const registerSettings = () => {
     default: false,
     requiresReload: true,
   });
+
+  game.settings.register("cairn", "show-features-section", {
+    name: game.i18n.localize("CAIRN.Settings.ShowFeatures.label"),
+    hint: game.i18n.localize("CAIRN.Settings.ShowFeatures.hint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true,
+  });
 };

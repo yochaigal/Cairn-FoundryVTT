@@ -37,7 +37,8 @@
       "deprived": false,
       "panicked": false,
       "gold": 0,
-      "containers": []
+      "containers": [],
+      "features": []
     },
     "npc": {
       "templates": [
@@ -46,7 +47,8 @@
       ],
       "description": "",
       "armor": 0,
-      "slots": 0
+      "slots": 0,
+      "features":[]
     },
     "container": {
       "templates": [

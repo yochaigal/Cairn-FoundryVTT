@@ -30,6 +30,7 @@ export class CairnActor extends Actor {
     super.prepareData();
 
     this.system.useItemIcons = game.settings.get("cairn", "use-item-icons");
+    this.system.showFeatures = game.settings.get("cairn", "show-features-section");
 
     if (this.type === "character") this._prepareCharacterData();
     if (this.type === "npc") this._prepareNpcData();
@@ -114,6 +115,11 @@ export class CairnActor extends Actor {
     return game.actors.find((a) => a.uuid == itemId);
   }
 
+  getOwnedFeature(itemId) {
+    if (!this.system.features) return undefined;
+    return this.system.features.find(a => a.id == itemId);
+  }
+
   async createOwnedItem(itemData) {
     if (this.isEncumbered() && !itemData.weightless) {
       await ui.notifications.warn(
@@ -140,6 +146,15 @@ export class CairnActor extends Actor {
     await this.update({ "system.containers": newValue });
     // update container owner - named 'keeper' to avoid conflict.
     await data.update({ "system.keeper": this.uuid });
+  }
+
+  async createOwnedFeature(data) {
+    if (!this.system.features) this.system.features = [];
+    const newValue = this.system.features;
+    data.id = foundry.utils.randomID();
+    newValue.push(data);
+    await this.update({ "system.features": newValue });
+    console.log(data);
   }
 
   /** No longer an override as deleteOwnedItem is deprecated on type Actor */
@@ -183,6 +198,23 @@ export class CairnActor extends Actor {
     await this.update({ "system.containers": containers });
     // update container owner - named 'keeper' to avoid conflict.
     await actor.update({ "system.keeper": "" });
+  }
+
+  async deleteOwnedFeature(itemId) {
+    const ft = this.getOwnedFeature(itemId);
+    if (!ft) return;
+    const proceed = await foundry.applications.api.DialogV2.confirm({
+      content:
+        game.i18n.localize("CAIRN.Notify.ConfirmDelete") +
+        " " +
+        ft.name +
+        "?",
+      rejectClose: false,
+      modal: true,
+    });
+    if (!proceed) return;
+    const features = this.system.features.filter((c) => c.id !== itemId);
+    await this.update({ "system.features": features });
   }
 
   calcSlotsUsed() {

@@ -11,8 +11,8 @@ export class CairnActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cairn", "sheet", "actor"],
       template: "systems/cairn/templates/actor/actor-sheet.html",
-      width: 560,
-      height: 700,
+      width: 600,
+      height: 750,
       tabs: [
         {
           navSelector: ".tabs",
@@ -63,6 +63,9 @@ export class CairnActorSheet extends ActorSheet {
     // Add inventory container
     html.find(".container-create").click(this._onContainerCreate.bind(this));
 
+    // Add feature
+    html.find(".feature-create").click(this._onFeatureCreate.bind(this));
+
     // Add fatigue
     html.find(".add-fatigue").click(this._onAddFatigue.bind(this));
 
@@ -89,6 +92,21 @@ export class CairnActorSheet extends ActorSheet {
       } else {
         this.actor.deleteOwnedItem(li.data("itemId"));
       }
+      li.slideUp(200, () => this.render(false));
+    });
+
+    // Edit feature
+    html.find(".feature-edit").click((ev) => {
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const item = this.actor.getOwnedFeature(li.data("itemId"));
+      if (!item) return;
+      this._onFeatureEdit(item);
+    });
+
+     // Delete feature
+     html.find(".feature-delete").click((ev) => {
+      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      this.actor.deleteOwnedFeature(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
 
@@ -158,6 +176,10 @@ export class CairnActorSheet extends ActorSheet {
     html
       .find(".cairn-item-title")
       .click((event) => this._onItemDescriptionToggle(event));
+
+    html
+      .find(".cairn-feature-title")
+      .click((event) => this._onFeatureDescriptionToggle(event));      
 
     html.find("#die-of-fate-button").click(async () => {
       const roll = await evaluateFormula("1d6");
@@ -234,6 +256,80 @@ export class CairnActorSheet extends ActorSheet {
         },
       },
       default: "create",
+    }).render(true);
+  }
+
+  /* -------------------------------------------- */
+  /**
+   * Handle creating a new feature for the actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onFeatureCreate(event) {
+    event.preventDefault();
+    const template = "systems/cairn/templates/dialog/add-feature-dialog.html";
+    const content = await renderTemplate(template);
+
+    new Dialog({
+      title: game.i18n.localize("CAIRN.CreateFeature"),
+      content,
+      buttons: {
+        create: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize("CAIRN.CreateFeature"),
+          callback: async (html) => {
+            const form = html[0].querySelector("form");
+            if (form.itemname.value.trim() !== "") {
+              const data = {
+                "name": form.itemname.value,
+                "description": form.itemdesc.value,
+              };
+              const checks = ['str','dex','wil','hp','armor','dmg','crit','deprived','blast'];
+              checks.forEach((c) => {
+                data[c] = form[c].checked;
+              });
+              await this.actor.createOwnedFeature(data);
+            }
+          },
+        },
+      },
+      default: "create",
+    },{
+      "width": 500,
+    }).render(true);
+  }
+
+  async _onFeatureEdit(item) {
+    const template = "systems/cairn/templates/dialog/add-feature-dialog.html";
+    const content = await renderTemplate(template, item);
+    
+    new Dialog({
+      title: game.i18n.localize("CAIRN.EditFeature"),
+      content,
+      buttons: {
+        update: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize("CAIRN.UpdateFeature"),
+          callback: async (html) => {
+            const form = html[0].querySelector("form");
+            if (form.itemname.value.trim() !== "") {
+              const newItem = item;
+              newItem.name  = form.itemname.value;
+              newItem.description = form.itemdesc.value;
+              const checks = ['str','dex','wil','hp','armor','dmg','crit','deprived','blast'];
+              checks.forEach((c) => {
+                newItem[c] = form[c].checked;
+              });
+              const features = this.actor.system.features.filter((f) => f.id != newItem.id);
+              features.push(newItem);
+              await this.actor.update({"system.features":features});
+            }
+          },
+        },
+      },
+      default: "update",
+    },{
+      "width": 500,
     }).render(true);
   }
 
@@ -371,17 +467,33 @@ export class CairnActorSheet extends ActorSheet {
         stripPar(item.system.criticalDamage) !== ""
       )
         crit =
-          '<br/><span class="weapon-desc-divider">' +
-          game.i18n.localize("CAIRN.CriticalDamage") +
-          ": " +
+          '<div><i class="fa-regular fa-skull"></i> <i>'+
           stripPar(item.system.criticalDamage) +
-          "</span>";
+          "</i></div>";
       const div = $(`<div class="item-description">${desc}${crit}</div>`);
       boxItem.append(div.hide());
       div.slideDown(200);
     }
     boxItem.toggleClass("expanded");
   }
+
+  _onFeatureDescriptionToggle(event) {
+    event.preventDefault();
+    const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
+    const item = this.actor.getOwnedFeature(boxItem.data("itemId"));
+    if (!item) return;
+    if (boxItem.hasClass("expanded")) {
+      const summary = boxItem.children(".item-description");
+      summary.slideUp(200, () => summary.remove());
+    } else {
+      const desc = stripPar(item.description);
+      const div = $(`<div class="item-description">${desc}</div>`);
+      boxItem.append(div.hide());
+      div.slideDown(200);
+    }
+    boxItem.toggleClass("expanded");
+  }
+
 
   async _onRollAbility(event) {
     event.preventDefault();

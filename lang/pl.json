@@ -10,6 +10,7 @@
   "CAIRN.AddFatigue": "Dodaj zmęczenie",
   "CAIRN.AddItem": "Dodaj przedmiot",
   "CAIRN.AddContainer": "Dodaj pojemnik",
+  "CAIRN.AddFeature": "Dodaj cechę",
   "CAIRN.Armor": "Pancerz",
   "CAIRN.Background": "Przeszłość",
   "CAIRN.Blast": "Podmuch",
@@ -22,6 +23,7 @@
   "CAIRN.ContainerAlreadyOwned": "Ten pojemnik jest już czyjąś własnością.",
   "CAIRN.CreateItem": "Stwórz przedmiot",
   "CAIRN.CreateContainer": "Stwórz pojemnik",
+  "CAIRN.CreateFeature": "Stwórz cechę",
   "CAIRN.CriticalDamage": "Obrażenia krytyczne",
   "CAIRN.Damage": "Obrażenia",
   "CAIRN.Dead": "Martwy",
@@ -31,13 +33,17 @@
   "CAIRN.DieOfFate": "Kość Losu",
   "CAIRN.Equipped": "Używany",
   "CAIRN.EditItem": "Edytuj przedmiot",
+  "CAIRN.EditFeature": "Edytuj cechę",
   "CAIRN.Fatigue": "Zmęczenie",
   "CAIRN.Fail": "Porażka",
+  "CAIRN.Features": "Cechy",
+  "CAIRN.FeaturesInfo": "Dodatkowe cechy postaci z efektem mechanicznym. Mogą wynikać ze specjalnych zdolności lub zostać nabyte jako efekt doświadczenia.",
   "CAIRN.Gold": "Złoto",
   "CAIRN.HitProtection": "OCHR",
   "CAIRN.Item": "Przedmiot",
   "CAIRN.Items": "Przedmioty",
   "CAIRN.MaxUses": "Maks. użyć",
+  "CAIRN.ModifiedElements": "Modyfikowane elementy",
   "CAIRN.Name": "Nazwa",
   "CAIRN.NoItemToDelete": "Brak przedmiotów do usunięcia.",
   "CAIRN.Notes": "Notatki",
@@ -85,6 +91,10 @@
     "ShowGenerateHeader":{
       "label":"Przycisk generowania w nagłówku",
       "hint": "Pokaż przycisk 'Generuj' w nagłówku karty postaci."
+    },
+    "ShowFeatures":{
+      "label":"Sekcja cech postaci w opisie",
+      "hint": "Pokaż dodatkową sekcję 'Cechy postaci' w zakładce 'Opis'"
     }
   },
   "CAIRN.Slots": "Miejsca",
@@ -94,6 +104,7 @@
   "CAIRN.Success": "Sukces",
   "CAIRN.Type": "Typ",
   "CAIRN.Uses": "Użycia",
+  "CAIRN.UpdateFeature": "Zapisz cechę",
   "CAIRN.Weapon": "Broń",
   "CAIRN.Weightless": "Drobiazg",
   "CAIRN.ItemAddQuantity": "Dodaj",

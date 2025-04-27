@@ -10,6 +10,7 @@
   "CAIRN.AddFatigue": "Add fatigue",
   "CAIRN.AddItem": "Add Item",
   "CAIRN.AddContainer": "Add Container",
+  "CAIRN.AddFeature": "Add Feature",
   "CAIRN.Armor": "Armor",
   "CAIRN.Background": "Background",
   "CAIRN.Blast": "Blast",
@@ -22,6 +23,7 @@
   "CAIRN.ContainerAlreadyOwned": "Container already owned by someone.",
   "CAIRN.CreateItem": "Create Item",
   "CAIRN.CreateContainer": "Create Container",
+  "CAIRN.CreateFeature": "Create Feature",
   "CAIRN.CriticalDamage": "Critical Dmg.",
   "CAIRN.Damage": "Damage",
   "CAIRN.Dead": "Dead",
@@ -30,14 +32,18 @@
   "CAIRN.DieOfFate": "Die Of Fate",
   "CAIRN.DeleteItem": "Delete Item",
   "CAIRN.EditItem": "Edit Item",
+  "CAIRN.EditFeature": "Edit Feature",  
   "CAIRN.Equipped": "Equipped",
   "CAIRN.Fatigue": "Fatigue",
   "CAIRN.Fail": "Fail",
+  "CAIRN.Features": "Features",
+  "CAIRN.FeaturesInfo": "Additional character traits with some mechanical effect.",
   "CAIRN.Gold": "Gold",
   "CAIRN.HitProtection": "HP",
   "CAIRN.Item": "Item",
   "CAIRN.Items": "Items",
   "CAIRN.MaxUses": "Max # of uses",
+  "CAIRN.ModifiedElements": "Modified Elements",
   "CAIRN.Name": "Name",
   "CAIRN.NoItemToDelete": "Cannot find Item to delete.",
   "CAIRN.Notes": "Notes",
@@ -85,6 +91,10 @@
     "ShowGenerateHeader":{
       "label":"Show regenerate button",
       "hint": "Show 'Regenerate' button at character sheet header"
+    },
+    "ShowFeatures":{
+      "label":"Show features section",
+      "hint": "Show additional 'feature' list in the character description tab."
     }
   },
   "CAIRN.Slots": "Slots",
@@ -94,6 +104,7 @@
   "CAIRN.Success": "Success",
   "CAIRN.Type": "Type",
   "CAIRN.Uses": "Available uses",
+  "CAIRN.UpdateFeature": "Update Feature",
   "CAIRN.Weapon": "Weapon",
   "CAIRN.Weightless": "Petty",
   "CAIRN.ItemAddQuantity": "Add",

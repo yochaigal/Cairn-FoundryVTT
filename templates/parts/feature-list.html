@@ -1,0 +1,29 @@
+<div class="cairn-items-list-header">
+    <h3 title="{{ localize 'CAIRN.FeaturesInfo' }}">{{ localize 'CAIRN.Features' }}</h3>
+    <a class="item-control feature-create" title="{{ localize 'CAIRN.CreateFeature' }}" data-type="item"><i class="fas fa-plus"></i>&nbsp;{{ localize 'CAIRN.AddFeature' }}</a>
+</div>
+{{#each data.system.features as |ft id|}}
+<div class="cairn-items-list-row" data-item-id="{{ft.id}}">
+    <div class="cairn-items-list-row-header">
+        <div class="cairn-item-name-and-tags">
+            <a class="cairn-feature-title">
+                <b>{{ft.name}} </b> 
+                {{#if ft.str}} <span class="cairn-item-tag">{{ localize 'STR' }}</span> {{/if}}
+                {{#if ft.dex}} <span class="cairn-item-tag">{{ localize 'DEX' }}</span> {{/if}}
+                {{#if ft.wil}} <span class="cairn-item-tag">{{ localize 'WIL' }}</span> {{/if}}
+                {{#if ft.hp}} <span class="cairn-item-tag">{{ localize 'CAIRN.HitProtection' }}</span> {{/if}}
+                {{#if ft.dmg}} <span class="cairn-item-tag">{{ localize 'CAIRN.Damage' }}</span> {{/if}}
+                {{#if ft.crit}} <span class="cairn-item-tag">{{ localize 'CAIRN.CriticalDamage' }}</span> {{/if}}
+                {{#if ft.blast}} <span class="cairn-item-tag">{{ localize 'CAIRN.Blast' }}</span> {{/if}}
+                {{#if ft.armor}} <span class="cairn-item-tag">{{ localize 'CAIRN.Armor' }}</span> {{/if}}
+                {{#if ft.deprived}} <span class="cairn-item-tag">{{ localize 'CAIRN.Deprived' }}</span> {{/if}}
+            </a>
+        </div>
+
+        <div class="cairn-item-controls">
+            <a class="item-control feature-edit" title="{{ localize 'CAIRN.EditItem' }}"><i class="fas fa-edit"></i></a>
+            <a class="item-control feature-delete" title="{{ localize 'CAIRN.DeleteItem' }}"><i class="fas fa-trash"></i></a>
+        </div>
+    </div>
+</div>
+{{/each}}
