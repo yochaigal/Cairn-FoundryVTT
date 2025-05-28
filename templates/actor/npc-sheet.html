@@ -64,11 +64,10 @@
                     {{> "systems/cairn/templates/parts/items-list.html" }}
                 </div>
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{ editor data.system.biography target="system.biography" button=true owner=owner
-                    editable=editable }}
+                    {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
                 </div>
                 <div class="tab" data-group="primary" data-tab="notes">
-                    {{ editor data.system.notes target="system.notes" button=true owner=owner editable=editable }}
+                    {{ editor enrichedNotes target="system.notes" button=true owner=owner editable=editable }}
                 </div>
             </section>
         </div>
