@@ -42,7 +42,12 @@ export class CairnActorSheet extends ActorSheet {
         ? 0
         : 1
     );
-    data.enrichedBiography = await TextEditor.enrichHTML(this.actor.system.biography, { async: true });
+    // Compendium monsters have "description" instead of "biography"
+    if (this.actor.system.showBio) {
+      data.enrichedBiography = await TextEditor.enrichHTML(this.actor.system.biography, { async: true });
+    } else {
+      data.enrichedDescription = await TextEditor.enrichHTML(this.actor.system.description, { async: true });
+    }
     data.enrichedNotes = await TextEditor.enrichHTML(this.actor.system.notes, { async: true });
     
     return data;

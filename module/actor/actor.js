@@ -31,7 +31,9 @@ export class CairnActor extends Actor {
 
     this.system.useItemIcons = game.settings.get("cairn", "use-item-icons");
     this.system.showFeatures = game.settings.get("cairn", "show-features-section");
-
+    this.system.showBio = (this.system.biography !== undefined && this.system.biography !== null);
+    this.system.showDesc = (this.system.description !== undefined && this.system.description !== null);
+    
     if (this.type === "character") this._prepareCharacterData();
     if (this.type === "npc") this._prepareNpcData();
     if (this.type === "container") this._prepareContainerData();
