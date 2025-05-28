@@ -98,7 +98,12 @@
                             {{> "systems/cairn/templates/parts/feature-list.html"}} 
                         </div>
                         {{/if}}
-                        {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
+                        {{#if data.system.showBio }}
+                            {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
+                        {{/if}}
+                        {{#if data.system.showDesc }}
+                            {{ editor enrichedDescription target="system.description" button=true owner=owner editable=editable }}
+                        {{/if}}
                     </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="notes">
