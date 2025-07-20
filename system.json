@@ -2,10 +2,10 @@
   "id": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
-  "version": "0.16",
+  "version": "0.23",
   "compatibility": {
     "minimum": "12",
-    "verified": "12.327"
+    "verified": "13.346"
   },
   "license": "LICENSE.txt",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/",

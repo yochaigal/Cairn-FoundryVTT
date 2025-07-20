@@ -1,7 +1,11 @@
 {{#if withFatigue}}
 <div class="cairn-items-list-header">
   {{#if data.system.hasGoldThreshold}}
-  <div class="grey-comment">{{ localize 'CAIRN.Settings.UseGoldThreshold.message'}} ({{data.system.goldSlots}})</div>
+  <div class="grey-comment">{{ localize 'CAIRN.Settings.UseGoldThreshold.message'}} 
+    {{#if data.system.goldSlots }}
+      ({{data.system.goldSlots}})
+    {{/if}}
+  </div>
   {{/if}}
   <div class="end">
     <a class="item-control remove-fatigue" title="{{ localize 'CAIRN.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
@@ -50,7 +54,6 @@
       {{/if}}
 
 
-      {{#unless item.system.weightless}}
       <div class="cairn-item-uses">
         {{#times item.system.uses.max}}
         {{#if (gt item.system.uses.value @index)}}
@@ -60,7 +63,7 @@
         {{/if}}
         {{/times}}
       </div>
-      {{/unless}}
+      
 
     </div>
 

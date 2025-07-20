@@ -160,11 +160,9 @@ const configureHandleBar = () => {
   Handlebars.registerHelper("markItemUsed", function (item, options) {
     const usable =
       item.system.uses &&
-      item.system.uses.max &&
-      item.system.uses.max &&
-      !item.system.weightless > 0;
+      item.system.uses.max;
     return usable && item.system.uses.value <= 0
-      ? '<span style="text-decoration: line-through;">' +
+      ? '<span style="opacity: 0.65;">' +
           options.fn(this) +
           "</span>"
       : options.fn(this);
