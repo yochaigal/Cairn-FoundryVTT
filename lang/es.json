@@ -45,7 +45,7 @@
     "MaxSlotsOccupied": "Máximo de espacios de inventario ocupados"
   },
   "CAIRN.Owner": "Propietario/a",
-  "CAIRN.OverburdenByGold": "Character may be overburdened by a gold",
+  "CAIRN.OverburdenByGold": "El personaje puede estar sobrecargado por el oro",
   "CAIRN.Quantity": "Cantidad",
   "CAIRN.Panicked": "Pánico",
   "CAIRN.RemoveFatigue": "Quitar fatiga",
