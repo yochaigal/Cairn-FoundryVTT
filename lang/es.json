@@ -10,6 +10,7 @@
   "CAIRN.AddFatigue": "Añadir fatiga",
   "CAIRN.AddItem": "Añadir objeto",
   "CAIRN.AddContainer": "Añadir contenedor",
+  "CAIRN.AddFeature": "Añadir rasgo",
   "CAIRN.Armor": "Armadura",
   "CAIRN.Background": "Trasfondo",
   "CAIRN.Blast": "Estallido",
@@ -22,6 +23,7 @@
   "CAIRN.ContainerAlreadyOwned": "El contenedor ya es propiedad de otro personaje",
   "CAIRN.CreateItem": "Crear objeto",
   "CAIRN.CreateContainer": "Crear contenedor",
+  "CAIRN.CreateFeature": "Crear rasgo",
   "CAIRN.CriticalDamage": "Daño crítico",
   "CAIRN.Damage": "Daño",
   "CAIRN.Dead": "Muerto",
@@ -30,19 +32,24 @@
   "CAIRN.DieOfFate": "Dado del Destino",
   "CAIRN.DeleteItem": "Eliminar objeto",
   "CAIRN.EditItem": "Editar objeto",
+  "CAIRN.EditFeature": "Editar rasgo", 
   "CAIRN.Equipped": "Equipado",
   "CAIRN.Fatigue": "Fatiga",
   "CAIRN.Fail": "Fallo",
+  "CAIRN.Features": "Rasgos",
+  "CAIRN.FeaturesInfo": "Rasgos de personaje adicionales con algún efecto mecánico.",
   "CAIRN.Gold": "Oro",
   "CAIRN.HitProtection": "PG",
   "CAIRN.Item": "Objeto",
   "CAIRN.Items": "Equipo",
   "CAIRN.MaxUses": "Max # de usos",
+  "CAIRN.ModifiedElements": "Elementos modificados",
   "CAIRN.Name": "Nombre",
   "CAIRN.NoItemToDelete": "No se encuentra el objeto a eliminar.",
   "CAIRN.Notes": "Notas",
   "CAIRN.Notify": {
     "MaxSlotsOccupied": "Máximo de espacios de inventario ocupados"
+    "ConfirmDelete": "Borrar"
   },
   "CAIRN.Owner": "Propietario/a",
   "CAIRN.OverburdenByGold": "El personaje puede estar sobrecargado por el oro",
@@ -72,7 +79,23 @@
     "UsePanic": {
       "label": "Usar la condición de Pánico",
       "hint": "Utiliza la condición de Pánico de 2e para los personajes jugadores."
-    }
+    },
+    "UseItemIcons": {
+    "label": "Mostrar iconos de objetos",
+    "hint": "Mostrar iconos de algunos objetos del inventario para reconocer rápidamente el tipo."
+   },
+   "UseCairnDiceNotation": {
+     "label": "Utilizar la notación de dados de Cairn",
+     "hint": "Interpretar la notación de los dados en Cairn como 'd6+d6' tal y como se describe en las reglas."
+   }, 
+   "ShowGenerateHeader":{
+       "label":"Mostrar botón de regeneración",
+       "hint": "Mostrar el botón 'regenerar' en la cabecera de la hoja de personaje"
+   },
+   "ShowFeatures":{
+     "label":"Mostrar la sección de rasgos",
+     "hint": "Mostrar lista adicional de 'rasgos' en la pestaña de descripción del personaje."
+   }
   },
   "CAIRN.Slots": "Espacios",
   "CAIRN.Spellbook": "Hechizo",
@@ -81,6 +104,7 @@
   "CAIRN.Success": "Exito",
   "CAIRN.Type": "Tipo",
   "CAIRN.Uses": "# de usos",
+  "CAIRN.UpdateFeature": "Actualizar rasgo",
   "CAIRN.Weapon": "Arma",
   "CAIRN.Weightless": "Insignificante",
   "CAIRN.ItemAddQuantity": "Añadir",
