@@ -73,13 +73,13 @@ Hooks.on("renderActorDirectory", (app, html) => {
 
 Hooks.on("renderChatMessage", (message, html, data) => {
   // Roll Str Save
-  const actor = game.actors.get(message.speaker?.actor);
+  const token = canvas.scene.tokens.get(message.speaker?.token);
 
-  if (actor !== undefined) {
-    if (actor.testUserPermission(game.user, "OWNER") || game.user.isGM) {
+  if (token !== undefined) {
+    if (token.actor.testUserPermission(game.user, "OWNER") || game.user.isGM) {
       html
         .find(".roll-str-save")
-        .click((ev) => Damage._rollStrSave(actor, html));
+        .click((ev) => Damage._rollStrSave(token, html));
     } else {
       html.find(".roll-str-save").each((i, btn) => {
         btn.style.display = "none";

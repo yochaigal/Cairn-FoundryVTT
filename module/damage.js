@@ -8,11 +8,11 @@ export class Damage {
      * @param {String[]} targets Array of Id of the targeted tokens
      * @param {Number} damage Positive number
      */
-    static applyToTargets(targets, damage) {
-        targets.forEach(target => {
-            const data = this.applyToTarget(target, damage);
+    static async applyToTargets(targets, damage) {
+        for (const target of targets) {
+            const data = await this.applyToTarget(target, damage);
             this._showDetails(data);
-        });
+        };
     }
 
     /**
@@ -21,42 +21,19 @@ export class Damage {
      * @param {*} damage Amount of damaage
      * @returns actor + old and new values
      */
-    static applyToTarget(target, damage) {
-        const tokenDoc = canvas.scene.tokens.get(target);
-        // Linked to Actor
-        if (tokenDoc.isLinked) {
-            const armor = tokenDoc.actor.system.armor;
-            const hp = tokenDoc.actor.system.hp.value;
-            const str = tokenDoc.actor.system.abilities.STR.value;
+    static async applyToTarget(target, damage) {
+        const token = canvas.scene.tokens.get(target);
 
-            let { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
+        const armor = token.actor.system.armor;
+        const hp = token.actor.system.hp.value;
+        const str = token.actor.system.abilities.STR.value;
 
-            tokenDoc.actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
+        const { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
+        if (newStr < 0) newStr = 0; // cannot drop below being dead
 
-            const actor = tokenDoc.actor;
+        await token.actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
 
-            return { actor, dmg, damage, armor, hp, str, newHp, newStr };
-        }
-        // Synthetic actor
-        else {
-            const actor = tokenDoc.actor;
-
-            let armor = actor?.system?.armor;
-            if (armor === undefined) armor = actor.system.armor;
-
-            let hp = actor?.system?.hp?.value;
-            if (hp === undefined) hp = actor.system.hp.value;
-
-            let str = actor?.system?.abilities?.STR?.value;
-            if (str === undefined) str = actor.system.abilities.STR.value;
-
-            let { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
-            if (newStr < 0) newStr = 0; // cannot drop below being dead
-
-            actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
-
-            return { actor, dmg, damage, armor, hp, str, newHp, newStr };
-        }
+        return { token, dmg, damage, armor, hp, str, newHp, newStr };
     }
 
     /**
@@ -123,12 +100,12 @@ export class Damage {
      */
     static _showDetails(data) {
 
-        const { actor, dmg, damage, armor, hp, str, newHp, newStr } = data
+        const { token, dmg, damage, armor, hp, str, newHp, newStr } = data
 
         if (str == 0) {
             ChatMessage.create({
                 user: game.user._id,
-                speaker: { actor },
+                speaker: { token },
                 content: '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>',
             }, {});
             return;
@@ -158,7 +135,7 @@ export class Damage {
 
         ChatMessage.create({
             user: game.user._id,
-            speaker: { actor },
+            speaker: { token },
             content: content,
         }, {})
 
@@ -170,14 +147,14 @@ export class Damage {
         await table.draw({ roll });
     }
 
-    static async _rollStrSave(actor, html) {
-        const roll = await evaluateFormula("d20cs<=@STR", actor.getRollData());
+    static async _rollStrSave(token, html) {
+        const roll = await evaluateFormula("d20cs<=@STR", token.actor.getRollData());
         const label = game.i18n.format("CAIRN.Save", { key: game.i18n.localize("STR") });
         const rolled = roll.terms[0].results[0].result;
         const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
         const resultCls = roll.total === 0 ? "failure" : "success";
         roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: actor }),
+            speaker: ChatMessage.getSpeaker({ token: token }),
             flavor: label,
             content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${roll.formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${roll.formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled}</li></ol></div></section></div><h4 class="dice-total ${resultCls}">${result} (${rolled})</h4</div></div>`,
         });
