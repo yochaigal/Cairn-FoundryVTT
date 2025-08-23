@@ -99,15 +99,15 @@
                         </div>
                         {{/if}}
                         {{#if data.system.showBio }}
-                            {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable }}
+                            {{ editor enrichedBiography target="system.biography" button=true owner=owner editable=editable engine="prosemirror" collaborate=true }}
                         {{/if}}
                         {{#if data.system.showDesc }}
-                            {{ editor enrichedDescription target="system.description" button=true owner=owner editable=editable }}
+                            {{ editor enrichedDescription target="system.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=true }}
                         {{/if}}
                     </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="notes">
-                    {{ editor enrichedNotes target="system.notes" button=true owner=owner editable=editable}}
+                    {{ editor enrichedNotes target="system.notes" button=true owner=owner editable=editable engine="prosemirror" collaborate=true }}
                 </div>
             </section>
         </div>
