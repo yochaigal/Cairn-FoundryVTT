@@ -628,4 +628,37 @@ export class CairnActorSheet extends ActorSheet {
     if (this.actor.uuid == data.uuid) return;
     await this.actor.createOwnedContainer(actor);
   }
+
+
+  /** override */
+  /** @inheritdoc */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ( "link" in event.target.dataset ) return;
+
+    // Create drag data
+    let dragData;
+
+    // Owned Items
+    if ( li.dataset.itemId ) {
+      if ( li.dataset.isContainer ) {
+         const item = this.actor.getOwnedContainer(li.dataset.itemId);
+         dragData = item.toDragData();
+      } else {
+        const item = this.actor.items.get(li.dataset.itemId);
+        dragData = item.toDragData();
+      }
+    }
+
+    // Active Effect
+    if ( li.dataset.effectId ) {
+      const effect = this.actor.effects.get(li.dataset.effectId);
+      dragData = effect.toDragData();
+    }
+
+    if ( !dragData ) return;
+
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+  }
 }

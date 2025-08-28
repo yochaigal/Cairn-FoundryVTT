@@ -156,7 +156,6 @@ export class CairnActor extends Actor {
     data.id = foundry.utils.randomID();
     newValue.push(data);
     await this.update({ "system.features": newValue });
-    console.log(data);
   }
 
   /** No longer an override as deleteOwnedItem is deprecated on type Actor */
@@ -299,4 +298,6 @@ export class CairnActor extends Actor {
       }
     });
   }
+
+
 }

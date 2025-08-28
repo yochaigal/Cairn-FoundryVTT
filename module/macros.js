@@ -9,7 +9,19 @@ export const createCairnMacro = async (data, slot) => {
   const { item, actor } = await getInfoFromDropData(data);
 
   if (data.type !== "Item") {
-    return;
+    if (item !== undefined) {
+          const macro = await Macro.create({
+          name: item.name,
+          type: "script",
+          img: item.img,
+          command: 'await foundry.applications.ui.Hotbar.toggleDocumentSheet("'+item.uuid+'")',
+          flags: { "cairn.itemMacro": true },
+       });
+       await game.user.assignHotbarMacro(macro, slot);
+    }
+     
+    // await foundry.applications.ui.Hotbar.toggleDocumentSheet("Actor.LDNMLpPmghb8cY8i.Item.PtHPURu548JUKwuU");
+    return true;
   }
 
   if (!actor) {
@@ -31,7 +43,7 @@ export const createCairnMacro = async (data, slot) => {
       flags: { "cairn.itemMacro": true },
     });
   }
-  game.user.assignHotbarMacro(macro, slot);
+  await game.user.assignHotbarMacro(macro, slot);
   return false;
 };
 
