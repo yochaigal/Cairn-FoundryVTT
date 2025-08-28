@@ -41,7 +41,10 @@ Hooks.once("init", async function () {
 });
 
 Hooks.once("ready", () => {
-  Hooks.on("hotbarDrop", (bar, data, slot) => createCairnMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => { 
+    createCairnMacro(data, slot);
+    return false;
+  });
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {
@@ -50,7 +53,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
     section.classList.add("character-generator");
     section.classList.add("directory-header");
 
-    const dirHeader = html[0].querySelector(".directory-header");
+    const dirHeader = html.querySelector(".directory-header");
     dirHeader.parentNode.insertBefore(section, dirHeader);
     section.insertAdjacentHTML(
       "afterbegin",
@@ -73,7 +76,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
 
 Hooks.on("renderChatMessage", (message, html, data) => {
   // Roll Str Save
-  const token = canvas.scene.tokens.get(message.speaker?.token);
+  const token = canvas?.scene?.tokens?.get(message.speaker?.token);
 
   if (token !== undefined) {
     if (token.actor.testUserPermission(game.user, "OWNER") || game.user.isGM) {
