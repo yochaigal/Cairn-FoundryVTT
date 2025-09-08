@@ -16,7 +16,7 @@
   "CAIRN.Blast": "Blast",
   "CAIRN.BoldMeanEquipped": "(bold means equipped)",
   "CAIRN.Bulky": "Bulky",
-  "CAIRN.CharacterGenerator": "Create character",
+  "CAIRN.CharacterGenerator": "Generate character",
   "CAIRN.CharacterRegeneratorConfirm": "Are you sure you want to delete and regenerate this character?",
   "CAIRN.CharacterRegeneratorTitle": "Delete this character and regenerate?",
   "CAIRN.Containers": "Containers",
@@ -95,6 +95,10 @@
     "ShowFeatures":{
       "label":"Show features section",
       "hint": "Show additional 'feature' list in the character description tab."
+    },
+    "ShowContainerActors": {
+      "label":"Show container actors",
+      "hint": "Show containers on the actor list."
     }
   },
   "CAIRN.Slots": "Slots",

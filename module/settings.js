@@ -68,4 +68,14 @@ export const registerSettings = () => {
     default: false,
     requiresReload: true,
   });
+
+  game.settings.register("cairn", "show-container-actors", {
+    name: game.i18n.localize("CAIRN.Settings.ShowContainerActors.label"),
+    hint: game.i18n.localize("CAIRN.Settings.ShowContainerActors.hint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true,
+  });
 };

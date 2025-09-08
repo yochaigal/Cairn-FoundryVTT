@@ -48,7 +48,7 @@
   "CAIRN.NoItemToDelete": "No se encuentra el objeto a eliminar.",
   "CAIRN.Notes": "Notas",
   "CAIRN.Notify": {
-    "MaxSlotsOccupied": "Máximo de espacios de inventario ocupados"
+    "MaxSlotsOccupied": "Máximo de espacios de inventario ocupados",
     "ConfirmDelete": "Borrar"
   },
   "CAIRN.Owner": "Propietario/a",
@@ -95,6 +95,10 @@
    "ShowFeatures":{
      "label":"Mostrar la sección de rasgos",
      "hint": "Mostrar lista adicional de 'rasgos' en la pestaña de descripción del personaje."
+   },
+   "ShowContainerActors": {
+      "label":"Show container actors",
+      "hint": "Show containers on the actor list."
    }
   },
   "CAIRN.Slots": "Espacios",

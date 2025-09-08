@@ -31,72 +31,90 @@ Hooks.once("init", async function () {
   };
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("cairn", CairnActorSheet, { makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("cairn", CairnItemSheet, { makeDefault: true });
+  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("cairn", CairnActorSheet, { makeDefault: true });
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("cairn", CairnItemSheet, { makeDefault: true });
 
   registerSettings();
   configureHandleBar();
 });
 
 Hooks.once("ready", () => {
-  Hooks.on("hotbarDrop", (bar, data, slot) => createCairnMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    createCairnMacro(data, slot);
+    return false;
+  });
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
-    const section = document.createElement("header");
-    section.classList.add("character-generator");
-    section.classList.add("directory-header");
-
-    const dirHeader = html[0].querySelector(".directory-header");
-    dirHeader.parentNode.insertBefore(section, dirHeader);
-    section.insertAdjacentHTML(
-      "afterbegin",
-      `
-      <div class="header-actions action-buttons flexrow">
-        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize(
+    if (!document.getElementById('cairn-character-gen-button')) {
+      const section = document.createElement("header");
+      section.classList.add("character-generator");
+      section.classList.add("directory-header");
+      const dirHeader = html.querySelector(".directory-header");
+      dirHeader.parentNode.insertBefore(section, dirHeader);
+      section.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <div class="header-actions action-buttons flexrow" id="cairn-character-gen-button">
+          <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize(
           "CAIRN.CharacterGenerator"
         )}</button>
-      </div>
-      `
-    );
-    section
-      .querySelector(".create-character-generator-button")
-      .addEventListener("click", async () => {
-        const actor = await createCharacter();
-        actor.sheet.render(true);
-      });
+        </div>
+        `
+      );
+      section
+        .querySelector(".create-character-generator-button")
+        .addEventListener("click", async () => {
+          const actor = await createCharacter();
+          actor.sheet.render(true);
+        });
+    }
+  }
+  const showContainers = game.settings.get("cairn", "show-container-actors");
+  if (!showContainers) {
+    const actors = html.querySelectorAll('.actor');
+    actors.forEach((a) => {
+      const aid = a.dataset.entryId;
+      const actor = game.actors.find((v) => v.id == aid);
+      if (!actor) return;
+      if (actor.type == "container") {
+        a.classList.add('hidden');
+      } else {
+        a.classList.remove('hidden');
+      }
+    });
   }
 });
 
-Hooks.on("renderChatMessage", (message, html, data) => {
+Hooks.on("renderChatMessageHTML", (message, html, data) => {
   // Roll Str Save
-  const token = canvas.scene.tokens.get(message.speaker?.token);
+  const token = canvas?.scene?.tokens?.get(message.speaker?.token);
 
   if (token !== undefined) {
     if (token.actor.testUserPermission(game.user, "OWNER") || game.user.isGM) {
-      html
-        .find(".roll-str-save")
-        .click((ev) => Damage._rollStrSave(token, html));
+      const btn = html.querySelector(".roll-str-save");
+      if (btn)
+        btn.onclick = (ev) => Damage._rollStrSave(token, html);
     } else {
-      html.find(".roll-str-save").each((i, btn) => {
+      html.querySelectorAll(".roll-str-save").forEach((btn) => {
         btn.style.display = "none";
       });
     }
   } else {
-    html.find(".roll-str-save").each((i, btn) => {
+    html.querySelectorAll(".roll-str-save").forEach((btn) => {
       btn.style.display = "none";
     });
   }
 
   if (game.user.isGM) {
-    html
-      .find(".apply-dmg")
-      .click((ev) => Damage.onClickChatMessageApplyButton(ev, html, data));
+    const btn = html.querySelector(".apply-dmg");
+    if (btn)
+      btn.onclick = (ev) => Damage.onClickChatMessageApplyButton(ev, html, data);
   } else {
-    html.find(".apply-dmg").each((i, btn) => {
+    html.querySelectorAll(".apply-dmg").forEach((btn) => {
       btn.style.display = "none";
     });
   }
@@ -110,7 +128,7 @@ const configureHandleBar = () => {
     "systems/cairn/templates/parts/feature-list.html",
   ];
 
-  loadTemplates(templatePaths);
+  foundry.applications.handlebars.loadTemplates(templatePaths);
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper("concat", function () {
@@ -163,8 +181,8 @@ const configureHandleBar = () => {
       item.system.uses.max;
     return usable && item.system.uses.value <= 0
       ? '<span style="opacity: 0.65;">' +
-          options.fn(this) +
-          "</span>"
+      options.fn(this) +
+      "</span>"
       : options.fn(this);
   });
 
