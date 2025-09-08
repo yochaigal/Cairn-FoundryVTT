@@ -540,3 +540,7 @@
     margin-right: 8px;
     line-height: 1em !important;
 }
+
+.hidden {
+    display: none;
+}

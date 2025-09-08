@@ -28,7 +28,7 @@ export class Damage {
         const hp = token.actor.system.hp.value;
         const str = token.actor.system.abilities.STR.value;
 
-        const { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
+        let { dmg, newHp, newStr } = this._calculateHpAndStr(damage, armor, hp, str);
         if (newStr < 0) newStr = 0; // cannot drop below being dead
 
         await token.actor.update({ 'system.hp.value': newHp, 'system.abilities.STR.value': newStr });
@@ -61,7 +61,7 @@ export class Damage {
         // Apply damage to targets
         else {
             if (targets !== undefined) {
-                const dmg = parseInt(html.find(".dice-total").text());
+                const dmg = parseInt(html.querySelector(".dice-total").textContent);
                 this.applyToTargets(targetsList, dmg);
             }
         }
@@ -102,10 +102,12 @@ export class Damage {
 
         const { token, dmg, damage, armor, hp, str, newHp, newStr } = data
 
+        
+
         if (str == 0) {
             ChatMessage.create({
                 user: game.user._id,
-                speaker: { token },
+                speaker: ChatMessage.getSpeaker({ token: token }),
                 content: '<strong>' + game.i18n.localize('CAIRN.Dead') + '</strong>',
             }, {});
             return;
@@ -135,7 +137,7 @@ export class Damage {
 
         ChatMessage.create({
             user: game.user._id,
-            speaker: { token },
+            speaker: ChatMessage.getSpeaker({ token: token }),
             content: content,
         }, {})
 
@@ -158,6 +160,6 @@ export class Damage {
             flavor: label,
             content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${roll.formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${roll.formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled}</li></ol></div></section></div><h4 class="dice-total ${resultCls}">${result} (${rolled})</h4</div></div>`,
         });
-        html.find(".roll-str-save").attr('disabled', 'disabled')
+        html.querySelector(".roll-str-save").setAttribute('disabled', 'disabled')
     }
 }

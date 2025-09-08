@@ -95,6 +95,10 @@
     "ShowFeatures":{
       "label":"Sekcja cech postaci w opisie",
       "hint": "Pokaż dodatkową sekcję 'Cechy postaci' w zakładce 'Opis'"
+    },
+    "ShowContainerActors": {
+      "label":"Pokaż kontenery",
+      "hint": "Pokaż kontenery na liście aktorów."
     }
   },
   "CAIRN.Slots": "Miejsca",

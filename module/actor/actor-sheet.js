@@ -44,11 +44,11 @@ export class CairnActorSheet extends ActorSheet {
     );
     // Compendium monsters have "description" instead of "biography"
     if (this.actor.system.showBio) {
-      data.enrichedBiography = await TextEditor.enrichHTML(this.actor.system.biography, { async: true });
+      data.enrichedBiography = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.biography, { async: true });
     } else {
-      data.enrichedDescription = await TextEditor.enrichHTML(this.actor.system.description, { async: true });
+      data.enrichedDescription = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.description, { async: true });
     }
-    data.enrichedNotes = await TextEditor.enrichHTML(this.actor.system.notes, { async: true });
+    data.enrichedNotes = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.notes, { async: true });
     
     return data;
   }

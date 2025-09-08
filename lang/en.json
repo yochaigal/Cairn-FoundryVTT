@@ -95,6 +95,10 @@
     "ShowFeatures":{
       "label":"Show features section",
       "hint": "Show additional 'feature' list in the character description tab."
+    },
+    "ShowContainerActors": {
+      "label":"Show container actors",
+      "hint": "Show containers on the actor list."
     }
   },
   "CAIRN.Slots": "Slots",
