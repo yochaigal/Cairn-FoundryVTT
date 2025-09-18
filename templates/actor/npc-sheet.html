@@ -54,8 +54,12 @@
             </div>           
         </div>
         <div class="character-sheet-section-tabs">
-            <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})</a>
+            <nav class="tabs" data-group="primary">                    
+                <a class="item" data-group="primary" data-tab="items" id="set-equipment-limit"
+                {{#if data.system.characterEquipmentLimit}}title="Double click to change limit"{{/if}}>
+                    {{#if data.system.characterEquipmentLimit}}<i class="fas fa-gears" style="opacity:0.5;z-index:5000" ></i>{{/if}} 
+                    {{ localize 'CAIRN.Items' }} ({{data.system.slotsUsed}} / {{data.system.slotsMax}})
+                </a>
                 <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
                 <a class="item" data-group="primary" data-tab="notes">{{ localize 'CAIRN.Notes' }}</a>
             </nav>

@@ -78,4 +78,14 @@ export const registerSettings = () => {
     default: false,
     requiresReload: true,
   });
+
+  game.settings.register("cairn", "character-inventory-limit", {
+    name: game.i18n.localize("CAIRN.Settings.CharacterInventoryLimit.label"),
+    hint: game.i18n.localize("CAIRN.Settings.CharacterInventoryLimit.hint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true,
+  });
 };

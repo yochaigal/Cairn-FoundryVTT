@@ -74,6 +74,8 @@ export class CairnActor extends Actor {
     if (this.system.usePanic && this.system.panicked) {
       this.system.hp.value = 0;
     }
+
+    this.system.characterEquipmentLimit = game.settings.get("cairn", "character-inventory-limit");    
   }
 
   _prepareNpcData() {
@@ -257,6 +259,10 @@ export class CairnActor extends Actor {
       this.system.slots.value > 0
     )
       return this.system.slots.value;
+    if (game.settings.get("cairn", "character-inventory-limit")) {
+      if (this.system.slots == undefined) this.system.slots = game.settings.get("cairn", "max-equip-slots");
+      return this.system.slots;
+    }
     return game.settings.get("cairn", "max-equip-slots");
   }
 
