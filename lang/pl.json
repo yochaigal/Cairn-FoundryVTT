@@ -99,6 +99,10 @@
     "ShowContainerActors": {
       "label":"Pokaż kontenery",
       "hint": "Pokaż kontenery na liście aktorów."
+    },
+    "CharacterInventoryLimit": {
+      "label":"Limit ekwipunku dla postaci",
+      "hint": "Limit ekwipunku może być definiowany oddzielnie dla każdej postaci."
     }
   },
   "CAIRN.Slots": "Miejsca",
@@ -117,6 +121,7 @@
   "CAIRN.ItemUnequip": "Odłóż",
   "CAIRN.ApplyDamage": "Zadaj obrażenia",
   "CAIRN.Cost": "Koszt",
+  "CAIRN.SetLimit": "Ustaw limit",
   "DEX": "ZRE",
   "STR": "SIŁ",
   "WIL": "WOL"

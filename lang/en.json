@@ -99,6 +99,10 @@
     "ShowContainerActors": {
       "label":"Show container actors",
       "hint": "Show containers on the actor list."
+    },
+    "CharacterInventoryLimit": {
+      "label":"Character equipment limit",
+      "hint": "Equipment limit is defined per character instead of global value."
     }
   },
   "CAIRN.Slots": "Slots",
@@ -117,6 +121,7 @@
   "CAIRN.ItemUnequip": "Unequip",
   "CAIRN.ApplyDamage": "Apply damage",
   "CAIRN.Cost": "Cost",
+  "CAIRN.SetLimit": "Set limit",
   "DEX": "DEX",
   "STR": "STR",
   "WIL": "WIL"

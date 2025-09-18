@@ -189,6 +189,29 @@ export class CairnActorSheet extends ActorSheet {
         flavor: game.i18n.localize("CAIRN.DieOfFate"),
       });
     });
+
+    html.find("#set-equipment-limit").dblclick(async (ev) => {
+      if (!game.settings.get("cairn", "character-inventory-limit")) return;
+      ev.preventDefault();
+      let slots;
+      try {
+        slots = await foundry.applications.api.DialogV2.prompt({
+          window: { title: game.i18n.localize("CAIRN.Settings.MaxEquipSlots.label") },
+          position: { width: 150},
+          content: '<input name="slots" type="number" autofocus value="'+this.actor.calcCurrentMaxSlots()+'">',
+          ok: {
+            label: game.i18n.localize("CAIRN.SetLimit"),
+            callback: (event, button, dialog) => {               
+                this.actor.update({"system.slots":button.form.elements.slots.valueAsNumber});
+            }
+          }
+        });
+      } catch {
+        return;
+      }
+       
+    });
+
   }
 
   async _onItemEditToggle(ev) {
