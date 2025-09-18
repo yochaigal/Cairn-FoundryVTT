@@ -18,6 +18,8 @@ export class CairnItem extends Item {
       if (this.system.uses.value > this.system.uses.max)
         this.system.uses.value = this.system.uses.max;
     }
+    this.system.isFatigue = this.name == game.i18n.localize("CAIRN.Fatigue");
+
     this.system.useItemIcons = game.settings.get("cairn", "use-item-icons");
     if (this.system.useItemIcons) {
       this.system.icon = "";
@@ -30,6 +32,11 @@ export class CairnItem extends Item {
           break;
         case "armor":
           this.system.icon = "shield";
+          break;
+        case "item":
+          if (this.name == game.i18n.localize("CAIRN.Fatigue")) {
+            this.system.icon = "weight-hanging";
+          }
           break;
       }
     }

@@ -94,7 +94,9 @@
       </a>
       {{/if}}
 
+      {{#if (not item.system.isFatigue) }}
       <a class="item-control item-edit" title="{{ localize 'CAIRN.EditItem' }}"><i class="fas fa-edit"></i></a>
+      {{/if}}
       <a class="item-control item-delete" title="{{ localize 'CAIRN.DeleteItem' }}"><i class="fas fa-trash"></i></a>
     </div>
   </div>

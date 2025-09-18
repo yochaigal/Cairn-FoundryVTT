@@ -30,8 +30,8 @@ export class CairnItemSheet extends ItemSheet {
   /** @override */
   async getData() {
     const data = await super.getData();
-    data.enrichedDescription = await TextEditor.enrichHTML(data.item.system.description, { async: true });
-    data.enrichedCriticalDamage = await TextEditor.enrichHTML(data.item.system.criticalDamage, { async: true });
+    data.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.item.system.description, { async: true });
+    data.enrichedCriticalDamage = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.item.system.criticalDamage, { async: true });
     return data;
   }
 

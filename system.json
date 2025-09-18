@@ -4,7 +4,7 @@
   "description": "Cairn for FoundryVTT",
   "version": "0.23",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "13",
     "verified": "13.346"
   },
   "license": "LICENSE.txt",

@@ -171,6 +171,10 @@ const configureHandleBar = () => {
     return val !== null && val != undefined;
   });
 
+ Handlebars.registerHelper("isFatigue", function (val) {
+    return val == game.i18n.localize("CAIRN.Fatigue");
+  });
+
   Handlebars.registerHelper("not", function (val) {
     return !val;
   });

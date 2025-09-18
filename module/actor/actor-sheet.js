@@ -42,6 +42,7 @@ export class CairnActorSheet extends ActorSheet {
         ? 0
         : 1
     );
+    data.items.sort((a,b) => a.name == game.i18n.localize("CAIRN.Fatigue") ? 1 : b.name == game.i18n.localize("CAIRN.Fatigue") ? -1 : 0 )
     // Compendium monsters have "description" instead of "biography"
     if (this.actor.system.showBio) {
       data.enrichedBiography = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.biography, { async: true });
@@ -78,16 +79,7 @@ export class CairnActorSheet extends ActorSheet {
     html.find(".remove-fatigue").click(this._onRemoveFatigue.bind(this));
 
     // Update inventory item
-    html.find(".item-edit").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
-      if (li.data("isContainer")) {
-        const item = this.actor.getOwnedContainer(li.data("itemId"));
-        item.sheet.render(true);
-        return;
-      }
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
-    });
+    html.find(".item-edit").click((ev) => this._onItemEditToggle(ev));
 
     // Delete inventory item
     html.find(".item-delete").click((ev) => {
@@ -183,6 +175,10 @@ export class CairnActorSheet extends ActorSheet {
       .click((event) => this._onItemDescriptionToggle(event));
 
     html
+      .find(".cairn-item-title")
+      .dblclick((event) => this._onItemEditToggle(event));
+
+    html
       .find(".cairn-feature-title")
       .click((event) => this._onFeatureDescriptionToggle(event));      
 
@@ -193,6 +189,18 @@ export class CairnActorSheet extends ActorSheet {
         flavor: game.i18n.localize("CAIRN.DieOfFate"),
       });
     });
+  }
+
+  async _onItemEditToggle(ev) {
+    const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      if (li.data("isContainer")) {
+        const item = this.actor.getOwnedContainer(li.data("itemId"));
+        item.sheet.render(true);
+        return;
+      }
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      if (item.name == game.i18n.localize("CAIRN.Fatigue")) return;
+      item.sheet.render(true);
   }
 
   /* -------------------------------------------- */

@@ -91,7 +91,7 @@ export const rollItemMacro = async (actorId, itemId) => {
   const rollMessageTpl = "systems/cairn/templates/chat/dmg-roll-card.html";
   const tplData = { label: label, targets: targetIds };
   const msg = await renderTemplate(rollMessageTpl, tplData);
-  roll.toMessage({
+  roll.toMessage({    
     speaker: ChatMessage.getSpeaker({ actor: actor }),
     flavor: msg,
   });
