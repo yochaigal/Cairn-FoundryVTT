@@ -531,6 +531,14 @@
     font-style: italic;
 }
 
+.dice-roll .dice-total.success {
+    color: #2E7D32
+}
+
+.dice-roll .dice-total.failure {
+    color: #C62828
+}
+
 .indent {
     margin-left: 16px;
 }
