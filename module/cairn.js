@@ -31,9 +31,7 @@ Hooks.once("init", async function () {
   };
 
   // Register sheet application classes
-  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
   foundry.documents.collections.Actors.registerSheet("cairn", CairnActorSheet, { makeDefault: true });
-  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
   foundry.documents.collections.Items.registerSheet("cairn", CairnItemSheet, { makeDefault: true });
 
   registerSettings();

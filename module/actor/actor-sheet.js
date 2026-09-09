@@ -5,7 +5,7 @@ import { evaluateFormula, getInfoFromDropData, stripPar } from "../utils.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class CairnActorSheet extends ActorSheet {
+export class CairnActorSheet extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -235,7 +235,7 @@ export class CairnActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const template = "systems/cairn/templates/dialog/add-item-dialog.html";
-    const content = await renderTemplate(template);
+    const content = await foundry.applications.handlebars.renderTemplate(template);
 
     new Dialog({
       title: game.i18n.localize("CAIRN.CreateItem"),
@@ -269,7 +269,7 @@ export class CairnActorSheet extends ActorSheet {
   async _onContainerCreate(event) {
     event.preventDefault();
     const template = "systems/cairn/templates/dialog/add-container-dialog.html";
-    const content = await renderTemplate(template);
+    const content = await foundry.applications.handlebars.renderTemplate(template);
 
     new Dialog({
       title: game.i18n.localize("CAIRN.CreateContainer"),
@@ -304,7 +304,7 @@ export class CairnActorSheet extends ActorSheet {
   async _onFeatureCreate(event) {
     event.preventDefault();
     const template = "systems/cairn/templates/dialog/add-feature-dialog.html";
-    const content = await renderTemplate(template);
+    const content = await foundry.applications.handlebars.renderTemplate(template);
 
     new Dialog({
       title: game.i18n.localize("CAIRN.CreateFeature"),
@@ -337,7 +337,7 @@ export class CairnActorSheet extends ActorSheet {
 
   async _onFeatureEdit(item) {
     const template = "systems/cairn/templates/dialog/add-feature-dialog.html";
-    const content = await renderTemplate(template, item);
+    const content = await foundry.applications.handlebars.renderTemplate(template, item);
     
     new Dialog({
       title: game.i18n.localize("CAIRN.EditFeature"),
@@ -460,7 +460,7 @@ export class CairnActorSheet extends ActorSheet {
   _buildDamageRollMessage(label, targetIds) {
     const rollMessageTpl = "systems/cairn/templates/chat/dmg-roll-card.html";
     const tplData = { label: label, targets: targetIds };
-    return renderTemplate(rollMessageTpl, tplData);
+    return foundry.applications.handlebars.renderTemplate(rollMessageTpl, tplData);
   }
 
   _onItemDescriptionToggle(event) {
