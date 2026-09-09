@@ -129,5 +129,9 @@
   "CAIRN.SetLimit": "Set limit",
   "DEX": "DEX",
   "STR": "STR",
-  "WIL": "WIL"
+  "WIL": "WIL",
+  "CAIRN.Sheet.character": "Cairn character sheet",
+  "CAIRN.Sheet.npc": "Cairn NPC sheet",
+  "CAIRN.Sheet.container": "Cairn container sheet",
+  "CAIRN.Sheet.item": "Cairn item sheet"
 }

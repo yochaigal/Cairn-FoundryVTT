@@ -8,6 +8,20 @@
     "minimum": "14",
     "verified": "14"
   },
+  "documentTypes": {
+    "Actor": {
+      "character": { "htmlFields": ["biography", "notes"] },
+      "npc": { "htmlFields": ["description", "notes"] },
+      "container": { "htmlFields": ["biography", "description"] }
+    },
+    "Item": {
+      "item": { "htmlFields": ["description", "criticalDamage"] },
+      "weapon": { "htmlFields": ["description", "criticalDamage"] },
+      "armor": { "htmlFields": ["description", "criticalDamage"] },
+      "spellbook": { "htmlFields": ["description", "criticalDamage"] },
+      "object": { "htmlFields": ["description", "criticalDamage"] }
+    }
+  },
   "license": "LICENSE.txt",
   "url": "https://github.com/yochaigal/Cairn-FoundryVTT/",
   "manifest": "https://github.com/yochaigal/Cairn-FoundryVTT/releases/latest/download/system.json",
@@ -23,10 +37,10 @@
     }
   ],
   "esmodules": [
-    "module/cairn.js"
+    "scripts/main.mjs"
   ],
   "styles": [
-    "css/cairn.css"
+    { "src": "css/cairn.css" }
   ],
   "packs": [
     {
