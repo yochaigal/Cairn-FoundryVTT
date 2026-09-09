@@ -13,11 +13,11 @@ importers:
         version: 0.15.0
     devDependencies:
       '@vttforge/cli':
-        specifier: ^0.10.1
-        version: 0.10.1
+        specifier: ^0.11.0
+        version: 0.11.0
       '@vttforge/vite-plugin':
-        specifier: ^0.5.1
-        version: 0.5.1(rolldown@1.2.7)(vite@8.2.2)
+        specifier: ^0.5.2
+        version: 0.5.2(rolldown@1.2.7)(vite@8.2.2)
       vite:
         specifier: ^8.2.2
         version: 8.2.2
@@ -273,8 +273,8 @@ packages:
   '@types/jsesc@2.5.1':
     resolution: {integrity: sha512-9VN+6yxLOPLOav+7PwjZbxiID2bVaeq0ED4qSQmdQTdjnXJSaCVKTR58t15oqH1H5t8Ng2ZX1SabJVoN9Q34bw==}
 
-  '@vttforge/cli@0.10.1':
-    resolution: {integrity: sha512-Ip2ZEGsEYn0ncXPHFvBVMFtKgkVWfXGu1ZvnKF1f1ICHAPHdUMfPZnpcJyeOfO66msZrxXln5xNI7NLwtopNbw==}
+  '@vttforge/cli@0.11.0':
+    resolution: {integrity: sha512-NZuWzX9dxRDp+OA0M9yBPhiHOVgnHbK2+dQ5j3zZBBYzINQxz0I49cU87W43kIeC0vOAZFxNfM83hdtavvkmxA==}
     engines: {node: '>=26.0.0'}
     hasBin: true
 
@@ -284,8 +284,8 @@ packages:
   '@vttforge/types@0.2.0':
     resolution: {integrity: sha512-dpZ4LHH1+Ipv8QHISccHJJdxvP8Fqo8XNgHh6MQCAGcfSd1bDgl0QLaczYkGgb55E0M82M87cZiA+l5jgJJ+9g==}
 
-  '@vttforge/vite-plugin@0.5.1':
-    resolution: {integrity: sha512-WpSS6TnJOJsXucoefx7i07ThjyJyhQS2aeJaxG/GwsQsIl7XyDHcOG3CeoGvT8tJr57gfYbvfR7gu/L/muyzTQ==}
+  '@vttforge/vite-plugin@0.5.2':
+    resolution: {integrity: sha512-UkRtRxiIHtrYwFMnr0yhUWnNVG0PAdcq65g3nOMKQ6LfRBcxgL/HxCxNylRpAVEZJDTDAphTv7h9EXJ7w1npAg==}
     engines: {node: '>=26.0.0'}
     peerDependencies:
       vite: ^8.2.2
@@ -939,7 +939,7 @@ snapshots:
 
   '@types/jsesc@2.5.1': {}
 
-  '@vttforge/cli@0.10.1':
+  '@vttforge/cli@0.11.0':
     dependencies:
       '@clack/prompts': 1.8.0
       archiver: 8.0.0
@@ -955,7 +955,7 @@ snapshots:
 
   '@vttforge/types@0.2.0': {}
 
-  '@vttforge/vite-plugin@0.5.1(rolldown@1.2.7)(vite@8.2.2)':
+  '@vttforge/vite-plugin@0.5.2(rolldown@1.2.7)(vite@8.2.2)':
     dependencies:
       '@babel/core': 8.0.1
       '@babel/plugin-proposal-decorators': 8.0.2(@babel/core@8.0.1)

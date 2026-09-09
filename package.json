@@ -14,8 +14,8 @@
     "@vttforge/core": "^0.15.0"
   },
   "devDependencies": {
-    "@vttforge/cli": "^0.10.1",
-    "@vttforge/vite-plugin": "^0.5.1",
+    "@vttforge/cli": "^0.11.0",
+    "@vttforge/vite-plugin": "^0.5.2",
     "vite": "^8.2.2"
   },
   "engines": {
