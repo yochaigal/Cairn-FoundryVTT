@@ -1,0 +1,42 @@
+<div class="container-sheet-grid">
+    <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="character-sheet-section-name">
+        <input class="name-input" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+        <div class="background-input">{{system.ownedBy}}</div>
+        <div class="resource-counter slots-counter">
+            <label for="system.slots.value">{{ localize 'CAIRN.Slots' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.slots.value" id="system.slots.value" value="{{system.slots.value}}" />
+            </div>
+        </div>
+        {{#if system.showGoldNotCost}}
+        <div class="resource-counter slots-counter {{#if system.maybeTooMuchGold}}overburdened-gold{{/if}}" {{#if system.maybeTooMuchGold}}title="{{localize 'CAIRN.OverburdenByGold'}}"{{/if}}>
+            <label for="system.gold">{{ localize 'CAIRN.Gold' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.gold" id="system.gold" value="{{system.gold}}" />
+            </div>
+        </div>
+        {{else}}
+        <div class="resource-counter slots-counter">
+            <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.cost.value" id="system.cost.value" value="{{system.cost.value}}" />
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <div class="character-sheet-section-tabs">
+        <nav class="tabs" data-group="primary">
+            <a class="item {{tabs.items.cssClass}}" data-action="vttforgeTab" data-group="primary" data-tab="items">{{ localize 'CAIRN.Items' }} ({{system.slotsUsed}} / {{system.slotsMax}})</a>
+            <a class="item {{tabs.description.cssClass}}" data-action="vttforgeTab" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+        </nav>
+        <section class="content">
+            <div class="tab {{tabs.items.cssClass}}" data-group="primary" data-tab="items">
+                {{> "systems/cairn/templates/parts/items-list.hbs"}}
+            </div>
+            <div class="tab {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
+                {{> "systems/cairn/templates/parts/editor.hbs" name="system.biography" value=system.biography enriched=enrichedBiography editable=isEditable}}
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="item-sheet-grid weapon">
+    <div class="item-sheet-section-portrait">
+        <img class="portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    </div>
+    <div class="item-sheet-section-name">
+        <input class="name-input" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+    </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked system.equipped}} name="system.equipped" id="system.equipped" {{disabled (not system.isEquipable)}} />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.damageFormula">{{ localize 'CAIRN.Damage' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="text" name="system.damageFormula" id="system.damageFormula" value="{{system.damageFormula}}" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.bulky">{{ localize 'CAIRN.Bulky' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked system.bulky}} name="system.bulky" id="system.bulky" data-action="exclusiveFlag" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.weightless">{{ localize 'CAIRN.Weightless' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked system.weightless}} name="system.weightless" id="system.weightless" data-action="exclusiveFlag" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.value">{{ localize 'CAIRN.Uses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.uses.value" id="system.uses.value" value="{{system.uses.value}}" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.uses.max">{{ localize 'CAIRN.MaxUses' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.uses.max" id="system.uses.max" value="{{system.uses.max}}" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.blast">{{ localize 'CAIRN.Blast' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="checkbox" {{checked system.blast}} name="system.blast" id="system.blast" />
+            </div>
+        </div>
+        <div class="resource-counter long-counter">
+            <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
+            <div class="resource-input-wrapper">
+                <input type="number" name="system.cost.value" id="system.cost.value" value="{{system.cost.value}}" />
+            </div>
+        </div>
+    <div class="item-sheet-section-tabs">
+        <nav class="tabs" data-group="primary">
+            <a class="item {{tabs.description.cssClass}}" data-action="vttforgeTab" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+            <a class="item {{lookup (lookup tabs 'crit-dmg') 'cssClass'}}" data-action="vttforgeTab" data-group="primary" data-tab="crit-dmg">{{ localize 'CAIRN.CriticalDamage' }}</a>
+        </nav>
+        <section class="content">
+            <div class="tab {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
+                {{> "systems/cairn/templates/parts/editor.hbs" name="system.description" value=system.description enriched=enrichedDescription editable=isEditable}}
+            </div>
+            <div class="tab {{lookup (lookup tabs 'crit-dmg') 'cssClass'}}" data-group="primary" data-tab="crit-dmg">
+                {{> "systems/cairn/templates/parts/editor.hbs" name="system.criticalDamage" value=system.criticalDamage enriched=enrichedCriticalDamage editable=isEditable}}
+            </div>
+        </section>
+    </div>
+</div>

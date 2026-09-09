@@ -1,4 +1,7 @@
-node_modules/
-.idea/
+*.zip
 .DS_Store
+.idea/
+dist
+node_modules
+node_modules/
 packs/

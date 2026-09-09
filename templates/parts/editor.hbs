@@ -1,0 +1,6 @@
+{{!-- A rich-text field: the editor for an owner who may edit, the enriched text otherwise. --}}
+{{#if editable}}
+<prose-mirror name="{{name}}" button="true" editable="true" toggled="false" value="{{value}}">{{{enriched}}}</prose-mirror>
+{{else}}
+<div class="cairn-readonly-text">{{{enriched}}}</div>
+{{/if}}
