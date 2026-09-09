@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@vttforge/core':
-        specifier: ^0.15.0
-        version: 0.15.0
+        specifier: ^0.15.1
+        version: 0.15.1
     devDependencies:
       '@vttforge/cli':
         specifier: ^0.11.0
@@ -278,8 +278,8 @@ packages:
     engines: {node: '>=26.0.0'}
     hasBin: true
 
-  '@vttforge/core@0.15.0':
-    resolution: {integrity: sha512-ABTXsOKHlp1swEaFpakx6v1q9hxKMn5QsM0+3gm+X2ernNZccZ3Skl+txndRA0VYyEtLprX7JoRV+MsswIwt7w==}
+  '@vttforge/core@0.15.1':
+    resolution: {integrity: sha512-HWBcNWz5hp20kRzHWa0Op015pVQqYigEGQDr6QgiuZhr+nJsr9KbeFtVUzy92u/XUkopc87q2iM+Xj0gQoZ51A==}
 
   '@vttforge/types@0.2.0':
     resolution: {integrity: sha512-dpZ4LHH1+Ipv8QHISccHJJdxvP8Fqo8XNgHh6MQCAGcfSd1bDgl0QLaczYkGgb55E0M82M87cZiA+l5jgJJ+9g==}
@@ -949,7 +949,7 @@ snapshots:
       - bare-buffer
       - react-native-b4a
 
-  '@vttforge/core@0.15.0':
+  '@vttforge/core@0.15.1':
     dependencies:
       '@vttforge/types': 0.2.0
 

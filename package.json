@@ -11,7 +11,7 @@
     "audit": "vttforge audit"
   },
   "dependencies": {
-    "@vttforge/core": "^0.15.0"
+    "@vttforge/core": "^0.15.1"
   },
   "devDependencies": {
     "@vttforge/cli": "^0.11.0",
